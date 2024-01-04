@@ -8,11 +8,12 @@ public class Menu : MonoBehaviour
 {
     [SerializeField] private TableOfLessons _table;
     [SerializeField] private LessonDrawer _lessonDrawer;
+    [SerializeField] private RectTransform _topPanel;
 
     private RectTransform _rectTransform;
 
     private const int LESSONS_IN_ROW = 5,
-        SPRITE_WIDTH = 200, SPRITE_HEIGHT = 200;
+        SPRITE_WIDTH = 300, SPRITE_HEIGHT = 300;
     private int LESSONS_IN_COLUMN;
 
     private List<Vector3> _vectors = new List<Vector3>();
@@ -48,17 +49,13 @@ public class Menu : MonoBehaviour
     }
     private void CountVectors()
     {
-        float xPadding = (_rectTransform.rect.width - SPRITE_WIDTH * LESSONS_IN_ROW) / (LESSONS_IN_ROW + 1),
-            yPadding = (_rectTransform.rect.height - SPRITE_HEIGHT * LESSONS_IN_COLUMN) / (LESSONS_IN_COLUMN + 1);
-
-        //Debug.Log("yPadding: " + yPadding);
-
+        float xPadding = (_rectTransform.rect.width - SPRITE_WIDTH * LESSONS_IN_ROW) / (LESSONS_IN_ROW + 1);
         for (int i = 0; i < _amount; i++)
         {
             _vectors.Add(new Vector3(
                 xPadding * (i % LESSONS_IN_ROW + 1) + (i % LESSONS_IN_ROW + 0.5f) * SPRITE_WIDTH,
-                //xPadding * (i % LESSONS_IN_ROW + 1) + (i % LESSONS_IN_ROW + 0.5f) * SPRITE_WIDTH - _rectTransform.rect.width / 2,
-                -yPadding * (i / LESSONS_IN_ROW + 1) - (i / LESSONS_IN_ROW + 0.5f) * SPRITE_HEIGHT + _rectTransform.rect.height / 2,
+                - (i / LESSONS_IN_ROW + 0.5f) * SPRITE_HEIGHT + _rectTransform.rect.height / 2
+                - _topPanel.sizeDelta.y,
                 0));
         }
     }
@@ -79,6 +76,7 @@ public class Menu : MonoBehaviour
         text.text = lesson.NameOfLesson;
         text.rectTransform.sizeDelta = new Vector2(SPRITE_WIDTH, SPRITE_HEIGHT);
         text.alignment = TextAlignmentOptions.Center;
+        text.color = Color.black;
         text.fontSize = SPRITE_HEIGHT/10;
 
         child.transform.SetParent(obj.transform, true);
@@ -94,8 +92,8 @@ public class Menu : MonoBehaviour
     }
     private void ShowLesson(Lesson lesson)
     {
-        //_lessonDrawer.CurrentLesson = lesson;
-        //_lessonDrawer.RenderLesson();
+        _lessonDrawer.CurrentLesson = lesson;
+        _lessonDrawer.RenderLesson();
         gameObject.SetActive(false);
     }
 }

@@ -8,7 +8,10 @@ public class Menu : MonoBehaviour
 {
     [SerializeField] private TableOfLessons _table;
     [SerializeField] private LessonDrawer _lessonDrawer;
-    [SerializeField] private RectTransform _topPanel;
+    
+    [Space, SerializeField] private RectTransform _topPanel;
+
+    [Space, SerializeField] private Transform _contentPosition;
 
     private RectTransform _rectTransform;
 
@@ -54,8 +57,7 @@ public class Menu : MonoBehaviour
         {
             _vectors.Add(new Vector3(
                 xPadding * (i % LESSONS_IN_ROW + 1) + (i % LESSONS_IN_ROW + 0.5f) * SPRITE_WIDTH,
-                - (i / LESSONS_IN_ROW + 0.5f) * SPRITE_HEIGHT + _rectTransform.rect.height / 2
-                - _topPanel.sizeDelta.y,
+                - (i / LESSONS_IN_ROW + 0.5f) * SPRITE_HEIGHT - _topPanel.sizeDelta.y,
                 0));
         }
     }
@@ -80,7 +82,7 @@ public class Menu : MonoBehaviour
         text.fontSize = SPRITE_HEIGHT/10;
 
         child.transform.SetParent(obj.transform, true);
-        obj.transform.SetParent(transform, true);
+        obj.transform.SetParent(_contentPosition, true);
 
         obj.transform.localPosition = _vectors[index];
         child.GetComponent<RectTransform>().localPosition = Vector3.zero;

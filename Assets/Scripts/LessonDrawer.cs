@@ -28,10 +28,11 @@ public class LessonDrawer : MonoBehaviour
     private TMP_Text _header,
         _introduction, _usage, _practiceDescription;
     [SerializeField] private Toggle _toggle;
+    [SerializeField] private Image _background;
 
     [Space, SerializeField] private Sprite _standartSprite;
 
-    [Space, SerializeField] private Color _standartColor;
+    [Space, SerializeField] private Color _standartColor, _colorForPractice;
 
     private RectTransform _rectTransform;
     private Lesson _currentLesson;
@@ -60,23 +61,11 @@ public class LessonDrawer : MonoBehaviour
     }
     private void SetLessonGraphics()
     {
-        foreach (Image image in _images)
-        {
-            image.color = Color.white;
-
-            if (image != _images[2])
-                image.sprite = CurrentLesson.Theory.Sprite;
-            else
-                image.sprite = CurrentLesson.Practice.Sprite;
-        }
+        _background.sprite = CurrentLesson.Theory.Sprite;
     }
     private void SetStandartGraphics()
     {
-        foreach (Image image in _images)
-        {
-            image.color = _standartColor;
-            image.sprite = _standartSprite;
-        }
+        _background.sprite = _standartSprite;
     }
 
     private void Start()
@@ -86,5 +75,13 @@ public class LessonDrawer : MonoBehaviour
         _images[0] = _introduction.GetComponentInParent<Image>();
         _images[1] = _usage.GetComponentInParent<Image>();
         _images[2] = _practiceDescription.GetComponentInParent<Image>();
+
+        foreach(var image in _images)
+        {
+            if (image != _images[2])
+                image.color = _standartColor;
+            else
+                image.color = _colorForPractice;
+        }
     }
 }

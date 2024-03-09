@@ -4,7 +4,7 @@ using TMPro;
 using System.Collections.Generic;
 
 [RequireComponent(typeof(RectTransform))]
-public class Menu : MonoBehaviour
+public sealed class Menu : MonoBehaviour
 {
     [SerializeField] private TableOfLessons _table;
     [SerializeField] private LessonDrawer _lessonDrawer;
@@ -38,6 +38,8 @@ public class Menu : MonoBehaviour
 
         CountVectors();
         DrawLessons();
+
+        _contentPosition.position = new Vector3(0, _topPanel.sizeDelta.y);
     }
 
     private void DrawLessons()

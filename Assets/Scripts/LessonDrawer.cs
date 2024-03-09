@@ -4,7 +4,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(RectTransform))]
-public class LessonDrawer : MonoBehaviour
+public sealed class LessonDrawer : MonoBehaviour
 {
     public Lesson CurrentLesson
     {

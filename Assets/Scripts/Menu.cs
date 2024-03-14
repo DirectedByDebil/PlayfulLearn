@@ -26,6 +26,16 @@ public sealed class Menu : MonoBehaviour
     {
         _rectTransform = GetComponent<RectTransform>();
 
+        CountLessonsInColumn();
+        CountVectors();
+
+        DrawLessons();
+
+        _contentPosition.position = new Vector3(0, _topPanel.sizeDelta.y);
+    }
+
+    private void CountLessonsInColumn()
+    {
         _amount = _table.Lessons.Count;
 
         LESSONS_IN_COLUMN = _amount / LESSONS_IN_ROW;
@@ -35,22 +45,6 @@ public sealed class Menu : MonoBehaviour
 
         if (_amount % LESSONS_IN_ROW > 0)
             LESSONS_IN_COLUMN++;
-
-        CountVectors();
-        DrawLessons();
-
-        _contentPosition.position = new Vector3(0, _topPanel.sizeDelta.y);
-    }
-
-    private void DrawLessons()
-    {
-        int index = 0;
-
-        foreach (var lesson in _table.Lessons)
-        {
-            SetLesson(lesson, index);
-            index++;
-        }
     }
     private void CountVectors()
     {
@@ -63,41 +57,28 @@ public sealed class Menu : MonoBehaviour
                 0));
         }
     }
-    private void SetLesson(Lesson lesson, int index)
+    private void DrawLessons()
     {
-        GameObject obj = new(lesson.NameOfLesson);
-        GameObject child = new(lesson.NameOfLesson + " Text");
+        int index = 0;
 
-        Image image = obj.AddComponent<Image>();
-        image.sprite = lesson.Theory.Sprite;
-        image.preserveAspect = true;
-
-        Button button = obj.AddComponent<Button>();
-        button.targetGraphic = image;
-        button.onClick.AddListener(() => ShowLesson(lesson));
-
-        TextMeshProUGUI text = child.AddComponent<TextMeshProUGUI>();
-        text.text = lesson.NameOfLesson;
-        text.rectTransform.sizeDelta = new Vector2(SPRITE_WIDTH, SPRITE_HEIGHT);
-        text.alignment = TextAlignmentOptions.Center;
-        text.color = Color.black;
-        text.fontSize = SPRITE_HEIGHT/10;
-
-        child.transform.SetParent(obj.transform, true);
-        obj.transform.SetParent(_contentPosition, true);
-
-        obj.transform.localPosition = _vectors[index];
-        child.GetComponent<RectTransform>().localPosition = Vector3.zero;
-
-        RectTransform rect = obj.GetComponent<RectTransform>();
-        rect.sizeDelta = new Vector2(SPRITE_WIDTH, SPRITE_HEIGHT);
-        rect.anchorMin = new Vector2(0f, 0.5f);
-        rect.anchorMax = new Vector2(0f, 0.5f);
+        foreach (var lesson in _table.Lessons)
+        {
+            DrawLessonButton(lesson, index);
+            index++;
+        }
     }
-    private void ShowLesson(Lesson lesson)
+    private void DrawLessonButton(Lesson lesson, int index)
     {
-        _lessonDrawer.CurrentLesson = lesson;
-        _lessonDrawer.RenderLesson();
-        gameObject.SetActive(false);
+        LessonButton lessonButton = new (lesson, new Vector2(SPRITE_WIDTH, SPRITE_HEIGHT));
+
+        lessonButton.rectTransform.SetParent(_contentPosition, true);
+        lessonButton.rectTransform.localPosition = _vectors[index];
+        
+        lessonButton.onClickEvent += delegate
+        {
+            _lessonDrawer.CurrentLesson = lesson;
+            _lessonDrawer.RenderLesson();
+            gameObject.SetActive(false);
+        };
     }
 }

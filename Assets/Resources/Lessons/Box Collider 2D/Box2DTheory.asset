@@ -14,4 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Introduction: sdfsadfsdf
   Usage: sdfasdfsdf
+  test:
+  - _language: 0
+    _text: 
+  - _language: 0
+    _text: 
   Sprite: {fileID: 21300000, guid: a48ff5caf66864c4089d8230089aab38, type: 3}

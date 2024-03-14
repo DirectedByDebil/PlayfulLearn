@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4611f1a67c79cf43bc4d8b64a855bff, type: 3}
+  m_Name: Animator
+  m_EditorClassIdentifier: 
+  NameOfLesson: Animator
+  Category: 5
+  Sprite: {fileID: 0}
+  Scene: {fileID: 0}
+  LessonText:
+  - _language: 0
+    lessonTextContent:
+      introduction: 
+      usage: 
+      practiceDescription: 
+  - _language: 1
+    lessonTextContent:
+      introduction: 
+      usage: 
+      practiceDescription: 
+  - _language: 4
+    lessonTextContent:
+      introduction: 
+      usage: 
+      practiceDescription: 

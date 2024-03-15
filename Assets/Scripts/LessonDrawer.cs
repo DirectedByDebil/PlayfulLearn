@@ -17,9 +17,10 @@ public sealed class LessonDrawer : MonoBehaviour
                 _currentLesson = value;
 
                 _rectTransform.localPosition = new Vector3(0, _rectTransform.localPosition.y);
-                _sceneToLoad = CurrentLesson.Practice.Scene.name;
+                _sceneToLoad = CurrentLesson.PracticeScene.name;
 
-                SetTexts();
+                SetLanguages();
+                UpdateTexts(_languagesDropDown.value);
             }
         }
     }
@@ -29,6 +30,7 @@ public sealed class LessonDrawer : MonoBehaviour
         _introduction, _usage, _practiceDescription;
     [SerializeField] private Toggle _toggle;
     [SerializeField] private Image _background;
+    [SerializeField] private TMP_Dropdown _languagesDropDown;
 
     [Space, SerializeField] private Sprite _standartSprite;
 
@@ -39,6 +41,50 @@ public sealed class LessonDrawer : MonoBehaviour
     private Image[] _images = new Image[3];
 
     private string _sceneToLoad;
+
+    private void Start()
+    {
+        _rectTransform = GetComponent<RectTransform>();
+        
+        SetImages();
+        
+        _languagesDropDown.onValueChanged.AddListener(  (int x) => { UpdateTexts(x); } );
+    }
+    private void SetImages()
+    {
+        _images[0] = _introduction.GetComponentInParent<Image>();
+        _images[1] = _usage.GetComponentInParent<Image>();
+        _images[2] = _practiceDescription.GetComponentInParent<Image>();
+
+        foreach (var image in _images)
+        {
+            if (image != _images[2])
+                image.color = _standartColor;
+            else
+                image.color = _colorForPractice;
+        }
+    }
+    private void UpdateTexts(int index)
+    {
+        _header.text = CurrentLesson.NameOfLesson;
+
+        LessonTextContent content = CurrentLesson.Content[index].Texts;
+
+        _introduction.text = content.Introduction;
+        _usage.text = content.Usage;
+        _practiceDescription.text = content.PracticeDescription;
+    }
+
+    private void SetLanguages()
+    {
+        _languagesDropDown.options.Clear();
+        
+        foreach(var key in CurrentLesson.Content)
+        {
+            var item = new TMP_Dropdown.OptionData(key.Language.ToString());
+            _languagesDropDown.options.Add(item);
+        }
+    }
 
     public void LoadLesson()
     {
@@ -52,36 +98,12 @@ public sealed class LessonDrawer : MonoBehaviour
             SetStandartGraphics();
     }
 
-    private void SetTexts()
-    {
-        _header.text = CurrentLesson.NameOfLesson;
-        _introduction.text = CurrentLesson.Theory.Introduction;
-        _usage.text = CurrentLesson.Theory.Usage;
-        _practiceDescription.text = CurrentLesson.Practice.Description;
-    }
     private void SetLessonGraphics()
     {
-        _background.sprite = CurrentLesson.Theory.Sprite;
+        _background.sprite = CurrentLesson.BackgroundSprite;
     }
     private void SetStandartGraphics()
     {
         _background.sprite = _standartSprite;
-    }
-
-    private void Start()
-    {
-        _rectTransform = GetComponent<RectTransform>();
-
-        _images[0] = _introduction.GetComponentInParent<Image>();
-        _images[1] = _usage.GetComponentInParent<Image>();
-        _images[2] = _practiceDescription.GetComponentInParent<Image>();
-
-        foreach(var image in _images)
-        {
-            if (image != _images[2])
-                image.color = _standartColor;
-            else
-                image.color = _colorForPractice;
-        }
     }
 }

@@ -46,7 +46,7 @@ public sealed class LessonButton
     private void SetImage()
     {
         Image image = _obj.AddComponent<Image>();
-        image.sprite = _lesson.Theory.Sprite;
+        image.sprite = _lesson.BackgroundSprite;
         image.preserveAspect = true;
 
         _button.targetGraphic = image;

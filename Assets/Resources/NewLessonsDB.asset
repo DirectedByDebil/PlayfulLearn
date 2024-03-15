@@ -12,64 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bb891d0665b8b84f9c30a274caeb3e4, type: 3}
   m_Name: NewLessonsDB
   m_EditorClassIdentifier: 
-  Lessons:
-  - Theory: {fileID: 11400000, guid: 0590c58017539b44b9e22abc5e003a9e, type: 2}
-    Practice: {fileID: 11400000, guid: 3b47a0abb1305924f84cc0e154e2fdb8, type: 2}
-    NameOfLesson: Transform
-    Category: 5
-  - Theory: {fileID: 11400000, guid: 68d40b67e8fcb5a40a6bd7988583e7e4, type: 2}
-    Practice: {fileID: 11400000, guid: 34267c301c158994b86da7bb1ea6d1fc, type: 2}
-    NameOfLesson: Sprite Renderer
-    Category: 10
-  - Theory: {fileID: 11400000, guid: c6b27c6150ce8024ead50a4cb60339d3, type: 2}
-    Practice: {fileID: 11400000, guid: 653914ac30747714baee0e14299e73d8, type: 2}
-    NameOfLesson: BoxCollider2D
-    Category: 7
-  - Theory: {fileID: 11400000, guid: 69bb458810975a245baf0d46c7b5e0db, type: 2}
-    Practice: {fileID: 11400000, guid: de592de2f3494064280bcff5ed21e18d, type: 2}
-    NameOfLesson: Rigidbody2D
-    Category: 7
-  - Theory: {fileID: 11400000, guid: 98b02671ac643604a92522a9aed763e9, type: 2}
-    Practice: {fileID: 11400000, guid: 05bb5d8dd1c956746a563eede9580720, type: 2}
-    NameOfLesson: Camera
-    Category: 10
-  - Theory: {fileID: 11400000, guid: c887df63bf6710e449e01ef9184cb8f7, type: 2}
-    Practice: {fileID: 11400000, guid: 1464df9d47d353744a55240142f5963c, type: 2}
-    NameOfLesson: AudioSource
-    Category: 0
-  - Theory: {fileID: 11400000, guid: d3459fb7a92f0784489457d47acc7cae, type: 2}
-    Practice: {fileID: 11400000, guid: 1dbc6bfb26713234a9bbc5571752091d, type: 2}
-    NameOfLesson: Video
-    Category: 13
-  - Theory: {fileID: 11400000, guid: 046aff116203cf1458bc7927203690d9, type: 2}
-    Practice: {fileID: 11400000, guid: d9b5bb30fe4ce3c4eac107f95ec058ad, type: 2}
-    NameOfLesson: SpringJoint2D
-    Category: 7
-  - Theory: {fileID: 11400000, guid: 3b65ebe81e4e0244ab3bae57f107449e, type: 2}
-    Practice: {fileID: 11400000, guid: f931300661229284e8cf6d4fd601481c, type: 2}
-    NameOfLesson: Animator
-    Category: 5
-  - Theory: {fileID: 11400000, guid: c56c11d4786061b4987e12ed2d1bea67, type: 2}
-    Practice: {fileID: 11400000, guid: f2d99b6745514e54fb2ba5edca1417a6, type: 2}
-    NameOfLesson: Playable Director
-    Category: 9
-  - Theory: {fileID: 11400000, guid: bf8c5b2ec5298cd488240f0d324c072c, type: 2}
-    Practice: {fileID: 11400000, guid: 31429d1f879a57748bb668858f3626a5, type: 2}
-    NameOfLesson: Lesson in Development
-    Category: 13
-  - Theory: {fileID: 11400000, guid: bf8c5b2ec5298cd488240f0d324c072c, type: 2}
-    Practice: {fileID: 11400000, guid: 31429d1f879a57748bb668858f3626a5, type: 2}
-    NameOfLesson: Lesson in Development
-    Category: 13
-  - Theory: {fileID: 11400000, guid: bf8c5b2ec5298cd488240f0d324c072c, type: 2}
-    Practice: {fileID: 11400000, guid: 31429d1f879a57748bb668858f3626a5, type: 2}
-    NameOfLesson: Lesson in Development
-    Category: 13
-  - Theory: {fileID: 11400000, guid: bf8c5b2ec5298cd488240f0d324c072c, type: 2}
-    Practice: {fileID: 11400000, guid: 31429d1f879a57748bb668858f3626a5, type: 2}
-    NameOfLesson: Lesson in Development
-    Category: 13
-  - Theory: {fileID: 11400000, guid: bf8c5b2ec5298cd488240f0d324c072c, type: 2}
-    Practice: {fileID: 11400000, guid: 31429d1f879a57748bb668858f3626a5, type: 2}
-    NameOfLesson: Lesson in Development
-    Category: 13
+  NewLessons:
+  - {fileID: 11400000, guid: 442eb742a5d6b6c41be16365db9e0059, type: 2}
+  - {fileID: 11400000, guid: d0f721740f3a9ef47808ebc4caa777f1, type: 2}
+  - {fileID: 11400000, guid: 442eb742a5d6b6c41be16365db9e0059, type: 2}
+  - {fileID: 11400000, guid: d0f721740f3a9ef47808ebc4caa777f1, type: 2}

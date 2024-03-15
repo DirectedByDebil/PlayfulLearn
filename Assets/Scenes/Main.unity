@@ -264,7 +264,7 @@ GameObject:
   - component: {fileID: 265035514}
   - component: {fileID: 265035518}
   m_Layer: 5
-  m_Name: LessonTemplate
+  m_Name: LessonPresenter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -375,6 +375,7 @@ MonoBehaviour:
   _practiceDescription: {fileID: 1638846194}
   _toggle: {fileID: 1944392130}
   _background: {fileID: 881712696}
+  _languagesDropDown: {fileID: 345448625}
   _standartSprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
   _standartColor: {r: 0.31764707, g: 0.5058824, b: 0.80392164, a: 1}
   _colorForPractice: {r: 0.17021184, g: 0.41473123, b: 0.8018868, a: 1}
@@ -512,14 +513,6 @@ MonoBehaviour:
     - m_Text: English
       m_Image: {fileID: 0}
     - m_Text: Russian
-      m_Image: {fileID: 0}
-    - m_Text: Espanol
-      m_Image: {fileID: 0}
-    - m_Text: Deutsch
-      m_Image: {fileID: 0}
-    - m_Text: Chinese
-      m_Image: {fileID: 0}
-    - m_Text: Japan
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2785,7 +2778,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 300}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &1425142261
@@ -3231,8 +3224,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: New Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 1d98de371114a004f8b1d89484c91718, type: 2}
+  m_sharedMaterial: {fileID: -6398221920924227338, guid: 1d98de371114a004f8b1d89484c91718, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3538,10 +3531,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u041F\u0440\u043E\u0432\u0435\u0440\u043A\u0430 \u0442\u0435\u043A\u0441\u0442\u0430\n"
+  m_text: "\u0425\u0443\u0439 \u0436\u043E\u043F\u0430 \u044A\u0445\u0447"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 1d98de371114a004f8b1d89484c91718, type: 2}
+  m_sharedMaterial: {fileID: -6398221920924227338, guid: 1d98de371114a004f8b1d89484c91718, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3840,10 +3833,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: "\u0445\u043D\u0439 \u0436\u043E\u043F\u0430 \u044A\u0445"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 1d98de371114a004f8b1d89484c91718, type: 2}
+  m_sharedMaterial: {fileID: -6398221920924227338, guid: 1d98de371114a004f8b1d89484c91718, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4001,7 +3994,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 408842571}
   m_Direction: 2
   m_Value: 0
-  m_Size: 1
+  m_Size: 0.81333333
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

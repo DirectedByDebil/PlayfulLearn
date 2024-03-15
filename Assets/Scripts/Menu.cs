@@ -1,6 +1,4 @@
 using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
 using System.Collections.Generic;
 
 [RequireComponent(typeof(RectTransform))]
@@ -36,7 +34,7 @@ public sealed class Menu : MonoBehaviour
 
     private void CountLessonsInColumn()
     {
-        _amount = _table.Lessons.Count;
+        _amount = _table.NewLessons.Count;
 
         LESSONS_IN_COLUMN = _amount / LESSONS_IN_ROW;
 
@@ -61,7 +59,7 @@ public sealed class Menu : MonoBehaviour
     {
         int index = 0;
 
-        foreach (var lesson in _table.Lessons)
+        foreach (var lesson in _table.NewLessons)
         {
             DrawLessonButton(lesson, index);
             index++;

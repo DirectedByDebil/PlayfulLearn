@@ -4,8 +4,8 @@ using UnityEngine;
 public struct LessonNode
 {
     public Languages Language { get { return _language; } }
+    public LessonTextContent Texts { get { return _lessonTextContent; } }
 
     [SerializeField] private Languages _language;
-
-    public LessonTextContent lessonTextContent;
+    [SerializeField] private LessonTextContent _lessonTextContent;
 }

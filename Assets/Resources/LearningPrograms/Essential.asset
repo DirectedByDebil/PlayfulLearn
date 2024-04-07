@@ -17,6 +17,8 @@ MonoBehaviour:
   - _language: 0
     _description: 
   _lessons:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: bebc9e1db4f554a46998f6b0e8240fca, type: 2}
+  - {fileID: 11400000, guid: fabc87fc8b797d7409318dd2d4e52c86, type: 2}
+  - {fileID: 11400000, guid: d6420a41828b10d46a5889612272a229, type: 2}
+  - {fileID: 11400000, guid: 76688b1140b019c4d8d00e19c5d87fa1, type: 2}
+  - {fileID: 11400000, guid: d0f721740f3a9ef47808ebc4caa777f1, type: 2}

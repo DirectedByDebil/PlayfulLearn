@@ -1,17 +1,19 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.Events;
 
 namespace Presentation
 {
     public class ButtonElement
     {
-        public event UnityEngine.Events.UnityAction onClickEvent;
+        public event UnityAction onClickEvent;
         public RectTransform rectTransform { get; private set; }
         protected Image Image { get; private set; }
         protected TextMeshProUGUI Text { get; private set; }
 
-        private GameObject _obj, _child;
+        protected GameObject _obj;
+        private GameObject _child;
         private Button _button;
 
         private Vector2 _size;

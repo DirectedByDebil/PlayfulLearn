@@ -7,6 +7,8 @@ namespace LearningProgramSystem
     public class TableOfLearningPrograms : ScriptableObject
     {
         public List<LearningProgram> LearningPrograms { get { return _learningPrograms; } }
+        
+        public LearningProgram _lastLearningProgram;
 
         [SerializeField] private List<LearningProgram> _learningPrograms = new();
     }

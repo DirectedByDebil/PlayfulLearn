@@ -1,16 +1,19 @@
 using UnityEngine;
 using System.Collections.Generic;
+using TMPro;
 using LessonSystem;
+using LearningProgramSystem;
 
 namespace Presentation
 {
     [RequireComponent(typeof(RectTransform))]
     public sealed class Menu : MonoBehaviour
     {
-        [SerializeField] private TableOfLessons _table;
         [SerializeField] private LessonDrawer _lessonDrawer;
+        [SerializeField] private LearningProgramPresenter _learningProgramPresenter;
     
         [Space, SerializeField] private RectTransform _topPanel;
+        [SerializeField] private TextMeshProUGUI _currentProgramNameText;
 
         [Space, SerializeField] private Transform _contentPosition;
 
@@ -18,53 +21,102 @@ namespace Presentation
 
         private const int LESSONS_IN_ROW = 5,
             SPRITE_WIDTH = 300, SPRITE_HEIGHT = 300;
-        private int LESSONS_IN_COLUMN;
+        
+        private LearningProgram _currentLearningProgram;
 
-        private List<Vector3> _vectors = new List<Vector3>();
-        private int _amount;
+        private List<LessonButton> _lessonsButtons = new ();
+        private List<Vector3> _lessonButtonsPositions = new ();
+
+        private float _xPadding;
 
         private void Start()
         {
             _rectTransform = GetComponent<RectTransform>();
 
-            CountLessonsInColumn();
-            CountVectors();
+            _xPadding = (_rectTransform.rect.width - SPRITE_WIDTH * LESSONS_IN_ROW) / (LESSONS_IN_ROW + 1);
 
-            DrawLessons();
+            _learningProgramPresenter.OnProgramPresented += (LearningProgram learningProgram) =>
+            { 
+                TryRedrawLearningProgram(learningProgram);
+            };
 
-            _contentPosition.position = new Vector3(0, _topPanel.sizeDelta.y);
+            TryRedrawLearningProgram(_learningProgramPresenter.LastChoosedProgram);
         }
 
-        private void CountLessonsInColumn()
+        private void TryRedrawLearningProgram(LearningProgram learningProgram)
         {
-            _amount = _table.NewLessons.Count;
-
-            LESSONS_IN_COLUMN = _amount / LESSONS_IN_ROW;
-
-            if (LESSONS_IN_COLUMN == 0)
-                LESSONS_IN_COLUMN = 1;
-
-            if (_amount % LESSONS_IN_ROW > 0)
-                LESSONS_IN_COLUMN++;
-        }
-        private void CountVectors()
-        {
-            float xPadding = (_rectTransform.rect.width - SPRITE_WIDTH * LESSONS_IN_ROW) / (LESSONS_IN_ROW + 1);
-            for (int i = 0; i < _amount; i++)
+            if (learningProgram != null && learningProgram != _currentLearningProgram)
             {
-                _vectors.Add(new Vector3(
-                    xPadding * (i % LESSONS_IN_ROW + 1) + (i % LESSONS_IN_ROW + 0.5f) * SPRITE_WIDTH,
-                    - (i / LESSONS_IN_ROW + 0.5f) * SPRITE_HEIGHT - _topPanel.sizeDelta.y,
-                    0));
+                _currentLearningProgram = learningProgram;
+
+                _currentProgramNameText.text = _currentLearningProgram.name;
+
+                _contentPosition.localPosition = new Vector3(0, _topPanel.sizeDelta.y);
+
+                CheckAmountOfButtons();
             }
         }
-        private void DrawLessons()
+
+        private void CheckAmountOfButtons()
+        {
+            int diff = _currentLearningProgram.Lessons.Count - _lessonsButtons.Count;
+
+            if (diff <= 0)
+            {
+                LeanRedrawing();
+            }
+            else
+                ExpensiveRedrawing();
+        }
+        private void LeanRedrawing()
         {
             int index = 0;
 
-            foreach (var lesson in _table.NewLessons)
+            foreach (var lesson in _currentLearningProgram.Lessons)
             {
-                DrawLessonButton(lesson, index);
+                _lessonsButtons[index].SetActive(true);
+                _lessonsButtons[index].UpdateLesson(lesson);
+
+                index++;
+            }
+
+            for (int i = _lessonsButtons.Count - 1; i >= index; i--)
+            {
+                _lessonsButtons[i].SetActive(false);
+            }
+        }
+        private void ExpensiveRedrawing()
+        {
+            int index = 0;
+
+            foreach(var button in _lessonsButtons)
+            {
+                button.SetActive(true);
+                button.UpdateLesson(_currentLearningProgram.Lessons[index]);
+                
+                index++;
+            }
+
+            AddButtonsPositions(_currentLearningProgram.Lessons.Count - index);
+
+            for(int i = index; i < _currentLearningProgram.Lessons.Count; i++)
+            {
+                DrawLessonButton(_currentLearningProgram.Lessons[i], i);
+            }
+        }
+
+        private void AddButtonsPositions(int amount)
+        {
+            int index = _lessonButtonsPositions.Count;
+
+            for (int i = 0; i < amount; i++)
+            {
+                Vector3 newPosition = new Vector3(
+                    _xPadding * (index % LESSONS_IN_ROW + 1) + (index % LESSONS_IN_ROW + 0.5f) * SPRITE_WIDTH,
+                    -(index / LESSONS_IN_ROW + 0.5f) * SPRITE_HEIGHT - _topPanel.sizeDelta.y,
+                    0);
+
+                _lessonButtonsPositions.Add(newPosition);
                 index++;
             }
         }
@@ -73,7 +125,7 @@ namespace Presentation
             LessonButton lessonButton = new (lesson, new Vector2(SPRITE_WIDTH, SPRITE_HEIGHT));
 
             lessonButton.rectTransform.SetParent(_contentPosition, true);
-            lessonButton.rectTransform.localPosition = _vectors[index];
+            lessonButton.rectTransform.localPosition = _lessonButtonsPositions[index];
         
             lessonButton.onClickEvent += delegate
             {
@@ -82,6 +134,8 @@ namespace Presentation
 
                 gameObject.SetActive(false);
             };
+
+            _lessonsButtons.Add(lessonButton);
         }
     }
 }

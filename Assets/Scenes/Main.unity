@@ -2085,7 +2085,7 @@ GameObject:
   - component: {fileID: 874959150}
   - component: {fileID: 874959149}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Current Program Name
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2108,8 +2108,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 46, y: -50}
-  m_SizeDelta: {x: 201.26709, y: 44.731003}
+  m_AnchoredPosition: {x: 0, y: -55}
+  m_SizeDelta: {x: 500, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &874959149
 MonoBehaviour:
@@ -2166,7 +2166,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 4096
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -2194,7 +2194,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -89.51373, y: 0, z: 0, w: 0}
+  m_margin: {x: 0.5939331, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -2504,7 +2504,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.013622638}
+  m_AnchoredPosition: {x: 0, y: 0.000045776367}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &951009296
@@ -3453,7 +3453,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1423808716}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.9175014
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -3876,7 +3876,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 300}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &1423808715
@@ -4231,7 +4231,7 @@ GameObject:
   - component: {fileID: 1574963510}
   - component: {fileID: 1574963514}
   m_Layer: 5
-  m_Name: Learing Programs
+  m_Name: Learning Programs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4453,9 +4453,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af2362d252c4e66458b236ea5599bc80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _table: {fileID: 11400000, guid: 44c14f107a1928a4680eabc20be6b5e6, type: 2}
   _lessonDrawer: {fileID: 265035518}
+  _learningProgramPresenter: {fileID: 1574963514}
   _topPanel: {fileID: 951009297}
+  _currentProgramNameText: {fileID: 874959149}
   _contentPosition: {fileID: 1421574108}
 --- !u!1 &1638846192
 GameObject:
@@ -5289,7 +5290,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 408842571}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.81333333
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

@@ -4,8 +4,13 @@ using LearningProgramSystem;
 
 namespace Presentation
 {
-    public class LearningProgramPresenter : MonoBehaviour, IPointerExitHandler
+    public sealed class LearningProgramPresenter : MonoBehaviour, IPointerExitHandler
     {
+        public LearningProgram LastChoosedProgram { get { return _tableOfPrograms._lastLearningProgram; } }
+
+        public delegate void PresentProgramHandler(LearningProgram program);
+        public event PresentProgramHandler OnProgramPresented;
+
         [SerializeField] private TableOfLearningPrograms _tableOfPrograms;
 
         [Space, SerializeField] private RectTransform _placeForContent;
@@ -29,13 +34,17 @@ namespace Presentation
                 index++;
             }
         }
-        private void DrawLearningProgramButton(LearningProgram program, int index)
+        private void DrawLearningProgramButton(LearningProgram learningProgram, int index)
         {
-            LearningProgramButton button = new(program, _slotSize);
+            LearningProgramButton button = new(learningProgram, _slotSize);
             button.rectTransform.SetParent(_placeForContent, true);
             button.rectTransform.localPosition = new Vector2(_slotSize.x, (index + 1) * _dy);
 
-            button.onClickEvent += delegate { };
+            button.onClickEvent += () =>
+            {
+                _tableOfPrograms._lastLearningProgram = learningProgram;
+                OnProgramPresented?.Invoke(learningProgram);
+            };
         }
 
         public void OnPointerExit(PointerEventData eventData)

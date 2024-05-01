@@ -1193,6 +1193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f3a1a342f9cbcf44b0ce5d49e7310dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _lesson: {fileID: 11400000, guid: 76688b1140b019c4d8d00e19c5d87fa1, type: 2}
 --- !u!1 &383291238
 GameObject:
   m_ObjectHideFlags: 0

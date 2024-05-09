@@ -1,19 +1,22 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UserInterface.Buttons;
+using Initializations;
+using UserInteraction.Switchers;
+using System;
 
 namespace LearningPrograms
 {
-    public sealed class LearningProgramPresenter : MonoBehaviour, IPointerExitHandler
+    public sealed class LearningProgramPresenter : MonoBehaviour, IPointerExitHandler, IInitialization, ISwitchable
     {
         public LearningProgram LastChoosedProgram { get { return _tableOfPrograms._lastLearningProgram; } }
 
         public delegate void PresentProgramHandler(LearningProgram program);
         public event PresentProgramHandler OnProgramPresented;
+        public event ISwitchable.SwitchHandler Switched;
 
         [SerializeField] private TableOfLearningPrograms _tableOfPrograms;
-        [SerializeField] private LearningProgram _allLessons;
-
+        
         [Space, SerializeField] private RectTransform _placeForContent;
 
         private ButtonDrawer _buttonDrawer;
@@ -23,23 +26,12 @@ namespace LearningPrograms
 
         public void Initialize()
         {
-            InitializeLessons();
-
+            gameObject.SetActive(true);
             _buttonDrawer = new ButtonDrawer(_slotSize, _placeForContent);
             DrawPrograms();
 
-            if (LastChoosedProgram)
-                OnProgramPresented?.Invoke(LastChoosedProgram);
-
+            Switched += gameObject.SetActive;
             gameObject.SetActive(false);
-        }
-
-        private void InitializeLessons()
-        {
-            foreach(var lesson in _allLessons.Lessons)
-            {
-                lesson.Initialize();
-            }
         }
         private void DrawPrograms()
         {
@@ -61,10 +53,19 @@ namespace LearningPrograms
             }
         }
 
+        public void LoadLastProgram()
+        {
+            if (LastChoosedProgram)
+                OnProgramPresented?.Invoke(LastChoosedProgram);
+        }
+        public void OnSwitched(bool value)
+        {
+            Switched?.Invoke(value);
+        }
         public void OnPointerExit(PointerEventData eventData)
         {
-            if(eventData.position.x > 0)
-              gameObject.SetActive(false);
+            if (eventData.position.x > 0)
+                Switched?.Invoke(false);
         }   
     }
 }

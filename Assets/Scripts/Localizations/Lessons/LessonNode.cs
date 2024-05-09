@@ -12,5 +12,11 @@ namespace Localizations.Lessons
 
         [SerializeField] private Languages _language;
         [SerializeField] private LessonTextContent _lessonTextContent;
+
+        public LessonNode(Languages language, LessonTextContent textContent)
+        {
+            _language = language;
+            _lessonTextContent = textContent;
+        }
     }
 }

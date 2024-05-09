@@ -1,7 +1,7 @@
 using UnityEngine;
 using Button = UnityEngine.UI.Button;
 
-namespace UserInteraction
+namespace UserInteraction.Switchers
 {
     [RequireComponent(typeof(Button))]
     public class Turner : MonoBehaviour

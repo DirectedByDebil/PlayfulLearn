@@ -16,11 +16,6 @@ namespace Lessons
         private Languages _currentLanguage;
 
         private string _sceneToLoad;
-
-        private void Start()
-        {
-            gameObject.SetActive(false);
-        }
      
         public void LoadLesson()
         {

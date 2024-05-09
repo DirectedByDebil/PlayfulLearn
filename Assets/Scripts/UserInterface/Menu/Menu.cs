@@ -5,14 +5,14 @@ using LearningPrograms;
 using System;
 using Localizations;
 using UserInterface.Buttons;
+using Initializations;
 
 namespace UserInterface.Menu
 {
     [RequireComponent(typeof(RectTransform))]
-    public sealed class Menu : MonoBehaviour
+    public sealed class Menu : MonoBehaviour, IInitialization
     {
         [SerializeField] private LessonDrawer _lessonDrawer;
-        [SerializeField] private LearningProgramPresenter _learningProgramPresenter;
     
         [Space, SerializeField] private RectTransform _topPanel;
         [SerializeField] private TextMeshProUGUI _currentProgramNameText;
@@ -30,17 +30,14 @@ namespace UserInterface.Menu
         [Space, SerializeField, Range(1, 6)] private int _lessonsInRow;
         [SerializeField, Range(0, 200)] private int _xPadding;
 
-        private void Start()
+        public void Initialize()
         {
             InitializeMenuPresenter();
-            
+
             Vector2 slotSize = new(SPRITE_WIDTH, SPRITE_HEIGHT);
             _buttonDrawer = new ButtonDrawer(slotSize, _contentPosition);
 
             SetLanguages();
-
-            _learningProgramPresenter.OnProgramPresented += TryRedrawLearningProgram;
-            _learningProgramPresenter.Initialize();
         }
         private void InitializeMenuPresenter()
         {
@@ -68,7 +65,20 @@ namespace UserInterface.Menu
             button.Clicked += action;
         }
 
-        private void TryRedrawLearningProgram(LearningProgram learningProgram)
+        private void SetLanguages()
+        {
+            _dropdown.ClearOptions();
+
+            foreach(var language in Enum.GetValues(typeof(Languages)))
+            {
+                TMP_Dropdown.OptionData option = new (language.ToString());
+                _dropdown.options.Add(option);
+            }
+
+            _dropdown.RefreshShownValue();
+        }
+
+        public void TryRedrawLearningProgram(LearningProgram learningProgram)
         {
             if (learningProgram != null && learningProgram != _currentLearningProgram)
             {
@@ -82,19 +92,6 @@ namespace UserInterface.Menu
 
                 _menuPresenter.CheckAmountOfButtons(_currentLearningProgram.Lessons);
             }
-        }
-
-        private void SetLanguages()
-        {
-            _dropdown.ClearOptions();
-
-            foreach(var language in Enum.GetValues(typeof(Languages)))
-            {
-                TMP_Dropdown.OptionData option = new (language.ToString());
-                _dropdown.options.Add(option);
-            }
-
-            _dropdown.RefreshShownValue();
         }
     }
 }

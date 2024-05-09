@@ -3,11 +3,12 @@ using UnityEngine;
 using UnityEditor;
 using Localizations.Lessons;
 using Localizations;
+using Initializations;
 
 namespace Lessons
 {
     [CreateAssetMenu(fileName = "New Lesson", menuName = "Lesson", order = 60)]
-    public class Lesson : ScriptableObject
+    public class Lesson : ScriptableObject, IInitialization
     {
         public string NameOfLesson { get { return _nameOfLesson; } }
         public Sprite BackgroundSprite { get { return _backgroundSprite; } }

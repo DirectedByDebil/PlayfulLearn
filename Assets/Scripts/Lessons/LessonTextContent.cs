@@ -11,5 +11,12 @@ namespace Lessons
         public string PracticeDescription { get { return _practiceDescription; } }
 
         [TextArea(5, 20), SerializeField] private string _introduction, _usage, _practiceDescription;
+
+        public LessonTextContent(string intro, string usage, string practice)
+        {
+            _introduction = intro;
+            _usage = usage;
+            _practiceDescription = practice;
+        }
     }
 }

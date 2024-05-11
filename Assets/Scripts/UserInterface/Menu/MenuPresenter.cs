@@ -87,5 +87,24 @@ namespace UserInterface.Menu
                 index++;
             }
         }
+
+        public void DrawButton(int index, Lesson lesson)
+        {
+            if(index < _lessonsButtons.Count)
+            {
+                _lessonsButtons[index].SetActive(true);
+                _lessonsButtons[index].UpdateLesson(lesson);
+            }
+            else
+            {
+                AddButtonsPositions(1);
+
+                Vector2 localPosition = _lessonButtonsPositions[_lessonButtonsPositions.Count-1];
+                LessonButton button = null;
+
+                OnButtonDraw?.Invoke(lesson, localPosition, out button);
+                _lessonsButtons.Add(button);
+            }
+        }
     }
 }

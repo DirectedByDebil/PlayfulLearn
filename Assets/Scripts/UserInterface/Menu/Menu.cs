@@ -82,15 +82,25 @@ namespace UserInterface.Menu
         {
             if (learningProgram != null && learningProgram != _currentLearningProgram)
             {
-                _currentLearningProgram = learningProgram;
-
-                _currentProgramNameText.text = _currentLearningProgram.name;
-
                 _contentPosition.localPosition = new Vector3(0, 0);
 
-                _progressBar.UpdateProgressBar(learningProgram);
+                _currentLearningProgram = learningProgram;
+                _currentProgramNameText.text = _currentLearningProgram.name;
 
+                _progressBar.UpdateProgressBar(_currentLearningProgram);
                 _menuPresenter.CheckAmountOfButtons(_currentLearningProgram.Lessons);
+            }
+        }
+
+        public void RefreshLearningProgram(LearningProgram learningProgram)
+        {
+            if(learningProgram == _currentLearningProgram)
+            {
+                _progressBar.UpdateProgressBar(_currentLearningProgram);
+
+                int index = _currentLearningProgram.Lessons.Count - 1;
+                Lesson lesson = _currentLearningProgram.Lessons[index];
+                _menuPresenter.DrawButton(index, lesson);
             }
         }
     }

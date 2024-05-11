@@ -23,17 +23,30 @@ namespace Lessons
         [Space, SerializeField] private List<LessonNode> _content = new();
         [SerializeField] private bool _isCompleted;
 
-        public void SetCompleted()
-        {
-            _isCompleted = true;
-        }
-
         public void Initialize()
         {
             foreach (var node in _content)
             {
                 Content.TryAdd(node.Language, node.Texts);
             }
+        }
+
+        public void SetCompleted()
+        {
+            _isCompleted = true;
+        }
+        public void SetLesson(LessonTemplate template)
+        {
+            _nameOfLesson = template.nameOfLesson;
+            Content = template.content;
+            _practiceScene = template.practiceScene;
+
+            foreach(Languages language in Content.Keys)
+            {
+                _content.Add(new LessonNode(language, Content[language]));
+            }
+
+            _isCompleted = false;
         }
     }
 }

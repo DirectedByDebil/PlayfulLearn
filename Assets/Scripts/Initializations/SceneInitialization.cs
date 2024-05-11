@@ -25,6 +25,7 @@ namespace Initializations
 
             _programPresenter.Switched += OnTransparentPanelSwitched;
             _lessonEditor.Switched += _transparentPanel.gameObject.SetActive;
+            _lessonEditor.LessonAdded += ManageAddedLesson;
             _learningProgramEditor.Switched += OnTransparentPanelSwitched;
             
             _programPresenter.OnProgramPresented += _menu.TryRedrawLearningProgram;
@@ -45,6 +46,12 @@ namespace Initializations
             {
                 _transparentPanel.gameObject.SetActive(value);
             }
+        }
+
+        private void ManageAddedLesson(Lesson lesson)
+        {
+            _allLessons.Lessons.Add(lesson);
+            _menu.RefreshLearningProgram(_allLessons);
         }
     }
 }

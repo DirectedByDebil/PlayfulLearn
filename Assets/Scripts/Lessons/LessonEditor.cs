@@ -1,12 +1,10 @@
 ﻿using UnityEngine;
 using Localizations;
-using Localizations.Lessons;
 using Initializations;
 using TMPro;
 using System;
 using System.Collections.Generic;
 using UserInteraction.Switchers;
-
 using UnityEditor;
 
 namespace Lessons

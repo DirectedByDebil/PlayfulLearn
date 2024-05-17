@@ -17,5 +17,10 @@ namespace LearningPrograms
 
         [Space, SerializeField] private List<LearningProgramDescription> _description = new ();
         [SerializeField] private List<Lesson> _lessons = new ();
+
+        public void SetProgram(LearningProgramTemplate template)
+        {
+            _lessons = template.lessons;
+        }
     }
 }

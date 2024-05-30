@@ -9,11 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8bb891d0665b8b84f9c30a274caeb3e4, type: 3}
+  m_Script: {fileID: 0}
   m_Name: NewLessonsDB
   m_EditorClassIdentifier: 
-  NewLessons:
-  - {fileID: 11400000, guid: 442eb742a5d6b6c41be16365db9e0059, type: 2}
-  - {fileID: 11400000, guid: d0f721740f3a9ef47808ebc4caa777f1, type: 2}
-  - {fileID: 11400000, guid: 442eb742a5d6b6c41be16365db9e0059, type: 2}
-  - {fileID: 11400000, guid: d0f721740f3a9ef47808ebc4caa777f1, type: 2}

@@ -13,6 +13,7 @@ namespace UserInterface.Menu
     public sealed class Menu : MonoBehaviour, IInitialization
     {
         [SerializeField] private LessonDrawer _lessonDrawer;
+        [SerializeField] private ButtonElementSettings _buttonElementSettings;
     
         [Space, SerializeField] private RectTransform _topPanel;
         [SerializeField] private TextMeshProUGUI _currentProgramNameText;
@@ -21,28 +22,25 @@ namespace UserInterface.Menu
 
         [Space, SerializeField] private RectTransform _contentPosition;
 
-        private const int SPRITE_WIDTH = 300, SPRITE_HEIGHT = 300;
-        
         private LearningProgram _currentLearningProgram;
         private MenuPresenter _menuPresenter;
         private ButtonDrawer _buttonDrawer;
 
         [Space, SerializeField, Range(1, 6)] private int _lessonsInRow;
-        [SerializeField, Range(0, 200)] private int _xPadding;
+        [SerializeField, Range(0, 200)] private int _xPadding, _yPadding;
 
         public void Initialize()
         {
             InitializeMenuPresenter();
 
-            Vector2 slotSize = new(SPRITE_WIDTH, SPRITE_HEIGHT);
-            _buttonDrawer = new ButtonDrawer(slotSize, _contentPosition);
+            _buttonDrawer = new ButtonDrawer(_buttonElementSettings, _contentPosition);
 
             SetLanguages();
         }
         private void InitializeMenuPresenter()
         {
-            Vector2 padding = new(SPRITE_WIDTH + _xPadding, SPRITE_HEIGHT),
-                startPosition = new(SPRITE_WIDTH - _xPadding, _topPanel.sizeDelta.y);
+            Vector2 padding = new(_buttonElementSettings.Size.x + _xPadding, _buttonElementSettings.Size.y + _yPadding),
+                startPosition = new(_buttonElementSettings.Size.x - _xPadding, _topPanel.sizeDelta.y);
 
             MenuSettings settings = new(_lessonsInRow, padding, startPosition);
             _menuPresenter = new MenuPresenter(settings);

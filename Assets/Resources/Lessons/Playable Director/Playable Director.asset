@@ -13,8 +13,7 @@ MonoBehaviour:
   m_Name: Playable Director
   m_EditorClassIdentifier: 
   _nameOfLesson: Playable Director
-  _category: 9
-  _backgroundSprite: {fileID: 21300000, guid: be1f212f779a254429d8d2cf65f2a820, type: 3}
+  _icon: {fileID: 21300000, guid: 0bfa1408be9788546ba515ee7aca45fc, type: 3}
   _practiceScene: {fileID: 102900000, guid: 44eb09928a043144baa2e066f0e77a7f, type: 3}
   _content:
   - _language: 0

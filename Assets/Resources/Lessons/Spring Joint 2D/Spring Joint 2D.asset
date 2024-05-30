@@ -13,8 +13,7 @@ MonoBehaviour:
   m_Name: Spring Joint 2D
   m_EditorClassIdentifier: 
   _nameOfLesson: Spring Joint 2D
-  _category: 7
-  _backgroundSprite: {fileID: 21300000, guid: 78bb3ef5fb513c542a88d45b845d4f5f, type: 3}
+  _icon: {fileID: 21300000, guid: 9f7a08ce71e70c84bb65e3c02c6f7599, type: 3}
   _practiceScene: {fileID: 102900000, guid: 44eb09928a043144baa2e066f0e77a7f, type: 3}
   _content:
   - _language: 0

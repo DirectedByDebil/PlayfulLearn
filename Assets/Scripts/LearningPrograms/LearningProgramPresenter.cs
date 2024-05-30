@@ -12,17 +12,16 @@ namespace LearningPrograms
         public event PresentProgramHandler OnProgramPresented;
         public event ISwitchable.SwitchHandler Switched;
 
+        [SerializeField] private ButtonElementSettings _buttonElementSettings;
         [Space, SerializeField] private RectTransform _placeForContent;
+        [SerializeField, Range(10, 300)] private int _dx,_dy;
 
         private ButtonDrawer _buttonDrawer;
-
-        private readonly Vector2 _slotSize = new (200, 100);
-        private const int _dy = -150;
 
         public void Initialize()
         {
             gameObject.SetActive(true);
-            _buttonDrawer = new ButtonDrawer(_slotSize, _placeForContent);
+            _buttonDrawer = new ButtonDrawer(_buttonElementSettings, _placeForContent);
             
             Switched += gameObject.SetActive;
             gameObject.SetActive(false);
@@ -50,7 +49,7 @@ namespace LearningPrograms
             for(int i = startIndex; i < programs.Count; i++)
             {
                 var program = programs[i];
-                Vector2 localPosition = new(_slotSize.x, (i + 1) * _dy);
+                Vector2 localPosition = new(_buttonElementSettings.Size.x/2 + _dx, -i * (_buttonElementSettings.Size.y + _dy));
 
                 void action()
                 {

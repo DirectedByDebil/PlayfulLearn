@@ -11,14 +11,14 @@ namespace Lessons
     public class Lesson : ScriptableObject, IInitialization
     {
         public string NameOfLesson { get { return _nameOfLesson; } }
-        public Sprite BackgroundSprite { get { return _backgroundSprite; } }
+        public Sprite Icon { get { return _icon; } }
         public SceneAsset PracticeScene { get { return _practiceScene; } }
         public bool IsCompleted { get { return _isCompleted; } }
 
         public Dictionary<Languages, LessonTextContent> Content { get; private set; } = new();
 
         [SerializeField] private string _nameOfLesson;
-        [Space, SerializeField] private Sprite _backgroundSprite;
+        [Space, SerializeField] private Sprite _icon;
         [Space, SerializeField] private SceneAsset _practiceScene;
         [Space, SerializeField] private List<LessonNode> _content = new();
         [SerializeField] private bool _isCompleted;

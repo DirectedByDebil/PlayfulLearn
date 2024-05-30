@@ -6,12 +6,12 @@ namespace UserInterface.Buttons
 {
     public class ButtonDrawer
     {
-        private Vector2 _slotSize;
         private RectTransform _placeForContent;
-
-        public ButtonDrawer(Vector2 slotSize, RectTransform placeForContent)
+        private ButtonElementSettings _settings;
+        
+        public ButtonDrawer(ButtonElementSettings settings, RectTransform placeForContent)
         {
-            _slotSize = slotSize;
+            _settings = settings;
             _placeForContent = placeForContent;
         }
 
@@ -21,11 +21,11 @@ namespace UserInterface.Buttons
 
             if (shit is Lesson lesson)
             {
-                button = new LessonButton(lesson, _slotSize);
+                button = new LessonButton(lesson, _settings);
             }
             else if (shit is LearningProgram program)
             {
-                button = new LearningProgramButton(program, _slotSize);
+                button = new LearningProgramButton(program, _settings);
             }
 
             button.rectTransform.SetParent(_placeForContent, true);

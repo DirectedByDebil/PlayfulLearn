@@ -1,5 +1,3 @@
-using UnityEngine;
-using UnityEngine.UI;
 using Lessons;
 
 namespace UserInterface.Buttons
@@ -8,7 +6,7 @@ namespace UserInterface.Buttons
     {  
         public Lesson Lesson { get; private set; }
 
-        public LessonButton(Lesson lesson, Vector2 size) : base (lesson.NameOfLesson, size)
+        public LessonButton(Lesson lesson, ButtonElementSettings settings) : base (lesson.NameOfLesson, settings)
         {
             UpdateLesson(lesson);
         }
@@ -17,12 +15,12 @@ namespace UserInterface.Buttons
         {
             Lesson = lesson;
 
-            Image.sprite = Lesson.BackgroundSprite;
+            Icon.sprite = Lesson.Icon;
             Text.text = Lesson.NameOfLesson;
         }
         public void SetActive(bool isActive)
         {
-            _obj.SetActive(isActive);
+            parentObject.SetActive(isActive);
         }
     }
 }

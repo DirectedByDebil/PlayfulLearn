@@ -1,14 +1,13 @@
-using UnityEngine;
 using LearningPrograms;
 
 namespace UserInterface.Buttons
 {
     public sealed class LearningProgramButton : ButtonElement
     {
-        public LearningProgramButton(LearningProgram program, Vector2 size):base(program.name, size)
+        public LearningProgramButton(LearningProgram program, ButtonElementSettings settings) : base(program.name, settings)
         {
             Text.text = program.name;
-            Image.sprite = program.ProgramBackground;
+            Icon.sprite = program.ProgramBackground;
         }
     }
 }

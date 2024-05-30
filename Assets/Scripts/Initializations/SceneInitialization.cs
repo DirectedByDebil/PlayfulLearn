@@ -9,10 +9,13 @@ namespace Initializations
     {
         [SerializeField] private Menu _menu;
         [SerializeField] private LearningProgramPresenter _programPresenter;
+
         [Space, SerializeField] private LearningProgram _allLessons;
         [SerializeField] private TableOfLearningPrograms _tableOfLearningPrograms;
+
         [Space, SerializeField] private LessonEditor _lessonEditor;
         [SerializeField] private LearningProgramEditor _learningProgramEditor;
+
         [Space, SerializeField] private RectTransform _transparentPanel;
 
         private void Awake()
@@ -57,7 +60,6 @@ namespace Initializations
             _allLessons.Lessons.Add(lesson);
             _menu.RefreshLearningProgram(_allLessons);
         }
-
         private void OnLearningProgramCreated(LearningProgram learningProgram)
         {
             _tableOfLearningPrograms.LearningPrograms.Add(learningProgram);

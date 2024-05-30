@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d7865bb88fd0864386615feee5f2e2d, type: 3}
   m_Name: All Lessons
   m_EditorClassIdentifier: 
-  _programBackground: {fileID: 21300000, guid: 08c91a7677e66844281a99aaf6ea36f1, type: 3}
+  _programBackground: {fileID: 21300000, guid: d7dd7d75cc94f5d4f8c7af3567d0ae2a, type: 3}
   _description:
   - _language: 0
     _description: 

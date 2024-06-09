@@ -40,8 +40,8 @@ namespace UserInterface.Menu
         private void InitializeMenuPresenter()
         {
             Vector2 padding = new(_buttonElementSettings.Size.x + _xPadding, _buttonElementSettings.Size.y + _yPadding),
-                startPosition = new(_buttonElementSettings.Size.x - _xPadding, _topPanel.sizeDelta.y);
-
+                startPosition = new(_buttonElementSettings.Size.x - _xPadding, _topPanel.sizeDelta.y + _yPadding);
+            
             MenuSettings settings = new(_lessonsInRow, padding, startPosition);
             _menuPresenter = new MenuPresenter(settings);
             _menuPresenter.OnButtonDraw += OnLessonButtonDrawn;

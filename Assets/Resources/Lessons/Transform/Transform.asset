@@ -18,9 +18,18 @@ MonoBehaviour:
   _content:
   - _language: 0
     _lessonTextContent:
-      _introduction: 
-      _usage: 
-      _practiceDescription: 
+      _introduction: "    Every object in a Scene has a Transform.\n    It's used
+        to store and manipulate the position, rotation and scale of the object"
+      _usage: 'With this component we can change:
+
+        1) Position
+
+        2)
+        Rotation
+
+        3) Scale of an object.'
+      _practiceDescription: '    Now you are going to see how you can use the Transform
+        component to influence a game object'
   - _language: 1
     _lessonTextContent:
       _introduction: "    \u041A\u043E\u043C\u043F\u043E\u043D\u0435\u043D\u0442
@@ -45,4 +54,14 @@ MonoBehaviour:
         \u043A\u043E\u043C\u043F\u043E\u043D\u0435\u043D\u0442\u0430 Transform \u043C\u043E\u0436\u043D\u043E
         \u0432\u043B\u0438\u044F\u0442\u044C \u043D\u0430 \u0438\u0433\u0440\u043E\u0432\u043E\u0439
         \u043E\u0431\u044A\u0435\u043A\u0442"
+  - _language: 4
+    _lessonTextContent:
+      _introduction: "    Jedes Spielobjekt hat eine Transformationskomponente. \r\n   
+        Es enth\xE4lt Informationen \xFCber die Position des Motivs auf der B\xFChne,
+        den Neigungswinkel und den Ma\xDFstab des Motivs"
+      _usage: "Mit dieser Komponente k\xF6nnen wir:\r\n1) \xC4ndern Sie die Position
+        des Objekts auf der B\xFChne\r\n2) \xC4ndern Sie den Neigungswinkel\r\n3)
+        Vergr\xF6\xDFern oder verkleinern Sie seine Gr\xF6\xDFe"
+      _practiceDescription: "Im praktischen Teil k\xF6nnen Sie sehen, wie Sie mit
+        der Transform-Komponente das Spielobjekt beeinflussen k\xF6nnen"
   _isCompleted: 0

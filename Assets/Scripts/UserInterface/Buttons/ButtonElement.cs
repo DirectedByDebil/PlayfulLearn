@@ -7,17 +7,6 @@ namespace UserInterface.Buttons
 {
     public class ButtonElement
     {
-        public event UnityAction Clicked;
-        public RectTransform rectTransform { get; private set; }
-        protected Image Icon { get; private set; }
-        protected TextMeshProUGUI Text { get; private set; }
-
-        protected GameObject parentObject;
-
-        private GameObject _textHandler, _iconHandler;
-        private Button _button;
-        private ButtonElementSettings _settings;
-
         public ButtonElement(string name, ButtonElementSettings settings)
         {
             _settings = settings;
@@ -38,6 +27,17 @@ namespace UserInterface.Buttons
             SetText();
             SetTextParent();
         }
+
+        public event UnityAction Clicked;
+        public RectTransform rectTransform { get; private set; }
+        protected Image Icon { get; private set; }
+        protected TextMeshProUGUI Text { get; private set; }
+
+        protected GameObject parentObject;
+
+        private GameObject _textHandler, _iconHandler;
+        private Button _button;
+        private ButtonElementSettings _settings;
 
         private void SetBackground()
         {

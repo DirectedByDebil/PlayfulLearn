@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86056eb028320c0439bbe81183052b31, type: 3}
+  m_Name: Audio Source
+  m_EditorClassIdentifier: 
+  _nameOfLesson: Audio Source
+  _icon: {fileID: 21300000, guid: 01d473964bbb4ee428e566abaf8a8c4a, type: 3}
+  _practiceScene: Main
+  _content:
+  - _language: 0
+    _lessonTextContent:
+      _introduction: fdgfsdg
+      _usage: gfdsgsdfg
+      _practiceDescription: dfgfdsgfsdg
+  - _language: 1
+    _lessonTextContent:
+      _introduction: "\u044B\u0432\u0430\u0432\u0430\u0444\u0432\u044B\u0430"
+      _usage: "\u0444\u044B\u0432\u0430\u0444\u0432\u044B\u0430\u0444\u044B\u0432"
+      _practiceDescription: "\u0444\u044B\u0432\u0430\u044B\u0432\u0430\u0444\u0432\u044B\u0430"
+  _isCompleted: 0

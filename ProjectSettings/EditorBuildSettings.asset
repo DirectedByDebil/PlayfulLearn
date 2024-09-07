@@ -6,9 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Main.unity
+    path: Assets/Project Root/Scenes/Main.unity
     guid: 44eb09928a043144baa2e066f0e77a7f
   - enabled: 1
-    path: Assets/Scenes/Rigidbody2DPractice.unity
+    path: Assets/Project Root/Scenes/Rigidbody2DPractice.unity
     guid: 45065f8d636aad848897f52dedb2f49a
   m_configObjects: {}

@@ -1,8 +1,11 @@
-﻿namespace UserInteraction.Switchers
+﻿using System;
+
+namespace UserInteraction.Switchers
 {
+
     public interface ISwitchable
     {
-        delegate void SwitchHandler(bool value);
-        event SwitchHandler Switched;
+
+        public event Action<bool> Switched;
     }
 }

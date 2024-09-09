@@ -3,13 +3,25 @@ using UnityEngine;
 
 namespace LearningPrograms
 {
-    [CreateAssetMenu(fileName ="New Table Of Learning Programs", menuName = "Table Of Learning Programs", order = 60)]
+    [CreateAssetMenu(fileName ="New Table Of Learning Programs",
+        
+        menuName = "Table Of Learning Programs", order = 60)]
+
     public class TableOfLearningPrograms : ScriptableObject
     {
-        public List<LearningProgram> LearningPrograms { get { return _learningPrograms; } }
+
+        public List<LearningProgram> LearningPrograms
+        {
+
+            get => _learningPrograms;
+        }
         
+
         public LearningProgram _lastLearningProgram;
 
-        [SerializeField] private List<LearningProgram> _learningPrograms = new();
+
+        [SerializeField]
+        
+        private List<LearningProgram> _learningPrograms = new();
     }
 }

@@ -22,7 +22,9 @@ namespace Localization
         }
 
 
-        [SerializeField] private Languages _language;
+        [SerializeField] 
+        
+        private Languages _language;
 
 
         [SerializeField, TextArea(5,20)]

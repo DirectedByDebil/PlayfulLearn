@@ -6,20 +6,40 @@ namespace UserInterface
 {
     public sealed class ProgressBar : MonoBehaviour
     {
-        [SerializeField] private TextMeshProUGUI _progressText;
 
-        [SerializeField, Header("Max width of progress bar"), Range(200, 800) ] private float _maxWidth;
-        [SerializeField] private RectTransform _progressBar;
+        [SerializeField] 
+        
+        private TextMeshProUGUI _progressText;
+
+
+        [SerializeField, Header("Max width of progress bar"),
+            
+            Range(200, 800) ]
+        
+        private float _maxWidth;
+
+
+        [SerializeField]
+        
+        private RectTransform _progressBar;
+
 
         public void UpdateProgressBar(LearningProgram learningProgram)
         {
+
             float currentProgress = 0f;
+
 
             foreach(var lesson in learningProgram.Lessons)
             {
+
                 if (lesson.IsCompleted)
+                {
+
                     currentProgress++;
+                }
             }
+
 
             currentProgress /= learningProgram.Lessons.Count;
            

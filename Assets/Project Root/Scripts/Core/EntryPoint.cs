@@ -1,102 +1,195 @@
 ﻿using UnityEngine;
-using UserInterface.Menu;
 using LearningPrograms;
 using Lessons;
+using Localization;
+using System;
+using System.Collections.Generic;
+using TMPro;
+using UserInterface;
 
 namespace Core
 {
     public sealed class EntryPoint : MonoBehaviour
     {
 
-        [SerializeField] private Menu _menu;
-
-        [SerializeField] private LearningProgramPresenter _programPresenter;
-
-
-        [Space, SerializeField] private LearningProgram _allLessons;
-
-        [SerializeField] private TableOfLearningPrograms _tableOfLearningPrograms;
+        [Space, SerializeField]
+        
+        private LearningProgramView _programView;
 
 
-        [Space, SerializeField] private LessonEditor _lessonEditor;
+        #region Buttons
 
-        [SerializeField] private LearningProgramEditor _learningProgramEditor;
+        [SerializeField, Space]
+
+        private List<ExpandedButton> _lessonButtons;
+        
+        
+        [SerializeField, Space]
+
+        private List<ExpandedButton> _programButtons;
+
+        #endregion
 
 
-        [Space, SerializeField] private RectTransform _transparentPanel;
+        #region Localization
+
+        [Space, SerializeField]
+
+        private TMP_Dropdown _languageDropDown;
+
+        #endregion
+
+
+        #region Education System
+
+        private LessonComponent _lessonComponent;
+
+        private LearningProgramComponent _programComponent;
+
+        private EducationSystem _educationSystem;
+
+        #endregion
+
+
+        [Space, SerializeField]
+
+        private LessonDrawer _lessonDrawer;
+
+
+        [Space, SerializeField]
+        
+        private LearningProgramPresenter _programPresenter;
+
+
+        [Space, SerializeField]
+        
+        private LearningProgram _allLessons;
+
+
+        [SerializeField]
+        
+        private TableOfLearningPrograms _tableOfLearningPrograms;
+
+
+        [Space, SerializeField]
+        
+        private LessonEditor _lessonEditor;
+
+
+        [SerializeField]
+        
+        private LearningProgramEditor _learningProgramEditor;
+
 
 
         private void Awake()
         {
 
-            _menu.Initialize();
-            _programPresenter.Initialize();
-            _lessonEditor.Initialize();
-            _learningProgramEditor.Initialize();
+            InitializeEducationSystem();
+
+            InitializeUI();
 
 
             _programPresenter.SetTableOfPrograms(_tableOfLearningPrograms);
+
             _learningProgramEditor.DrawLessonToggles(_allLessons.Lessons);
         }
 
 
         private void OnEnable()
         {
-        
-            _programPresenter.Switched += OnTransparentPanelSwitched;
 
-            _lessonEditor.Switched += _transparentPanel.gameObject.SetActive;
+            _lessonComponent.SetComponent();
 
-            _lessonEditor.LessonAdded += ManageAddedLesson;
+            _programComponent.SetComponent();
 
-            _learningProgramEditor.LearningProgramCreated += OnLearningProgramCreated;
+            _educationSystem.SetSystem();
 
-            _learningProgramEditor.Switched += OnTransparentPanelSwitched;
-            
 
-            _programPresenter.OnProgramPresented += _menu.TryRedrawLearningProgram;            
+            _lessonComponent.LessonChanged += _lessonDrawer.RenderLesson;
+
+            _programComponent.ProgramChanged += _programView.ViewLearningProgram;
         }
 
 
         private void OnDisable()
         {
 
-            _programPresenter.Switched -= OnTransparentPanelSwitched;
+            _lessonComponent.UnsetComponent();
 
-            _lessonEditor.Switched -= _transparentPanel.gameObject.SetActive;
+            _programComponent.UnsetComponent();
 
-            _lessonEditor.LessonAdded -= ManageAddedLesson;
-
-            _learningProgramEditor.LearningProgramCreated -= OnLearningProgramCreated;
-
-            _learningProgramEditor.Switched -= OnTransparentPanelSwitched;
+            _educationSystem.UnsetSystem();
 
 
-            _programPresenter.OnProgramPresented -= _menu.TryRedrawLearningProgram;
+            _lessonComponent.LessonChanged -= _lessonDrawer.RenderLesson;
+
+            _programComponent.ProgramChanged -= _programView.ViewLearningProgram;
         }
 
 
-        private void OnTransparentPanelSwitched(bool value)
+        private void Start()
         {
 
-            if(!_learningProgramEditor.gameObject.activeInHierarchy)
+            _programComponent.LoadLearningPrograms(
+                
+                _tableOfLearningPrograms.LearningPrograms);
+
+
+            _programComponent.SetLearningProgram(_allLessons);
+        }
+
+
+        private void OnValidate()
+        {
+
+            UpdateDropdown();
+        }
+
+
+        private void UpdateDropdown()
+        {
+            
+            _languageDropDown.ClearOptions();
+
+
+            foreach (Languages language in Enum.GetValues(typeof(Languages)))
             {
 
-                _transparentPanel.gameObject.SetActive(value);
+                TMP_Dropdown.OptionData option = new(language.ToString());
+
+                _languageDropDown.options.Add(option);
             }
+
+            _languageDropDown.RefreshShownValue();
         }
 
 
-        private void ManageAddedLesson(Lesson lesson)
+        #region Program Initialization
+
+        private void InitializeEducationSystem()
         {
-            _allLessons.Lessons.Add(lesson);
-            _menu.RefreshLearningProgram(_allLessons);
+
+            _lessonComponent =
+                
+                new LessonComponent(_lessonButtons);
+
+
+            _programComponent =
+                
+                new LearningProgramComponent(_programButtons);
+
+
+            _educationSystem = new EducationSystem(_lessonComponent,
+
+                _programComponent);
         }
 
-        private void OnLearningProgramCreated(LearningProgram learningProgram)
+        private void InitializeUI()
         {
-            _tableOfLearningPrograms.LearningPrograms.Add(learningProgram);
-            _programPresenter.RefreshTableOfPrograms(_tableOfLearningPrograms);
+
+
         }
+        #endregion
     }
 }

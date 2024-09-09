@@ -4,15 +4,29 @@ using Lessons;
 
 namespace UserInteraction.LessonPracticeSystem
 {
+
     [RequireComponent(typeof(Button))]
+
     public class FinishLessonButton : MonoBehaviour
     {
-        [SerializeField] private Lesson _lesson;
+
+        [SerializeField]
+        
+        private Lesson _lesson;
+
+
         private Button _button;
+
+
+        private void OnValidate()
+        {
+            
+            _button = GetComponent<Button>();
+        }
+
 
         private void Start()
         {
-            _button = GetComponent<Button>();
 
             _button.onClick.AddListener(delegate
             {

@@ -6,8 +6,15 @@ namespace Lessons
 {
     public struct LessonTemplate
     {
-        public string nameOfLesson, practiceScene;
+        
+        public string nameOfLesson;
+        
+        public string practiceScene;
+
+
         public Sprite sprite;
+
+
         public Dictionary<Languages, LessonTextContent> content;
     }
 }

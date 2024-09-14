@@ -3,7 +3,6 @@ using LearningPrograms;
 using Lessons;
 using Localization;
 using System;
-using System.Collections.Generic;
 using TMPro;
 using UserInterface;
 
@@ -15,20 +14,6 @@ namespace Core
         [Space, SerializeField]
         
         private LearningProgramView _programView;
-
-
-        #region Buttons
-
-        [SerializeField, Space]
-
-        private List<ExpandedButton> _lessonButtons;
-        
-        
-        [SerializeField, Space]
-
-        private List<ExpandedButton> _programButtons;
-
-        #endregion
 
 
         #region Localization
@@ -47,6 +32,19 @@ namespace Core
         private LearningProgramComponent _programComponent;
 
         private EducationSystem _educationSystem;
+
+        #endregion
+
+
+        #region UI
+
+        [SerializeField, Space]
+
+        private UIView _uiView;
+
+        private UIModel _uiModel;
+
+        private UIPresenter _uiPresenter;
 
         #endregion
 
@@ -109,6 +107,9 @@ namespace Core
             _lessonComponent.LessonChanged += _lessonDrawer.RenderLesson;
 
             _programComponent.ProgramChanged += _programView.ViewLearningProgram;
+
+
+            _uiPresenter.SetPresenter();
         }
 
 
@@ -125,6 +126,9 @@ namespace Core
             _lessonComponent.LessonChanged -= _lessonDrawer.RenderLesson;
 
             _programComponent.ProgramChanged -= _programView.ViewLearningProgram;
+
+
+            _uiPresenter.UnsetPresenter();
         }
 
 
@@ -137,6 +141,9 @@ namespace Core
 
 
             _programComponent.SetLearningProgram(_allLessons);
+
+
+            _uiModel.ChangeState(UIStates.CurrentLearningProgram);
         }
 
 
@@ -172,12 +179,12 @@ namespace Core
 
             _lessonComponent =
                 
-                new LessonComponent(_lessonButtons);
+                new LessonComponent(_uiView.LessonButtons);
 
 
             _programComponent =
                 
-                new LearningProgramComponent(_programButtons);
+                new LearningProgramComponent(_uiView.ProgramButtons);
 
 
             _educationSystem = new EducationSystem(_lessonComponent,
@@ -188,7 +195,18 @@ namespace Core
         private void InitializeUI()
         {
 
+            UIStates[] states = (UIStates[])
+                
+                Enum.GetValues(typeof(UIStates));
 
+
+            _uiModel = new UIModel(states);
+
+
+            _uiModel.LoadObjects(_uiView.UIObjects);
+
+
+            _uiPresenter = new UIPresenter(_uiModel, _uiView);
         }
         #endregion
     }

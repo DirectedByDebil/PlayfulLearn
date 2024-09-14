@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace UserInterface
 {
-    public sealed class ButtonGrid : MonoBehaviour
+    public sealed class ButtonGrid : UIObject
     {
 
         [SerializeField, Range(1, 5)]

@@ -4,10 +4,10 @@ using UnityEngine;
 namespace UserInterface
 {
 
-    [CustomEditor(typeof(ButtonGrid))]
+    [CustomEditor(typeof(ButtonGrid), true)]
 
     [CanEditMultipleObjects]
-    public sealed class ButtonGridEditor : Editor
+    public sealed class ButtonGridEditor : UIObjectEditor
     {
 
         private ButtonGrid _grid;
@@ -43,8 +43,10 @@ namespace UserInterface
         }
 
 
-        private void OnEnable()
+        protected override void OnEnable()
         {
+
+            base.OnEnable();
 
             _grid = (ButtonGrid)target;
         }

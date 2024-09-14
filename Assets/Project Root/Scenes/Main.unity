@@ -399,23 +399,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _programView: {fileID: 1607004102}
-  _lessonButtons:
-  - {fileID: 170412770}
-  - {fileID: 1606942060}
-  - {fileID: 1397739380}
-  - {fileID: 778005838}
-  - {fileID: 1595699674}
-  - {fileID: 934796778}
-  - {fileID: 347512878}
-  - {fileID: 362586968}
-  - {fileID: 483295681}
-  - {fileID: 1452189073}
-  _programButtons:
-  - {fileID: 6343225119484524404}
-  - {fileID: 626467380}
-  - {fileID: 1799455965}
-  - {fileID: 259033138}
   _languageDropDown: {fileID: 345448625}
+  _uiView: {fileID: 847623750}
   _lessonDrawer: {fileID: 265035518}
   _programPresenter: {fileID: 1574963514}
   _allLessons: {fileID: 11400000, guid: b340874f27c2f6c4b979f0c5b570738a, type: 2}
@@ -570,6 +555,7 @@ GameObject:
   - component: {fileID: 88496844}
   - component: {fileID: 88496846}
   - component: {fileID: 88496847}
+  - component: {fileID: 88496848}
   m_Layer: 5
   m_Name: Transparent Panel
   m_TagString: Untagged
@@ -586,17 +572,17 @@ RectTransform:
   m_GameObject: {fileID: 88496842}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 847623749}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0, y: 0}
+  m_SizeDelta: {x: 1920, y: 1080}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &88496844
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -674,6 +660,21 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &88496848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 88496842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b9323a73b3d9dc4cb1842001253e7be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _hasManyStates: 1
+  _state: 1
+  _states: 010000000300000004000000
 --- !u!1 &103077592
 GameObject:
   m_ObjectHideFlags: 0
@@ -1761,7 +1762,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 230036235}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1770,12 +1771,12 @@ RectTransform:
   - {fileID: 626467379}
   - {fileID: 1799455964}
   - {fileID: 259033137}
-  m_Father: {fileID: 847623749}
+  m_Father: {fileID: 944677780}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 709.0348, y: -238.28992}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &230036237
@@ -1790,6 +1791,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0aac074329b44445b212fdd982a83a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _hasManyStates: 0
+  _state: 1
+  _states: 
   _objectsInRow: 1
   _padding: {x: 300, y: 220}
 --- !u!224 &237566858 stripped
@@ -1810,7 +1814,7 @@ GameObject:
   - component: {fileID: 239688346}
   - component: {fileID: 239688345}
   m_Layer: 5
-  m_Name: Cancel Button
+  m_Name: Close Program Editor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1879,19 +1883,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 239688346}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1889261379}
-        m_TargetAssemblyTypeName: LearningPrograms.LearningProgramEditor, Assembly-CSharp
-        m_MethodName: OnSwitched
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &239688346
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2099,6 +2091,7 @@ GameObject:
   - component: {fileID: 265035515}
   - component: {fileID: 265035514}
   - component: {fileID: 265035518}
+  - component: {fileID: 265035519}
   m_Layer: 5
   m_Name: LessonPresenter
   m_TagString: Untagged
@@ -2177,7 +2170,7 @@ RectTransform:
   m_GameObject: {fileID: 265035513}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2083246516}
@@ -2187,11 +2180,11 @@ RectTransform:
   m_Father: {fileID: 847623749}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0, y: 0}
+  m_SizeDelta: {x: 1920, y: 1080}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &265035518
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2209,6 +2202,21 @@ MonoBehaviour:
   _introduction: {fileID: 1758055307}
   _usage: {fileID: 1875492792}
   _practiceDescription: {fileID: 1638846194}
+--- !u!114 &265035519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 265035513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b9323a73b3d9dc4cb1842001253e7be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _hasManyStates: 0
+  _state: 2
+  _states: 00000000
 --- !u!1 &266876845
 GameObject:
   m_ObjectHideFlags: 0
@@ -2754,6 +2762,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0aac074329b44445b212fdd982a83a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _hasManyStates: 1
+  _state: 0
+  _states: 000000000100000003000000
   _objectsInRow: 5
   _padding: {x: 350, y: 352}
 --- !u!1001 &362586966
@@ -3707,9 +3718,8 @@ GameObject:
   - component: {fileID: 515420142}
   - component: {fileID: 515420141}
   - component: {fileID: 515420140}
-  - component: {fileID: 515420143}
   m_Layer: 5
-  m_Name: Back To Menu
+  m_Name: Back To Program
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3818,20 +3828,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 515420138}
   m_CullTransparentMesh: 1
---- !u!114 &515420143
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 515420138}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d62e50591407654eb220fc2f96beeb0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _appearingObj: {fileID: 1607004097}
-  _disappearingObj: {fileID: 265035513}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -3929,7 +3925,7 @@ GameObject:
   - component: {fileID: 554054985}
   - component: {fileID: 554054984}
   m_Layer: 5
-  m_Name: Cancel Button
+  m_Name: Close Lesson Editor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3998,19 +3994,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 554054985}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1928055324}
-        m_TargetAssemblyTypeName: Lessons.LessonEditor, Assembly-CSharp
-        m_MethodName: OnSwitched
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &554054985
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5027,7 +5011,7 @@ GameObject:
   - component: {fileID: 708656017}
   - component: {fileID: 708656016}
   m_Layer: 5
-  m_Name: Create Button
+  m_Name: Create Program
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5097,19 +5081,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 708656017}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1889261379}
-        m_TargetAssemblyTypeName: LearningPrograms.LearningProgramEditor, Assembly-CSharp
-        m_MethodName: SaveLearningProgram
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &708656017
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5592,6 +5564,7 @@ GameObject:
   - component: {fileID: 847623748}
   - component: {fileID: 847623747}
   - component: {fileID: 847623746}
+  - component: {fileID: 847623750}
   m_Layer: 5
   m_Name: Main Canvas
   m_TagString: Untagged
@@ -5675,12 +5648,11 @@ RectTransform:
   m_Children:
   - {fileID: 1607004101}
   - {fileID: 265035517}
+  - {fileID: 359344755}
+  - {fileID: 88496843}
   - {fileID: 1574963513}
   - {fileID: 1928055323}
   - {fileID: 1889261378}
-  - {fileID: 88496843}
-  - {fileID: 359344755}
-  - {fileID: 230036236}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5689,6 +5661,51 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &847623750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 847623745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2307f461f2b6564fbae2242a4574420, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _uiObjects:
+  - {fileID: 1607004103}
+  - {fileID: 265035519}
+  - {fileID: 1928055325}
+  - {fileID: 1889261380}
+  - {fileID: 359344756}
+  - {fileID: 88496848}
+  - {fileID: 1574963515}
+  - {fileID: 230036237}
+  _availableProgramsButton: {fileID: 1291919018}
+  _backToProgramButton: {fileID: 515420140}
+  _openLessonEditorButton: {fileID: 1458133257}
+  _createLessonButton: {fileID: 1730350039}
+  _closeLessonEditorButton: {fileID: 554054984}
+  _openProgramEditorButton: {fileID: 1615757115}
+  _createProgramButton: {fileID: 708656016}
+  _closeProgramEditorButton: {fileID: 239688345}
+  _lessonButtons:
+  - {fileID: 170412770}
+  - {fileID: 1606942060}
+  - {fileID: 1397739380}
+  - {fileID: 778005838}
+  - {fileID: 1595699674}
+  - {fileID: 934796778}
+  - {fileID: 347512878}
+  - {fileID: 362586968}
+  - {fileID: 483295681}
+  - {fileID: 1452189073}
+  _programButtons:
+  - {fileID: 6343225119484524404}
+  - {fileID: 626467380}
+  - {fileID: 1799455965}
+  - {fileID: 259033138}
 --- !u!1 &863255103
 GameObject:
   m_ObjectHideFlags: 0
@@ -6619,7 +6636,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 230036236}
   m_Father: {fileID: 7176082}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8163,7 +8181,7 @@ GameObject:
   - component: {fileID: 1291919019}
   - component: {fileID: 1291919018}
   m_Layer: 5
-  m_Name: Learning Program Button
+  m_Name: Available Programs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8232,19 +8250,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1291919019}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1574963514}
-        m_TargetAssemblyTypeName: LearningPrograms.LearningProgramPresenter, Assembly-CSharp
-        m_MethodName: OnSwitched
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1291919019
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8600,7 +8606,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.00015644572}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!1001 &1397739378
@@ -9380,7 +9386,7 @@ GameObject:
   - component: {fileID: 1458133258}
   - component: {fileID: 1458133257}
   m_Layer: 5
-  m_Name: Create Lesson Button
+  m_Name: Open Lesson Editor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9450,19 +9456,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1458133258}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1928055324}
-        m_TargetAssemblyTypeName: Lessons.LessonEditor, Assembly-CSharp
-        m_MethodName: OnSwitched
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1458133258
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10574,6 +10568,7 @@ GameObject:
   - component: {fileID: 1574963511}
   - component: {fileID: 1574963510}
   - component: {fileID: 1574963514}
+  - component: {fileID: 1574963515}
   m_Layer: 5
   m_Name: Learning Programs
   m_TagString: Untagged
@@ -10652,17 +10647,17 @@ RectTransform:
   m_GameObject: {fileID: 1574963509}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 266876846}
   m_Father: {fileID: 847623749}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -540}
+  m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &1574963514
 MonoBehaviour:
@@ -10680,6 +10675,21 @@ MonoBehaviour:
   _placeForContent: {fileID: 944677780}
   _dx: 50
   _dy: 50
+--- !u!114 &1574963515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1574963509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b9323a73b3d9dc4cb1842001253e7be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _hasManyStates: 0
+  _state: 1
+  _states: 
 --- !u!1001 &1595699672
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10819,6 +10829,7 @@ GameObject:
   - component: {fileID: 1607004099}
   - component: {fileID: 1607004098}
   - component: {fileID: 1607004102}
+  - component: {fileID: 1607004103}
   m_Layer: 5
   m_Name: Learning Program View
   m_TagString: Untagged
@@ -10909,9 +10920,9 @@ RectTransform:
   m_Father: {fileID: 847623749}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 960, y: 540}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1607004102
@@ -10929,6 +10940,21 @@ MonoBehaviour:
   _currentProgramNameText: {fileID: 874959149}
   _progressBar: {fileID: 923052865}
   _contentPosition: {fileID: 1421574108}
+--- !u!114 &1607004103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1607004097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b9323a73b3d9dc4cb1842001253e7be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _hasManyStates: 1
+  _state: 0
+  _states: 00000000010000000300000004000000
 --- !u!1 &1615757113
 GameObject:
   m_ObjectHideFlags: 0
@@ -10942,7 +10968,7 @@ GameObject:
   - component: {fileID: 1615757116}
   - component: {fileID: 1615757115}
   m_Layer: 5
-  m_Name: Add Program Button
+  m_Name: Open Program Editor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11012,19 +11038,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1615757116}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1889261379}
-        m_TargetAssemblyTypeName: LearningPrograms.LearningProgramEditor, Assembly-CSharp
-        m_MethodName: OnSwitched
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1615757116
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11232,7 +11246,7 @@ RectTransform:
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 0.99999946}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -11596,7 +11610,7 @@ GameObject:
   - component: {fileID: 1730350040}
   - component: {fileID: 1730350039}
   m_Layer: 5
-  m_Name: Create Button
+  m_Name: Create Lesson
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11666,19 +11680,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1730350040}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1928055324}
-        m_TargetAssemblyTypeName: Lessons.LessonEditor, Assembly-CSharp
-        m_MethodName: SaveLesson
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1730350040
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12481,6 +12483,7 @@ GameObject:
   - component: {fileID: 1889261376}
   - component: {fileID: 1889261375}
   - component: {fileID: 1889261379}
+  - component: {fileID: 1889261380}
   m_Layer: 5
   m_Name: Learning Program Editor
   m_TagString: Untagged
@@ -12559,18 +12562,18 @@ RectTransform:
   m_GameObject: {fileID: 1889261373}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1911888964}
   m_Father: {fileID: 847623749}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0, y: 0}
+  m_SizeDelta: {x: 1920, y: 1080}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1889261379
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12585,6 +12588,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _template: {fileID: 670982411}
   _nameOfProgramText: {fileID: 204072373}
+--- !u!114 &1889261380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1889261373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b9323a73b3d9dc4cb1842001253e7be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _hasManyStates: 0
+  _state: 4
+  _states: 
 --- !u!1 &1906248922
 GameObject:
   m_ObjectHideFlags: 0
@@ -13016,6 +13034,7 @@ GameObject:
   - component: {fileID: 1928055321}
   - component: {fileID: 1928055320}
   - component: {fileID: 1928055324}
+  - component: {fileID: 1928055325}
   m_Layer: 5
   m_Name: Lesson Editor
   m_TagString: Untagged
@@ -13094,18 +13113,18 @@ RectTransform:
   m_GameObject: {fileID: 1928055318}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2039235607}
   m_Father: {fileID: 847623749}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0, y: 0}
+  m_SizeDelta: {x: 1920, y: 1080}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1928055324
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13124,6 +13143,21 @@ MonoBehaviour:
   _usageText: {fileID: 1500217158}
   _descriptionText: {fileID: 1470844453}
   _scene: Main
+--- !u!114 &1928055325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1928055318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b9323a73b3d9dc4cb1842001253e7be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _hasManyStates: 0
+  _state: 3
+  _states: 
 --- !u!1 &1938399402
 GameObject:
   m_ObjectHideFlags: 0

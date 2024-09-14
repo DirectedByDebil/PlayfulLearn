@@ -3,6 +3,8 @@
     public enum UIStates
     {
 
+        CurrentLearningProgram,
+
         AvailableLearningPrograms,
 
         CurrentLesson,

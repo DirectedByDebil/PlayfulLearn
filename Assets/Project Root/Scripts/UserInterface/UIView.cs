@@ -55,38 +55,10 @@ namespace UserInterface
         }
 
 
-        public Button.ButtonClickedEvent CreateLessonClicked
-        {
-
-            get => _createLessonButton.onClick;
-        }
-
-
-        public Button.ButtonClickedEvent CloseLessonEditorClicked
-        {
-
-            get => _closeLessonEditorButton.onClick;
-        }
-
-
         public Button.ButtonClickedEvent OpenProgramEditorClicked
         {
 
             get => _openProgramEditorButton.onClick;
-        }
-
-
-        public Button.ButtonClickedEvent CreateProgramClicked
-        {
-
-            get => _createProgramButton.onClick;
-        }
-
-
-        public Button.ButtonClickedEvent CloseProgramEditorClicked
-        {
-
-            get => _closeProgramEditorButton.onClick;
         }
 
 
@@ -133,8 +105,6 @@ namespace UserInterface
         private Button _backToProgramButton;
 
 
-        #region Lesson Editor
-
         [SerializeField, Space]
 
         private Button _openLessonEditorButton;
@@ -142,33 +112,7 @@ namespace UserInterface
 
         [SerializeField, Space]
 
-        private Button _createLessonButton;
-
-
-        [SerializeField, Space]
-
-        private Button _closeLessonEditorButton;
-
-        #endregion
-
-
-        #region Program Editor
-
-        [SerializeField, Space]
-
         private Button _openProgramEditorButton;
-
-
-        [SerializeField, Space]
-
-        private Button _createProgramButton;
-
-
-        [SerializeField, Space]
-
-        private Button _closeProgramEditorButton;
-
-        #endregion
 
 
         [SerializeField, Space]

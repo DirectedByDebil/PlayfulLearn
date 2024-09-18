@@ -41,31 +41,9 @@ namespace UserInterface
                 StateLessonEditor);
 
 
-            _view.CreateLessonClicked.AddListener(
-
-                StateCurrentProgram);
-
-
-            _view.CloseLessonEditorClicked.AddListener(
-
-                StateCurrentProgram);
-
-
-
             _view.OpenProgramEditorClicked.AddListener(
 
                 StateProgramEditor);
-
-
-            _view.CreateProgramClicked.AddListener(
-
-                StateCurrentProgram);
-
-
-            _view.CloseProgramEditorClicked.AddListener(
-
-                StateCurrentProgram);
-
 
 
             foreach (Button.ButtonClickedEvent clicked in
@@ -106,31 +84,9 @@ namespace UserInterface
                 StateLessonEditor);
 
 
-            _view.CreateLessonClicked.RemoveListener(
-
-                StateCurrentProgram);
-
-
-            _view.CloseLessonEditorClicked.RemoveListener(
-
-                StateCurrentProgram);
-
-
-
             _view.OpenProgramEditorClicked.RemoveListener(
 
                 StateProgramEditor);
-
-
-            _view.CreateProgramClicked.RemoveListener(
-
-                StateCurrentProgram);
-
-
-            _view.CloseProgramEditorClicked.RemoveListener(
-
-                StateCurrentProgram);
-
 
 
             foreach (Button.ButtonClickedEvent clicked in
@@ -151,6 +107,36 @@ namespace UserInterface
             }
         }
 
+
+        public void SetEditor(IEditor editor)
+        {
+
+            editor.CreateClicked.AddListener(
+
+                StateCurrentProgram);
+
+
+            editor.CloseClicked.AddListener(
+
+                StateCurrentProgram);
+        }
+
+
+        public void UnsetEditor(IEditor editor)
+        {
+
+            editor.CreateClicked.RemoveListener(
+
+                StateCurrentProgram);
+
+
+            editor.CloseClicked.RemoveListener(
+
+                StateCurrentProgram);
+        }
+
+
+        #region State UIState Methods
 
         private void StateCurrentLesson()
         {
@@ -185,5 +171,7 @@ namespace UserInterface
 
             _model.ChangeState(UIStates.ProgramEditor);
         }
+        
+        #endregion
     }
 }

@@ -50,10 +50,10 @@ namespace LearningPrograms
         private List<Lesson> _lessons = new ();
 
 
-        public void SetProgram(LearningProgramTemplate template)
+        public void SetProgram(LearningProgramData template)
         {
 
-            _lessons = template.lessons;
+            //_lessons = template.lessons;
         }
     }
 }

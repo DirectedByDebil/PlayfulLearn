@@ -1,6 +1,5 @@
 using UnityEngine;
 using TMPro;
-using UnityEngine.SceneManagement;
 using Localization;
 
 namespace Lessons
@@ -28,15 +27,6 @@ namespace Lessons
         
         private Languages _currentLanguage;
 
-        private string _sceneToLoad;
-     
-
-        public void LoadLesson()
-        {
-
-            SceneManager.LoadSceneAsync(_sceneToLoad);
-        }
-
 
         public void RenderLesson(Lesson lesson)
         {
@@ -49,8 +39,6 @@ namespace Lessons
 
                 _currentLesson = lesson;
                 
-                _sceneToLoad = _currentLesson.PracticeScene;
-
                 UpdateTexts(language);
 
             }

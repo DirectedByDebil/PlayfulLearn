@@ -1,9 +1,7 @@
 ﻿using UnityEngine;
 using LearningPrograms;
 using Lessons;
-using Localization;
 using System;
-using TMPro;
 using UserInterface;
 
 namespace Core
@@ -14,15 +12,6 @@ namespace Core
         [Space, SerializeField]
         
         private LearningProgramView _programView;
-
-
-        #region Localization
-
-        [Space, SerializeField]
-
-        private TMP_Dropdown _languageDropDown;
-
-        #endregion
 
 
         #region Education System
@@ -49,14 +38,22 @@ namespace Core
         #endregion
 
 
+        #region Learning Program Editor
+
+        [SerializeField, Space]
+
+        private LearningProgramEditorView _lpEditorView;
+
+        private LearningProgramEditorModel _lpEditorModel;
+
+        private LearningProgramEditorPresenter _lpEditorPresenter;
+
+        #endregion
+
+
         [Space, SerializeField]
 
         private LessonDrawer _lessonDrawer;
-
-
-        [Space, SerializeField]
-        
-        private LearningProgramPresenter _programPresenter;
 
 
         [Space, SerializeField]
@@ -71,12 +68,7 @@ namespace Core
 
         [Space, SerializeField]
         
-        private LessonEditor _lessonEditor;
-
-
-        [SerializeField]
-        
-        private LearningProgramEditor _learningProgramEditor;
+        private LessonEditorView _lessonEditorView;
 
 
 
@@ -87,10 +79,7 @@ namespace Core
 
             InitializeUI();
 
-
-            _programPresenter.SetTableOfPrograms(_tableOfLearningPrograms);
-
-            _learningProgramEditor.DrawLessonToggles(_allLessons.Lessons);
+            InitializeLearningProgramEditor();
         }
 
 
@@ -110,6 +99,15 @@ namespace Core
 
 
             _uiPresenter.SetPresenter();
+
+            _uiPresenter.SetEditor(_lessonEditorView);
+
+            _uiPresenter.SetEditor(_lpEditorView);
+
+
+            _lpEditorModel.SetModel();
+
+            _lpEditorPresenter.SetPresenter();
         }
 
 
@@ -129,6 +127,15 @@ namespace Core
 
 
             _uiPresenter.UnsetPresenter();
+
+            _uiPresenter.UnsetEditor(_lessonEditorView);
+
+            _uiPresenter.UnsetEditor(_lpEditorView);
+
+
+            _lpEditorModel.UnsetModel();
+
+            _lpEditorPresenter.UnsetPresenter();
         }
 
 
@@ -149,26 +156,8 @@ namespace Core
 
         private void OnValidate()
         {
-
-            UpdateDropdown();
-        }
-
-
-        private void UpdateDropdown()
-        {
             
-            _languageDropDown.ClearOptions();
-
-
-            foreach (Languages language in Enum.GetValues(typeof(Languages)))
-            {
-
-                TMP_Dropdown.OptionData option = new(language.ToString());
-
-                _languageDropDown.options.Add(option);
-            }
-
-            _languageDropDown.RefreshShownValue();
+            _lpEditorView.SetAllLessons(_allLessons.Lessons);
         }
 
 
@@ -192,6 +181,7 @@ namespace Core
                 _programComponent);
         }
 
+
         private void InitializeUI()
         {
 
@@ -208,6 +198,24 @@ namespace Core
 
             _uiPresenter = new UIPresenter(_uiModel, _uiView);
         }
+
+
+        private void InitializeLearningProgramEditor()
+        {
+
+            _lpEditorModel = new LearningProgramEditorModel(
+
+                _lpEditorView.Toggles);
+
+
+            _lpEditorPresenter = new LearningProgramEditorPresenter(
+
+                _lpEditorModel, _lpEditorView);
+
+
+            _lpEditorModel.InitializeToggles(_allLessons.Lessons);
+        }
+
         #endregion
     }
 }

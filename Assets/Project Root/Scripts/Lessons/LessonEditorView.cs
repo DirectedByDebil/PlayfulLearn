@@ -1,13 +1,10 @@
 ﻿using UnityEngine;
 using Localization;
 using TMPro;
-using System.Collections.Generic;
 using UserInterface;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
-#if UNITY_EDITOR
-using UnityEditor;
-#endif
 
 namespace Lessons
 {
@@ -15,6 +12,22 @@ namespace Lessons
 
         IEditor
     {
+
+        public Languages CurrentLanguage
+        {
+
+            get => (Languages)_dropdown.value;
+        }
+
+
+        public string NameOfLesson
+        {
+
+            get => _nameOfLesson.text;
+        }
+
+
+        #region Clicked events
 
         public Button.ButtonClickedEvent CreateClicked
         {
@@ -27,6 +40,15 @@ namespace Lessons
         {
 
             get => _closeButton.onClick;
+        }
+
+        #endregion
+
+
+        public TMP_Dropdown.DropdownEvent LanguageChanged
+        {
+
+            get => _dropdown.onValueChanged;
         }
 
 
@@ -46,75 +68,72 @@ namespace Lessons
 
         #region Input Field Handlers
 
-        [Space, SerializeField] private TMP_InputField _nameOfLesson;
+        [SerializeField, Space]
+        
+        private TMP_InputField _nameOfLesson;
 
-        [SerializeField] private TMP_InputField _introductionText;
 
-        [SerializeField] private TMP_InputField _usageText;
+        [SerializeField, Space]
+        
+        private TMP_InputField _introductionText;
 
-        [SerializeField] private TMP_InputField _descriptionText;
+
+        [SerializeField, Space] 
+        
+        private TMP_InputField _usageText;
+
+
+        [SerializeField, Space ] 
+        
+        private TMP_InputField _descriptionText;
 
         #endregion
 
 
-        [Space, SerializeField] private string _scene;
+        [SerializeField, Space]
+
+        private TMP_Dropdown _dropdown;
 
 
-        private Dictionary<Languages, LessonTextContent> _lessonContent = new();
-
-        private LessonTemplate _lessonTemplate;
-
-        private Languages _lastLanguage;
-
-
-        public void SaveLesson()
+        public LessonTextContent GetTextContent()
         {
-            //SaveContent(_dropdown.value);
+            
+            return new LessonTextContent(_introductionText.text,
 
-            string path = string.Format("Assets/Resources/Lessons"),
-                nameOfLesson = _nameOfLesson.text,
-                assetName = string.Format("{0}/{1}/{1}.asset", path, nameOfLesson);
-
-            Lesson asset = ScriptableObject.CreateInstance<Lesson>();
-
-            _lessonTemplate.nameOfLesson = nameOfLesson;
-            _lessonTemplate.content = _lessonContent;
-            //#TODO import scene from form
-            _lessonTemplate.practiceScene = _scene;
-            asset.SetLesson(_lessonTemplate);
-
-            #if UNITY_EDITOR
-            AssetDatabase.CreateFolder(path, nameOfLesson);
-            AssetDatabase.CreateAsset(asset, assetName);
-            #endif
-
-            //LessonAdded?.Invoke(asset);
+                _usageText.text, _descriptionText.text);
         }
 
 
-        private void SaveContent(int index)
+        public void SetTextContent(LessonTextContent content)
         {
 
-            Languages language = (Languages)index;
+            _introductionText.text = content.Introduction;
+
+            _usageText.text = content.Usage;
+
+            _descriptionText.text = content.PracticeDescription;
+        }
 
 
-            LessonTextContent content = new(_introductionText.text,
-            
-                _usageText.text, _descriptionText.text);
+        public void SetLanguages(IEnumerable<Languages> languages)
+        {
+
+            _dropdown.ClearOptions();
 
 
-            _lessonContent[_lastLanguage] = content;
-            
-            _lastLanguage = language;
+            foreach(Languages language in languages)
+            {
+
+                TMP_Dropdown.OptionData option = 
+                    
+                    new(language.ToString());
 
 
-            LessonTextContent savedContent = _lessonContent[_lastLanguage];
-            
-            _introductionText.text = savedContent.Introduction;
-            
-            _usageText.text = savedContent.Usage;
-            
-            _descriptionText.text = savedContent.PracticeDescription;
+                _dropdown.options.Add(option);
+            }
+
+
+            _dropdown.RefreshShownValue();
         }
     }
 }

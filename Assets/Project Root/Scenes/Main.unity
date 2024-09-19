@@ -565,11 +565,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _programView: {fileID: 1607004102}
   _uiView: {fileID: 847623750}
+  _lessonEditorView: {fileID: 1928055324}
   _lpEditorView: {fileID: 1889261379}
   _lessonDrawer: {fileID: 265035518}
   _allLessons: {fileID: 11400000, guid: b340874f27c2f6c4b979f0c5b570738a, type: 2}
   _tableOfLearningPrograms: {fileID: 11400000, guid: 292ba3c5487d1af4089e09b51bf018a2, type: 2}
-  _lessonEditorView: {fileID: 1928055324}
 --- !u!1 &75217892
 GameObject:
   m_ObjectHideFlags: 0
@@ -6748,7 +6748,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Option A
+  m_text: English
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fd905c4e107c16842b1a4dc15ba7b433, type: 2}
   m_sharedMaterial: {fileID: 7601158327085006085, guid: fd905c4e107c16842b1a4dc15ba7b433, type: 2}
@@ -8920,11 +8920,19 @@ MonoBehaviour:
   m_Value: 0
   m_Options:
     m_Options:
-    - m_Text: Option A
+    - m_Text: English
       m_Image: {fileID: 0}
-    - m_Text: Option B
+    - m_Text: Russian
       m_Image: {fileID: 0}
-    - m_Text: Option C
+    - m_Text: Italian
+      m_Image: {fileID: 0}
+    - m_Text: Espanol
+      m_Image: {fileID: 0}
+    - m_Text: Deutsch
+      m_Image: {fileID: 0}
+    - m_Text: Chinese
+      m_Image: {fileID: 0}
+    - m_Text: Japanese
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
@@ -15288,7 +15296,7 @@ MonoBehaviour:
   _introductionText: {fileID: 913179719}
   _usageText: {fileID: 1500217158}
   _descriptionText: {fileID: 1470844453}
-  _scene: Main
+  _dropdown: {fileID: 1130486280}
 --- !u!114 &1928055325
 MonoBehaviour:
   m_ObjectHideFlags: 0

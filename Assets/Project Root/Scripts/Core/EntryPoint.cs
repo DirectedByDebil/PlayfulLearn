@@ -3,6 +3,7 @@ using LearningPrograms;
 using Lessons;
 using System;
 using UserInterface;
+using Localization;
 
 namespace Core
 {
@@ -38,6 +39,19 @@ namespace Core
         #endregion
 
 
+        #region Lesson Editor
+
+        [Space, SerializeField]
+        
+        private LessonEditorView _lessonEditorView;
+
+        private LessonEditorModel _lessonEditorModel;
+
+        private LessonEditorPresenter _lessonEditorPresenter;
+        
+        #endregion
+
+
         #region Learning Program Editor
 
         [SerializeField, Space]
@@ -66,9 +80,7 @@ namespace Core
         private TableOfLearningPrograms _tableOfLearningPrograms;
 
 
-        [Space, SerializeField]
-        
-        private LessonEditorView _lessonEditorView;
+        private Languages[] _languages;
 
 
 
@@ -78,6 +90,8 @@ namespace Core
             InitializeEducationSystem();
 
             InitializeUI();
+
+            InitializeLessonEditor();
 
             InitializeLearningProgramEditor();
         }
@@ -103,6 +117,9 @@ namespace Core
             _uiPresenter.SetEditor(_lessonEditorView);
 
             _uiPresenter.SetEditor(_lpEditorView);
+
+
+            _lessonEditorPresenter.SetPresenter();
 
 
             _lpEditorModel.SetModel();
@@ -133,6 +150,9 @@ namespace Core
             _uiPresenter.UnsetEditor(_lpEditorView);
 
 
+            _lessonEditorPresenter.UnsetPresenter();
+
+
             _lpEditorModel.UnsetModel();
 
             _lpEditorPresenter.UnsetPresenter();
@@ -156,7 +176,15 @@ namespace Core
 
         private void OnValidate()
         {
-            
+
+            _languages = (Languages[])
+
+                Enum.GetValues(typeof(Languages));
+
+
+            _lessonEditorView.SetLanguages(_languages);
+
+
             _lpEditorView.SetAllLessons(_allLessons.Lessons);
         }
 
@@ -197,6 +225,18 @@ namespace Core
 
 
             _uiPresenter = new UIPresenter(_uiModel, _uiView);
+        }
+
+
+        private void InitializeLessonEditor()
+        {
+
+            _lessonEditorModel = new LessonEditorModel(_languages);
+
+
+            _lessonEditorPresenter = new LessonEditorPresenter(
+                
+                _lessonEditorModel, _lessonEditorView);
         }
 
 

@@ -11,7 +11,7 @@ namespace Core
     public sealed class LessonComponent
     {
 
-        public event Action<Lesson> LessonChanged;
+        public event Action<NewLesson> LessonChanged;
 
 
         private readonly IReadOnlyList<ExpandedButton> _buttons;
@@ -19,10 +19,10 @@ namespace Core
 
         private readonly List<SelectableModel<
 
-            Lesson>> _models;
+            NewLesson>> _models;
 
 
-        private Lesson _currentLesson;
+        private NewLesson _currentLesson;
 
 
         public LessonComponent(
@@ -35,7 +35,7 @@ namespace Core
 
             _models = new List<SelectableModel<
 
-                Lesson>>(_buttons.Count);
+                NewLesson>>(_buttons.Count);
 
 
             InitializeModels();
@@ -78,16 +78,16 @@ namespace Core
         #endregion
 
 
-        public void OnLearningProgramChanged(LearningProgram program)
+        public void OnLearningProgramChanged(NewLearningProgram program)
         {
 
-            List<Lesson> lessons = program.Lessons;
+            IReadOnlyList<NewLesson> lessons = program.Lessons;
 
 
             for(int i = 0; i < lessons.Count; i++)
             {
 
-                Lesson lesson = lessons[i];
+                NewLesson lesson = lessons[i];
 
                 UpdateButton(i, lesson);
             }
@@ -107,12 +107,12 @@ namespace Core
             for(int i = 0; i < _buttons.Count; i++)
             {
 
-                _models.Add(new SelectableModel<Lesson>());
+                _models.Add(new SelectableModel<NewLesson>());
             }
         }
 
 
-        private void TryUpdateLesson(Lesson lesson)
+        private void TryUpdateLesson(NewLesson lesson)
         {
 
             if(lesson != _currentLesson)
@@ -125,13 +125,13 @@ namespace Core
         }
 
 
-        private void UpdateButton(int index, Lesson lesson)
+        private void UpdateButton(int index, NewLesson lesson)
         {
 
             ExpandedButton button = _buttons[index];
 
 
-            if(!button.gameObject.activeInHierarchy)
+            if (!button.gameObject.activeInHierarchy)
             {
 
                 button.gameObject.SetActive(true);

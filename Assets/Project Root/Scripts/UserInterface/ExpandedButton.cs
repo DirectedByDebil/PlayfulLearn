@@ -4,7 +4,7 @@ using TMPro;
 
 namespace UserInterface
 {
-    public sealed class ExpandedButton : Button
+    public sealed class ExpandedButton : Button, IClickable
     {
 
         [SerializeField, Space]

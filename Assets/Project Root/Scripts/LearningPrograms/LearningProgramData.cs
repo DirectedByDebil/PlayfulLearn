@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using Lessons;
 using System;
 
 namespace LearningPrograms
@@ -9,19 +8,25 @@ namespace LearningPrograms
     public struct LearningProgramData
     {
 
-        public string name;
+        public string NameOfProgram;
 
-        public List<string> lessons;
+        public string IconName;
+
+        public List<string> Lessons;
 
 
-        public LearningProgramData(string name, 
+        public LearningProgramData(string nameOfProgram,
+
+            string iconName,
             
             List<string> lessons)
         {
 
-            this.name = name;
+            NameOfProgram = nameOfProgram;
 
-            this.lessons = lessons;
+            IconName = iconName;
+
+            Lessons = lessons;
         }
     }
 }

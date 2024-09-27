@@ -20,12 +20,6 @@ namespace LearningPrograms
         }
 
 
-        public IReadOnlyList<ExpandedToggle> Toggles
-        {
-
-            get => _toggleGrid.Toggles;
-        }
-
 
         #region Clicked events
         
@@ -50,11 +44,6 @@ namespace LearningPrograms
         private TMP_InputField _nameOfProgramText;
 
 
-        [Space, SerializeField]
-
-        private TogglesGrid _toggleGrid;
-
-
         #region Buttons
 
         [SerializeField, Space]
@@ -70,16 +59,20 @@ namespace LearningPrograms
 
 
 
-        public void SetAllLessons(IReadOnlyList<Lesson> lessons)
+        public void SetAllLessons(IReadOnlyCollection<NewLesson> lessons,
+            
+            IReadOnlyList<ExpandedToggle> toggles)
         {
 
-            _toggleGrid.SetToggleCount(lessons.Count);
+            int index = 0;
 
 
-            for(int i = 0; i < lessons.Count; i++)
+            foreach(NewLesson lesson in lessons)
             {
 
-                Toggles[i].UpdateText(lessons[i].NameOfLesson);
+                toggles[index].UpdateText(lesson.NameOfLesson);
+
+                index++;
             }
         }
     }

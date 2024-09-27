@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Text;
 using System.IO;
+using System.Collections.Generic;
 
 namespace Extensions
 {
@@ -13,12 +14,12 @@ namespace Extensions
             T data;
 
 
-            if (File.Exists(fileName))
+            if(TryReadBytes(fileName, out byte[] bytes))
             {
 
-                string json = ReadJson(fileName);
+                string file = Encoding.Default.GetString(bytes);
 
-                data = JsonUtility.FromJson<T>(json);
+                data = JsonUtility.FromJson<T>(file);
             }
             else
             {
@@ -26,32 +27,38 @@ namespace Extensions
                 data = default;
             }
 
+
             return data;
         }
 
 
-        public static string ReadJson(string fileName)
+        public static bool TryReadBytes(string fileName,
+            
+            out byte[] bytes)
         {
 
-            string json;
+            bytes = null;
 
 
-            using (FileStream stream = new(fileName,
-
-                FileMode.Open, FileAccess.Read, FileShare.None))
+            if(!File.Exists(fileName))
             {
 
-                byte[] buffer = new byte[stream.Length];
-
-
-                stream.Read(buffer, 0, buffer.Length);
-
-
-                json = Encoding.Default.GetString(buffer);
+                return false;
             }
 
 
-            return json;
+            using (FileStream stream = new (fileName,
+                
+                FileMode.Open, FileAccess.Read, FileShare.None))
+            {
+
+                bytes = new byte[stream.Length];
+
+                stream.Read(bytes, 0, bytes.Length);
+            }
+
+
+            return true;
         }
 
 
@@ -69,6 +76,25 @@ namespace Extensions
 
                     stream.Write(buffer, 0, buffer.Length);
             }
+        }
+
+
+        public static IReadOnlyCollection<T> GetFiles<T>(string path)
+        {
+
+            List<T> objects = new();
+
+
+            foreach(string fileName in Directory.GetFiles(path, "*.json"))
+            {
+
+                T obj = GetFromFile<T>(fileName);
+
+                objects.Add(obj);
+            }
+            
+
+            return objects;
         }
     }
 }

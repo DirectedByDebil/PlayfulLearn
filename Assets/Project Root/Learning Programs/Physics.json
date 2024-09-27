@@ -1,0 +1,5 @@
+{
+    "NameOfProgram": "Physics",
+    "IconName": "Physics.png",
+    "Lessons": [ "Box Collider 2D", "Rigidbody 2D", "Spring Joint 2D" ]
+}

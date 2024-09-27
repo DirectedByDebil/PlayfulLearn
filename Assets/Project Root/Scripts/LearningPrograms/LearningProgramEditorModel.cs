@@ -11,10 +11,10 @@ namespace LearningPrograms
         private readonly IReadOnlyList<ExpandedToggle> _toggles;
 
 
-        private List<ToggleModel<Lesson>> _models;
+        private List<ToggleModel<NewLesson>> _models;
 
 
-        private List<Lesson> _lessonsInProgram;
+        private List<NewLesson> _lessonsInProgram;
 
 
         public LearningProgramEditorModel(
@@ -24,20 +24,20 @@ namespace LearningPrograms
 
             _toggles = toggles;
 
-            _models = new List<ToggleModel<Lesson>>(_toggles.Count);
+            _models = new List<ToggleModel<NewLesson>>(_toggles.Count);
         }
 
 
-        public void InitializeToggles(IReadOnlyList<Lesson> allLessons)
+        public void InitializeToggles(IReadOnlyCollection<NewLesson> allLessons)
         {
 
-            _lessonsInProgram = new List<Lesson>(allLessons.Count);
+            _lessonsInProgram = new List<NewLesson>(allLessons.Count);
 
 
-            foreach(Lesson lesson in allLessons)
+            foreach(NewLesson lesson in allLessons)
             {
 
-                _models.Add(new ToggleModel<Lesson>(lesson));
+                _models.Add(new ToggleModel<NewLesson>(lesson));
             }
         }
 
@@ -77,9 +77,14 @@ namespace LearningPrograms
         public void CreateProgram(string nameOfProgram)
         {
 
+            string iconName = "IconName.png";
+
+
             LearningProgramData data = new(nameOfProgram,
+
+                iconName,
                 
-                GetLessonsInProgram());
+                GetLessonsInProgram());;
 
 
             string fileName = string.Format(
@@ -93,7 +98,7 @@ namespace LearningPrograms
         }
 
 
-        private void OnToggleChanged(Lesson lesson, bool isOn)
+        private void OnToggleChanged(NewLesson lesson, bool isOn)
         {
 
             if(isOn)
@@ -114,7 +119,7 @@ namespace LearningPrograms
             List<string> lessons = new(_lessonsInProgram.Count);
 
 
-            foreach (Lesson lesson in _lessonsInProgram)
+            foreach (NewLesson lesson in _lessonsInProgram)
             {
 
                 lessons.Add(lesson.NameOfLesson);

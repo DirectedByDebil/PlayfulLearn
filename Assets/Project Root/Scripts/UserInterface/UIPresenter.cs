@@ -1,4 +1,4 @@
-﻿using UnityEngine.UI;
+﻿using System.Collections.Generic;
 
 namespace UserInterface
 {
@@ -44,24 +44,6 @@ namespace UserInterface
             _view.OpenProgramEditorClicked.AddListener(
 
                 StateProgramEditor);
-
-
-            foreach (Button.ButtonClickedEvent clicked in
-                
-                _view.LessonsClicked)
-            {
-
-                clicked.AddListener(StateCurrentLesson);
-            }
-
-
-            foreach (Button.ButtonClickedEvent clicked in
-
-                _view.ProgramsClicked)
-            {
-
-                clicked.AddListener(StateCurrentProgram);
-            }
         }
 
 
@@ -87,23 +69,49 @@ namespace UserInterface
             _view.OpenProgramEditorClicked.RemoveListener(
 
                 StateProgramEditor);
+        }
 
 
-            foreach (Button.ButtonClickedEvent clicked in
+        public void SetLessonButtons(IEnumerable<IClickable> buttons)
+        {
+            
+            foreach (IClickable button in buttons)
+            {
                 
-                _view.LessonsClicked)
-            {
-
-                clicked.RemoveListener(StateCurrentLesson);
+                button.onClick.AddListener(StateCurrentLesson);
             }
+        }
 
 
-            foreach (Button.ButtonClickedEvent clicked in
+        public void UnsetLessonButtons(IEnumerable<IClickable> buttons)
+        {
 
-                _view.ProgramsClicked)
+            foreach (IClickable button in buttons)
             {
 
-                clicked.RemoveListener(StateCurrentProgram);
+                button.onClick.RemoveListener(StateCurrentLesson);
+            }
+        }
+
+
+        public void SetProgramButtons(IEnumerable<IClickable> buttons)
+        {
+
+            foreach (IClickable button in buttons)
+            {
+
+                button.onClick.AddListener(StateCurrentProgram);
+            }
+        }
+
+
+        public void UnsetProgramButtons(IEnumerable<IClickable> buttons)
+        {
+
+            foreach (IClickable button in buttons)
+            {
+
+                button.onClick.RemoveListener(StateCurrentProgram);
             }
         }
 

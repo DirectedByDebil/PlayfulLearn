@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using LearningPrograms;
+using Lessons;
 using TMPro;
+using System.Collections.Generic;
 
 namespace UserInterface
 {
@@ -24,13 +26,32 @@ namespace UserInterface
         private RectTransform _progressBar;
 
 
-        public void UpdateProgressBar(LearningProgram learningProgram)
+        public void UpdateProgressBar(NewLearningProgram learningProgram)
+        {
+
+            float currentProgress = CountProgress(learningProgram.Lessons);
+           
+
+            _progressText.text = string.Format(
+                
+                "Completed: {0} %", Mathf.RoundToInt(currentProgress*100));
+
+            //#TODO do it with filled image
+            _progressBar.sizeDelta = new Vector2(
+                
+                currentProgress * _maxWidth,
+                
+                _progressBar.rect.height);
+        }
+
+
+        private float CountProgress(IReadOnlyCollection<NewLesson> lessons)
         {
 
             float currentProgress = 0f;
 
 
-            foreach(var lesson in learningProgram.Lessons)
+            foreach (NewLesson lesson in lessons)
             {
 
                 if (lesson.IsCompleted)
@@ -41,11 +62,10 @@ namespace UserInterface
             }
 
 
-            currentProgress /= learningProgram.Lessons.Count;
-           
-            _progressText.text = string.Format("Completed: {0} %", Mathf.RoundToInt(currentProgress*100));
+            currentProgress /= lessons.Count;
 
-            _progressBar.sizeDelta = new Vector2(currentProgress * _maxWidth, _progressBar.rect.height);
+
+            return currentProgress;
         }
     }
 }

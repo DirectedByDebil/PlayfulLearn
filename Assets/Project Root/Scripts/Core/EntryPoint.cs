@@ -4,6 +4,7 @@ using Lessons;
 using System;
 using UserInterface;
 using Localization;
+using System.Collections.Generic;
 
 namespace Core
 {
@@ -13,8 +14,8 @@ namespace Core
         [Space, SerializeField]
         
         private LearningProgramView _programView;
-
-
+        
+        
         #region Education System
 
         private LessonComponent _lessonComponent;
@@ -25,7 +26,7 @@ namespace Core
 
         #endregion
 
-
+            
         #region UI
 
         [SerializeField, Space]
@@ -65,19 +66,39 @@ namespace Core
         #endregion
 
 
+        #region Grids
+
+        [SerializeField, Space]
+
+        private ObjectGrid _lessonsGrid;
+
+
+        [SerializeField, Space]
+
+        private ObjectGrid _learningProgramsGrid;
+
+
+        [SerializeField, Space]
+
+        private ObjectGrid _lessonsTogglesGrid;
+
+        #endregion
+
+
+        #region Buttons & Toggles
+
+        private IReadOnlyList<ExpandedButton> _lessonButtons;
+
+        private IReadOnlyList<ExpandedButton> _learningProgramsButtons;
+        
+        private IReadOnlyList<ExpandedToggle> _lessonEditorToggles;
+
+        #endregion
+
+
         [Space, SerializeField]
 
         private LessonDrawer _lessonDrawer;
-
-
-        [Space, SerializeField]
-        
-        private LearningProgram _allLessons;
-
-
-        [SerializeField]
-        
-        private TableOfLearningPrograms _tableOfLearningPrograms;
 
 
         private Languages[] _languages;
@@ -86,6 +107,8 @@ namespace Core
 
         private void Awake()
         {
+
+            InitializeGrids();
 
             InitializeEducationSystem();
 
@@ -118,6 +141,10 @@ namespace Core
 
             _uiPresenter.SetEditor(_lpEditorView);
 
+            _uiPresenter.SetLessonButtons(_lessonButtons);
+
+            _uiPresenter.SetProgramButtons(_learningProgramsButtons);
+
 
             _lessonEditorPresenter.SetPresenter();
 
@@ -149,6 +176,10 @@ namespace Core
 
             _uiPresenter.UnsetEditor(_lpEditorView);
 
+            _uiPresenter.UnsetLessonButtons(_lessonButtons);
+
+            _uiPresenter.UnsetProgramButtons(_learningProgramsButtons);
+
 
             _lessonEditorPresenter.UnsetPresenter();
 
@@ -161,13 +192,18 @@ namespace Core
 
         private void Start()
         {
-
+            
             _programComponent.LoadLearningPrograms(
                 
-                _tableOfLearningPrograms.LearningPrograms);
+                SessionData.AllLearningPrograms);
 
 
-            _programComponent.SetLearningProgram(_allLessons);
+            _lpEditorView.SetAllLessons(SessionData.AllLessons,
+                
+                _lessonEditorToggles);
+
+            //#TODO load last program from SessionData
+            //_programComponent.SetLearningProgram(SessionData.AllLearningPrograms);
 
 
             _uiModel.ChangeState(UIStates.CurrentLearningProgram);
@@ -183,25 +219,52 @@ namespace Core
 
 
             _lessonEditorView.SetLanguages(_languages);
-
-
-            _lpEditorView.SetAllLessons(_allLessons.Lessons);
         }
 
 
         #region Program Initialization
+
+        private void InitializeGrids()
+        {
+
+            _lessonsGrid.SetCount(SessionData.AllLessons.Count);
+
+
+            _lessonButtons =
+                
+                _lessonsGrid.GetObjects<ExpandedButton>();
+
+
+            _learningProgramsGrid.SetCount(
+                
+                SessionData.AllLearningPrograms.Count);
+
+
+            _learningProgramsButtons =
+
+                _learningProgramsGrid.GetObjects<ExpandedButton>();
+
+
+            _lessonsTogglesGrid.SetCount(SessionData.AllLessons.Count);
+
+
+            _lessonEditorToggles =
+
+                _lessonsTogglesGrid.GetObjects<ExpandedToggle>();
+        }
+
 
         private void InitializeEducationSystem()
         {
 
             _lessonComponent =
                 
-                new LessonComponent(_uiView.LessonButtons);
+                new LessonComponent(_lessonButtons);
 
 
             _programComponent =
                 
-                new LearningProgramComponent(_uiView.ProgramButtons);
+                new LearningProgramComponent(_learningProgramsButtons);
 
 
             _educationSystem = new EducationSystem(_lessonComponent,
@@ -243,9 +306,7 @@ namespace Core
         private void InitializeLearningProgramEditor()
         {
 
-            _lpEditorModel = new LearningProgramEditorModel(
-
-                _lpEditorView.Toggles);
+            _lpEditorModel = new LearningProgramEditorModel(_lessonEditorToggles);
 
 
             _lpEditorPresenter = new LearningProgramEditorPresenter(
@@ -253,7 +314,7 @@ namespace Core
                 _lpEditorModel, _lpEditorView);
 
 
-            _lpEditorModel.InitializeToggles(_allLessons.Lessons);
+            _lpEditorModel.InitializeToggles(SessionData.AllLessons);
         }
 
         #endregion

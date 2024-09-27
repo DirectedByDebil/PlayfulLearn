@@ -1,6 +1,5 @@
 using UnityEngine;
-using Button = UnityEngine.UI.Button;
-using Lessons;
+using UnityEngine.UI;
 
 namespace UserInteraction.LessonPracticeSystem
 {
@@ -9,11 +8,6 @@ namespace UserInteraction.LessonPracticeSystem
 
     public class FinishLessonButton : MonoBehaviour
     {
-
-        [SerializeField]
-        
-        private Lesson _lesson;
-
 
         private Button _button;
 
@@ -30,7 +24,9 @@ namespace UserInteraction.LessonPracticeSystem
 
             _button.onClick.AddListener(delegate
             {
-                _lesson.SetCompleted();
+
+                //_lesson.SetCompleted();
+                
                 UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(0);
             });
         }

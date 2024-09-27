@@ -45,7 +45,12 @@ namespace Lessons
         public void SaveLesson(string nameOfLesson)
         {
 
+            string iconName = "IconName.png";
+
+
             LessonData data = new(nameOfLesson,
+
+                iconName,
 
                 ContentToNodes());
 

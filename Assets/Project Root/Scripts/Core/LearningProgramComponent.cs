@@ -8,7 +8,7 @@ namespace Core
     public sealed class LearningProgramComponent
     {
 
-        public event Action<LearningProgram> ProgramChanged;
+        public event Action<NewLearningProgram> ProgramChanged;
 
 
         private readonly IReadOnlyList<ExpandedButton> _buttons;
@@ -16,10 +16,10 @@ namespace Core
 
         private readonly List<SelectableModel
             
-            <LearningProgram>> _programs;
+            <NewLearningProgram>> _programs;
 
 
-        private LearningProgram _currentProgram;
+        private NewLearningProgram _currentProgram;
 
 
         public LearningProgramComponent(
@@ -32,7 +32,7 @@ namespace Core
 
             _programs = new List<SelectableModel<
                 
-                LearningProgram>>(_buttons.Count);
+                NewLearningProgram>>(_buttons.Count);
 
 
             InitializeModels();
@@ -75,7 +75,7 @@ namespace Core
         #endregion
 
 
-        public void SetLearningProgram(LearningProgram program)
+        public void SetLearningProgram(NewLearningProgram program)
         {
 
             _currentProgram = program;
@@ -86,27 +86,31 @@ namespace Core
 
         public void LoadLearningPrograms(
             
-            IReadOnlyList<LearningProgram> programs)
+            IReadOnlyCollection<NewLearningProgram> programs)
         {
 
-            for(int i = 0; i < programs.Count; i++)
+            int index = 0;
+
+
+            foreach(NewLearningProgram program in programs)
             {
 
-                LearningProgram program = programs[i];
-
-                _programs[i].SetSelectable(program);
+                _programs[index].SetSelectable(program);
 
 
-                ExpandedButton button = _buttons[i];
+                ExpandedButton button = _buttons[index];
 
-                button.UpdateIcon(program.ProgramBackground);
+                button.UpdateIcon(program.Icon);
 
-                button.UpdateText(program.name);
+                button.UpdateText(program.NameOfProgram);
+
+
+                index++;
             }
         }
 
 
-        private void TryUpdateProgram(LearningProgram program)
+        private void TryUpdateProgram(NewLearningProgram program)
         {
 
             if (_currentProgram != program)
@@ -125,7 +129,7 @@ namespace Core
 
                 _programs.Add(new SelectableModel<
                     
-                    LearningProgram>());
+                    NewLearningProgram>());
             }
         }
     }

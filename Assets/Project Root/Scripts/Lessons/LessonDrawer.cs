@@ -23,43 +23,32 @@ namespace Lessons
         #endregion
 
 
-        private Lesson _currentLesson;
+        private NewLesson _currentLesson;
         
-        private Languages _currentLanguage;
 
-
-        public void RenderLesson(Lesson lesson)
+        public void RenderLesson(NewLesson lesson)
         {
 
             //#TODO read from session data
-            Languages language = Languages.English;
+            Languages language = Languages.Russian;
 
-            if (lesson != _currentLesson)
-            {
+            
+            _currentLesson = lesson;
 
-                _currentLesson = lesson;
+            UpdateTexts(language);
+            
+
+            _contentRectTransform.localPosition = new Vector2
                 
-                UpdateTexts(language);
-
-            }
-            else if(language != _currentLanguage)
-            {
-
-                UpdateTexts(language);
-            }
+                (0, _contentRectTransform.localPosition.y);
             
 
-            _contentRectTransform.localPosition = new Vector2(0, _contentRectTransform.localPosition.y);
-            
             gameObject.SetActive(true);
         }
 
 
         private void UpdateTexts(Languages language)
         {
-
-            _currentLanguage = language;
-
 
             _header.text = _currentLesson.NameOfLesson;
 

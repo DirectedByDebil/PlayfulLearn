@@ -2,6 +2,7 @@
 using UserInterface;
 using Lessons;
 using Extensions;
+using Core;
 
 namespace LearningPrograms
 {
@@ -89,7 +90,7 @@ namespace LearningPrograms
 
             string fileName = string.Format(
                 
-                "Assets/Project Root/Learning Programs/{0}.json",
+                "{0}/{1}.json", PathKeeper.LearningProgramsPath,
                 
                 nameOfProgram);
             

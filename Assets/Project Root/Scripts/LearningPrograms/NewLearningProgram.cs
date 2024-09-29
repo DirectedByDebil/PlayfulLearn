@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Extensions;
+using Core;
 
 namespace LearningPrograms
 {
@@ -74,9 +75,9 @@ namespace LearningPrograms
         public void LoadIcon()
         {
 
-            string fileName = string.Format(
+            string fileName = 
                 
-                "Assets/Project Root/Graphics/Icons/Learning Programs/{0}", _iconName);
+                PathKeeper.GetLearningProgramIconFileName(_iconName);
 
 
             if(ImageExtensions.TryCreateSprite(fileName,

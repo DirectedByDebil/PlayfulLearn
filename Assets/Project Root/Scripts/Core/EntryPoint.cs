@@ -5,6 +5,7 @@ using System;
 using UserInterface;
 using Localization;
 using System.Collections.Generic;
+using Extensions;
 
 namespace Core
 {
@@ -202,8 +203,10 @@ namespace Core
                 
                 _lessonEditorToggles);
 
-            //#TODO load last program from SessionData
-            //_programComponent.SetLearningProgram(SessionData.AllLearningPrograms);
+
+            _programComponent.SetLearningProgram(
+                
+                SessionData.LastLearningProgram);
 
 
             _uiModel.ChangeState(UIStates.CurrentLearningProgram);
@@ -219,6 +222,16 @@ namespace Core
 
 
             _lessonEditorView.SetLanguages(_languages);
+        }
+
+
+        private void OnDestroy()
+        {
+
+            string name = _programComponent.GetCurrentProgramName();
+
+
+            FileExtensions.WriteFile(name, PathKeeper.LastLearningProgramName);
         }
 
 

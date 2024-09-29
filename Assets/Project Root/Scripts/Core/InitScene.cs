@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine.SceneManagement;
 
+
 namespace Core
 {
     public sealed class InitScene : MonoBehaviour
@@ -21,19 +22,12 @@ namespace Core
         private string _menuSceneName;
 
 
-        private string _lessonsPath = 
-            
-            "Assets/Project Root/Lessons";
-        
-
-        private string _learningProgramsPath = 
-            
-            "Assets/Project Root/Learning Programs";
-
+        private string _lastProgramName;
 
 
         private void Awake()
         {
+
 
             _statusHandler.text = "Loading lessons";
 
@@ -41,6 +35,8 @@ namespace Core
 
 
             _statusHandler.text = "Loading learning programs";
+
+            InitializeLastProgram();
 
             InitializeLearningPrograms();
 
@@ -57,7 +53,7 @@ namespace Core
 
             IReadOnlyCollection<LessonData> allLessonsData =
                 
-                FileExtensions.GetFiles<LessonData>(_lessonsPath);
+                FileExtensions.GetFiles<LessonData>(PathKeeper.LessonsPath);
 
 
             List<NewLesson> allLessons = new(allLessonsData.Count);
@@ -81,12 +77,27 @@ namespace Core
         }
 
 
+        private void InitializeLastProgram()
+        {
+
+            if(FileExtensions.TryReadFile(
+                
+                PathKeeper.LastLearningProgramName,
+                
+                out string result))
+            {
+
+                _lastProgramName = result;
+            }
+        }
+
+
         private void InitializeLearningPrograms()
         {
 
             IReadOnlyCollection<LearningProgramData> allProgramsData =
 
-                FileExtensions.GetFiles<LearningProgramData>(_learningProgramsPath);
+                FileExtensions.GetFiles<LearningProgramData>(PathKeeper.LearningProgramsPath);
 
 
             List<NewLearningProgram> allPrograms = new(allProgramsData.Count);
@@ -107,6 +118,22 @@ namespace Core
 
 
             SessionData.SetAllLearningPrograms(allPrograms);
+
+
+
+            NewLearningProgram last =
+                
+                allPrograms.Find(FindLastLearningProgram);
+
+
+            SessionData.SetLastLearningProgram(last);
+        }
+
+
+        private bool FindLastLearningProgram(NewLearningProgram learningProgram)
+        {
+
+            return learningProgram.NameOfProgram == _lastProgramName;
         }
     }
 }

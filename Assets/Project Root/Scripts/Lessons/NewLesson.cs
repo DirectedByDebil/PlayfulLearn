@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Localization;
 using Extensions;
+using Core;
 
 namespace Lessons
 {
@@ -74,9 +75,9 @@ namespace Lessons
         public void LoadIcon()
         {
 
-            string fileName = string.Format(
-
-                "Assets/Project Root/Graphics/Icons/Lessons/{0}", _iconName);
+            string fileName =
+                
+                PathKeeper.GetLessonsIconFileName(_iconName);
 
 
             if(ImageExtensions.TryCreateSprite(fileName,

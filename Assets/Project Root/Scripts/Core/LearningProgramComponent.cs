@@ -110,6 +110,13 @@ namespace Core
         }
 
 
+        public string GetCurrentProgramName()
+        {
+
+            return _currentProgram.NameOfProgram;
+        }
+
+
         private void TryUpdateProgram(NewLearningProgram program)
         {
 

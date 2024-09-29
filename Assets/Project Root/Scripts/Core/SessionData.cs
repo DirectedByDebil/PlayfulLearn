@@ -25,6 +25,13 @@ namespace Core
         }
 
 
+        public static NewLearningProgram LastLearningProgram
+        {
+
+            get => _lastLearningProgram;
+        }
+
+
 
         private static IReadOnlyList<
             
@@ -35,6 +42,8 @@ namespace Core
             
             NewLearningProgram> _allLearningPrograms;
 
+
+        private static NewLearningProgram _lastLearningProgram;
 
 
         public static void SetAllLessons(IReadOnlyList<
@@ -52,6 +61,15 @@ namespace Core
         {
 
             _allLearningPrograms = allLearningPrograms;
+        }
+
+
+        public static void SetLastLearningProgram(
+            
+            NewLearningProgram lastLearningProgram)
+        {
+
+            _lastLearningProgram = lastLearningProgram;
         }
     }
 }

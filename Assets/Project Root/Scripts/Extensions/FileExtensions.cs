@@ -62,19 +62,44 @@ namespace Extensions
         }
 
 
+        public static bool TryReadFile(string fileName, out string result)
+        {
+
+            result = null;
+
+
+            if(TryReadBytes(fileName, out byte[] bytes))
+            {
+
+                result = Encoding.Default.GetString(bytes);
+
+                return true;
+            }
+
+
+            return false;
+        }
+
+
         public static void WriteJson(object data, string fileName)
         {
 
             string json = JsonUtility.ToJson(data);
 
+            WriteFile(json, fileName);
+        }
+
+
+        public static void WriteFile(string data, string fileName)
+        {
 
             using (FileStream stream = new(fileName, FileMode.Create, FileAccess.Write))
             {
 
-                byte[] buffer = Encoding.Default.GetBytes(json);
+                byte[] buffer = Encoding.Default.GetBytes(data);
 
 
-                    stream.Write(buffer, 0, buffer.Length);
+                stream.Write(buffer, 0, buffer.Length);
             }
         }
 

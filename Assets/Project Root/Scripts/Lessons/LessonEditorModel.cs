@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Localization;
 using Extensions;
+using Core;
 
 namespace Lessons
 {
@@ -57,7 +58,7 @@ namespace Lessons
 
             string fileName = string.Format(
 
-                "Assets/Project Root/Lessons/{0}.json",
+                "{0}/{1}.json", PathKeeper.LessonsPath,
                 
                 nameOfLesson);
 

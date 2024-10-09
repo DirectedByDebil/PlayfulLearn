@@ -62,7 +62,9 @@ namespace Extensions
         }
 
 
-        public static bool TryReadFile(string fileName, out string result)
+        public static bool TryReadFile(string fileName,
+            
+            out string result)
         {
 
             result = null;
@@ -93,13 +95,21 @@ namespace Extensions
         public static void WriteFile(string data, string fileName)
         {
 
-            using (FileStream stream = new(fileName, FileMode.Create, FileAccess.Write))
+            byte[] bytes = Encoding.Default.GetBytes(data);
+
+            WriteBytes(bytes, fileName);
+        }
+
+
+        public static void WriteBytes(byte[] bytes, string fileName)
+        {
+
+            using (FileStream stream = new (fileName,
+                
+                FileMode.Create, FileAccess.Write))
             {
 
-                byte[] buffer = Encoding.Default.GetBytes(data);
-
-
-                stream.Write(buffer, 0, buffer.Length);
+                stream.Write(bytes, 0, bytes.Length);
             }
         }
 
@@ -120,6 +130,23 @@ namespace Extensions
             
 
             return objects;
+        }
+
+
+        public static string LoadFile(string from, string to)
+        {
+
+            string fileName = Path.GetFileName(from);
+
+            string loadingFileName = to + "/" + fileName;
+
+
+            TryReadBytes(from, out byte[] bytes);
+
+            WriteBytes(bytes, loadingFileName);
+
+
+            return fileName;
         }
     }
 }

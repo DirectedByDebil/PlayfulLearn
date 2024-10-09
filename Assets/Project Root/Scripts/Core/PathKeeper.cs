@@ -17,28 +17,24 @@
         }
 
 
+        public static string LessonsIconPath
+        {
+
+            get => "Assets/Project Root/Graphics/Icons/Lessons";
+        }
+
+
+        public static string LearningProgramsIconPath
+        {
+
+            get => "Assets/Project Root/Graphics/Icons/Learning Programs";
+        }
+
+
         public static string LastLearningProgramName
         {
 
             get => LearningProgramsPath + "/Last Learning Program.txt";
-        }
-
-
-        public static string GetLessonsIconFileName(string iconName)
-        {
-
-            return string.Format(
-
-                "Assets/Project Root/Graphics/Icons/Lessons/{0}", iconName);
-        }
-
-
-        public static string GetLearningProgramIconFileName(string iconName)
-        {
-
-            return string.Format(
-
-                "Assets/Project Root/Graphics/Icons/Learning Programs/{0}", iconName);
         }
     }
 }

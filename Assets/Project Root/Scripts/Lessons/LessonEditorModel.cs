@@ -2,6 +2,7 @@
 using Localization;
 using Extensions;
 using Core;
+using System.IO;
 
 namespace Lessons
 {
@@ -9,6 +10,9 @@ namespace Lessons
     {
 
         private Dictionary<Languages, LessonTextContent> _content;
+
+
+        private string _iconPath;
 
 
         public LessonEditorModel(IReadOnlyCollection<Languages> languages)
@@ -46,7 +50,9 @@ namespace Lessons
         public void SaveLesson(string nameOfLesson)
         {
 
-            string iconName = "IconName.png";
+            string iconName = FileExtensions.LoadFile
+                
+                (_iconPath, PathKeeper.LessonsIconPath);
 
 
             LessonData data = new(nameOfLesson,
@@ -64,6 +70,13 @@ namespace Lessons
 
 
             FileExtensions.WriteJson(data, fileName);
+        }
+
+
+        public void SetIconPath(string iconPath)
+        {
+
+            _iconPath = iconPath;
         }
 
 

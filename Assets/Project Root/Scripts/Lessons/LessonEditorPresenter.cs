@@ -1,4 +1,5 @@
 ﻿using Localization;
+using SimpleFileBrowser;
 
 namespace Lessons
 {
@@ -35,6 +36,11 @@ namespace Lessons
             _view.CreateClicked.AddListener(
 
                 OnCreateClicked);
+
+
+            _view.LoadIconClicked.AddListener(
+
+                OnLoadIconClicked);
         }
 
 
@@ -49,6 +55,11 @@ namespace Lessons
             _view.CreateClicked.RemoveListener(
 
                 OnCreateClicked);
+
+
+            _view.LoadIconClicked.RemoveListener(
+
+                OnLoadIconClicked);
         }
 
 
@@ -78,6 +89,24 @@ namespace Lessons
 
 
             _model.SaveLesson(_view.NameOfLesson);
+        }
+
+
+        private void OnLoadIconClicked()
+        {
+
+            FileBrowser.ShowLoadDialog(OnSuccess, null,
+                
+                FileBrowser.PickMode.Files);
+        }
+
+
+        private void OnSuccess(string[] paths)
+        {
+
+            _model.SetIconPath(paths[0]);
+
+            _view.SetIconPath(paths[0]);
         }
     }
 }

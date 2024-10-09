@@ -42,6 +42,13 @@ namespace Lessons
             get => _closeButton.onClick;
         }
 
+
+        public Button.ButtonClickedEvent LoadIconClicked
+        {
+
+            get => _loadIconButton.onClick;
+        }
+
         #endregion
 
 
@@ -62,6 +69,11 @@ namespace Lessons
         [SerializeField, Space]
 
         private Button _closeButton;
+
+
+        [SerializeField, Space]
+
+        private Button _loadIconButton;
 
         #endregion
 
@@ -88,6 +100,11 @@ namespace Lessons
         private TMP_InputField _descriptionText;
 
         #endregion
+
+
+        [SerializeField, Space]
+
+        private TextMeshProUGUI _iconPathHandler;
 
 
         [SerializeField, Space]
@@ -134,6 +151,13 @@ namespace Lessons
 
 
             _dropdown.RefreshShownValue();
+        }
+
+
+        public void SetIconPath(string iconPath)
+        {
+
+            _iconPathHandler.text = iconPath;
         }
     }
 }

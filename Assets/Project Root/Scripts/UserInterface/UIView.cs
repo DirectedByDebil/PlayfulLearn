@@ -44,6 +44,13 @@ namespace UserInterface
             get => _openProgramEditorButton.onClick;
         }
 
+
+        public Button.ButtonClickedEvent UserAccountClicked
+        {
+
+            get => _openUserAccountButton.onClick;
+        }
+
         #endregion
 
 
@@ -73,6 +80,11 @@ namespace UserInterface
         [SerializeField, Space]
 
         private Button _openProgramEditorButton;
+
+
+        [SerializeField, Space]
+
+        private Button _openUserAccountButton;
 
         #endregion
     }

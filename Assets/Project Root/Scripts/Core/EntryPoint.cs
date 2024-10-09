@@ -6,6 +6,7 @@ using UserInterface;
 using Localization;
 using System.Collections.Generic;
 using Extensions;
+using Users;
 
 namespace Core
 {
@@ -37,6 +38,11 @@ namespace Core
         private UIModel _uiModel;
 
         private UIPresenter _uiPresenter;
+
+
+        [SerializeField, Space]
+
+        private UserView _userView;
 
         #endregion
 
@@ -146,6 +152,8 @@ namespace Core
 
             _uiPresenter.SetProgramButtons(_learningProgramsButtons);
 
+            _uiPresenter.SetUserAccount(_userView);
+
 
             _lessonEditorPresenter.SetPresenter();
 
@@ -180,6 +188,8 @@ namespace Core
             _uiPresenter.UnsetLessonButtons(_lessonButtons);
 
             _uiPresenter.UnsetProgramButtons(_learningProgramsButtons);
+
+            _uiPresenter.UnsetUserAccount(_userView);
 
 
             _lessonEditorPresenter.UnsetPresenter();

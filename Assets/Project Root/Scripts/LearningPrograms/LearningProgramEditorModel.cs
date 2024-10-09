@@ -18,6 +18,9 @@ namespace LearningPrograms
         private List<NewLesson> _lessonsInProgram;
 
 
+        private string _iconPath;
+
+
         public LearningProgramEditorModel(
             
             IReadOnlyList<ExpandedToggle> toggles)
@@ -78,7 +81,9 @@ namespace LearningPrograms
         public void CreateProgram(string nameOfProgram)
         {
 
-            string iconName = "IconName.png";
+            string iconName = FileExtensions.LoadFile(
+
+                _iconPath, PathKeeper.LearningProgramsIconPath);
 
 
             LearningProgramData data = new(nameOfProgram,
@@ -96,6 +101,13 @@ namespace LearningPrograms
             
 
             FileExtensions.WriteJson(data, fileName);
+        }
+
+
+        public void SetIconPath(string iconPath)
+        {
+
+            _iconPath = iconPath;
         }
 
 

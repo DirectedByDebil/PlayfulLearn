@@ -75,10 +75,10 @@ namespace LearningPrograms
         public void LoadIcon()
         {
 
-            string fileName = 
-                
-                PathKeeper.GetLearningProgramIconFileName(_iconName);
+            string fileName = string.Format("{0}/{1}",
 
+                PathKeeper.LearningProgramsIconPath, _iconName);
+            
 
             if(ImageExtensions.TryCreateSprite(fileName,
                 

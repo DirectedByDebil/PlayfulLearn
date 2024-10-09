@@ -36,12 +36,24 @@ namespace LearningPrograms
             get => _closeButton.onClick;
         }
 
+
+        public Button.ButtonClickedEvent LoadIconClicked
+        {
+
+            get => _loadIconButton.onClick;
+        }
+
         #endregion
 
 
         [Space, SerializeField]
         
         private TMP_InputField _nameOfProgramText;
+
+
+        [Space, SerializeField]
+
+        private TextMeshProUGUI _iconPathHandler;
 
 
         #region Buttons
@@ -54,6 +66,11 @@ namespace LearningPrograms
         [SerializeField, Space]
 
         private Button _closeButton;
+
+
+        [SerializeField, Space]
+
+        private Button _loadIconButton;
 
         #endregion
 
@@ -74,6 +91,13 @@ namespace LearningPrograms
 
                 index++;
             }
+        }
+
+
+        public void SetIconPath(string iconPath)
+        {
+
+            _iconPathHandler.text = iconPath;
         }
     }
 }

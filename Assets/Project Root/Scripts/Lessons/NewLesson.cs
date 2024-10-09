@@ -75,10 +75,10 @@ namespace Lessons
         public void LoadIcon()
         {
 
-            string fileName =
-                
-                PathKeeper.GetLessonsIconFileName(_iconName);
+            string fileName = string.Format("{0}/{1}",
 
+                PathKeeper.LessonsIconPath, _iconName);
+            
 
             if(ImageExtensions.TryCreateSprite(fileName,
                 

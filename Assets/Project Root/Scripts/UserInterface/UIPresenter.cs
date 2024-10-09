@@ -44,6 +44,11 @@ namespace UserInterface
             _view.OpenProgramEditorClicked.AddListener(
 
                 StateProgramEditor);
+
+
+            _view.UserAccountClicked.AddListener(
+
+                StateUserAccount);
         }
 
 
@@ -69,6 +74,11 @@ namespace UserInterface
             _view.OpenProgramEditorClicked.RemoveListener(
 
                 StateProgramEditor);
+
+
+            _view.UserAccountClicked.RemoveListener(
+                
+                StateUserAccount);
         }
 
 
@@ -144,6 +154,24 @@ namespace UserInterface
         }
 
 
+        public void SetUserAccount(ICloseable userView)
+        {
+
+            userView.CloseClicked.AddListener(
+
+                StateCurrentProgram);
+        }
+
+
+        public void UnsetUserAccount(ICloseable userView)
+        {
+
+            userView.CloseClicked.RemoveListener(
+
+                StateCurrentProgram);
+        }
+
+
         #region State UIState Methods
 
         private void StateCurrentLesson()
@@ -178,6 +206,13 @@ namespace UserInterface
         {
 
             _model.ChangeState(UIStates.ProgramEditor);
+        }
+
+
+        private void StateUserAccount()
+        {
+
+            _model.ChangeState(UIStates.UserAccount);
         }
         
         #endregion

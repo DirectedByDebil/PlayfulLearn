@@ -56,13 +56,13 @@ namespace Core
                 FileExtensions.GetFiles<LessonData>(PathKeeper.LessonsPath);
 
 
-            List<NewLesson> allLessons = new(allLessonsData.Count);
+            List<Lesson> allLessons = new(allLessonsData.Count);
 
 
             foreach(LessonData data in allLessonsData)
             {
 
-                NewLesson lesson = new (data);
+                Lesson lesson = new (data);
 
                 lesson.InitializeContent();
 
@@ -100,13 +100,13 @@ namespace Core
                 FileExtensions.GetFiles<LearningProgramData>(PathKeeper.LearningProgramsPath);
 
 
-            List<NewLearningProgram> allPrograms = new(allProgramsData.Count);
+            List<LearningProgram> allPrograms = new(allProgramsData.Count);
 
 
             foreach (LearningProgramData data in allProgramsData)
             {
 
-                NewLearningProgram program = new(data);
+                LearningProgram program = new(data);
 
                 program.LoadIcon();
 
@@ -121,7 +121,7 @@ namespace Core
 
 
 
-            NewLearningProgram last =
+            LearningProgram last =
                 
                 allPrograms.Find(FindLastLearningProgram);
 
@@ -130,7 +130,7 @@ namespace Core
         }
 
 
-        private bool FindLastLearningProgram(NewLearningProgram learningProgram)
+        private bool FindLastLearningProgram(LearningProgram learningProgram)
         {
 
             return learningProgram.NameOfProgram == _lastProgramName;

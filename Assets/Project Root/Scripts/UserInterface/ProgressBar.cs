@@ -26,7 +26,7 @@ namespace UserInterface
         private RectTransform _progressBar;
 
 
-        public void UpdateProgressBar(NewLearningProgram learningProgram)
+        public void UpdateProgressBar(LearningProgram learningProgram)
         {
 
             float currentProgress = CountProgress(learningProgram.Lessons);
@@ -45,13 +45,13 @@ namespace UserInterface
         }
 
 
-        private float CountProgress(IReadOnlyCollection<NewLesson> lessons)
+        private float CountProgress(IReadOnlyCollection<Lesson> lessons)
         {
 
             float currentProgress = 0f;
 
 
-            foreach (NewLesson lesson in lessons)
+            foreach (Lesson lesson in lessons)
             {
 
                 if (lesson.IsCompleted)

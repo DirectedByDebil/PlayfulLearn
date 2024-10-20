@@ -23,10 +23,10 @@ namespace Lessons
         #endregion
 
 
-        private NewLesson _currentLesson;
+        private Lesson _currentLesson;
         
 
-        public void RenderLesson(NewLesson lesson)
+        public void RenderLesson(Lesson lesson)
         {
 
             //#TODO read from session data

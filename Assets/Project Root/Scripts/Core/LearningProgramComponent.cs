@@ -8,18 +8,18 @@ namespace Core
     public sealed class LearningProgramComponent
     {
 
-        public event Action<NewLearningProgram> ProgramChanged;
+        public event Action<LearningProgram> ProgramChanged;
 
 
-        private readonly IReadOnlyList<ExpandedButton> _buttons;
+        private readonly List<ExpandedButton> _buttons;
 
 
         private readonly List<SelectableModel
             
-            <NewLearningProgram>> _programs;
+            <LearningProgram>> _programs;
 
 
-        private NewLearningProgram _currentProgram;
+        private LearningProgram _currentProgram;
 
 
         public LearningProgramComponent(
@@ -27,19 +27,19 @@ namespace Core
             IReadOnlyList<ExpandedButton> buttons)
         {
 
-            _buttons = buttons;
+            _buttons = new List<ExpandedButton>(buttons);
 
 
             _programs = new List<SelectableModel<
                 
-                NewLearningProgram>>(_buttons.Count);
+                LearningProgram>>(_buttons.Count);
 
 
             InitializeModels();
         }
 
 
-        #region Subscribe/Unsubscribe on
+        #region Set/Unset Component
 
         public void SetComponent()
         {
@@ -47,12 +47,7 @@ namespace Core
             for(int i = 0; i < _buttons.Count; i++)
             {
 
-                _buttons[i].onClick.AddListener(
-
-                    _programs[i].SelectObject);
-
-
-                _programs[i].Selected += TryUpdateProgram;
+                SetButton(_buttons[i], _programs[i]);
             }
         }
 
@@ -63,19 +58,33 @@ namespace Core
             for (int i = 0; i < _buttons.Count; i++)
             {
 
-                _buttons[i].onClick.RemoveListener(
-
-                    _programs[i].SelectObject);
-
-
-                _programs[i].Selected -= TryUpdateProgram;
+                UnsetButton(_buttons[i], _programs[i]);
             }
         }
 
         #endregion
 
 
-        public void SetLearningProgram(NewLearningProgram program)
+        public void AddButton(ExpandedButton button,
+            
+            LearningProgram learningProgram)
+        {
+
+            SelectableModel<LearningProgram> program = new();
+
+
+            InitializeButton(button, program, learningProgram);
+
+            SetButton(button, program);
+
+
+            _buttons.Add(button);
+
+            _programs.Add(program);
+        }
+
+
+        public void SetLearningProgram(LearningProgram program)
         {
 
             _currentProgram = program;
@@ -86,25 +95,23 @@ namespace Core
 
         public void LoadLearningPrograms(
             
-            IReadOnlyCollection<NewLearningProgram> programs)
+            IReadOnlyCollection<LearningProgram> programs)
         {
 
             int index = 0;
 
 
-            foreach(NewLearningProgram program in programs)
+            foreach(LearningProgram program in programs)
             {
-
-                _programs[index].SetSelectable(program);
-
 
                 ExpandedButton button = _buttons[index];
 
-                button.UpdateIcon(program.Icon);
 
-                button.UpdateText(program.NameOfProgram);
+                InitializeButton(button, _programs[index],
 
+                    program);
 
+                
                 index++;
             }
         }
@@ -117,7 +124,39 @@ namespace Core
         }
 
 
-        private void TryUpdateProgram(NewLearningProgram program)
+        #region Set/Unset Buttons
+
+        private void SetButton(ExpandedButton button,
+            
+            SelectableModel<LearningProgram> program)
+        {
+
+            button.onClick.AddListener(
+
+                program.SelectObject);
+
+
+            program.Selected += TryUpdateProgram;
+        }
+
+
+        private void UnsetButton(ExpandedButton button,
+            
+            SelectableModel<LearningProgram> program)
+        {
+
+            button.onClick.RemoveListener(
+
+                program.SelectObject);
+
+
+            program.Selected -= TryUpdateProgram;
+        }
+
+        #endregion
+
+
+        private void TryUpdateProgram(LearningProgram program)
         {
 
             if (_currentProgram != program)
@@ -136,8 +175,24 @@ namespace Core
 
                 _programs.Add(new SelectableModel<
                     
-                    NewLearningProgram>());
+                    LearningProgram>());
             }
+        }
+
+
+        private void InitializeButton(ExpandedButton button,
+            
+            SelectableModel<LearningProgram> selectable,
+            
+            LearningProgram program)
+        {
+
+            selectable.SetSelectable(program);
+
+
+            button.UpdateIcon(program.Icon);
+
+            button.UpdateText(program.NameOfProgram);
         }
     }
 }

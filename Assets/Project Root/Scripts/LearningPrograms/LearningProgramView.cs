@@ -25,7 +25,7 @@ namespace LearningPrograms
         private RectTransform _contentPosition;
 
 
-        public void ViewLearningProgram(NewLearningProgram learningProgram)
+        public void ViewLearningProgram(LearningProgram learningProgram)
         {
 
             _contentPosition.localPosition = new Vector3(0, 0);

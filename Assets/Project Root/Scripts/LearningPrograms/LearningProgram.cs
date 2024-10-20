@@ -6,7 +6,7 @@ using Core;
 
 namespace LearningPrograms
 {
-    public sealed class NewLearningProgram
+    public sealed class LearningProgram
     {
 
         public string NameOfProgram
@@ -23,7 +23,7 @@ namespace LearningPrograms
         }
 
 
-        public IReadOnlyList<NewLesson> Lessons
+        public IReadOnlyList<Lesson> Lessons
         {
 
             get => _lessons;
@@ -37,13 +37,13 @@ namespace LearningPrograms
 
         private readonly List<string> _lessonsNames;
 
-        private readonly List<NewLesson> _lessons;
+        private readonly List<Lesson> _lessons;
 
 
         private Sprite _sprite;
 
 
-        public NewLearningProgram(LearningProgramData data)
+        public LearningProgram(LearningProgramData data)
         {
 
             _nameOfProgram = data.NameOfProgram;
@@ -53,14 +53,14 @@ namespace LearningPrograms
             _lessonsNames = data.Lessons;
 
 
-            _lessons = new List<NewLesson>(_lessonsNames.Count);
+            _lessons = new List<Lesson>(_lessonsNames.Count);
         }
 
 
-        public void AddLessons(IEnumerable<NewLesson> allLessons)
+        public void AddLessons(IEnumerable<Lesson> allLessons)
         {
 
-            foreach(NewLesson lesson in allLessons)
+            foreach(Lesson lesson in allLessons)
             {
 
                 if(_lessonsNames.Contains(lesson.NameOfLesson))

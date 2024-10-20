@@ -2,12 +2,15 @@
 using Localization;
 using Extensions;
 using Core;
-using System.IO;
+using System;
 
 namespace Lessons
 {
     public sealed class LessonEditorModel
     {
+
+        public event Action<LessonData> LessonCreated;
+
 
         private Dictionary<Languages, LessonTextContent> _content;
 
@@ -70,6 +73,9 @@ namespace Lessons
 
 
             FileExtensions.WriteJson(data, fileName);
+
+
+            LessonCreated?.Invoke(data);
         }
 
 

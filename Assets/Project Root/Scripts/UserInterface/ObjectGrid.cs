@@ -58,6 +58,16 @@ namespace UserInterface
         }
 
 
+        public T GetLastObject<T>() where T: MonoBehaviour
+        {
+
+            MonoBehaviour last = _objects[_objects.Count - 1];
+
+
+            return last.GetComponent<T>();
+        }
+
+
         private void ReplaceObjects()
         {
 

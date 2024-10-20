@@ -3,19 +3,23 @@ using UserInterface;
 using Lessons;
 using Extensions;
 using Core;
+using System;
 
 namespace LearningPrograms
 {
     public sealed class LearningProgramEditorModel
     {
 
+        public event Action<LearningProgramData> LearningProgramCreated;
+
+
         private readonly IReadOnlyList<ExpandedToggle> _toggles;
 
 
-        private List<ToggleModel<NewLesson>> _models;
+        private List<ToggleModel<Lesson>> _models;
 
 
-        private List<NewLesson> _lessonsInProgram;
+        private List<Lesson> _lessonsInProgram;
 
 
         private string _iconPath;
@@ -28,20 +32,20 @@ namespace LearningPrograms
 
             _toggles = toggles;
 
-            _models = new List<ToggleModel<NewLesson>>(_toggles.Count);
+            _models = new List<ToggleModel<Lesson>>(_toggles.Count);
         }
 
 
-        public void InitializeToggles(IReadOnlyCollection<NewLesson> allLessons)
+        public void InitializeToggles(IReadOnlyCollection<Lesson> allLessons)
         {
 
-            _lessonsInProgram = new List<NewLesson>(allLessons.Count);
+            _lessonsInProgram = new List<Lesson>(allLessons.Count);
 
 
-            foreach(NewLesson lesson in allLessons)
+            foreach(Lesson lesson in allLessons)
             {
 
-                _models.Add(new ToggleModel<NewLesson>(lesson));
+                _models.Add(new ToggleModel<Lesson>(lesson));
             }
         }
 
@@ -49,7 +53,7 @@ namespace LearningPrograms
         public void SetModel()
         {
 
-            for(int i = 0; i < _toggles.Count; i++)
+            for(int i = 0; i < _models.Count; i++)
             {
 
                 _toggles[i].onValueChanged.AddListener(
@@ -65,7 +69,7 @@ namespace LearningPrograms
         public void UnsetModel()
         {
 
-            for (int i = 0; i < _toggles.Count; i++)
+            for (int i = 0; i < _models.Count; i++)
             {
 
                 _toggles[i].onValueChanged.RemoveListener(
@@ -101,6 +105,9 @@ namespace LearningPrograms
             
 
             FileExtensions.WriteJson(data, fileName);
+
+
+            LearningProgramCreated?.Invoke(data);
         }
 
 
@@ -111,7 +118,7 @@ namespace LearningPrograms
         }
 
 
-        private void OnToggleChanged(NewLesson lesson, bool isOn)
+        private void OnToggleChanged(Lesson lesson, bool isOn)
         {
 
             if(isOn)
@@ -132,7 +139,7 @@ namespace LearningPrograms
             List<string> lessons = new(_lessonsInProgram.Count);
 
 
-            foreach (NewLesson lesson in _lessonsInProgram)
+            foreach (Lesson lesson in _lessonsInProgram)
             {
 
                 lessons.Add(lesson.NameOfLesson);

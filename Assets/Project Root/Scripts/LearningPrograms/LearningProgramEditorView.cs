@@ -76,7 +76,7 @@ namespace LearningPrograms
 
 
 
-        public void SetAllLessons(IReadOnlyCollection<NewLesson> lessons,
+        public void SetAllLessons(IReadOnlyCollection<Lesson> lessons,
             
             IReadOnlyList<ExpandedToggle> toggles)
         {
@@ -84,7 +84,7 @@ namespace LearningPrograms
             int index = 0;
 
 
-            foreach(NewLesson lesson in lessons)
+            foreach(Lesson lesson in lessons)
             {
 
                 toggles[index].UpdateText(lesson.NameOfLesson);

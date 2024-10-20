@@ -11,7 +11,7 @@ namespace Core
     public sealed class LessonComponent
     {
 
-        public event Action<NewLesson> LessonChanged;
+        public event Action<Lesson> LessonChanged;
 
 
         private readonly IReadOnlyList<ExpandedButton> _buttons;
@@ -19,10 +19,10 @@ namespace Core
 
         private readonly List<SelectableModel<
 
-            NewLesson>> _models;
+            Lesson>> _models;
 
 
-        private NewLesson _currentLesson;
+        private Lesson _currentLesson;
 
 
         public LessonComponent(
@@ -35,7 +35,7 @@ namespace Core
 
             _models = new List<SelectableModel<
 
-                NewLesson>>(_buttons.Count);
+                Lesson>>(_buttons.Count);
 
 
             InitializeModels();
@@ -78,16 +78,16 @@ namespace Core
         #endregion
 
 
-        public void OnLearningProgramChanged(NewLearningProgram program)
+        public void OnLearningProgramChanged(LearningProgram program)
         {
 
-            IReadOnlyList<NewLesson> lessons = program.Lessons;
+            IReadOnlyList<Lesson> lessons = program.Lessons;
 
 
             for(int i = 0; i < lessons.Count; i++)
             {
 
-                NewLesson lesson = lessons[i];
+                Lesson lesson = lessons[i];
 
                 UpdateButton(i, lesson);
             }
@@ -107,12 +107,12 @@ namespace Core
             for(int i = 0; i < _buttons.Count; i++)
             {
 
-                _models.Add(new SelectableModel<NewLesson>());
+                _models.Add(new SelectableModel<Lesson>());
             }
         }
 
 
-        private void TryUpdateLesson(NewLesson lesson)
+        private void TryUpdateLesson(Lesson lesson)
         {
 
             if(lesson != _currentLesson)
@@ -125,7 +125,7 @@ namespace Core
         }
 
 
-        private void UpdateButton(int index, NewLesson lesson)
+        private void UpdateButton(int index, Lesson lesson)
         {
 
             ExpandedButton button = _buttons[index];

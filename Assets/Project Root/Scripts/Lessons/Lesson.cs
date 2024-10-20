@@ -6,7 +6,7 @@ using Core;
 
 namespace Lessons
 {
-    public sealed class NewLesson
+    public sealed class Lesson
     {
 
         public string NameOfLesson
@@ -56,7 +56,7 @@ namespace Lessons
         private bool _isCompleted;
 
 
-        public NewLesson(LessonData data)
+        public Lesson(LessonData data)
         {
 
             _nameOfLeson = data.NameOfLesson;

@@ -9,7 +9,7 @@ namespace Core
 
         public static IReadOnlyCollection<
 
-            NewLesson> AllLessons
+            Lesson> AllLessons
         {
 
             get => _allLessons;
@@ -18,14 +18,14 @@ namespace Core
 
         public static IReadOnlyCollection<
 
-            NewLearningProgram> AllLearningPrograms
+            LearningProgram> AllLearningPrograms
         {
 
             get => _allLearningPrograms;
         }
 
 
-        public static NewLearningProgram LastLearningProgram
+        public static LearningProgram LastLearningProgram
         {
 
             get => _lastLearningProgram;
@@ -33,43 +33,55 @@ namespace Core
 
 
 
-        private static IReadOnlyList<
-            
-            NewLesson> _allLessons;
+        private static List<Lesson> _allLessons;
 
 
-        private static IReadOnlyList<
-            
-            NewLearningProgram> _allLearningPrograms;
+        private static List<LearningProgram> _allLearningPrograms;
 
 
-        private static NewLearningProgram _lastLearningProgram;
+        private static LearningProgram _lastLearningProgram;
 
 
         public static void SetAllLessons(IReadOnlyList<
             
-            NewLesson> allLessons)
+            Lesson> allLessons)
         {
 
-            _allLessons = allLessons;
+            _allLessons = new List<Lesson>(allLessons);
         }
 
 
         public static void SetAllLearningPrograms(IReadOnlyList<
             
-            NewLearningProgram> allLearningPrograms)
+            LearningProgram> allLearningPrograms)
         {
 
-            _allLearningPrograms = allLearningPrograms;
+            _allLearningPrograms = new List<LearningProgram>
+                
+                (allLearningPrograms);
         }
 
 
         public static void SetLastLearningProgram(
             
-            NewLearningProgram lastLearningProgram)
+            LearningProgram lastLearningProgram)
         {
 
             _lastLearningProgram = lastLearningProgram;
+        }
+
+
+        public static void AddLesson(Lesson lesson)
+        {
+
+            _allLessons.Add(lesson);
+        }
+
+
+        public static void AddLearningProgram(LearningProgram program)
+        {
+
+            _allLearningPrograms.Add(program);
         }
     }
 }

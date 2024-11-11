@@ -5,6 +5,7 @@ using LearningPrograms;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine.SceneManagement;
+using System.Threading.Tasks;
 
 
 namespace Core
@@ -38,8 +39,8 @@ namespace Core
 
             InitializeLastProgram();
 
-            InitializeLearningPrograms();
-
+            InitializeLearningProgramsAsync();
+            
 
             _statusHandler.text = "Ready";
 
@@ -92,7 +93,7 @@ namespace Core
         }
 
 
-        private void InitializeLearningPrograms()
+        private async Task InitializeLearningProgramsAsync()
         {
 
             IReadOnlyCollection<LearningProgramData> allProgramsData =
@@ -110,7 +111,7 @@ namespace Core
 
                 program.LoadIcon();
 
-                program.AddLessons(SessionData.AllLessons);
+                program.AddLessonsAsync(SessionData.AllLessons);
 
 
                 allPrograms.Add(program);

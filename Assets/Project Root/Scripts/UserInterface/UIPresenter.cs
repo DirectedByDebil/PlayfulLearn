@@ -125,11 +125,13 @@ namespace UserInterface
             }
         }
 
+
         public void SetLessonButton(IClickable button)
         {
 
             button.onClick.AddListener(StateCurrentLesson);
         }
+
 
         public void SetProgramButton(IClickable button)
         {

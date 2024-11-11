@@ -211,7 +211,7 @@ namespace Core
 
         private void Start()
         {
-            
+
             _programComponent.LoadLearningPrograms(
                 
                 SessionData.AllLearningPrograms);
@@ -246,10 +246,43 @@ namespace Core
         private void OnDestroy()
         {
 
+            List<string> GetLessonsNames(IReadOnlyCollection<Lesson> _lessons)
+            {
+
+                List<string> lessonsNames = new(_lessons.Count);
+
+
+                foreach (Lesson lesson in _lessons)
+                {
+
+                    lessonsNames.Add(lesson.NameOfLesson);
+                }
+
+
+                return lessonsNames;
+            }
+
+
             string name = _programComponent.GetCurrentProgramName();
 
 
             FileExtensions.WriteFile(name, PathKeeper.LastLearningProgramName);
+
+
+
+            LearningProgramData data = new("All Lessons",
+                
+                "Unity.png", GetLessonsNames(SessionData.AllLessons));
+
+
+            string fileName = string.Format(
+
+                "{0}/{1}.json", PathKeeper.LearningProgramsPath,
+
+                "All Lessons");
+
+
+            FileExtensions.WriteJson(data, fileName);
         }
 
 
@@ -265,53 +298,91 @@ namespace Core
 
             SessionData.AddLesson(lesson);
 
-            _lessonsGrid.SetCount(SessionData.AllLessons.Count);
 
-            _lessonsTogglesGrid.SetCount(SessionData.AllLessons.Count);
-
-
-            ExpandedButton button = _lessonsGrid.GetLastObject<
+            if(_lessonsGrid.TryUpdateCount(SessionData.AllLessons.Count))
+            {
                 
-                ExpandedButton>();
+                ExpandedButton button = 
+                    
+                    _lessonsGrid.GetObject<ExpandedButton>(SessionData.AllLessons.Count-1);
 
 
-            ExpandedToggle toggle = _lessonsTogglesGrid.GetLastObject<
+                _lessonComponent.AddButton(button, lesson);
 
-                ExpandedToggle>();
+                _lessonButtons.Add(button);
+
+                _uiPresenter.SetLessonButton(button);
+            }
 
 
-            _lessonButtons.Add(button);
+            
 
-            _lessonEditorToggles.Add(toggle);
+            bool isAdded = _lessonsTogglesGrid.TryUpdateCount(
+                
+                SessionData.AllLessons.Count);
+
+            
+            ExpandedToggle toggle = 
+                
+                _lessonsTogglesGrid.GetObject<ExpandedToggle>(SessionData.AllLessons.Count-1);
+
+
+            toggle.gameObject.SetActive(true);
+
+            toggle.UpdateText(lesson.NameOfLesson);
+
+
+            if(isAdded)
+            {
+
+                _lessonEditorToggles.Add(toggle);
+
+                _lpEditorModel.AddToggle(toggle, lesson);
+            }
         }
 
 
-        private void OnLearningProgramCreated(LearningProgramData data)
+        private async void OnLearningProgramCreated(LearningProgramData data)
         {
 
             LearningProgram program = new (data);
 
-            program.AddLessons(SessionData.AllLessons);
+
+            await program.AddLessonsAsync(SessionData.AllLessons);
 
             program.LoadIcon();
 
 
             SessionData.AddLearningProgram(program);
 
-            _learningProgramsGrid.SetCount(SessionData.AllLearningPrograms.Count);
+
+            bool isAdded = _learningProgramsGrid.TryUpdateCount(SessionData.AllLearningPrograms.Count);
 
 
-            ExpandedButton button = _learningProgramsGrid.GetLastObject<
+            ExpandedButton button = _learningProgramsGrid.GetObject<
                 
-                ExpandedButton>();
+                ExpandedButton>(SessionData.AllLearningPrograms.Count-1);
+
+            button.gameObject.SetActive(true);
 
 
-            _learningProgramsButtons.Add(button);
+            if(isAdded)
+            {
 
-            _programComponent.AddButton(button, program);
+                _learningProgramsButtons.Add(button);
+
+                _programComponent.AddButton(button, program);
 
 
-            _uiPresenter.SetProgramButton(button);
+                _uiPresenter.SetProgramButton(button);
+            }
+            else
+            {
+                //#TODO watch AddButton
+                button.UpdateIcon(program.Icon);
+
+                button.UpdateText(program.NameOfProgram);
+            }
         }
 
 
@@ -320,7 +391,7 @@ namespace Core
         private void InitializeGrids()
         {
 
-            _lessonsGrid.SetCount(SessionData.AllLessons.Count);
+            _lessonsGrid.TryUpdateCount(SessionData.AllLessons.Count);
 
 
             _lessonButtons = new List<ExpandedButton>(
@@ -328,7 +399,7 @@ namespace Core
                 _lessonsGrid.GetObjects<ExpandedButton>());
 
 
-            _learningProgramsGrid.SetCount(
+            _learningProgramsGrid.TryUpdateCount(
                 
                 SessionData.AllLearningPrograms.Count);
 
@@ -338,7 +409,9 @@ namespace Core
                 _learningProgramsGrid.GetObjects<ExpandedButton>());
 
 
-            _lessonsTogglesGrid.SetCount(SessionData.AllLessons.Count);
+            _lessonsTogglesGrid.TryUpdateCount(SessionData.AllLessons.Count);
+
+            _lessonsTogglesGrid.ShowOnly(SessionData.AllLessons.Count);
 
 
             _lessonEditorToggles = new List<ExpandedToggle>(

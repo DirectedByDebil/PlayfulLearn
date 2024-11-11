@@ -14,7 +14,7 @@ namespace Core
         public event Action<Lesson> LessonChanged;
 
 
-        private readonly IReadOnlyList<ExpandedButton> _buttons;
+        private readonly List<ExpandedButton> _buttons;
 
 
         private readonly List<SelectableModel<
@@ -30,7 +30,7 @@ namespace Core
             IReadOnlyList<ExpandedButton> lessonButtons)
         {
 
-            _buttons = lessonButtons;
+            _buttons = new List<ExpandedButton>(lessonButtons);
 
 
             _models = new List<SelectableModel<
@@ -50,12 +50,7 @@ namespace Core
             for(int i = 0; i < _buttons.Count; i++)
             {
 
-                _buttons[i].onClick.AddListener(
-
-                    _models[i].SelectObject);
-
-
-                _models[i].Selected += TryUpdateLesson;
+                SetButton(_buttons[i], _models[i]);
             }
         }
 
@@ -66,12 +61,7 @@ namespace Core
             for (int i = 0; i < _buttons.Count; i++)
             {
 
-                _buttons[i].onClick.RemoveListener(
-
-                    _models[i].SelectObject);
-
-
-                _models[i].Selected -= TryUpdateLesson;
+                UnsetButton(_buttons[i], _models[i]);
             }
         }
 
@@ -101,6 +91,25 @@ namespace Core
         }
 
 
+        public void AddButton(ExpandedButton button,
+            
+            Lesson lesson)
+        {
+
+            SelectableModel<Lesson> model = new();
+
+
+            InitializeButton(button, model, lesson);
+
+            SetButton(button, model);
+
+
+            _buttons.Add(button);
+
+            _models.Add(model);
+        }
+
+
         private void InitializeModels()
         {
 
@@ -110,6 +119,38 @@ namespace Core
                 _models.Add(new SelectableModel<Lesson>());
             }
         }
+
+
+        #region Set/Unset Button
+ 
+        private void SetButton(IClickable button,
+            
+            SelectableModel<Lesson> model)
+        {
+
+            button.onClick.AddListener(
+                
+                model.SelectObject);
+
+
+            model.Selected += TryUpdateLesson;
+        }
+
+
+        private void UnsetButton(IClickable button,
+            
+            SelectableModel<Lesson> model)
+        {
+
+            button.onClick.RemoveListener(
+
+                model.SelectObject);
+
+
+            model.Selected -= TryUpdateLesson;
+        }
+
+        #endregion
 
 
         private void TryUpdateLesson(Lesson lesson)
@@ -138,12 +179,23 @@ namespace Core
             }
 
 
+            InitializeButton(button, _models[index], lesson);
+        }
+
+
+        private void InitializeButton(ExpandedButton button,
+
+            SelectableModel<Lesson> selectable,
+
+            Lesson lesson)
+        {
+
+            selectable.SetSelectable(lesson);
+
+
             button.UpdateIcon(lesson.Icon);
 
             button.UpdateText(lesson.NameOfLesson);
-
-
-            _models[index].SetSelectable(lesson);
         }
     }
 }

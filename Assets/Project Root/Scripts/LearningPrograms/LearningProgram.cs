@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Extensions;
 using Core;
+using System.Threading.Tasks;
 
 namespace LearningPrograms
 {
@@ -57,18 +58,22 @@ namespace LearningPrograms
         }
 
 
-        public void AddLessons(IEnumerable<Lesson> allLessons)
+        public async Task AddLessonsAsync(IEnumerable<Lesson> allLessons)
         {
 
-            foreach(Lesson lesson in allLessons)
+            await Task.Run(() =>
             {
-
-                if(_lessonsNames.Contains(lesson.NameOfLesson))
+            
+                foreach(Lesson lesson in allLessons)
                 {
 
-                    _lessons.Add(lesson);
+                    if(_lessonsNames.Contains(lesson.NameOfLesson))
+                    {
+
+                        _lessons.Add(lesson);
+                    }
                 }
-            }
+            });
         }
 
 

@@ -28,7 +28,7 @@ namespace UserInterface
         }
 
 
-        public void SetCount(int count)
+        public bool TryUpdateCount(int count)
         {
 
             if (_objects.Count < count)
@@ -37,6 +37,34 @@ namespace UserInterface
                 InstantiateObjects(count - _objects.Count);
 
                 ReplaceObjects();
+
+
+                return true;
+            }
+
+            return false;
+        }
+
+
+        public void ShowOnly(int count)
+        {
+
+            int showOnlyCount = Mathf.Min(count, _objects.Count);
+
+            int hideCount = Mathf.Max(count, _objects.Count);
+
+
+            for(int i = 0; i < showOnlyCount; i++)
+            {
+
+                _objects[i].gameObject.SetActive(true);
+            }
+
+
+            for(int i = showOnlyCount; i < hideCount; i++)
+            {
+
+                _objects[i].gameObject.SetActive(false);
             }
         }
 
@@ -58,13 +86,13 @@ namespace UserInterface
         }
 
 
-        public T GetLastObject<T>() where T: MonoBehaviour
+        public T GetObject<T>(int index) where T: MonoBehaviour
         {
 
-            MonoBehaviour last = _objects[_objects.Count - 1];
+            MonoBehaviour obj = _objects[index];
 
 
-            return last.GetComponent<T>();
+            return obj.GetComponent<T>();
         }
 
 
@@ -115,6 +143,9 @@ namespace UserInterface
             {
 
                 MonoBehaviour button = Instantiate(original, transform, false);
+
+                button.gameObject.SetActive(false);
+
 
                 _objects.Add(button);
             }

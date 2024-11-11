@@ -13,10 +13,9 @@ namespace LearningPrograms
         public event Action<LearningProgramData> LearningProgramCreated;
 
 
-        private readonly IReadOnlyList<ExpandedToggle> _toggles;
+        private readonly List<ExpandedToggle> _toggles;
 
-
-        private List<ToggleModel<Lesson>> _models;
+        private readonly List<ToggleModel<Lesson>> _models;
 
 
         private List<Lesson> _lessonsInProgram;
@@ -30,7 +29,7 @@ namespace LearningPrograms
             IReadOnlyList<ExpandedToggle> toggles)
         {
 
-            _toggles = toggles;
+            _toggles = new List<ExpandedToggle>(toggles);
 
             _models = new List<ToggleModel<Lesson>>(_toggles.Count);
         }
@@ -50,18 +49,30 @@ namespace LearningPrograms
         }
 
 
+        public void AddToggle(ExpandedToggle toggle,
+            
+            Lesson lesson)
+        {
+
+            _toggles.Add(toggle);
+
+
+            ToggleModel<Lesson> model = new (lesson);
+
+            SetToggleModel(toggle, model);
+
+
+            _models.Add(model);
+        }
+
+
         public void SetModel()
         {
 
             for(int i = 0; i < _models.Count; i++)
             {
 
-                _toggles[i].onValueChanged.AddListener(
-
-                    _models[i].InvokeChanged);
-
-
-                _models[i].Changed += OnToggleChanged;
+                SetToggleModel(_toggles[i], _models[i]);
             }
         }
 
@@ -72,12 +83,7 @@ namespace LearningPrograms
             for (int i = 0; i < _models.Count; i++)
             {
 
-                _toggles[i].onValueChanged.RemoveListener(
-
-                    _models[i].InvokeChanged);
-
-
-                _models[i].Changed -= OnToggleChanged;
+                UnsetToggleModel(_toggles[i], _models[i]);
             }
         }
 
@@ -116,6 +122,38 @@ namespace LearningPrograms
 
             _iconPath = iconPath;
         }
+
+
+        #region Set/Unset ToggleModel
+
+        private void SetToggleModel(ExpandedToggle toggle,
+
+            ToggleModel<Lesson> model)
+        {
+
+            toggle.onValueChanged.AddListener(
+
+                 model.InvokeChanged);
+
+
+            model.Changed += OnToggleChanged;
+        }
+
+
+        private void UnsetToggleModel(ExpandedToggle toggle,
+
+           ToggleModel<Lesson> model)
+        {
+
+            toggle.onValueChanged.RemoveListener(
+
+                 model.InvokeChanged);
+
+
+            model.Changed -= OnToggleChanged;
+        }
+
+        #endregion
 
 
         private void OnToggleChanged(Lesson lesson, bool isOn)

@@ -1,0 +1,8 @@
+.panel {
+    margin: auto;
+    background-color: rgb(56, 182, 255);
+    width: 100%;
+    align-items: center;
+    flex-grow: 1;
+    justify-content: center;
+}

@@ -2,7 +2,7 @@
 using UnityEngine.UI;
 using UserInterface;
 
-namespace Users
+namespace Web.Users
 {
     public sealed class UserView : MonoBehaviour,
 

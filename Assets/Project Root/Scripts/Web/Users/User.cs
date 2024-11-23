@@ -1,5 +1,5 @@
 
-namespace Users
+namespace Web.Users
 {
     public abstract class User
     {

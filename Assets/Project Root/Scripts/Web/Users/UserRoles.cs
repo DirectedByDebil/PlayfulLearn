@@ -1,4 +1,4 @@
-namespace Users
+namespace Web.Users
 {
     public enum UserRoles
     {

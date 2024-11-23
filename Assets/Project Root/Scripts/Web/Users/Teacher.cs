@@ -1,13 +1,13 @@
 
-namespace Users
+namespace Web.Users
 {
-    public sealed class Student : User
+    public sealed class Teacher : User
     {
 
-        public Student(string name) : base(name)
+        public Teacher(string name) : base(name)
         {
 
-            Role = UserRoles.Student;
+            Role = UserRoles.Teacher;
         }
 
 

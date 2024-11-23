@@ -6,7 +6,7 @@ using UserInterface;
 using Localization;
 using System.Collections.Generic;
 using Extensions;
-using Users;
+using Web.Users;
 
 namespace Core
 {

@@ -24,6 +24,11 @@ namespace Web
             _loginPage.AsStudentClicked += OnAsStudentClicked;
 
             _loginPage.LoginClicked += OnLoginClicked;
+
+
+            _registrationPage.RegisterClicked += OnRegisterClicked;
+
+            _registrationPage.BackClicked += BackToLogin;
         }
 
 
@@ -35,8 +40,15 @@ namespace Web
             _loginPage.AsStudentClicked -= OnAsStudentClicked;
 
             _loginPage.LoginClicked -= OnLoginClicked;
+
+
+            _registrationPage.RegisterClicked -= OnRegisterClicked;
+
+            _registrationPage.BackClicked -= BackToLogin;
         }
 
+
+        #region Navigation
 
         private void OnRegisterClicked()
         {
@@ -46,6 +58,19 @@ namespace Web
             _registrationPage.ShowUp();
         }
 
+
+        private void BackToLogin()
+        {
+
+            _loginPage.ShowUp();
+
+            _registrationPage.Hide();
+        }
+
+        #endregion
+
+
+        #region Enter As User
 
         private void OnAsStudentClicked()
         {
@@ -59,7 +84,10 @@ namespace Web
 
         }
 
+        #endregion
 
+
+        #region Login
 
         private void OnLoginClicked(LoginData data)
         {
@@ -80,11 +108,26 @@ namespace Web
         }
 
 
-
+        //#TODO should be async
         private bool IsLoginValid(LoginData data)
         {
 
             return false;
         }
+
+        #endregion
+
+
+        #region Registration
+
+        private void OnRegisterClicked(RegistrationData data)
+        {
+
+            _registrationPage.OnResult(Results.Fail);
+
+            BackToLogin();
+        }
+
+        #endregion
     }
 }

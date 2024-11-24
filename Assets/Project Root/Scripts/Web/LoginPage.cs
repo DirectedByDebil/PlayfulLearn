@@ -49,9 +49,6 @@ namespace Web
         public event Action<LoginData> LoginClicked;
 
 
-        private UIDocument _uiDocument;
-
-
         private Button _asStudentButton;
 
         private Button _loginButton;
@@ -67,25 +64,30 @@ namespace Web
         private TextField _passwordField;
 
 
+        private VisualElement _root;
+
+
         private void OnValidate()
         {
 
-            _uiDocument = GetComponent<UIDocument>();
+            UIDocument doc = GetComponent<UIDocument>();
+
+
+            _root = doc.rootVisualElement;
+
+            _asStudentButton = UI.GetButton(doc, "asStudentButton");
+
+            _loginButton = UI.GetButton(doc, "loginButton");
+
+            _registerButton = UI.GetButton(doc, "registerButton");
+
+
+            _loginErrorLabel = UI.GetLabel(doc, "loginErrorLabel");
+
+
+            _emailField = UI.GetTextField(doc, "emailField");
             
-
-            _asStudentButton = UI.GetButton(_uiDocument, "asStudentButton");
-
-            _loginButton = UI.GetButton(_uiDocument, "loginButton");
-
-            _registerButton = UI.GetButton(_uiDocument, "registerButton");
-
-
-            _loginErrorLabel = UI.GetLabel(_uiDocument, "loginErrorLabel");
-
-
-            _emailField = UI.GetTextField(_uiDocument, "emailField");
-            
-            _passwordField = UI.GetTextField(_uiDocument, "passwordField");
+            _passwordField = UI.GetTextField(doc, "passwordField");
         }
 
 
@@ -106,13 +108,14 @@ namespace Web
         public void ShowUp()
         {
 
-            gameObject.SetActive(true);
+            _root.style.display = DisplayStyle.Flex;
         }
+
 
         public void Hide()
         {
 
-            gameObject.SetActive(false);
+            _root.style.display = DisplayStyle.None;
         }
 
 
@@ -122,6 +125,8 @@ namespace Web
             switch (result)
             {
                 case Results.Success:
+
+                    _loginErrorLabel.style.visibility = Visibility.Hidden;
                     break;
                 
                 case Results.Warning:
@@ -130,7 +135,6 @@ namespace Web
                 case Results.Fail:
 
                     _loginErrorLabel.style.visibility = Visibility.Visible;
-
                     break;
             }
         }
@@ -138,6 +142,8 @@ namespace Web
 
         private void OnLoginClicked()
         {
+
+            //#TODO check fields not null
 
             LoginData data = new ()
             {

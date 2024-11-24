@@ -3,18 +3,20 @@
     <Style src="project://database/Assets/Project%20Root/Graphics/UI/Classes/Button.uss?fileID=7433441132597879392&amp;guid=e994f9c1daab72246a1f370fe2394630&amp;type=3#Button" />
     <Style src="project://database/Assets/Project%20Root/Graphics/UI/Classes/Header.uss?fileID=7433441132597879392&amp;guid=f76b758532201924db060bf37a13a6c2&amp;type=3#Header" />
     <Style src="project://database/Assets/Project%20Root/Graphics/UI/Classes/Controls.uss?fileID=7433441132597879392&amp;guid=32f454b9a35ff77449750fe8ec921618&amp;type=3#Controls" />
-    <ui:VisualElement name="header-container" class="panel" style="justify-content: flex-start;">
+    <ui:VisualElement name="header-container" class="panel" style="justify-content: center; flex-direction: row; align-items: center;">
+        <ui:Button tabindex="-1" display-tooltip-when-elided="true" name="back-button" class="back-button" style="border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0;" />
         <ui:Label tabindex="-1" text="Registration" display-tooltip-when-elided="true" name="Header" class="header" style="-unity-text-align: middle-center;" />
     </ui:VisualElement>
     <ui:VisualElement name="mid-container" class="panel">
         <ui:VisualElement name="login-container" style="margin-left: 10px; margin-right: 10px; margin-top: 10px; margin-bottom: 10px; width: 676px; height: 340px; justify-content: space-around;">
+            <ui:TextField label="User name:" name="user-name" class="input" />
             <ui:TextField label="Email:" name="email" class="input" />
             <ui:TextField picking-mode="Ignore" label="Password" name="password1" password="true" class="input" />
             <ui:TextField picking-mode="Ignore" label="Repeat password" name="password2" password="true" class="input" />
             <ui:Label tabindex="-1" text="Passwords are different!" display-tooltip-when-elided="true" name="passwords-error-label" class="error medium" style="visibility: hidden;" />
         </ui:VisualElement>
     </ui:VisualElement>
-    <ui:VisualElement name="bottom-container" class="panel" style="justify-content: flex-end;">
-        <ui:Button tabindex="-1" text="Register" display-tooltip-when-elided="true" name="registerButton" class="button medium" style="align-items: center;" />
+    <ui:VisualElement name="bottom-container" class="panel" style="justify-content: center;">
+        <ui:Button tabindex="-1" text="Register" display-tooltip-when-elided="true" name="register-button" class="button medium" style="align-items: center;" />
     </ui:VisualElement>
 </ui:UXML>

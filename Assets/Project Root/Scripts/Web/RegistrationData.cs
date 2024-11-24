@@ -1,8 +1,10 @@
 ﻿namespace Web
 {
 
-    public struct LoginData
+    public struct RegistrationData
     {
+
+        public string UserName { get; set; }
 
         public string Email { get; set; }
 

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using Web.Users;
+using System.Net;
 
 namespace Web
 {
@@ -14,6 +15,16 @@ namespace Web
         [SerializeField]
         
         private RegistrationPage _registrationPage;
+
+
+        private RestService _rest;
+
+
+        private void Start()
+        {
+
+            _rest = new RestService();
+        }
 
 
         private void OnEnable()
@@ -120,12 +131,28 @@ namespace Web
 
         #region Registration
 
-        private void OnRegisterClicked(RegistrationData data)
+        private async void OnRegisterClicked(FormRegistrationFields data)
         {
 
-            _registrationPage.OnResult(Results.Fail);
+            HttpStatusCode status = await _rest.RegisterAsync(data);
 
-            BackToLogin();
+
+            switch (status)
+            {
+
+                case HttpStatusCode.OK:
+
+                    BackToLogin();
+
+                    break;
+
+
+                case HttpStatusCode.Conflict:
+
+                    _registrationPage.OnResult(Results.Fail);
+
+                    break;
+            }
         }
 
         #endregion

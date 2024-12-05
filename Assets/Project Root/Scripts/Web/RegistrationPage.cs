@@ -27,7 +27,7 @@ namespace Web
             }
         }
 
-        public event Action<RegistrationData> RegisterClicked;
+        public event Action<FormRegistrationFields> RegisterClicked;
 
 
         private Button _backButton;
@@ -135,7 +135,7 @@ namespace Web
             //#TODO check passwords are same
 
 
-            RegistrationData data = new ()
+            FormRegistrationFields data = new ()
             {
 
                 UserName = _userNameField.text,

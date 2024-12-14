@@ -18,11 +18,14 @@ namespace Web
         private readonly Encoding _encoding;
 
 
-        private const string RegistrationPath = "/register/";
+        private const string KeysPath = "/getKeys/";
         
-        private const string LoginPath = "/login/";
+        private const string RegistrationPath = "/register/";
 
-        private const string KeysPath = "/getData/";
+
+        private const string AuthKeysPath = "/getAuthKeys/";
+        
+        private const string AuthPath = "/auth/";
 
 
 
@@ -57,9 +60,39 @@ namespace Web
             };
 
 
-            HttpStatusCode code = await PostAsync(RegistrationPath, send);
+            HttpResponseMessage message = await PostAsync(RegistrationPath, send);
 
-            return code;
+            return message.StatusCode;
+        }
+
+
+        public async Task<HttpStatusCode> LoginAsync(FormLoginFields data)
+        {
+
+            HttpResponseMessage keysMessage = await PostAsync(AuthKeysPath, data.Email);
+
+
+            string keysJson = await keysMessage.Content.ReadAsStringAsync();
+
+
+            IdKeys keys = JsonUtility.FromJson<IdKeys>(keysJson);
+
+
+            SendLoginFields send = new()
+            {
+
+                Email = data.Email,
+
+                DateTime = keys.DateTime,
+
+                Password = Crypto.GetHash(keys, data.Password)
+            };
+
+
+            HttpResponseMessage message = await PostAsync(AuthPath, send);
+
+
+            return message.StatusCode;
         }
 
 
@@ -87,7 +120,7 @@ namespace Web
         }
 
 
-        public async Task<HttpStatusCode> PostAsync<T>(string path,
+        public async Task<HttpResponseMessage> PostAsync<T>(string path,
             
             T obj)
         {
@@ -101,10 +134,10 @@ namespace Web
 
             ByteArrayContent content = new (_encoding.GetBytes(json));
 
+
             HttpResponseMessage message = await _client.PostAsync(uri, content);
 
-
-            return message.StatusCode;
+            return message;
         }
     }
 }

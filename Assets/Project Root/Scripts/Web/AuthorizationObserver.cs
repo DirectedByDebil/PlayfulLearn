@@ -98,38 +98,30 @@ namespace Web
         #endregion
 
 
-        #region Login
-
-        private void OnLoginClicked(LoginData data)
+        private async void OnLoginClicked(FormLoginFields data)
         {
 
-            bool isValid = IsLoginValid(data);
-            
+            HttpStatusCode status = await _rest.LoginAsync(data);
 
-            if(isValid)
+
+            switch (status)
             {
 
-                EnterAsUser(UserRoles.Teacher);
-            }
-            else
-            {
+                case HttpStatusCode.OK:
 
-                _loginPage.OnResult(Results.Fail);
+                    EnterAsUser(UserRoles.Teacher);
+
+                    break;
+
+
+                case HttpStatusCode.Forbidden:
+
+                    _loginPage.OnResult(Results.Fail);
+
+                    break;
             }
         }
 
-
-        //#TODO should be async
-        private bool IsLoginValid(LoginData data)
-        {
-
-            return false;
-        }
-
-        #endregion
-
-
-        #region Registration
 
         private async void OnRegisterClicked(FormRegistrationFields data)
         {
@@ -154,7 +146,5 @@ namespace Web
                     break;
             }
         }
-
-        #endregion
     }
 }

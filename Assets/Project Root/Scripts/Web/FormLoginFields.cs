@@ -4,7 +4,7 @@ namespace Web
 {
 
     [Serializable]
-    public struct LoginData
+    public struct FormLoginFields
     {
 
         public string Email;

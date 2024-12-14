@@ -46,7 +46,7 @@ namespace Web
         }
 
 
-        public event Action<LoginData> LoginClicked;
+        public event Action<FormLoginFields> LoginClicked;
 
 
         private Button _asStudentButton;
@@ -145,7 +145,7 @@ namespace Web
 
             //#TODO check fields not null
 
-            LoginData data = new ()
+            FormLoginFields data = new ()
             {
 
                 Email = _emailField.text,

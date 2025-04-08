@@ -1,0 +1,22 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:Template name="Sign Out Button" src="project://database/Assets/Project%20Root/Graphics/UI/Controls/Sign%20Out%20Button.uxml?fileID=9197481963319205126&amp;guid=daaa82b7c7a5335428971cd050a4340c&amp;type=3#Sign Out Button" />
+    <ui:Template name="Close Button" src="project://database/Assets/Project%20Root/Graphics/UI/Controls/Close%20Button.uxml?fileID=9197481963319205126&amp;guid=01daeb77799061f44b88662472b7cdd1&amp;type=3#Close Button" />
+    <Style src="project://database/Assets/Project%20Root/Graphics/UI/Classes/Panel.uss?fileID=7433441132597879392&amp;guid=bdb970631957d0943a72216a16457bac&amp;type=3#Panel" />
+    <Style src="project://database/Assets/Project%20Root/Graphics/UI/Classes/Header.uss?fileID=7433441132597879392&amp;guid=f76b758532201924db060bf37a13a6c2&amp;type=3#Header" />
+    <Style src="project://database/Assets/Project%20Root/Graphics/UI/Classes/Button.uss?fileID=7433441132597879392&amp;guid=e994f9c1daab72246a1f370fe2394630&amp;type=3#Button" />
+    <ui:VisualElement name="transparent-panel" class="accent-transparent-colored" style="width: 100%; height: 100%; align-items: center; justify-content: center;">
+        <ui:VisualElement name="root" class="white-colored border-secondary-colored rounded" style="width: 30%; height: 80%; min-width: 20%; max-width: 50%; align-items: center; border-left-width: 10px; border-right-width: 10px; border-top-width: 10px; border-bottom-width: 10px;">
+            <ui:VisualElement name="body" class="rounded" style="width: 90%; height: 80%; align-items: center; margin-left: 20px; margin-right: 20px; margin-top: 20px; margin-bottom: 20px; justify-content: space-around;">
+                <ui:VisualElement name="icon-border" style="width: 100%; height: 50%; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+                    <ui:VisualElement name="icon" class="rounded" style="width: 100%; height: 100%; background-image: url(&apos;project://database/Assets/Project%20Root/Graphics/user.png?fileID=2800000&amp;guid=bcf95577788a97a4b996ef3f75d922c3&amp;type=3#user&apos;); -unity-background-image-tint-color: rgb(0, 0, 0); background-color: rgba(0, 0, 0, 0); -unity-background-scale-mode: scale-to-fit;" />
+                </ui:VisualElement>
+                <ui:Label tabindex="-1" text="User Name" display-tooltip-when-elided="true" name="user-name" class="header" style="height: 15%;" />
+                <ui:Label tabindex="-1" text="email" display-tooltip-when-elided="true" name="email" class="medium" style="height: 10%;" />
+            </ui:VisualElement>
+            <ui:VisualElement name="footer" style="height: 15%; margin-left: 20px; margin-right: 20px; margin-top: 20px; margin-bottom: 20px; flex-direction: row; align-items: center; justify-content: center;">
+                <ui:Instance template="Sign Out Button" name="sign-out-button" />
+                <ui:Instance template="Close Button" name="close-button" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

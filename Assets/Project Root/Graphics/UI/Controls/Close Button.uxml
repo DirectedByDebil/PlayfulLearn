@@ -1,0 +1,9 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Project%20Root/Graphics/UI/Classes/Button.uss?fileID=7433441132597879392&amp;guid=e994f9c1daab72246a1f370fe2394630&amp;type=3#Button" />
+    <Style src="project://database/Assets/Project%20Root/Graphics/UI/Classes/Panel.uss?fileID=7433441132597879392&amp;guid=bdb970631957d0943a72216a16457bac&amp;type=3#Panel" />
+    <Style src="project://database/Assets/Project%20Root/Graphics/UI/Classes/Header.uss?fileID=7433441132597879392&amp;guid=f76b758532201924db060bf37a13a6c2&amp;type=3#Header" />
+    <ui:Button name="close-button" class="button rectangle border-error-colored" style="align-items: center; justify-content: flex-start; flex-direction: row; width: 250px;">
+        <ui:VisualElement name="icon" class="image-gray-accent-colored icon" style="-unity-background-scale-mode: scale-to-fit; margin-right: 10px; background-image: url(&apos;project://database/Assets/Project%20Root/Graphics/UI/Icons/Close.png?fileID=2800000&amp;guid=e65787d219b1de944997a697685c0fb8&amp;type=3#Close&apos;); width: 60px; height: 60px;" />
+        <ui:Label text="Close" name="label" style="font-size: 18px;" />
+    </ui:Button>
+</ui:UXML>

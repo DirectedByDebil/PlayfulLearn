@@ -2,11 +2,15 @@
     font-size: 72px;
     -unity-text-align: middle-center;
     -unity-font-definition: url('project://database/Assets/Project%20Root/Fonts/RS-regular.otf?fileID=12800000&guid=850b2fb3cb0b93141baea3c7f16d324d&type=3#RS-regular');
-    margin-left: 50px;
-    margin-right: 50px;
-    margin-top: 50px;
-    margin-bottom: 50px;
-    color: rgba(0, 0, 0, 255);
+    color: rgb(0, 0, 0);
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .medium {

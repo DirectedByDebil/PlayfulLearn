@@ -1,8 +1,119 @@
+:root {
+
+    --primary-color : rgb(56, 182, 255);
+    --secondary-color : rgb(255, 189, 88);
+    --accent-color : rgb(44, 146, 205);
+    --accent-transparent-color: rgba(44, 146, 205, 0.4);
+    --gray-accent-color: rgb(226, 226, 226);
+    --error-color: rgb(255, 50, 50);
+    --white-color: rgb(255, 255, 255);
+    --black-color: rgb(0, 0, 0);
+}
+
+
+.primary-colored {
+
+    background-color: var(--primary-color);
+}
+
+
+.secondary-colored {
+
+    background-color: var(--secondary-color);
+}
+
+
+.accent-colored {
+
+    background-color: var(--accent-color);
+}
+
+
+.accent-transparent-colored {
+
+    background-color: var(--accent-transparent-color);
+}
+
+
+
+.white-colored {
+
+    background-color: var(--white-color);
+}
+
+.image-accent-colored {
+
+    -unity-background-image-tint-color: var(--accent-color);
+}
+
+.image-black-colored {
+
+    -unity-background-image-tint-color: var(--black-color);
+}
+
+
+.image-gray-accent-colored {
+
+    -unity-background-image-tint-color: var(--gray-accent-color);
+}
+
+
+
+.border-secondary-colored {
+
+    border-color: var(--secondary-color);
+}
+
+.border-error-colored {
+
+    border-color: var(--error-color);
+}
+
+
+
 .panel {
     margin: auto;
-    background-color: rgb(56, 182, 255);
     width: 100%;
     align-items: center;
     flex-grow: 1;
     justify-content: center;
+}
+
+
+.rounded {
+    border-top-left-radius: 18px;
+    border-bottom-left-radius: 18px;
+    border-top-right-radius: 18px;
+    border-bottom-right-radius: 18px;
+}
+
+
+.self-center {
+
+    align-self: center;
+}
+
+
+.rectangle {
+    width: 400px;
+    height: 60px;
+
+    min-height: 20px;
+    max-height: 100px;
+
+    min-width: 100px;
+    max-width: 800px;
+}
+
+
+.square {
+
+    width: 200px;
+    height: 200px;
+
+    min-height: 100px;
+    max-height: 400px;
+
+    min-width: 100px;
+    max-width: 400px;
 }

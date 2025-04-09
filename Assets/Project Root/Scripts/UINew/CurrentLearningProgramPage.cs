@@ -1,8 +1,10 @@
 ﻿using Lessons;
+using LearningPrograms;
 using UnityEngine;
 using UnityEngine.UIElements;
 using System;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 
 namespace UINew
 {
@@ -15,10 +17,11 @@ namespace UINew
 
         public event Action UserAccountClicked;
 
+        public event Action<Lesson> LessonClicked;
+
 
         [SerializeField, Space]
         private VisualTreeAsset _itemTemplate;
-
 
 
         public override void Init()
@@ -38,10 +41,29 @@ namespace UINew
         }
 
 
-        public void ViewLessons(IList<Lesson> lessons)
+        public void ViewLearningProgram(LearningProgram program)
+        {
+
+            Label label = document.GetLabel("current-program-name");
+
+            label.text = program.NameOfProgram;
+
+
+            VisualElement icon = document.GetElement("current-program-icon");
+
+            icon.style.backgroundImage = new StyleBackground(program.Icon);
+
+
+            ViewLessons(program.Lessons);
+        }
+
+
+        public void ViewLessons(IReadOnlyCollection<Lesson> lessons)
         {
 
             VisualElement parent = document.GetElement("lessons-parent");
+
+            parent.Clear();
 
 
             foreach (Lesson lesson in lessons)
@@ -68,33 +90,19 @@ namespace UINew
 
             Label label = element.GetLabel("label");
 
-            label.text = string.Format("{0}", lesson.NameOfLesson);
-
-
-            //Button button = element.GetButton("lesson-button");
-
-            //button.RegisterCallback<ClickEvent>(OnClicked);
+            label.text = lesson.NameOfLesson;
 
 
             VisualElement icon = element.GetElement("icon");
 
             icon.style.backgroundImage = new StyleBackground(lesson.Icon);
-        }
 
 
-        private void OnClicked(ClickEvent e)
-        {
-
-            if(e.currentTarget is VisualElement element)
+            element.RegisterCallback((ClickEvent e) =>
             {
 
-                Debug.Log("Yes");
-            }
-            else
-            {
-
-                Debug.Log("No");
-            }
+                LessonClicked?.Invoke(lesson);
+            });
         }
 
 

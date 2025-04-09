@@ -55,14 +55,25 @@ namespace UINew
 
             return doc.rootVisualElement.GetElement(name);
         }
-        
+
         #endregion
 
+
+        #region Get Label
 
         public static Label GetLabel(this VisualElement element, string name)
         {
 
             return element.Q<Label>(name);
         }
+
+
+        public static Label GetLabel(this UIDocument doc, string name)
+        {
+
+            return doc.rootVisualElement.GetLabel(name);
+        }
+        
+        #endregion
     }
 }

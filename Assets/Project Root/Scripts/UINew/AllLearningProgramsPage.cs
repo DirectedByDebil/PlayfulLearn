@@ -13,6 +13,8 @@ namespace UINew
 
         public event Action CloseClicked;
 
+        public event Action<LearningProgram> LearningProgramClicked;
+
 
         [SerializeField, Space]
         private VisualTreeAsset _itemTemplate;
@@ -63,6 +65,13 @@ namespace UINew
             VisualElement icon = item.GetElement("icon");
 
             icon.style.backgroundImage = new StyleBackground(program.Icon);
+
+
+            item.RegisterCallback((ClickEvent e) => 
+            {
+
+                LearningProgramClicked?.Invoke(program);
+            });
         }
     }
 }

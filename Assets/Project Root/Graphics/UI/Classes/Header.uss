@@ -13,6 +13,13 @@
     padding-bottom: 10px;
 }
 
+.big {
+    
+    font-size: 56px;
+    -unity-text-align: middle-center;
+    -unity-font-definition: url('project://database/Assets/Project%20Root/Fonts/RS-regular.otf?fileID=12800000&guid=850b2fb3cb0b93141baea3c7f16d324d&type=3#RS-regular');
+}
+
 .medium {
     -unity-text-align: middle-center;
     -unity-font-definition: url('project://database/Assets/Project%20Root/Fonts/DolomanPavljenko.otf?fileID=12800000&guid=05c5cc2c539e9404b8e0a51480afcdd6&type=3#DolomanPavljenko');

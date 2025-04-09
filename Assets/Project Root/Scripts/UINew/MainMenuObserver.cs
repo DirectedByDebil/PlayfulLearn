@@ -27,9 +27,8 @@ namespace UINew
             Init();
 
 
-            List<Lesson> lessons = new(SessionData.AllLessons);
-
-            _currentProgramPage.ViewLessons(lessons);
+            _currentProgramPage.ViewLearningProgram(
+                SessionData.LastLearningProgram);
 
 
             List<LearningProgram> learningPrograms = 
@@ -76,8 +75,18 @@ namespace UINew
             _userAccountPage.CloseClicked += _userAccountPage.Hide;
 
             _allProgramsPage.CloseClicked += _allProgramsPage.Hide;
+
+
+            _allProgramsPage.LearningProgramClicked += OnLearningProgramClicked;
         }
 
 
+        private void OnLearningProgramClicked(LearningProgram program)
+        {
+
+            _currentProgramPage.ViewLearningProgram(program);
+
+            _allProgramsPage.Hide();
+        }
     }
 }

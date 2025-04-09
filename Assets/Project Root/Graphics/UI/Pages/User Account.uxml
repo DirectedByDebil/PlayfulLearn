@@ -10,10 +10,10 @@
                 <ui:VisualElement name="icon-border" style="width: 100%; height: 50%; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
                     <ui:VisualElement name="icon" class="rounded" style="width: 100%; height: 100%; background-image: url(&apos;project://database/Assets/Project%20Root/Graphics/user.png?fileID=2800000&amp;guid=bcf95577788a97a4b996ef3f75d922c3&amp;type=3#user&apos;); -unity-background-image-tint-color: rgb(0, 0, 0); background-color: rgba(0, 0, 0, 0); -unity-background-scale-mode: scale-to-fit;" />
                 </ui:VisualElement>
-                <ui:Label tabindex="-1" text="User Name" display-tooltip-when-elided="true" name="user-name" class="header" style="height: 15%;" />
+                <ui:Label tabindex="-1" text="User Name" display-tooltip-when-elided="true" name="user-name" class="big" style="height: 15%;" />
                 <ui:Label tabindex="-1" text="email" display-tooltip-when-elided="true" name="email" class="medium" style="height: 10%;" />
             </ui:VisualElement>
-            <ui:VisualElement name="footer" style="height: 15%; margin-left: 20px; margin-right: 20px; margin-top: 20px; margin-bottom: 20px; flex-direction: row; align-items: center; justify-content: center;">
+            <ui:VisualElement name="footer" style="height: 15%; margin-left: 20px; margin-right: 20px; margin-top: 20px; margin-bottom: 20px; flex-direction: row; align-items: center; justify-content: space-around;">
                 <ui:Instance template="Sign Out Button" name="sign-out-button" />
                 <ui:Instance template="Close Button" name="close-button" />
             </ui:VisualElement>

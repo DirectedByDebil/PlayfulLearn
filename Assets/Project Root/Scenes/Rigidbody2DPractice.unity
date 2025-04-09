@@ -1193,7 +1193,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f3a1a342f9cbcf44b0ce5d49e7310dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _lesson: {fileID: 11400000, guid: 76688b1140b019c4d8d00e19c5d87fa1, type: 2}
 --- !u!1 &383291238
 GameObject:
   m_ObjectHideFlags: 0
@@ -1834,10 +1833,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3

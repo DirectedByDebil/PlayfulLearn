@@ -49,7 +49,6 @@ namespace UINew
                 BindItem(item, program);
             };
 
-
             listView.itemsSource = new List<LearningProgram>(learningPrograms);
         }
 
@@ -57,9 +56,16 @@ namespace UINew
         private void BindItem(VisualElement item, LearningProgram program)
         {
 
-            Label label = item.GetLabel("label");
+            Label label = item.GetLabel("name");
 
             label.text = program.NameOfProgram;
+
+
+            ProgressBar progress = item.GetProgressBar("progress");
+
+            progress.title = program.CompletionPercent + "%";
+
+            progress.value = program.CompletionPercent;
 
 
             VisualElement icon = item.GetElement("icon");

@@ -15,7 +15,6 @@
         <ui:ScrollView scroll-deceleration-rate="0,135" elasticity="0,1" name="lessons-scrollview" horizontal-scroller-visibility="Hidden">
             <ui:VisualElement name="lessons-parent" style="flex-direction: row; flex-wrap: wrap; align-items: flex-start; padding-left: 20px; padding-right: 5px; padding-top: 5px; padding-bottom: 5px;" />
         </ui:ScrollView>
-        <ui:ListView header-title="Lessons" name="lessons-listview" fixed-item-height="80" show-border="true" style="display: none;" />
     </ui:VisualElement>
     <ui:VisualElement name="Footer" class="panel accent-colored" style="display: none; height: 5%;" />
 </ui:UXML>

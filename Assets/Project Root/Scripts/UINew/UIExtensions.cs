@@ -75,5 +75,12 @@ namespace UINew
         }
         
         #endregion
+
+
+        public static ProgressBar GetProgressBar(this VisualElement element, string name)
+        {
+
+            return element.Q<ProgressBar>(name);
+        }
     }
 }

@@ -1,0 +1,27 @@
+
+
+
+.unity-progress-bar__background
+{
+	border-radius: 10px;
+    border-width: 2px;
+    border-color: var(--accent-color);
+    background-color: var(--white-color);
+}
+
+
+.unity-progress-bar__progress
+{
+
+	border-radius: 10px;
+    background-color: var(--primary-color);
+}
+
+.unity-progress-bar__title
+{
+
+    color: var(--black-color);
+    -unity-font-definition: url('project://database/Assets/Project%20Root/Fonts/DolomanPavljenko.otf?fileID=12800000&guid=05c5cc2c539e9404b8e0a51480afcdd6&type=3#DolomanPavljenko');
+    font-size: 18px;
+    -unity-font-style : bold;
+}

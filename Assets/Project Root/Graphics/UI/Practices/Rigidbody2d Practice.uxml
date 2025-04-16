@@ -1,0 +1,18 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Project%20Root/Graphics/UI/Classes/Panel.uss?fileID=7433441132597879392&amp;guid=bdb970631957d0943a72216a16457bac&amp;type=3#Panel" />
+    <Style src="project://database/Assets/Project%20Root/Graphics/UI/Classes/Header.uss?fileID=7433441132597879392&amp;guid=f76b758532201924db060bf37a13a6c2&amp;type=3#Header" />
+    <ui:VisualElement name="root" class="panel primary-colored" style="flex-direction: row;">
+        <ui:VisualElement name="info" class="panel accent-colored" style="height: 90%;">
+            <ui:VisualElement name="header" style="flex-direction: row; justify-content: space-between; width: 85%;">
+                <ui:Label tabindex="-1" text="Rigidbody2d" display-tooltip-when-elided="true" class="medium" />
+                <ui:DropdownField label="Dropdown" index="-1" choices="1, 2, 3" />
+            </ui:VisualElement>
+            <ui:VisualElement name="body" style="width: 85%;">
+                <ui:Label tabindex="-1" text="Label" display-tooltip-when-elided="true" class="small" />
+                <ui:GroupBox />
+            </ui:VisualElement>
+            <ui:VisualElement name="footer" />
+        </ui:VisualElement>
+        <ui:VisualElement name="practice" class="panel secondary-colored" style="height: 90%;" />
+    </ui:VisualElement>
+</ui:UXML>

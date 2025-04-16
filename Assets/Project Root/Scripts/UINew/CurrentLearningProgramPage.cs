@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using System;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 
 namespace UINew
 {
@@ -95,7 +94,17 @@ namespace UINew
 
             VisualElement icon = element.GetElement("icon");
 
-            icon.style.backgroundImage = new StyleBackground(lesson.Icon);
+
+            if(lesson.IsCompleted)
+            {
+
+                icon.AddToClassList("completed");
+            }
+            else
+            {
+
+                icon.style.backgroundImage = new StyleBackground(lesson.Icon);
+            }
 
 
             element.RegisterCallback((ClickEvent e) =>

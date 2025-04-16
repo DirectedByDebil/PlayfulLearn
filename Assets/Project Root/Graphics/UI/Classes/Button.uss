@@ -18,7 +18,6 @@
     scale: 1.1 1.1;
 }
 
-
 .hypertext {
     background-color: rgba(0, 0, 0, 0);
     -unity-font-style: italic;
@@ -46,7 +45,6 @@
     color: rgb(255, 189, 88);
 }
 
-
 .back-button {
     width: 100px;
     height: 100px;
@@ -67,27 +65,26 @@
 
 .back-button:hover {
     scale: 1.1 1.1;
-    -unity-background-image-tint-color: rgba(255, 189, 88, 255);
+    -unity-background-image-tint-color: rgb(255, 189, 88);
 }
 
-
 .icon {
-
-    background-color: rgba(0, 0, 0, 0);    
-
+    background-color: rgba(0, 0, 0, 0);
     transition-duration: 200ms, 200ms;
     transition-property: scale, color;
 }
 
-
 .button:hover .icon {
-
     -unity-background-image-tint-color: var(--accent-color);
 }
 
-
 .icon:hover {
-
     -unity-background-image-tint-color: var(--accent-color);
     scale: 1.1 1.1;
+}
+
+
+.completed {
+    background-image: url('project://database/Assets/Project%20Root/Graphics/UI/Ready.png?fileID=2800000&guid=09597b1525b719645a333c0abaed1cfe&type=3#Ready');
+    -unity-background-scale-mode: scale-to-fit;
 }

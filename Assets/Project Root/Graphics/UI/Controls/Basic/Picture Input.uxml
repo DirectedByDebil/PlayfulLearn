@@ -1,0 +1,10 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Project%20Root/Graphics/UI/Classes/Panel.uss?fileID=7433441132597879392&amp;guid=bdb970631957d0943a72216a16457bac&amp;type=3#Panel" />
+    <ui:VisualElement name="root" class="panel" style="justify-content: space-around;">
+        <ui:VisualElement name="picture" style="width: 85%; height: 85%; flex-basis: 70%; -unity-background-scale-mode: scale-to-fit; background-image: url(&apos;project://database/Assets/Project%20Root/Graphics/UI/Add%20photo.png?fileID=2800000&amp;guid=b5bcf8b2aff2ff1479617d97089560ac&amp;type=3#Add photo&apos;);" />
+        <ui:VisualElement name="input" style="width: 85%; height: 15%; margin-left: 10px; margin-right: 10px; margin-top: 10px; margin-bottom: 10px; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; align-items: center; flex-basis: 15%; flex-shrink: 2;">
+            <ui:Label tabindex="-1" text="Label" display-tooltip-when-elided="true" name="task-name" />
+            <ui:TextField value="filler text" text="filler text" picking-mode="Ignore" name="input-field" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

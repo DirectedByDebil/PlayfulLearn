@@ -1,14 +1,20 @@
-﻿using Core;
-using Lessons;
+﻿using Lessons;
 using LearningPrograms;
 using UnityEngine;
+using System;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 
 namespace UINew
 {
     public sealed class MainMenuObserver : MonoBehaviour
     {
+
+        public event Action<LearningProgram> LearningProgramChanged;
+
+        public event Action<Lesson> LessonChanged;
+
+        public event Action LessonCompleting;
+
 
         [SerializeField, Space]
         private CurrentLearningProgramPage _currentProgramPage;
@@ -24,33 +30,12 @@ namespace UINew
         [SerializeField, Space]
         private LessonPage _lessonPage;
 
-
-        private Lesson _currentLesson;
-
-
-        private void Start()
-        {
-
-            Init();
+        [SerializeField, Space]
+        private LessonPracticePage _lessonPracticePage;
 
 
-            _currentProgramPage.ViewLearningProgram(
-                SessionData.LastLearningProgram);
-
-
-            List<LearningProgram> learningPrograms = 
-                new(SessionData.AllLearningPrograms);
-
-            _allProgramsPage.ViewLearningPrograms(learningPrograms);
-        }
-
-
-        private void OnEnable()
-        {
-            
-            SetObserver();
-        }
-
+        private IPage _currentPage;
+        
 
         public void Init()
         {
@@ -63,12 +48,19 @@ namespace UINew
 
             _lessonPage.Init();
 
+            _lessonPracticePage.Init();
+
 
             _allProgramsPage.Hide();
 
             _userAccountPage.Hide();
 
             _lessonPage.Hide();
+
+            _lessonPracticePage.Hide();
+
+
+            _currentPage = _currentProgramPage;
         }
 
 
@@ -97,7 +89,26 @@ namespace UINew
             _lessonPage.BackClicked += OnLessonBackClicked;
 
             _lessonPage.StartClicked += OnStartPracticeClicked;
+
+
+            _lessonPracticePage.FinishClicked += OnFinishedClicked;
         }
+
+
+
+        public void ViewLastLearningProgram(LearningProgram last)
+        {
+
+            _currentProgramPage.ViewLearningProgram(last);
+        }
+
+
+        public void ViewLearningPrograms(IList<LearningProgram> allPrograms)
+        {
+
+            _allProgramsPage.ViewLearningPrograms(allPrograms);
+        }
+
 
 
         private void OnLearningProgramClicked(LearningProgram program)
@@ -106,37 +117,59 @@ namespace UINew
             _currentProgramPage.ViewLearningProgram(program);
 
             _allProgramsPage.Hide();
+
+
+            LearningProgramChanged?.Invoke(program);
         }
 
 
         private void OnLessonClicked(Lesson lesson)
         {
 
-            _currentLesson = lesson;
-
-
-            _currentProgramPage.Hide();
-
-
-            _lessonPage.Show();
+            ChangePage(_lessonPage);
 
             _lessonPage.ViewLesson(lesson);
+
+
+            _lessonPracticePage.PreparePractice(lesson);
+
+
+            LessonChanged?.Invoke(lesson);
         }
 
 
         private void OnLessonBackClicked()
         {
 
-            _lessonPage.Hide();
-
-            _currentProgramPage.Show();
+            ChangePage(_currentProgramPage);
         }
 
 
         private void OnStartPracticeClicked()
         {
 
-            Debug.Log(_currentLesson?.NameOfLesson);
+            ChangePage(_lessonPracticePage);
+        }
+
+
+        private void OnFinishedClicked()
+        {
+
+            ChangePage(_currentProgramPage);
+
+            LessonCompleting?.Invoke();
+        }
+
+
+        private void ChangePage(IPage newPage)
+        {
+
+            _currentPage.Hide();
+
+
+            _currentPage = newPage;
+
+            _currentPage.Show();
         }
     }
 }

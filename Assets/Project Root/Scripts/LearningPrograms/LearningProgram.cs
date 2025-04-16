@@ -17,6 +17,13 @@ namespace LearningPrograms
         }
 
 
+        public int CompletionPercent
+        {
+
+            get => _completionPercent;
+        }
+
+
         public Sprite Icon
         {
 
@@ -42,6 +49,8 @@ namespace LearningPrograms
 
 
         private Sprite _sprite;
+
+        private int _completionPercent;
 
 
         public LearningProgram(LearningProgramData data)
@@ -92,6 +101,24 @@ namespace LearningPrograms
 
                 _sprite = sprite;
             }
+        }
+
+
+        public async Task CountProgressAsync()
+        {
+
+            int percent = 0;
+
+            await Task.Run(() =>
+            {
+
+                List<Lesson> completedLessons = _lessons.FindAll((lesson) => lesson.IsCompleted);
+    
+                percent = 100 * completedLessons.Count / _lessons.Count;
+            });
+
+
+            _completionPercent = percent;
         }
     }
 }

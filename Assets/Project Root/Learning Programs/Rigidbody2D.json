@@ -1,0 +1,11 @@
+{
+    "NameOfProgram": "Rigidbody2D",
+    "IconName": "Rigidbody.png",
+  "Lessons": [
+    "Axis X",
+    "Axis Y",
+    "Vector 2",
+    "Gravity Scale",
+    "Add Force"
+  ]
+}

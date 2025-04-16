@@ -16,9 +16,7 @@ namespace Core
         }
 
 
-        public static IReadOnlyCollection<
-
-            LearningProgram> AllLearningPrograms
+        public static List<LearningProgram> AllLearningPrograms
         {
 
             get => _allLearningPrograms;

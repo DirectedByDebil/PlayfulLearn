@@ -1,5 +1,8 @@
-﻿using Extensions;
+﻿using Web;
+using Lessons;
+using Extensions;
 using UnityEngine;
+using System.Collections.Generic;
 
 namespace Core
 {
@@ -28,13 +31,35 @@ namespace Core
         private static void SaveUserData()
         {
 
-            string data = JsonUtility.ToJson(SessionData.UserData, true);
+            UserData userData = SessionData.UserData;
+
+            userData.CompletedLessons = GetCompletedLessons();
+
+
+            string data = JsonUtility.ToJson(userData, true);
             
 
-            string fileName = string.Format("{0}/{1}.json", PathKeeper.UserDataPath, "User");
+            FileExtensions.WriteFile(data, PathKeeper.UserDataPath);
+        }
 
 
-            FileExtensions.WriteFile(data, fileName);
+        private static List<string> GetCompletedLessons()
+        {
+
+            List<string> completed = new (SessionData.AllLessons.Count);
+
+
+            foreach(Lesson lesson in SessionData.AllLessons)
+            {
+
+                if(lesson.IsCompleted)
+                {
+
+                    completed.Add(lesson.NameOfLesson);
+                }
+            }
+
+            return completed;
         }
     }
 }

@@ -1,10 +1,11 @@
-﻿using UnityEngine;
+﻿using Web;
 using Extensions;
 using Lessons;
 using LearningPrograms;
-using System.Collections.Generic;
-using TMPro;
+using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 
@@ -16,7 +17,7 @@ namespace Core
         [SerializeField, Space]
 
         private TextMeshProUGUI _statusHandler;
-
+        
 
         [SerializeField, Space]
 
@@ -29,18 +30,17 @@ namespace Core
         private void Awake()
         {
 
+            InitUser();
 
-            _statusHandler.text = "Loading lessons";
 
             InitializeLessons();
 
 
-            _statusHandler.text = "Loading learning programs";
-
             InitializeLastProgram();
 
             InitializeLearningProgramsAsync();
-            
+
+
 
             _statusHandler.text = "Ready";
 
@@ -49,8 +49,23 @@ namespace Core
         }
 
 
+        private void InitUser()
+        {
+
+            UserData user = FileExtensions.GetFromFile<UserData>(PathKeeper.UserDataPath);
+
+            SessionData.SetUserData(user);
+        }
+
+
         private void InitializeLessons()
         {
+
+            _statusHandler.text = "Loading lessons";
+
+
+            List<string> completed = SessionData.UserData.CompletedLessons;
+
 
             IReadOnlyCollection<LessonData> allLessonsData =
                 
@@ -68,6 +83,15 @@ namespace Core
                 lesson.InitializeContent();
 
                 lesson.LoadIcon();
+
+
+                if(completed.Contains(lesson.NameOfLesson))
+                {
+
+                    lesson.SetCompleted(true);
+
+                    completed.Remove(lesson.NameOfLesson);
+                }
 
 
                 allLessons.Add(lesson);
@@ -96,6 +120,9 @@ namespace Core
         private async Task InitializeLearningProgramsAsync()
         {
 
+            _statusHandler.text = "Loading learning programs";
+
+
             IReadOnlyCollection<LearningProgramData> allProgramsData =
 
                 FileExtensions.GetFiles<LearningProgramData>(PathKeeper.LearningProgramsPath);
@@ -112,6 +139,8 @@ namespace Core
                 program.LoadIcon();
 
                 program.AddLessonsAsync(SessionData.AllLessons);
+
+                program.CountProgressAsync();
 
 
                 allPrograms.Add(program);

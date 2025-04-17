@@ -70,8 +70,8 @@ namespace LearningPrograms
         public async Task AddLessonsAsync(IEnumerable<Lesson> allLessons)
         {
 
-            await Task.Run(() =>
-            {
+            //await Task.Run(() =>
+            //{
             
                 foreach(Lesson lesson in allLessons)
                 {
@@ -82,7 +82,7 @@ namespace LearningPrograms
                         _lessons.Add(lesson);
                     }
                 }
-            });
+            //});
         }
 
 
@@ -109,13 +109,13 @@ namespace LearningPrograms
 
             int percent = 0;
 
-            await Task.Run(() =>
-            {
+            //await Task.Run(() =>
+            //{
 
                 List<Lesson> completedLessons = _lessons.FindAll((lesson) => lesson.IsCompleted);
     
                 percent = 100 * completedLessons.Count / _lessons.Count;
-            });
+            //});
 
 
             _completionPercent = percent;

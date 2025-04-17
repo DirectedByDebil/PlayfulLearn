@@ -1,5 +1,16 @@
 {
     "Email": "",
     "UserName": "",
-    "CompletedLessons": []
+    "CompletedLessons": [
+        "Add Force",
+        "Audio Source",
+        "Axis X",
+        "Axis Y",
+        "Box Collider 2D",
+        "Camera",
+        "Gravity Scale",
+        "Rigidbody 2D",
+        "Transform",
+        "Vector 2"
+    ]
 }

@@ -38,6 +38,6 @@
         }
 
 
-        public const string UserDataPath = "Assets/Project Root/User";
+        public const string UserDataPath = "Assets/Project Root/User/User.json";
     }
 }

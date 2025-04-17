@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Lessons;
 using LearningPrograms;
+using Web;
 
 namespace Core
 {
@@ -30,6 +31,13 @@ namespace Core
         }
 
 
+        public static UserData UserData
+        {
+
+            get => _userData;
+        }
+
+
 
         private static List<Lesson> _allLessons;
 
@@ -39,6 +47,11 @@ namespace Core
 
         private static LearningProgram _lastLearningProgram;
 
+
+        private static UserData _userData;
+
+
+        #region Setters
 
         public static void SetAllLessons(IReadOnlyList<
             
@@ -69,6 +82,17 @@ namespace Core
         }
 
 
+        public static void SetUserData(UserData userData)
+        {
+
+            _userData = userData;
+        }
+
+        #endregion
+
+
+        #region Add Methods
+
         public static void AddLesson(Lesson lesson)
         {
 
@@ -81,5 +105,7 @@ namespace Core
 
             _allLearningPrograms.Add(program);
         }
+        
+        #endregion
     }
 }

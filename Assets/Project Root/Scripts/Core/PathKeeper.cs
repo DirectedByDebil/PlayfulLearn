@@ -36,5 +36,8 @@
 
             get => LearningProgramsPath + "/Last Learning Program.txt";
         }
+
+
+        public const string UserDataPath = "Assets/Project Root/User";
     }
 }

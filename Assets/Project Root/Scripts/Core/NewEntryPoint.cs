@@ -1,8 +1,6 @@
 ﻿using UINew;
 using LearningPrograms;
 using UnityEngine;
-using System.Collections.Generic;
-using TMPro;
 
 namespace Core
 {
@@ -27,6 +25,13 @@ namespace Core
         {
 
             Set();
+        }
+
+
+        private void OnDestroy()
+        {
+
+            App.Save();
         }
 
 

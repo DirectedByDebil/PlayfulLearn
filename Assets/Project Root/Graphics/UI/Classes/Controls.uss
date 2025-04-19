@@ -1,5 +1,4 @@
 .input {
-    font-size: 35px;
     -unity-text-align: middle-left;
     margin-left: 7px;
     margin-right: 7px;
@@ -10,4 +9,26 @@
     padding-top: 0;
     padding-bottom: 0;
     -unity-font-definition: url('project://database/Assets/Project%20Root/Fonts/DolomanPavljenko.otf?fileID=12800000&guid=05c5cc2c539e9404b8e0a51480afcdd6&type=3#DolomanPavljenko');
+}
+
+
+.unity-base-text-field__input
+{
+
+    -unity-text-align: middle-center;
+    border-radius: 18px;
+}
+
+
+.input-correct .unity-base-text-field__input
+{
+
+background-color: var(--correct-color);
+}
+
+
+.input-error .unity-base-text-field__input
+{
+
+background-color: var(--error-color);
 }

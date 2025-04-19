@@ -10,7 +10,9 @@
         "Camera",
         "Gravity Scale",
         "Rigidbody 2D",
+        "Spring Joint 2D",
         "Transform",
-        "Vector 2"
+        "Vector 2",
+        "Video"
     ]
 }

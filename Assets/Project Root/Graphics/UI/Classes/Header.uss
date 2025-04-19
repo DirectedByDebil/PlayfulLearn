@@ -13,6 +13,28 @@
     padding-bottom: 10px;
 }
 
+.h1 {
+    font-size: 72px;
+    -unity-text-align: middle-center;
+    -unity-font-definition: url('project://database/Assets/Project%20Root/Fonts/RS-regular.otf?fileID=12800000&guid=850b2fb3cb0b93141baea3c7f16d324d&type=3#RS-regular');
+}
+
+
+.h2 {
+    font-size: 56px;
+    -unity-text-align: middle-center;
+    -unity-font-definition: url('project://database/Assets/Project%20Root/Fonts/RS-regular.otf?fileID=12800000&guid=850b2fb3cb0b93141baea3c7f16d324d&type=3#RS-regular');
+}
+
+
+.h3 {
+    font-size: 40px;
+    -unity-text-align: middle-center;
+    -unity-font-definition: url('project://database/Assets/Project%20Root/Fonts/RS-regular.otf?fileID=12800000&guid=850b2fb3cb0b93141baea3c7f16d324d&type=3#RS-regular');
+}
+
+
+
 .big {
     
     font-size: 56px;
@@ -30,7 +52,7 @@
 .small {
     -unity-text-align: middle-center;
     -unity-font-definition: url('project://database/Assets/Project%20Root/Fonts/DolomanPavljenko.otf?fileID=12800000&guid=05c5cc2c539e9404b8e0a51480afcdd6&type=3#DolomanPavljenko');
-    font-size: 42px;
+    font-size: 30px;
 }
 
 

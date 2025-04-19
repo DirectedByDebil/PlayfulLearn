@@ -77,10 +77,26 @@ namespace UINew
         #endregion
 
 
+        public static TextField GetTextField(this VisualElement element, string name)
+        {
+
+            return element.Q<TextField>(name);
+        }
+
+
         public static ProgressBar GetProgressBar(this VisualElement element, string name)
         {
 
             return element.Q<ProgressBar>(name);
+        }
+
+
+        public static void SwapStyle(this VisualElement element, string remove, string add)
+        {
+
+            element.RemoveFromClassList(remove);
+
+            element.AddToClassList(add);
         }
     }
 }

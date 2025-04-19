@@ -5,6 +5,7 @@
     --accent-color : rgb(44, 146, 205);
     --accent-transparent-color: rgba(44, 146, 205, 0.4);
     --gray-accent-color: rgb(226, 226, 226);
+    --correct-color: rgb(50, 255, 50);
     --error-color: rgb(255, 50, 50);
     --white-color: rgb(255, 255, 255);
     --black-color: rgb(0, 0, 0);

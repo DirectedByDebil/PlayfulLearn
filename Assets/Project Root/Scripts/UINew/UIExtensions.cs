@@ -73,8 +73,17 @@ namespace UINew
 
             return doc.rootVisualElement.GetLabel(name);
         }
-        
+
         #endregion
+
+
+        #region Get Text Field
+
+        public static TextField GetTextField(this UIDocument doc, string name)
+        {
+
+            return doc.rootVisualElement.GetTextField(name);
+        }
 
 
         public static TextField GetTextField(this VisualElement element, string name)
@@ -82,6 +91,8 @@ namespace UINew
 
             return element.Q<TextField>(name);
         }
+
+        #endregion
 
 
         public static ProgressBar GetProgressBar(this VisualElement element, string name)

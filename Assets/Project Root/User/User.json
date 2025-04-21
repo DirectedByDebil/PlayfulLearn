@@ -1,11 +1,9 @@
 {
-    "Email": "",
-    "UserName": "",
+    "Email": "Current User Name",
+    "UserName": "chromov-arsenij@mail.ru",
     "CompletedLessons": [
         "Add Force",
         "Audio Source",
-        "Axis X",
-        "Axis Y",
         "Box Collider 2D",
         "Camera",
         "Gravity Scale",

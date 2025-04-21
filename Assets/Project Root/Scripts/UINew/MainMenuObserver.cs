@@ -1,5 +1,6 @@
 ﻿using Lessons;
 using LearningPrograms;
+using Web;
 using UnityEngine;
 using System;
 using System.Collections.Generic;
@@ -92,6 +93,13 @@ namespace UINew
 
 
             _lessonPracticePage.FinishClicked += OnFinishedClicked;
+        }
+
+
+        public void ViewUser(UserData user)
+        {
+
+            _userAccountPage.ViewUser(user);
         }
 
 

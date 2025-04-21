@@ -45,6 +45,8 @@ namespace Core
 
             _mainMenu.ViewLastLearningProgram(SessionData.LastLearningProgram);
 
+            _mainMenu.ViewUser(SessionData.UserData);
+
 
             _progressSystem = new ProgressSystem();
         }

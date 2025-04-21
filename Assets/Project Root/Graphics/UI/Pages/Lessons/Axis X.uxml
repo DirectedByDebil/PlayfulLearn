@@ -8,9 +8,9 @@
             <ui:VisualElement name="header" class="panel">
                 <ui:Label tabindex="-1" text="Axis X" display-tooltip-when-elided="true" name="lesson-name" class="big" />
             </ui:VisualElement>
-            <ui:VisualElement name="body" class="panel">
+            <ui:VisualElement name="body" class="panel" style="flex-grow: 2;">
                 <ui:Label tabindex="-1" text="Label" display-tooltip-when-elided="true" name="content-info" class="medium" />
-                <ui:VisualElement class="accent-colored" style="width: 100%; height: 85%;" />
+                <ui:VisualElement style="width: 100%; height: 85%; background-image: url(&quot;project://database/Assets/Project%20Root/Graphics/UI/Pages/Lessons/Axis.png?fileID=2800000&amp;guid=85fbb67794180da4b97478dc621edc12&amp;type=3#Axis&quot;); -unity-background-scale-mode: scale-to-fit;" />
             </ui:VisualElement>
             <ui:VisualElement name="footer" class="panel" />
         </ui:VisualElement>

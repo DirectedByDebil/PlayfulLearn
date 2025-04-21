@@ -1,4 +1,5 @@
-﻿using System;
+﻿using UnityEngine;
+using System;
 
 namespace LessonsPractices
 {
@@ -7,8 +8,11 @@ namespace LessonsPractices
     public struct Question
     {
 
+        public string Answer;
+
         public string VisualElementName;
 
-        public string Answer;
+
+        public Sprite Picture;
     }
 }

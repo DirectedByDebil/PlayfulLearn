@@ -67,6 +67,11 @@ namespace UINew
                 VisualElement element = document.GetElement(question.VisualElementName);
 
                 _inputs.Add(element.GetTextField("input-field"));
+
+
+                VisualElement picture = element.GetElement("picture");
+
+                picture.style.backgroundImage = new StyleBackground(question.Picture);
             }
         }
 

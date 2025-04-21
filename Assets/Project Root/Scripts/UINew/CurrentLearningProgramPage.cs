@@ -98,13 +98,15 @@ namespace UINew
             if(lesson.IsCompleted)
             {
 
-                icon.AddToClassList("completed");
+                icon.SwapStyle("image-gray-accent-colored", "image-success-colored");
+                
+                icon.SwapStyle("icon", "icon-success");
             }
             else
             {
 
-                icon.style.backgroundImage = new StyleBackground(lesson.Icon);
             }
+                icon.style.backgroundImage = new StyleBackground(lesson.Icon);
 
 
             element.RegisterCallback((ClickEvent e) =>

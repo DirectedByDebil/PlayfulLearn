@@ -1,16 +1,18 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:Template name="H Space" src="project://database/Assets/Project%20Root/Graphics/UI/Controls/Basic/H%20Space.uxml?fileID=9197481963319205126&amp;guid=74857ac0195ae7b409755387cf132bf3&amp;type=3#H Space" />
     <Style src="project://database/Assets/Project%20Root/Graphics/UI/Classes/Panel.uss?fileID=7433441132597879392&amp;guid=bdb970631957d0943a72216a16457bac&amp;type=3#Panel" />
     <Style src="project://database/Assets/Project%20Root/Graphics/UI/Classes/Header.uss?fileID=7433441132597879392&amp;guid=f76b758532201924db060bf37a13a6c2&amp;type=3#Header" />
     <ui:VisualElement style="width: 100%; height: 100%; flex-direction: row;">
-        <ui:VisualElement name="root" class="secondary-colored" style="width: 30%; height: 100%; min-width: 20%; max-width: 50%; -unity-text-align: upper-center; align-items: center;">
-            <ui:VisualElement name="header" style="justify-content: center; align-items: center; width: 100%; height: 20%;">
-                <ui:Label tabindex="-1" text="All Learning Programs" display-tooltip-when-elided="true" name="header-label" class="big" style="white-space: normal; width: 100%; height: 100%;" />
+        <ui:VisualElement name="root" class="border-secondary-colored rounded primary-colored" style="width: 30%; height: 100%; min-width: 20%; max-width: 50%; -unity-text-align: upper-center; align-items: center; border-top-width: 5px; border-right-width: 5px; border-bottom-width: 5px; border-left-width: 5px; flex-grow: 1; flex-basis: 30%;">
+            <ui:VisualElement name="header" style="justify-content: center; align-items: center; flex-grow: 1; flex-basis: 15%;">
+                <ui:Label tabindex="-1" text="Все компоненты" display-tooltip-when-elided="true" name="header-label" class="big" style="white-space: normal; width: 100%;" />
             </ui:VisualElement>
-            <ui:VisualElement name="body" class="primary-colored rounded" style="width: 90%; height: 65%;">
+            <ui:Instance template="H Space" name="H Space" style="height: 10px; width: 100%; flex-direction: row; justify-content: center;" />
+            <ui:VisualElement name="body" class="primary-colored rounded" style="width: 90%; height: 65%; flex-grow: 2;">
                 <ui:ListView focusable="true" name="programs-listview" fixed-item-height="140" style="width: 100%; height: 100%;" />
             </ui:VisualElement>
-            <ui:VisualElement name="footer" />
+            <ui:VisualElement name="footer" style="flex-grow: 1;" />
         </ui:VisualElement>
-        <ui:VisualElement name="transparent-panel" class="accent-transparent-colored" style="width: 70%; height: 100%;" />
+        <ui:VisualElement name="transparent-panel" class="white-transparent-colored" style="width: 70%; height: 100%; flex-grow: 1; flex-basis: 50%;" />
     </ui:VisualElement>
 </ui:UXML>

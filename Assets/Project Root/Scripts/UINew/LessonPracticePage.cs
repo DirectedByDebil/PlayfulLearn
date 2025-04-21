@@ -96,14 +96,14 @@ namespace UINew
             if(IsPracticeCompleted())
             {
 
-                _finishButton.RemoveFromClassList("button__disabled");
+                _finishButton.SwapStyle("button__disabled", "border-success-colored");
 
                 _finishButton?.RegisterCallback<ClickEvent>(OnFinishClicked);
             }
             else
             {
 
-                _finishButton.AddToClassList("button__disabled");
+                _finishButton.SwapStyle("border-success-colored", "button__disabled");
 
                 _finishButton?.UnregisterCallback<ClickEvent>(OnFinishClicked);
             }

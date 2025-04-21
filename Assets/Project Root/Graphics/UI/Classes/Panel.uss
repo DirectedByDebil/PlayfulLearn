@@ -1,14 +1,20 @@
 :root {
 
-    --primary-color : rgb(56, 182, 255);
-    --secondary-color : rgb(255, 189, 88);
-    --accent-color : rgb(44, 146, 205);
-    --accent-transparent-color: rgba(44, 146, 205, 0.4);
-    --gray-accent-color: rgb(226, 226, 226);
-    --correct-color: rgb(50, 255, 50);
-    --error-color: rgb(255, 50, 50);
+    --primary-color : #16BEF6;
+    --primary-transparent-colored : rgba(22, 190, 246, 0.4);
+
+    --secondary-color : #F776D2;
+    --accent-color : #850BF4;
+    --accent-transparent-color: rgba(113, 11, 244, 0.4);
+    
+    --correct-color: #76F7E7;
+    --error-color: #F36B83;
+
     --white-color: rgb(255, 255, 255);
+    --white-transparent-color: rgba(255, 255, 255, 0.4);
+
     --black-color: rgb(0, 0, 0);
+    --gray-accent-color: rgb(226, 226, 226);
 }
 
 
@@ -16,6 +22,12 @@
 
     background-color: var(--primary-color);
 }
+
+.primary-transparent-colored {
+
+    background-color: var(--primary-transparent-colored);
+}
+
 
 
 .secondary-colored {
@@ -36,11 +48,22 @@
 }
 
 
+.success-colored{
+
+    background-color: var(--correct-color);
+}
+
+
 
 .white-colored {
 
     background-color: var(--white-color);
 }
+
+.white-transparent-colored {
+    background-color: var(--white-transparent-color);
+}
+
 
 .image-accent-colored {
 
@@ -58,11 +81,31 @@
     -unity-background-image-tint-color: var(--gray-accent-color);
 }
 
+.image-success-colored {
+
+    -unity-background-image-tint-color: var(--correct-color);
+}
+
 
 
 .border-secondary-colored {
 
     border-color: var(--secondary-color);
+}
+
+.border-accent-colored {
+
+    border-color: var(--accent-color);
+}
+
+.border-white-colored {
+
+    border-color: var(--white-color);
+}
+
+.border-success-colored {
+
+    border-color: var(--correct-color);
 }
 
 .border-error-colored {
@@ -82,10 +125,7 @@
 
 
 .rounded {
-    border-top-left-radius: 18px;
-    border-bottom-left-radius: 18px;
-    border-top-right-radius: 18px;
-    border-bottom-right-radius: 18px;
+    border-radius: 24px;
 }
 
 

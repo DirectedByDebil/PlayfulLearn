@@ -13,6 +13,7 @@
     transition-property: scale, color;
 }
 
+
 .button:hover {
     scale: 1.1 1.1;
     background-color: var(--gray-accent-color);
@@ -102,4 +103,14 @@
 .completed {
     background-image: url('project://database/Assets/Project%20Root/Graphics/UI/Ready.png?fileID=2800000&guid=09597b1525b719645a333c0abaed1cfe&type=3#Ready');
     -unity-background-scale-mode: scale-to-fit;
+}
+
+.icon-success {
+    transition-duration: 200ms;
+    transition-property: scale;
+}
+
+.icon-success:hover {
+
+    scale: 1.1 1.1;
 }

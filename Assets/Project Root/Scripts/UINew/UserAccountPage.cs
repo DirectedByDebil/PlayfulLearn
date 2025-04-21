@@ -1,6 +1,7 @@
 ﻿using Web;
 using UnityEngine.UIElements;
 using System;
+using UnityEngine;
 
 namespace UINew
 {
@@ -19,6 +20,11 @@ namespace UINew
             Button close = document.GetButton("close-button");
 
             close.RegisterCallback<ClickEvent>(OnCloseClicked);
+
+
+            VisualElement closeArea = document.GetElement("close-area");
+
+            closeArea.RegisterCallback<ClickEvent>(OnCloseClicked);
         }
 
 

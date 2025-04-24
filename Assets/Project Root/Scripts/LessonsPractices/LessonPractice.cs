@@ -10,10 +10,16 @@ namespace LessonsPractices
 
         public string NameOfLesson;
 
-
         public VisualTreeAsset Asset;
+
+        public PracticeType PracticeType;
 
 
         public List<Question> Questions;
+
+
+        public string SceneName;
+
+        public List<CodeLine> CodeLines;
     }
 }

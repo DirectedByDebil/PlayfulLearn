@@ -1,20 +1,18 @@
 ﻿using Lessons;
 using LearningPrograms;
-using Web;
 using UnityEngine;
 using System;
 using System.Collections.Generic;
 
 namespace UINew
 {
+
     public sealed class MainMenuObserver : MonoBehaviour
     {
 
         public event Action<LearningProgram> LearningProgramChanged;
 
         public event Action<Lesson> LessonChanged;
-
-        public event Action LessonCompleting;
 
 
         [SerializeField, Space]
@@ -26,13 +24,12 @@ namespace UINew
 
 
         [SerializeField, Space]
-        private UserAccountPage _userAccountPage;
-
-        [SerializeField, Space]
         private LessonPage _lessonPage;
 
-        [SerializeField, Space]
-        private LessonPracticePage _lessonPracticePage;
+        
+        private IPage _userPage;
+
+        private IPage _lessonPracticePagew;
 
 
         private IPage _currentPage;
@@ -45,24 +42,39 @@ namespace UINew
 
             _allProgramsPage.Init();
 
-            _userAccountPage.Init();
-
             _lessonPage.Init();
 
-            _lessonPracticePage.Init();
 
 
             _allProgramsPage.Hide();
 
-            _userAccountPage.Hide();
-
             _lessonPage.Hide();
-
-            _lessonPracticePage.Hide();
 
 
             _currentPage = _currentProgramPage;
         }
+
+
+        #region Set Pages
+
+        public void SetUserPage(IPage userPage)
+        {
+
+            _userPage = userPage;
+
+            _userPage.Hide();
+        }
+
+
+        public void SetLessonPracticePage(IPage lessonPracticePage)
+        {
+
+            _lessonPracticePagew = lessonPracticePage;
+
+            _lessonPracticePagew.Hide();
+        }
+
+        #endregion
 
 
         public void SetObserver()
@@ -73,13 +85,11 @@ namespace UINew
 
 
             _currentProgramPage.UserAccountClicked +=
-                _userAccountPage.Show;
+                _userPage.Show;
 
 
             _currentProgramPage.LessonClicked += OnLessonClicked;
 
-
-            _userAccountPage.CloseClicked += _userAccountPage.Hide;
 
             _allProgramsPage.CloseClicked += _allProgramsPage.Hide;
 
@@ -90,19 +100,10 @@ namespace UINew
             _lessonPage.BackClicked += OnLessonBackClicked;
 
             _lessonPage.StartClicked += OnStartPracticeClicked;
-
-
-            _lessonPracticePage.FinishClicked += OnFinishedClicked;
         }
 
 
-        public void ViewUser(UserData user)
-        {
-
-            _userAccountPage.ViewUser(user);
-        }
-
-
+        #region View Learning Programs Methods 
 
         public void ViewLastLearningProgram(LearningProgram last)
         {
@@ -117,7 +118,17 @@ namespace UINew
             _allProgramsPage.ViewLearningPrograms(allPrograms);
         }
 
+        #endregion
 
+
+        public void OnLessonPracticeFinished()
+        {
+
+            ChangePage(_currentProgramPage);
+        }
+
+
+        #region On Buttons Clicked
 
         private void OnLearningProgramClicked(LearningProgram program)
         {
@@ -139,9 +150,6 @@ namespace UINew
             _lessonPage.ViewLesson(lesson);
 
 
-            _lessonPracticePage.PreparePractice(lesson);
-
-
             LessonChanged?.Invoke(lesson);
         }
 
@@ -156,17 +164,10 @@ namespace UINew
         private void OnStartPracticeClicked()
         {
 
-            ChangePage(_lessonPracticePage);
+            ChangePage(_lessonPracticePagew);
         }
 
-
-        private void OnFinishedClicked()
-        {
-
-            ChangePage(_currentProgramPage);
-
-            LessonCompleting?.Invoke();
-        }
+        #endregion
 
 
         private void ChangePage(IPage newPage)

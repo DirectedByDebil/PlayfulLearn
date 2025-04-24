@@ -1,5 +1,7 @@
 ﻿using UINew;
+using Lessons;
 using LearningPrograms;
+using LessonsPractices;
 using UnityEngine;
 
 namespace Core
@@ -9,6 +11,15 @@ namespace Core
 
         [SerializeField, Space]
         private MainMenuObserver _mainMenu;
+
+        [SerializeField, Space]
+        private UserAccountPage _userPage;
+
+        [SerializeField, Space]
+        private LessonPracticePage _lessonPracticePage;
+
+
+        private LessonPracticeSystem _lessonPracticeSystem;
 
 
         private ProgressSystem _progressSystem;
@@ -41,12 +52,25 @@ namespace Core
             _mainMenu.Init();
 
 
+            _userPage.Init();
+
+            _mainMenu.SetUserPage(_userPage);
+
+
+            _lessonPracticePage.Init();
+
+            _mainMenu.SetLessonPracticePage(_lessonPracticePage);
+
+
             _mainMenu.ViewLearningPrograms(SessionData.AllLearningPrograms);
 
             _mainMenu.ViewLastLearningProgram(SessionData.LastLearningProgram);
 
-            _mainMenu.ViewUser(SessionData.UserData);
 
+            _userPage.ViewUser(SessionData.UserData);
+
+
+            _lessonPracticeSystem = new LessonPracticeSystem(_lessonPracticePage);
 
             _progressSystem = new ProgressSystem();
         }
@@ -57,14 +81,35 @@ namespace Core
 
             _mainMenu.SetObserver();
 
-            _mainMenu.LessonChanged += _progressSystem.OnLessonChanged;
-
-            _mainMenu.LessonCompleting += _progressSystem.OnLessonCompleting;
+            _mainMenu.LessonChanged += OnLessonChanged;
 
             _mainMenu.LearningProgramChanged += OnLearningProgramChanged;
 
 
             _progressSystem.ProgressChanging += OnProgressChanging;
+
+
+            _lessonPracticeSystem.SetSytem();
+
+            _lessonPracticePage.FinishClicked += OnLessonCompleting;
+        }
+
+
+        private void OnLessonChanged(Lesson lesson)
+        {
+
+            _progressSystem.OnLessonChanged(lesson);
+
+            _lessonPracticePage.PreparePractice(lesson);
+        }
+
+
+        private void OnLessonCompleting()
+        {
+
+            _progressSystem.OnLessonCompleting();
+
+            _mainMenu.OnLessonPracticeFinished();
         }
 
 

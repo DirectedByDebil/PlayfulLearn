@@ -102,6 +102,8 @@ namespace UINew
         }
 
 
+        #region Swap Style
+
         public static void SwapStyle(this VisualElement element, string remove, string add)
         {
 
@@ -109,5 +111,24 @@ namespace UINew
 
             element.AddToClassList(add);
         }
+
+
+        public static void SwapIf(this VisualElement element, bool condition,
+            string negative, string positive)
+        {
+
+            if(condition)
+            {
+
+                element.SwapStyle(negative, positive);
+            }
+            else
+            {
+
+                element.SwapStyle(positive, negative);
+            }
+        }
+
+        #endregion
     }
 }

@@ -153,9 +153,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _currentProgramPage: {fileID: 779651022}
   _allProgramsPage: {fileID: 844838960}
-  _userAccountPage: {fileID: 532106406}
   _lessonPage: {fileID: 1778437360}
-  _lessonPracticePage: {fileID: 887640910}
 --- !u!4 &241911251
 Transform:
   m_ObjectHideFlags: 0
@@ -389,6 +387,7 @@ MonoBehaviour:
   _practices:
   - NameOfLesson: Axis X
     Asset: {fileID: 9197481963319205126, guid: 37445c632e7e9a64287d9d4af2530fba, type: 3}
+    PracticeType: 0
     Questions:
     - Answer: 1
       VisualElementName: 1
@@ -408,8 +407,11 @@ MonoBehaviour:
     - Answer: 6
       VisualElementName: 6
       Picture: {fileID: 21300000, guid: 84990d76c307b7740a028023e58e546f, type: 3}
+    SceneName: 
+    CodeLines: []
   - NameOfLesson: Axis Y
     Asset: {fileID: 9197481963319205126, guid: 4afbe8e8055066f4293a25a5b413b07f, type: 3}
+    PracticeType: 0
     Questions:
     - Answer: 6
       VisualElementName: 1
@@ -429,6 +431,50 @@ MonoBehaviour:
     - Answer: 1
       VisualElementName: 6
       Picture: {fileID: 21300000, guid: 84990d76c307b7740a028023e58e546f, type: 3}
+    SceneName: 
+    CodeLines: []
+  - NameOfLesson: Vector 2
+    Asset: {fileID: 9197481963319205126, guid: 66546d21a69bb9846b2680bbabcc9d40, type: 3}
+    PracticeType: 1
+    Questions:
+    - Answer: 6
+      VisualElementName: 1
+      Picture: {fileID: 21300000, guid: 5862de41ebcb904438a1af8213072f5e, type: 3}
+    - Answer: 5
+      VisualElementName: 2
+      Picture: {fileID: 21300000, guid: 72986a96962f3d24ea0778fe69ffd4e1, type: 3}
+    - Answer: 4
+      VisualElementName: 3
+      Picture: {fileID: 21300000, guid: d7918bfd5e01d0842b65d1e367495986, type: 3}
+    - Answer: 3
+      VisualElementName: 4
+      Picture: {fileID: 21300000, guid: 1dea00f9a86292e42b430ef4a5c2268c, type: 3}
+    - Answer: 2
+      VisualElementName: 5
+      Picture: {fileID: 21300000, guid: 9ea312d5525cbd44993f8ebd4040a9c4, type: 3}
+    - Answer: 1
+      VisualElementName: 6
+      Picture: {fileID: 21300000, guid: 84990d76c307b7740a028023e58e546f, type: 3}
+    SceneName: Vector2
+    CodeLines:
+    - Code: AddForce
+      IsReadOnly: 1
+      Description: 
+    - Code: dsfdsf
+      IsReadOnly: 1
+      Description: 
+    - Code: 123
+      IsReadOnly: 1
+      Description: 
+    - Code: 456
+      IsReadOnly: 1
+      Description: 
+    - Code: 789
+      IsReadOnly: 1
+      Description: 
+    - Code: 
+      IsReadOnly: 0
+      Description: 
 --- !u!114 &887640911
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -582,6 +628,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _mainMenu: {fileID: 241911250}
+  _userPage: {fileID: 532106406}
+  _lessonPracticePage: {fileID: 887640910}
 --- !u!4 &1572924334
 Transform:
   m_ObjectHideFlags: 0

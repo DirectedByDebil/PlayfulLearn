@@ -1,7 +1,6 @@
 ﻿using Web;
 using UnityEngine.UIElements;
 using System;
-using UnityEngine;
 
 namespace UINew
 {
@@ -45,7 +44,8 @@ namespace UINew
         private void OnCloseClicked(ClickEvent e)
         {
 
-            CloseClicked?.Invoke();
+            Hide();
+            //CloseClicked?.Invoke();
         }
     }
 }

@@ -1,22 +1,25 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:Template name="V Space" src="project://database/Assets/Project%20Root/Graphics/UI/Controls/Basic/V%20Space.uxml?fileID=9197481963319205126&amp;guid=bf1db0709617eb1499b3c4abd3e55bc0&amp;type=3#V Space" />
     <ui:Template name="Picture Input" src="project://database/Assets/Project%20Root/Graphics/UI/Controls/Basic/Picture%20Input.uxml?fileID=9197481963319205126&amp;guid=3e263030455bf5e468a79da8b2841c13&amp;type=3#Picture Input" />
+    <ui:Template name="Lesson Practice Footer" src="project://database/Assets/Project%20Root/Graphics/UI/Controls/Lesson%20Practice%20Footer.uxml?fileID=9197481963319205126&amp;guid=2ddccadc824776440bf3d01bc309d87c&amp;type=3#Lesson Practice Footer" />
     <Style src="project://database/Assets/Project%20Root/Graphics/UI/Classes/Panel.uss?fileID=7433441132597879392&amp;guid=bdb970631957d0943a72216a16457bac&amp;type=3#Panel" />
     <Style src="project://database/Assets/Project%20Root/Graphics/UI/Classes/Header.uss?fileID=7433441132597879392&amp;guid=f76b758532201924db060bf37a13a6c2&amp;type=3#Header" />
     <Style src="project://database/Assets/Project%20Root/Graphics/UI/Classes/Button.uss?fileID=7433441132597879392&amp;guid=e994f9c1daab72246a1f370fe2394630&amp;type=3#Button" />
-    <ui:VisualElement name="root" style="flex-direction: row; width: 100%; height: 100%;">
-        <ui:VisualElement name="info" class="panel primary-colored" style="height: 100%;">
+    <ui:VisualElement name="root" class="primary-colored" style="flex-direction: row; width: 100%; height: 100%;">
+        <ui:VisualElement name="info" class="panel" style="flex-basis: 30%;">
             <ui:VisualElement name="header" class="panel">
-                <ui:Label tabindex="-1" text="Axis Y" display-tooltip-when-elided="true" name="lesson-name" class="big" />
+                <ui:Label tabindex="-1" text="Ось Y" display-tooltip-when-elided="true" name="lesson-name" class="big" />
             </ui:VisualElement>
-            <ui:VisualElement name="body" class="panel">
+            <ui:VisualElement name="body" class="panel" style="flex-grow: 2;">
                 <ui:Label tabindex="-1" text="Label" display-tooltip-when-elided="true" name="content-info" class="medium" />
-                <ui:VisualElement class="accent-colored" style="width: 100%; height: 85%;" />
+                <ui:VisualElement style="width: 100%; height: 85%; background-image: url(&quot;project://database/Assets/Project%20Root/Graphics/Lesson%20Materials/Axis/Axis.png?fileID=2800000&amp;guid=85fbb67794180da4b97478dc621edc12&amp;type=3#Axis&quot;); -unity-background-scale-mode: scale-to-fit;" />
             </ui:VisualElement>
             <ui:VisualElement name="footer" class="panel" />
         </ui:VisualElement>
-        <ui:VisualElement name="practice" class="panel secondary-colored" style="height: 100%;">
+        <ui:Instance template="V Space" name="V Space" class="v-space" />
+        <ui:VisualElement name="practice" class="panel" style="flex-basis: 45%;">
             <ui:VisualElement name="header" class="panel">
-                <ui:Label tabindex="-1" text="Write direction y" display-tooltip-when-elided="true" name="task-info" class="medium" />
+                <ui:Label tabindex="-1" text="Укажите направление Y" display-tooltip-when-elided="true" name="task-info" class="medium" />
             </ui:VisualElement>
             <ui:VisualElement name="body" class="panel" style="justify-content: space-around; flex-basis: 50%;">
                 <ui:VisualElement name="row-1" class="panel" style="flex-direction: row; flex-wrap: wrap; justify-content: space-around;">
@@ -30,10 +33,7 @@
                     <ui:Instance template="Picture Input" name="6" style="height: 85%; flex-basis: 25%;" />
                 </ui:VisualElement>
             </ui:VisualElement>
-            <ui:VisualElement name="footer" class="panel" style="flex-direction: row;">
-                <ui:Button tabindex="-1" text="Check" display-tooltip-when-elided="true" name="check-button" class="button small rectangle" />
-                <ui:Button tabindex="-1" text="Finish" display-tooltip-when-elided="true" name="finish-button" class="button small rectangle button__disabled" />
-            </ui:VisualElement>
+            <ui:Instance template="Lesson Practice Footer" name="Lesson Practice Footer" />
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

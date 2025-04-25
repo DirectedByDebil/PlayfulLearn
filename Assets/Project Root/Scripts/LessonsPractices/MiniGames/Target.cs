@@ -1,10 +1,14 @@
 ﻿using UnityEngine;
+using System;
 
 namespace LessonsPractices.MiniGames
 {
     [RequireComponent(typeof(SpriteRenderer))]
     public sealed class Target : MonoBehaviour
     {
+
+        public event Action<Target> Triggered;
+
 
         public bool IsTriggered
         {
@@ -43,6 +47,8 @@ namespace LessonsPractices.MiniGames
                 IsTriggered = true;
 
                 SpriteRenderer.sprite = _winSprite;
+
+                Triggered?.Invoke(this);
             }
         }
     }

@@ -15,7 +15,7 @@ namespace LessonsPractices
         public event Action<string> MiniGameLoading;
 
 
-        private IReadOnlyList<TextField> _inputs;
+        private IReadOnlyList<InputField> _inputFields;
 
 
         private LessonPractice _currentPractice;
@@ -23,17 +23,30 @@ namespace LessonsPractices
         private IMiniGame _currentMiniGame;
 
 
-        public void OnInputsChanged(IReadOnlyList<TextField> inputs)
+        public void OnInputsChanged(IReadOnlyList<InputField> inputs)
         {
 
-            _inputs = inputs;
+            _inputFields = inputs;
         }
 
 
         public void OnMiniGameFound(IMiniGame miniGame)
         {
 
+            if(_currentMiniGame != null)
+            {
+
+                _currentMiniGame.CodeChecked -= OnCodeChecked;
+
+                _currentMiniGame.IsCompletedChanged -= OnMiniGameCompletedChanged;
+            }
+
+
             _currentMiniGame = miniGame;
+
+            _currentMiniGame.CodeChecked += OnCodeChecked;
+
+            _currentMiniGame.IsCompletedChanged += OnMiniGameCompletedChanged;
         }
 
 
@@ -93,7 +106,7 @@ namespace LessonsPractices
             for (int i = 0; i < questions.Count; i++)
             {
 
-                TextField input = _inputs[i];
+                TextField input = _inputFields[i].TextField;
 
 
                 bool isInputCorrect = input.value == questions[i].Answer;
@@ -119,12 +132,58 @@ namespace LessonsPractices
         private bool IsMiniGameCompleted()
         {
 
-            _currentMiniGame.SetParams();
+            _currentMiniGame.SetParams(GetCodeInputs());
 
             _currentMiniGame.StartGame();
 
 
             return _currentMiniGame.IsCompleted();
+        }
+
+
+        private CodeInput[] GetCodeInputs()
+        {
+
+            CodeInput[] inputs = new CodeInput[_inputFields.Count];
+
+
+            for(int i = 0; i < _inputFields.Count; i++)
+            {
+
+                InputField field = _inputFields[i];
+
+                inputs[i] = new()
+                {
+
+                    Code = field.TextField.text,
+
+                    Description = field.Description
+                };
+            }
+
+            return inputs;
+        }
+
+
+        private void OnCodeChecked(bool isValid, CodeInput input)
+        {
+
+            foreach(InputField field in _inputFields)
+            {
+
+                if(field.Description == input.Description)
+                {
+
+                    InputChecked?.Invoke(isValid, field.TextField);
+                }
+            }
+        }
+
+
+        private void OnMiniGameCompletedChanged(bool isCompleted)
+        {
+
+            PracticeChecked?.Invoke(isCompleted);
         }
 
         #endregion

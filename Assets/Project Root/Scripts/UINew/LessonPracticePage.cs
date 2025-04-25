@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using System;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 
 namespace UINew
 {
@@ -17,7 +16,7 @@ namespace UINew
 
         public event Action<LessonPractice> PracticeChanged;
 
-        public event Action<IReadOnlyList<TextField>> InputsChanged;
+        public event Action<IReadOnlyList<InputField>> InputsChanged;
 
 
         [SerializeField, Space]
@@ -29,7 +28,7 @@ namespace UINew
         private Button _finishButton;
 
 
-        private List<TextField> _inputs;
+        private List<InputField> _inputFields;
 
 
         public override void Init()
@@ -37,7 +36,7 @@ namespace UINew
             
             base.Init();
 
-            _inputs = new List<TextField>();
+            _inputFields = new List<InputField>();
         }
 
 
@@ -94,7 +93,7 @@ namespace UINew
         private void SetInputs(LessonPractice practice)
         {
 
-            _inputs.Clear();
+            _inputFields.Clear();
 
 
             switch (practice.PracticeType)
@@ -113,7 +112,7 @@ namespace UINew
             }
 
 
-            InputsChanged?.Invoke(_inputs);
+            InputsChanged?.Invoke(_inputFields);
         }
 
 
@@ -123,14 +122,14 @@ namespace UINew
             foreach (Question question in practice.Questions)
             {
 
-                TextField textField = GetTestInput(question);
+                InputField textField = GetTestInput(question);
 
-                _inputs.Add(textField);
+                _inputFields.Add(textField);
             }
         }
 
 
-        private TextField GetTestInput(Question question)
+        private InputField GetTestInput(Question question)
         {
 
             VisualElement element = document.GetElement(question.VisualElementName);
@@ -141,7 +140,14 @@ namespace UINew
             picture.style.backgroundImage = new StyleBackground(question.Picture);
 
 
-            return element.GetTextField("input-field");
+            InputField field = new()
+            {
+
+                TextField = element.GetTextField("input-field")
+            };
+
+
+            return field;
         }
 
 
@@ -157,12 +163,22 @@ namespace UINew
             for(int i = 0; i < children.Count; i++)
             {
 
-                GetCodeInput(children[i], practice.CodeLines[i], i+1);
+                CodeLine codeLine = practice.CodeLines[i];
+
+                InputField field = GetCodeInput(children[i], codeLine, i+1);
+                
+
+                if(!string.IsNullOrEmpty(codeLine.Description))
+                {
+
+                    _inputFields.Add(field);
+                }
             }
         }
 
 
-        private void GetCodeInput(VisualElement root, CodeLine codeLine, int lineNumber)
+        private InputField GetCodeInput(VisualElement root,
+            CodeLine codeLine, int lineNumber)
         {
 
             Label lineNumberLabel = root.GetLabel("line-number");
@@ -185,6 +201,16 @@ namespace UINew
             VisualElement textInput = lineText.GetElement("unity-text-input");
 
             textInput.SwapIf(isReadonly, "input-not-readonly", "input-readonly");
+
+
+            InputField field = new()
+            {
+                TextField = lineText,
+
+                Description = codeLine.Description
+            };
+
+            return field;
         }
 
         #endregion

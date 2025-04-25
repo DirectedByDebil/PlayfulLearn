@@ -32,6 +32,8 @@ namespace LessonsPractices
 
             _page.CheckClicked += _model.OnCheckingPractice;
 
+            _page.FinishClicked += _sceneManager.UnLoadMiniGameAsync;
+
 
             _model.InputChecked += _page.OnInputChecked;
 

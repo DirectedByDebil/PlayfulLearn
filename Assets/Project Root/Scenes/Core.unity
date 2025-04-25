@@ -457,23 +457,20 @@ MonoBehaviour:
       Picture: {fileID: 21300000, guid: 84990d76c307b7740a028023e58e546f, type: 3}
     SceneName: Vector2
     CodeLines:
-    - Code: AddForce
-      IsReadOnly: 1
-      Description: 
-    - Code: dsfdsf
-      IsReadOnly: 1
-      Description: 
-    - Code: 123
-      IsReadOnly: 1
-      Description: 
-    - Code: 456
-      IsReadOnly: 1
-      Description: 
-    - Code: 789
+    - Code: Vector2 direction = new Vector2();
       IsReadOnly: 1
       Description: 
     - Code: 
       IsReadOnly: 0
+      Description: direction.x
+    - Code: 
+      IsReadOnly: 0
+      Description: direction.y
+    - Code: ForceMode2D forceMode = ForceMode2D.Impulse;
+      IsReadOnly: 1
+      Description: 
+    - Code: rigidbody.AddForce(direction, forceMode);
+      IsReadOnly: 1
       Description: 
 --- !u!114 &887640911
 MonoBehaviour:

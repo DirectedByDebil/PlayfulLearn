@@ -40,4 +40,15 @@ background-color: var(--primary-color);
 }
 
 
+.input-correct .unity-text-element
+{
 
+background-color: var(--correct-color);
+}
+
+
+.input-error .unity-text-element
+{
+
+background-color: var(--error-color);
+}

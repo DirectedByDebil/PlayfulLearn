@@ -27,6 +27,14 @@ namespace LessonsPractices
         }
 
 
+        public void UnLoadMiniGameAsync()
+        {
+
+            SceneManager.UnloadSceneAsync(_lastScene);
+        }
+        
+
+
         private void OnSceneLoaded(AsyncOperation operation)
         {
 

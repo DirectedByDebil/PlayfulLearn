@@ -90,6 +90,20 @@ namespace UINew
 
         #region Set Inputs
 
+        public void SetFieldReadOnly(TextField lineText, bool isReadOnly)
+        {
+
+            lineText.isReadOnly = isReadOnly;
+
+            lineText.focusable = !isReadOnly;
+
+
+            VisualElement textInput = lineText.GetElement("unity-text-input");
+
+            textInput.SwapIf(isReadOnly, "input-not-readonly", "input-readonly");
+        }
+
+
         private void SetInputs(LessonPractice practice)
         {
 
@@ -191,17 +205,8 @@ namespace UINew
             lineText.value = codeLine.Code;
 
 
-            bool isReadonly = codeLine.IsReadOnly;
-
-            lineText.isReadOnly = isReadonly;
-
-            lineText.focusable = !isReadonly;
-
-
-            VisualElement textInput = lineText.GetElement("unity-text-input");
-
-            textInput.SwapIf(isReadonly, "input-not-readonly", "input-readonly");
-
+            SetFieldReadOnly(lineText, codeLine.IsReadOnly);
+            
 
             InputField field = new()
             {

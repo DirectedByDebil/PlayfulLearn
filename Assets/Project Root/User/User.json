@@ -3,9 +3,7 @@
     "UserName": "Current User Name",
     "CompletedLessons": [
         "Add Force",
-        "Axis X",
-        "Axis Y",
-        "Vector 2",
-        "Video"
+        "Get Key Down",
+        "Vector 2"
     ]
 }

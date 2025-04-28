@@ -10,6 +10,8 @@ namespace LessonsPractices
 
         public event Action<bool, TextField> InputChecked;
 
+        public event Action<TextField> LockingInput;
+
         public event Action<bool> PracticeChecked;
 
         public event Action<string> MiniGameLoading;
@@ -39,6 +41,8 @@ namespace LessonsPractices
                 _currentMiniGame.CodeChecked -= OnCodeChecked;
 
                 _currentMiniGame.IsCompletedChanged -= OnMiniGameCompletedChanged;
+
+                _currentMiniGame.LockingInput -= OnLockingInput;
             }
 
 
@@ -47,6 +51,8 @@ namespace LessonsPractices
             _currentMiniGame.CodeChecked += OnCodeChecked;
 
             _currentMiniGame.IsCompletedChanged += OnMiniGameCompletedChanged;
+
+            _currentMiniGame.LockingInput += OnLockingInput;
         }
 
 
@@ -168,14 +174,10 @@ namespace LessonsPractices
         private void OnCodeChecked(bool isValid, CodeInput input)
         {
 
-            foreach(InputField field in _inputFields)
+            if(TryFindTextField(input.Description, out TextField field))
             {
 
-                if(field.Description == input.Description)
-                {
-
-                    InputChecked?.Invoke(isValid, field.TextField);
-                }
+                InputChecked?.Invoke(isValid, field);
             }
         }
 
@@ -184,6 +186,38 @@ namespace LessonsPractices
         {
 
             PracticeChecked?.Invoke(isCompleted);
+        }
+
+
+        private void OnLockingInput(CodeInput input)
+        {
+
+            if(TryFindTextField(input.Description, out TextField field))
+            {
+
+                LockingInput?.Invoke(field);
+            }
+        }
+
+
+        private bool TryFindTextField(string description, out TextField textField)
+        {
+
+            foreach (InputField field in _inputFields)
+            {
+
+                if (field.Description == description)
+                {
+
+                    textField = field.TextField;
+
+                    return true;
+                }
+            }
+
+            textField = null;
+
+            return false;
         }
 
         #endregion

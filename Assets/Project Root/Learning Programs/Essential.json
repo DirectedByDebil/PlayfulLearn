@@ -1,5 +1,0 @@
-{
-    "NameOfProgram": "Essential",
-    "IconName": "Essential.png",
-    "Lessons": [ "Transform", "Sprite Renderer", "Rigidbody 2D", "Box Collider 2D", "Camera" ]
-}

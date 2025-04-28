@@ -10,6 +10,8 @@ namespace LessonsPractices.MiniGames
 
         public event Action<bool, CodeInput> CodeChecked;
 
+        public event Action<CodeInput> LockingInput;
+
 
         protected bool CanStart { get => _isInputValid; }
 
@@ -48,7 +50,7 @@ namespace LessonsPractices.MiniGames
         #endregion
 
 
-        #region Input Succeed/Failed
+        #region Input Events
 
         protected void InputSucceed(CodeInput input)
         {
@@ -65,6 +67,13 @@ namespace LessonsPractices.MiniGames
             _isInputValid = false;
 
             CodeChecked?.Invoke(false, input);
+        }
+
+
+        protected void LockInput(CodeInput input)
+        {
+
+            LockingInput?.Invoke(input);
         }
 
         #endregion

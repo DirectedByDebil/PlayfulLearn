@@ -1,16 +1,37 @@
-﻿using UnityEngine;
+﻿using Playables;
+using UnityEngine;
 
 namespace LessonsPractices.MiniGames
 {
-    public sealed class AddForceMiniGame : BulletMiniGame
+    public sealed class GetKeyDownMiniGame : TargetMiniGame
     {
+
+        [SerializeField, Space]
+        private Player _player;
+
+
+        public override void StartGame()
+        {
+
+            if (!CanStart) return;
+
+            _player.CanJump = true;
+
+            _player.CanMove = true;
+        }
+
 
         protected override void Init()
         {
 
             base.Init();
 
-            direction = new Vector2(1, 1);
+
+            _player.Init();
+
+            _player.CanMove = false;
+
+            _player.CanJump = false;
         }
 
 
@@ -19,8 +40,7 @@ namespace LessonsPractices.MiniGames
 
             string code = input.Code;
 
-
-            if(!IsInputValid(code, "rigidbody.AddForce"))
+            if(!IsInputValid(code, "if("))
             {
 
                 InputFailed(input);
@@ -31,17 +51,18 @@ namespace LessonsPractices.MiniGames
                 CleanInput(ref code);
 
 
-                if(input.Description == "AddForce")
+                if(input.Description == "GetKeyDown")
                 {
 
-                    if(code == "rigidbody.AddForce(direction,forceMode)")
+                    if(code == "if(Input.GetKeyDown(\"Jump\"))")
                     {
 
                         InputSucceed(input);
+
+                        LockInput(input);
                     }
                     else
                     {
-
                         InputFailed(input);
                     }
                 }

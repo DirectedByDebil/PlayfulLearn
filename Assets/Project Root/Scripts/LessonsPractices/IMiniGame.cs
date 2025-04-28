@@ -9,6 +9,8 @@ namespace LessonsPractices
 
         public event Action<bool> IsCompletedChanged;
 
+        public event Action<CodeInput> LockingInput;
+
 
         public void StartGame();
 

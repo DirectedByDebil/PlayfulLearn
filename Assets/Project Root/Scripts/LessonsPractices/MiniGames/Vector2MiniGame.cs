@@ -1,6 +1,6 @@
 ﻿namespace LessonsPractices.MiniGames
 {
-    public sealed class Vector2MiniGame : TargetMiniGame
+    public sealed class Vector2MiniGame : BulletMiniGame
     {
 
         protected override void CheckCodeInput(CodeInput input)

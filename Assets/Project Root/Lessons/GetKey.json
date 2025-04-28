@@ -1,23 +1,23 @@
 {
-    "NameOfLesson": "Rigidbody 2D",
-    "IconName": "Rigidbody.png",
-    "Contents": [
-        
+    "NameOfLesson": "Get Key",
+    "IconName": "Transform.png",
+    "Contents": 
+    [
         {
             "_language": 0,
             "_lessonTextContent": {
-                "_introduction": "Adding a Rigidbody2D component to a sprite puts it under the control of the physics engine.",
-                "_usage": "    By itself, this means that the sprite will be affected by gravity and can be controlled from scripts using forces.",
-                "_practiceDescription": "Now you are going to see how the Rigidbody2D parameters affect the behavior of the game object."
+                "_introduction": "Every object in a Scene has a Transform. It's used to store and manipulate the position, rotation and scale of the object",
+                "_usage": "With this component we can change: 1) Position 2) Rotation 3) Scale of an object",
+                "_practiceDescription": "Now you are going to see how you can use the Transform component to influence a game object"
             }
         },
         {
             "_language": 1,
-            "_lessonTextContent": {
-                "_introduction": "Компонент Rigidbody 2D помещает объект под управление физического движка.",
-                "_usage": "Это означает, что на объект будет действовать гравитация и прочие силы.",
-                "_practiceDescription": "В практической части Вы сможете увидеть, как влияют параметры Rigidbody2D на поведение игрового объекта."
-            }
+          "_lessonTextContent": {
+            "_introduction": "Структура Vector2 позволяет нам указывать направление движения сразу по осям X и Y",
+            "_usage": "X - движение вправо/влево\nY - движение вверх/вниз\n",
+            "_practiceDescription": "Указывать направление движения объекта в Unity"
+          }
         },
         {
             "_language": 2,

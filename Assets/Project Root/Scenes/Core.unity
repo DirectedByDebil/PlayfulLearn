@@ -511,6 +511,45 @@ MonoBehaviour:
     - Code: 
       IsReadOnly: 0
       Description: AddForce
+  - NameOfLesson: Get Key Down
+    Asset: {fileID: 9197481963319205126, guid: 57d1fe6373f5c484196a78a892da7026, type: 3}
+    PracticeType: 1
+    Questions:
+    - Answer: 6
+      VisualElementName: 1
+      Picture: {fileID: 21300000, guid: 5862de41ebcb904438a1af8213072f5e, type: 3}
+    - Answer: 5
+      VisualElementName: 2
+      Picture: {fileID: 21300000, guid: 72986a96962f3d24ea0778fe69ffd4e1, type: 3}
+    - Answer: 4
+      VisualElementName: 3
+      Picture: {fileID: 21300000, guid: d7918bfd5e01d0842b65d1e367495986, type: 3}
+    - Answer: 3
+      VisualElementName: 4
+      Picture: {fileID: 21300000, guid: 1dea00f9a86292e42b430ef4a5c2268c, type: 3}
+    - Answer: 2
+      VisualElementName: 5
+      Picture: {fileID: 21300000, guid: 9ea312d5525cbd44993f8ebd4040a9c4, type: 3}
+    - Answer: 1
+      VisualElementName: 6
+      Picture: {fileID: 21300000, guid: 84990d76c307b7740a028023e58e546f, type: 3}
+    SceneName: GetKeyDown
+    CodeLines:
+    - Code: 
+      IsReadOnly: 0
+      Description: GetKeyDown
+    - Code: '{'
+      IsReadOnly: 1
+      Description: 
+    - Code: Vector2 direction = new Vector2(0, 1);
+      IsReadOnly: 1
+      Description: 
+    - Code: rigidbody.AddForce(direction, ForceMode2D.Impulse);
+      IsReadOnly: 1
+      Description: 
+    - Code: '}'
+      IsReadOnly: 1
+      Description: 
 --- !u!114 &887640911
 MonoBehaviour:
   m_ObjectHideFlags: 0

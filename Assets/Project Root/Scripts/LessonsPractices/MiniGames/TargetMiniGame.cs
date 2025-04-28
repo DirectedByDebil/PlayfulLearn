@@ -16,31 +16,10 @@ namespace LessonsPractices.MiniGames
         [SerializeField, Space]
         private Transform _targetsRoot;
 
-
-        [SerializeField, Space]
-        private Transform _bulletsRoot;
-
-
-        [SerializeField, Space]
-        private Transform _startPosition;
-
-
-        [SerializeField, Space, Range(0, 8)]
-        private float _bulletLifeTime;
-
-
-        [SerializeField, Space, Range(0, 20)]
-        private float _bulletSpeed;
-        
         #endregion
 
 
         private ObjectPool<Target> _targetPool;
-
-        private ObjectPool<Bullet> _bulletPool;
-
-
-        protected Vector2 direction;
 
 
         private IList<Target> _completedTargets;
@@ -64,35 +43,12 @@ namespace LessonsPractices.MiniGames
         #endregion
 
 
-        public override void StartGame()
-        {
-
-            if (!CanStart) return;
-
-
-            if (_bulletPool.TryGetObject(out Bullet bullet))
-            {
-
-                bullet.transform.position = _startPosition.position;
-
-                bullet.gameObject.SetActive(true);
-
-                bullet.OnShot(direction * _bulletSpeed, _bulletLifeTime);
-            }
-        }
-
-
         protected virtual void Init()
         {
 
             _targetPool = new ObjectPool<Target>(_targetsRoot);
 
-            _bulletPool = new ObjectPool<Bullet>(_bulletsRoot);
-
-
             _targetPool.UpdateObjects();
-
-            _bulletPool.UpdateObjects();
 
 
             _completedTargets = new List<Target>(_targetPool.Objects.Count);

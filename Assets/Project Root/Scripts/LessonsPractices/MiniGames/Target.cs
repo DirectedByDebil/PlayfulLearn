@@ -41,7 +41,7 @@ namespace LessonsPractices.MiniGames
         private void OnTriggerEnter2D(Collider2D collision)
         {
             
-            if(collision.CompareTag("Bullet"))
+            if(collision.CompareTag("Bullet") || collision.CompareTag("Player"))
             {
 
                 IsTriggered = true;

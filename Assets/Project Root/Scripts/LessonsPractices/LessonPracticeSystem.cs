@@ -1,4 +1,5 @@
 ﻿using UINew;
+using UnityEngine.UIElements;
 
 namespace LessonsPractices
 {
@@ -41,9 +42,17 @@ namespace LessonsPractices
 
             _model.MiniGameLoading += _sceneManager.LoadMiniGameAsync;
 
+            _model.LockingInput += OnLockingInput;
+
 
             _sceneManager.MiniGameFound += _model.OnMiniGameFound;
         }
 
+
+        private void OnLockingInput(TextField field)
+        {
+
+            _page.SetFieldReadOnly(field, true);
+        }
     }
 }

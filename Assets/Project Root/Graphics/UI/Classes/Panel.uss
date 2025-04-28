@@ -1,5 +1,5 @@
 :root {
-    --primary-color: rgb(22, 190, 246);
+    --primary-color: rgb(255, 255, 255);
     --primary-transparent-colored: rgba(22, 190, 246, 0.4);
     --secondary-color: rgb(247, 118, 210);
     --accent-color: rgb(133, 11, 244);
@@ -9,7 +9,8 @@
     --white-color: rgb(255, 255, 255);
     --white-transparent-color: rgba(255, 255, 255, 0.4);
     --black-color: rgb(0, 0, 0);
-    --gray-accent-color: rgb(226, 226, 226);
+    --gray-accent-color: rgb(240, 240, 240);
+    --gray-dark-color: rgb(225, 225, 225);
 }
 
 .primary-colored {
@@ -36,6 +37,7 @@
     background-color: var(--correct-color);
 }
 
+
 .white-colored {
     background-color: var(--white-color);
 }
@@ -44,9 +46,19 @@
     background-color: var(--white-transparent-color);
 }
 
+.black-colored 
+{
+    background-color : var(--black-color);
+}
+
 .gray-colored {
 
     background-color: var(--gray-accent-color);
+}
+
+.dark-gray-colored {
+
+    background-color: var(--gray-dark-color);
 }
 
 .image-accent-colored {
@@ -59,6 +71,10 @@
 
 .image-gray-accent-colored {
     -unity-background-image-tint-color: var(--gray-accent-color);
+}
+
+.image-gray-dark-colored {
+    -unity-background-image-tint-color: var(--gray-dark-color);
 }
 
 .image-success-colored {
@@ -84,6 +100,12 @@
 .border-error-colored {
     border-color: var(--error-color);
 }
+
+.border-black-colored {
+    border-color: var(--black-color);
+}
+
+
 
 .panel {
     margin: auto;

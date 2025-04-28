@@ -3,8 +3,8 @@
     <Style src="project://database/Assets/Project%20Root/Graphics/UI/Classes/Panel.uss?fileID=7433441132597879392&amp;guid=bdb970631957d0943a72216a16457bac&amp;type=3#Panel" />
     <Style src="project://database/Assets/Project%20Root/Graphics/UI/Classes/Header.uss?fileID=7433441132597879392&amp;guid=f76b758532201924db060bf37a13a6c2&amp;type=3#Header" />
     <Style src="project://database/Assets/Project%20Root/Graphics/UI/Classes/ProgressBar.uss?fileID=7433441132597879392&amp;guid=456ed877d08b98f44b6ffcb136a44a46&amp;type=3#ProgressBar" />
-    <ui:Button name="icon-rectangle-button" class="button border-secondary-colored rectangle" style="align-items: center; justify-content: flex-start; flex-direction: row;">
-        <ui:VisualElement name="icon" class="image-gray-accent-colored icon" style="-unity-background-scale-mode: scale-to-fit; background-color: rgba(0, 0, 0, 0); margin-right: 10px; background-image: url(&apos;project://database/Assets/Project%20Root/Graphics/Icons/Lessons/Rigidbody.png?fileID=2800000&amp;guid=84fe9e0f940388743a884ee5853298cd&amp;type=3#Rigidbody&apos;); width: 60px; height: 60px; flex-grow: 1; flex-basis: 20%;" />
+    <ui:Button name="icon-rectangle-button" class="button rectangle border-success-colored" style="align-items: center; justify-content: flex-start; flex-direction: row; width: 600px; height: 100px;">
+        <ui:VisualElement name="icon" class="icon image-gray-dark-colored" style="-unity-background-scale-mode: scale-to-fit; background-color: rgba(0, 0, 0, 0); margin-right: 10px; background-image: url(&quot;project://database/Assets/Project%20Root/Graphics/Icons/Lessons/Rigidbody.png?fileID=2800000&amp;guid=84fe9e0f940388743a884ee5853298cd&amp;type=3#Rigidbody&quot;); width: 60px; height: 60px; flex-grow: 1; flex-basis: 20%;" />
         <ui:VisualElement style="flex-grow: 1; flex-basis: 60%; justify-content: center; align-items: stretch;">
             <ui:Label text="Label" name="name" style="font-size: 18px;" />
             <ui:ProgressBar name="progress" title="Test" style="flex-grow: 1; flex-basis: 50%;" />

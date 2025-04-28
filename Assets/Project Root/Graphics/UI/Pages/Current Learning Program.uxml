@@ -12,7 +12,7 @@
         </ui:VisualElement>
         <ui:Button tabindex="-1" display-tooltip-when-elided="true" name="open-user-button" class="icon image-black-colored" style="background-image: url(&quot;project://database/Assets/Project%20Root/Graphics/UI/user.png?fileID=2800000&amp;guid=7a11fcee32d2497429e3f5679efd2113&amp;type=3#user&quot;); -unity-background-scale-mode: scale-to-fit; width: 5%; height: 50%; border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0;" />
     </ui:VisualElement>
-    <ui:Instance template="H Space" name="H Space" class="primary-colored" style="width: 100%; height: 10px; flex-direction: row; justify-content: center;" />
+    <ui:Instance template="H Space" name="H Space" class="primary-colored" style="width: 100%; height: 4px; flex-direction: row; justify-content: center;" />
     <ui:VisualElement name="Body" class="panel primary-colored" style="height: 75%;">
         <ui:ScrollView scroll-deceleration-rate="0,135" elasticity="0,1" name="lessons-scrollview" horizontal-scroller-visibility="Hidden">
             <ui:VisualElement name="lessons-parent" style="flex-direction: row; flex-wrap: wrap; align-items: flex-start; padding-left: 20px; padding-right: 5px; padding-top: 5px; padding-bottom: 5px;" />

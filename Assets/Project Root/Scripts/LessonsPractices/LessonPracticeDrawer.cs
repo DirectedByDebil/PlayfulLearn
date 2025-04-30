@@ -22,7 +22,7 @@ namespace LessonsPractices
 
             SerializedProperty practiceType = property.FindPropertyRelative("PracticeType");
 
-            SerializedProperty asset = property.FindPropertyRelative("Asset");
+            SerializedProperty testPage = property.FindPropertyRelative("TestPage");
 
 
             SerializedProperty questions = property.FindPropertyRelative("Questions");
@@ -31,6 +31,8 @@ namespace LessonsPractices
             SerializedProperty sceneName = property.FindPropertyRelative("SceneName");
 
             SerializedProperty codeLines = property.FindPropertyRelative("CodeLines");
+
+            SerializedProperty miniGameInfo = property.FindPropertyRelative("MiniGameInfo");
             
 
 
@@ -39,7 +41,7 @@ namespace LessonsPractices
             if(property.isExpanded)
             {
 
-                DrawProperties(nameOfLesson, asset, practiceType);
+                DrawProperties(nameOfLesson, practiceType);
 
 
                 PracticeType type = (PracticeType)practiceType.enumValueIndex;
@@ -49,12 +51,12 @@ namespace LessonsPractices
 
                     case PracticeType.Test:
 
-                        DrawProperties(questions);
+                        DrawProperties(testPage, questions);
                         break;
 
                     case PracticeType.MiniGame:
 
-                        DrawProperties(sceneName, codeLines);
+                        DrawProperties(sceneName, miniGameInfo, codeLines);
                         break;
                 }
 

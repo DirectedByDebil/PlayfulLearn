@@ -3,10 +3,10 @@
     <ui:Template name="Lesson Practice Footer" src="project://database/Assets/Project%20Root/Graphics/UI/Controls/Lesson%20Practice%20Footer.uxml?fileID=9197481963319205126&amp;guid=2ddccadc824776440bf3d01bc309d87c&amp;type=3#Lesson Practice Footer" />
     <Style src="project://database/Assets/Project%20Root/Graphics/UI/Classes/Panel.uss?fileID=7433441132597879392&amp;guid=bdb970631957d0943a72216a16457bac&amp;type=3#Panel" />
     <ui:VisualElement name="root" class="panel" style="flex-grow: 1; flex-direction: row; justify-content: space-between;">
-        <ui:VisualElement name="info" class="primary-colored panel" style="flex-grow: 1; flex-basis: 40%; height: 100%;">
-            <ui:VisualElement name="header" class="panel" style="flex-grow: 1;" />
-            <ui:VisualElement name="body" class="panel" style="flex-grow: 2;">
-                <ui:VisualElement name="code-root" style="width: 85%;">
+        <ui:VisualElement name="info" class="primary-colored panel" style="flex-grow: 1; flex-basis: 50%; height: 100%; border-right-width: 5px; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0);">
+            <ui:VisualElement name="header" class="panel" style="flex-grow: 1; display: none;" />
+            <ui:VisualElement name="body" class="panel" style="flex-grow: 2; justify-content: space-around;">
+                <ui:VisualElement name="code-root" style="width: 85%; flex-grow: 1; flex-basis: 30%; margin-top: 10px; margin-right: 10px; margin-bottom: 10px; margin-left: 10px; padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px;">
                     <ui:Instance template="Code Line" name="Code Line" />
                     <ui:Instance template="Code Line" name="Code Line" />
                     <ui:Instance template="Code Line" name="Code Line" />
@@ -14,11 +14,8 @@
                     <ui:Instance template="Code Line" name="Code Line" />
                 </ui:VisualElement>
             </ui:VisualElement>
-            <ui:VisualElement name="footer" class="panel" style="flex-grow: 1;" />
-        </ui:VisualElement>
-        <ui:VisualElement name="practice" class="panel" style="flex-grow: 1; flex-basis: 50%; height: 100%; justify-content: space-around;">
-            <ui:VisualElement style="flex-grow: 1;" />
             <ui:Instance template="Lesson Practice Footer" name="Lesson Practice Footer" class="primary-colored" style="border-top-width: 5px; border-right-width: 5px; border-bottom-width: 5px; border-left-width: 5px;" />
         </ui:VisualElement>
+        <ui:VisualElement name="practice" class="panel" style="flex-grow: 1; flex-basis: 50%; height: 100%; justify-content: space-around;" />
     </ui:VisualElement>
 </ui:UXML>

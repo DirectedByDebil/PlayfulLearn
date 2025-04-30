@@ -27,7 +27,7 @@ namespace LessonsPractices
         public void SetSytem()
         {
 
-            _page.PracticeChanged += _model.SetPractice;
+            _page.PracticeChanged += OnPracticeChanged;
 
             _page.InputsChanged += _model.OnInputsChanged;
 
@@ -46,6 +46,15 @@ namespace LessonsPractices
 
 
             _sceneManager.MiniGameFound += _model.OnMiniGameFound;
+        }
+
+
+        private void OnPracticeChanged(LessonPractice practice)
+        {
+
+            _sceneManager.UnLoadMiniGameAsync();
+
+            _model.SetPractice(practice);
         }
 
 

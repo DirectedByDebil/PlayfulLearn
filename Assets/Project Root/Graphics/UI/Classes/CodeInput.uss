@@ -1,7 +1,6 @@
 
 .unity-base-field
 {
-
     -unity-text-align: middle-center;
     border-radius: 18px;
 }
@@ -40,14 +39,14 @@ background-color: var(--primary-color);
 }
 
 
-.input-correct .unity-text-element
+.input-correct > .unity-base-text-field__input 
 {
 
 background-color: var(--correct-color);
 }
 
 
-.input-error .unity-text-element
+.input-error > .unity-base-text-field__input 
 {
 
 background-color: var(--error-color);

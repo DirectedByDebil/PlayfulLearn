@@ -5,7 +5,7 @@
 {
 	border-radius: 10px;
     border-width: 2px;
-    border-color: var(--accent-color);
+    border-color: var(--correct-color);
     background-color: var(--white-color);
 }
 
@@ -14,7 +14,7 @@
 {
 
 	border-radius: 10px;
-    background-color: var(--accent-color);
+    background-color: var(--correct-color);
 }
 
 .unity-progress-bar__title

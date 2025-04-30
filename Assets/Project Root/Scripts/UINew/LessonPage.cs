@@ -49,19 +49,19 @@ namespace UINew
 
             VisualElement intro = document.GetElement("introduction");
 
-            ViewContentElement(intro, 1, "What's this?", content.Introduction);
+            ViewContentElement(intro, 1, "Что это?", content.Introduction);
 
 
 
             VisualElement usage = document.GetElement("usage");
 
-            ViewContentElement(usage, 2, "How use it?", content.Usage);
+            ViewContentElement(usage, 2, "Как использовать?", content.Usage);
 
 
 
             VisualElement practice = document.GetElement("practice");
 
-            ViewContentElement(practice, 3, "Train", content.PracticeDescription);
+            ViewContentElement(practice, 3, "Научимся!", content.PracticeDescription);
         }
 
 

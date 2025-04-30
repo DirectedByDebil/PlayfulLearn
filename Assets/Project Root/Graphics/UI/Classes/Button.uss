@@ -16,7 +16,7 @@
 
 .button:hover {
     scale: 1.1 1.1;
-    background-color: var(--gray-accent-color);
+
 }
 
 
@@ -24,6 +24,7 @@
 {
 
     background-color: var(--accent-color);
+    color: var(--white-color);
 }
 
 .button__disabled:hover
@@ -31,6 +32,12 @@
 
     background-color: var(--accent-color);
     scale: 1 1;
+}
+
+.button__success {
+
+border-color: var(--correct-color);
+color: var(--black-color);
 }
 
 

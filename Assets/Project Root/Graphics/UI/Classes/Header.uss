@@ -61,3 +61,8 @@
     -unity-font-style: bold;
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.89);
 }
+
+
+.accent-text {
+    color: var(--accent-color);
+}

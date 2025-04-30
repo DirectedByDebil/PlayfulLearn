@@ -37,7 +37,6 @@
     background-color: var(--correct-color);
 }
 
-
 .white-colored {
     background-color: var(--white-color);
 }
@@ -46,18 +45,15 @@
     background-color: var(--white-transparent-color);
 }
 
-.black-colored 
-{
-    background-color : var(--black-color);
+.black-colored {
+    background-color: var(--black-color);
 }
 
 .gray-colored {
-
     background-color: var(--gray-accent-color);
 }
 
 .dark-gray-colored {
-
     background-color: var(--gray-dark-color);
 }
 
@@ -105,8 +101,6 @@
     border-color: var(--black-color);
 }
 
-
-
 .panel {
     margin: auto;
     width: 100%;
@@ -149,4 +143,9 @@
     margin-right: 10px;
     margin-bottom: 10px;
     margin-left: 10px;
+}
+
+.mini-game-info {
+    flex-grow: 1;
+    flex-basis: 30%;
 }

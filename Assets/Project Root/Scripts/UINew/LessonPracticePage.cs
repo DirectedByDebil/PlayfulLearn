@@ -20,6 +20,13 @@ namespace UINew
 
 
         [SerializeField, Space]
+        private VisualTreeAsset _miniGamePage;
+
+        [SerializeField, Space]
+        private VisualTreeAsset _codeLineAsset;
+
+
+        [SerializeField, Space]
         private List<LessonPractice> _practices;
 
 
@@ -47,12 +54,11 @@ namespace UINew
             LessonPractice lessonPractice = _practices.Find(
                 (practice) => practice.NameOfLesson == lesson.NameOfLesson);
 
-            document.visualTreeAsset = lessonPractice.Asset;
-            
+
+            SetPracticeContent(lessonPractice);
 
             SetButtons();
 
-            SetInputs(lessonPractice);
 
             PracticeChanged?.Invoke(lessonPractice);
         }
@@ -70,7 +76,7 @@ namespace UINew
         public void OnPracticeChecked(bool isCompleted)
         {
 
-            _finishButton.SwapIf(isCompleted, "button__disabled", "border-success-colored");
+            _finishButton.SwapIf(isCompleted, "button__disabled", "button__success");
 
 
             if(isCompleted)
@@ -88,8 +94,6 @@ namespace UINew
         #endregion
 
 
-        #region Set Inputs
-
         public void SetFieldReadOnly(TextField lineText, bool isReadOnly)
         {
 
@@ -104,7 +108,7 @@ namespace UINew
         }
 
 
-        private void SetInputs(LessonPractice practice)
+        private void SetPracticeContent(LessonPractice practice)
         {
 
             _inputFields.Clear();
@@ -115,20 +119,43 @@ namespace UINew
 
                 case PracticeType.Test:
 
+
+                    document.visualTreeAsset = practice.TestPage;
+
                     SetTestInputs(practice);
                     break;
 
 
                 case PracticeType.MiniGame:
 
+
+                    document.visualTreeAsset = _miniGamePage;
+
+                    SetMiniGameInfo(practice.MiniGameInfo);
+
                     SetCodeInputs(practice);
                     break;
             }
 
-
             InputsChanged?.Invoke(_inputFields);
         }
 
+
+        private void SetMiniGameInfo(VisualTreeAsset infoAsset)
+        {
+
+            VisualElement info = infoAsset.Instantiate();
+
+            info.AddToClassList("mini-game-info");
+
+
+            VisualElement body = document.GetElement("body");
+
+            body.Insert(0, info);
+        }
+
+
+        #region Set Inputs
 
         private void SetTestInputs(LessonPractice practice)
         {
@@ -170,16 +197,18 @@ namespace UINew
 
             VisualElement codeRoot = document.GetElement("code-root");
 
+            codeRoot.Clear();
 
-            List<VisualElement> children = new (codeRoot.Children());
-           
 
-            for(int i = 0; i < children.Count; i++)
+            for(int i = 0; i < practice.CodeLines.Count; i++)
             {
+
+                VisualElement element = _codeLineAsset.Instantiate();
+
 
                 CodeLine codeLine = practice.CodeLines[i];
 
-                InputField field = GetCodeInput(children[i], codeLine, i+1);
+                InputField field = GetCodeInput(element, codeLine, i+1);
                 
 
                 if(!string.IsNullOrEmpty(codeLine.Description))
@@ -187,6 +216,8 @@ namespace UINew
 
                     _inputFields.Add(field);
                 }
+
+                codeRoot.Add(element);
             }
         }
 

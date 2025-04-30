@@ -384,10 +384,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c54e5e30b4745e4da50dd67259ba919, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _miniGamePage: {fileID: 9197481963319205126, guid: 098fc31d81c5dc14fb5fe3d2efcf7235, type: 3}
+  _codeLineAsset: {fileID: 9197481963319205126, guid: 0acc3967fcde11c44bb70b34067acf3e, type: 3}
   _practices:
   - NameOfLesson: Axis X
-    Asset: {fileID: 9197481963319205126, guid: 37445c632e7e9a64287d9d4af2530fba, type: 3}
     PracticeType: 0
+    TestPage: {fileID: 9197481963319205126, guid: 37445c632e7e9a64287d9d4af2530fba, type: 3}
     Questions:
     - Answer: 1
       VisualElementName: 1
@@ -408,10 +410,11 @@ MonoBehaviour:
       VisualElementName: 6
       Picture: {fileID: 21300000, guid: 84990d76c307b7740a028023e58e546f, type: 3}
     SceneName: 
+    MiniGameInfo: {fileID: 0}
     CodeLines: []
   - NameOfLesson: Axis Y
-    Asset: {fileID: 9197481963319205126, guid: 4afbe8e8055066f4293a25a5b413b07f, type: 3}
     PracticeType: 0
+    TestPage: {fileID: 9197481963319205126, guid: 4afbe8e8055066f4293a25a5b413b07f, type: 3}
     Questions:
     - Answer: 6
       VisualElementName: 1
@@ -432,30 +435,14 @@ MonoBehaviour:
       VisualElementName: 6
       Picture: {fileID: 21300000, guid: 84990d76c307b7740a028023e58e546f, type: 3}
     SceneName: 
+    MiniGameInfo: {fileID: 0}
     CodeLines: []
   - NameOfLesson: Vector 2
-    Asset: {fileID: 9197481963319205126, guid: 66546d21a69bb9846b2680bbabcc9d40, type: 3}
     PracticeType: 1
-    Questions:
-    - Answer: 6
-      VisualElementName: 1
-      Picture: {fileID: 21300000, guid: 5862de41ebcb904438a1af8213072f5e, type: 3}
-    - Answer: 5
-      VisualElementName: 2
-      Picture: {fileID: 21300000, guid: 72986a96962f3d24ea0778fe69ffd4e1, type: 3}
-    - Answer: 4
-      VisualElementName: 3
-      Picture: {fileID: 21300000, guid: d7918bfd5e01d0842b65d1e367495986, type: 3}
-    - Answer: 3
-      VisualElementName: 4
-      Picture: {fileID: 21300000, guid: 1dea00f9a86292e42b430ef4a5c2268c, type: 3}
-    - Answer: 2
-      VisualElementName: 5
-      Picture: {fileID: 21300000, guid: 9ea312d5525cbd44993f8ebd4040a9c4, type: 3}
-    - Answer: 1
-      VisualElementName: 6
-      Picture: {fileID: 21300000, guid: 84990d76c307b7740a028023e58e546f, type: 3}
+    TestPage: {fileID: 0}
+    Questions: []
     SceneName: Vector2
+    MiniGameInfo: {fileID: 9197481963319205126, guid: 27e62a3c240fa244b851d2244b0c5cb8, type: 3}
     CodeLines:
     - Code: Vector2 direction = new Vector2();
       IsReadOnly: 1
@@ -473,28 +460,11 @@ MonoBehaviour:
       IsReadOnly: 1
       Description: 
   - NameOfLesson: Add Force
-    Asset: {fileID: 9197481963319205126, guid: 57d1fe6373f5c484196a78a892da7026, type: 3}
     PracticeType: 1
-    Questions:
-    - Answer: 6
-      VisualElementName: 1
-      Picture: {fileID: 21300000, guid: 5862de41ebcb904438a1af8213072f5e, type: 3}
-    - Answer: 5
-      VisualElementName: 2
-      Picture: {fileID: 21300000, guid: 72986a96962f3d24ea0778fe69ffd4e1, type: 3}
-    - Answer: 4
-      VisualElementName: 3
-      Picture: {fileID: 21300000, guid: d7918bfd5e01d0842b65d1e367495986, type: 3}
-    - Answer: 3
-      VisualElementName: 4
-      Picture: {fileID: 21300000, guid: 1dea00f9a86292e42b430ef4a5c2268c, type: 3}
-    - Answer: 2
-      VisualElementName: 5
-      Picture: {fileID: 21300000, guid: 9ea312d5525cbd44993f8ebd4040a9c4, type: 3}
-    - Answer: 1
-      VisualElementName: 6
-      Picture: {fileID: 21300000, guid: 84990d76c307b7740a028023e58e546f, type: 3}
+    TestPage: {fileID: 0}
+    Questions: []
     SceneName: AddForce
+    MiniGameInfo: {fileID: 9197481963319205126, guid: fa95dcb64aa11844c804d8acaf55a6a5, type: 3}
     CodeLines:
     - Code: Vector2 direction = new Vector2();
       IsReadOnly: 1
@@ -512,28 +482,11 @@ MonoBehaviour:
       IsReadOnly: 0
       Description: AddForce
   - NameOfLesson: Get Key Down
-    Asset: {fileID: 9197481963319205126, guid: 57d1fe6373f5c484196a78a892da7026, type: 3}
     PracticeType: 1
-    Questions:
-    - Answer: 6
-      VisualElementName: 1
-      Picture: {fileID: 21300000, guid: 5862de41ebcb904438a1af8213072f5e, type: 3}
-    - Answer: 5
-      VisualElementName: 2
-      Picture: {fileID: 21300000, guid: 72986a96962f3d24ea0778fe69ffd4e1, type: 3}
-    - Answer: 4
-      VisualElementName: 3
-      Picture: {fileID: 21300000, guid: d7918bfd5e01d0842b65d1e367495986, type: 3}
-    - Answer: 3
-      VisualElementName: 4
-      Picture: {fileID: 21300000, guid: 1dea00f9a86292e42b430ef4a5c2268c, type: 3}
-    - Answer: 2
-      VisualElementName: 5
-      Picture: {fileID: 21300000, guid: 9ea312d5525cbd44993f8ebd4040a9c4, type: 3}
-    - Answer: 1
-      VisualElementName: 6
-      Picture: {fileID: 21300000, guid: 84990d76c307b7740a028023e58e546f, type: 3}
+    TestPage: {fileID: 0}
+    Questions: []
     SceneName: GetKeyDown
+    MiniGameInfo: {fileID: 9197481963319205126, guid: a08f4aa01ac9e834894726f1cf16acbe, type: 3}
     CodeLines:
     - Code: 
       IsReadOnly: 0

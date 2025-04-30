@@ -16,6 +16,11 @@ namespace LessonsPractices
         public void LoadMiniGameAsync(string sceneName)
         {
 
+            UnLoadMiniGameAsync();
+
+
+            if (IsSceneLoaded(sceneName)) return;
+
             _lastScene = sceneName;
 
 
@@ -39,6 +44,15 @@ namespace LessonsPractices
             }
         }
         
+
+        private bool IsSceneLoaded(string sceneName)
+        {
+
+            Scene scene = SceneManager.GetSceneByName(sceneName);
+
+            return scene.isLoaded;
+        }
+
 
         private void OnSceneLoaded(AsyncOperation operation)
         {

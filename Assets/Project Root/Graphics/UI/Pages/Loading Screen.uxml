@@ -1,0 +1,12 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Project%20Root/Graphics/UI/Classes/Panel.uss?fileID=7433441132597879392&amp;guid=bdb970631957d0943a72216a16457bac&amp;type=3#Panel" />
+    <Style src="project://database/Assets/Project%20Root/Graphics/UI/Classes/Header.uss?fileID=7433441132597879392&amp;guid=f76b758532201924db060bf37a13a6c2&amp;type=3#Header" />
+    <Style src="project://database/Assets/Project%20Root/Graphics/UI/Classes/ProgressBar.uss?fileID=7433441132597879392&amp;guid=456ed877d08b98f44b6ffcb136a44a46&amp;type=3#ProgressBar" />
+    <ui:VisualElement name="root" class="panel primary-colored" style="flex-grow: 1;">
+        <ui:VisualElement name="header" class="panel" style="flex-grow: 1;" />
+        <ui:VisualElement name="body" class="panel" style="flex-grow: 1;">
+            <ui:Label tabindex="-1" text="Загрузка..." parse-escape-sequences="true" display-tooltip-when-elided="true" class="h1" />
+        </ui:VisualElement>
+        <ui:VisualElement name="footer" class="panel" style="flex-grow: 1;" />
+    </ui:VisualElement>
+</ui:UXML>

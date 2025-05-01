@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Core;
+using UnityEngine;
 
 namespace Playables
 {
@@ -15,9 +16,11 @@ namespace Playables
         public void Init()
         {
 
+            _spriteRenderer = GetComponent<SpriteRenderer>();
+
             _animator = GetComponent<Animator>();
 
-            _spriteRenderer = GetComponent<SpriteRenderer>();
+            _animator.runtimeAnimatorController = SessionData.SelectedCharacter.AnimatorController;
         }
 
 

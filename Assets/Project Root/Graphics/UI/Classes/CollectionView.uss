@@ -1,14 +1,29 @@
-.unity-scroll-view__content-container{
-
-overflow: visible;
+.unity-scroll-view__content-container {
+    overflow: visible;
 }
 
 .unity-scroll-view__content-viewport {
-
-overflow: visible;
+    overflow: visible;
 }
 
-.unity-collection-view__item:hover
-{
+.unity-collection-view__item:hover {
     background-color: var(--primary-color);
+}
+
+
+.flex-row-container{
+    overflow: hidden;
+}
+
+
+.flex-row-container .unity-scroll-view__content-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.flex-row-container .unity-scroll-view__content-viewport {
+    align-items: center;
+    justify-content: space-around;
 }

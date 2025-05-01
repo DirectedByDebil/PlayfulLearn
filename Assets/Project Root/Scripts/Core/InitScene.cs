@@ -2,9 +2,10 @@
 using Extensions;
 using Lessons;
 using LearningPrograms;
+using Playables;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using TMPro;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -15,12 +16,10 @@ namespace Core
     {
 
         [SerializeField, Space]
+        private List<Character> _characters;
 
-        private TextMeshProUGUI _statusHandler;
-        
 
         [SerializeField, Space]
-
         private string _menuSceneName;
 
 
@@ -32,6 +31,8 @@ namespace Core
 
             InitUser();
 
+            InitCharacters();
+
 
             InitializeLessons();
 
@@ -39,10 +40,6 @@ namespace Core
             InitializeLastProgram();
 
             InitializeLearningProgramsAsync();
-
-
-
-            _statusHandler.text = "Ready";
 
 
             SceneManager.LoadSceneAsync(_menuSceneName);
@@ -55,14 +52,42 @@ namespace Core
             UserData user = FileExtensions.GetFromFile<UserData>(PathKeeper.UserDataPath);
 
             SessionData.SetUserData(user);
+
+
+            InitSelectedCharacter(user.SelectedCharacter);
+        }
+
+
+        private void InitSelectedCharacter(string selectedType)
+        {
+
+            Character selectedCharacter;
+
+
+            if(Enum.TryParse(selectedType, false, out Characters type))
+            {
+
+                selectedCharacter = _characters.Find(character => character.CharacterType == type);
+            }
+            else
+            {
+                selectedCharacter = _characters[0];
+            }
+
+
+            SessionData.SetCharacter(selectedCharacter);
+        }
+
+
+        private void InitCharacters()
+        {
+
+            SessionData.Characters = _characters;
         }
 
 
         private void InitializeLessons()
         {
-
-            _statusHandler.text = "Loading lessons";
-
 
             List<string> completed = SessionData.UserData.CompletedLessons;
 
@@ -119,9 +144,6 @@ namespace Core
 
         private async Task InitializeLearningProgramsAsync()
         {
-
-            _statusHandler.text = "Loading learning programs";
-
 
             IReadOnlyCollection<LearningProgramData> allProgramsData =
 

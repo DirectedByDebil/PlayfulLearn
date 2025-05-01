@@ -2,9 +2,8 @@
     <ui:Template name="Back Button" src="project://database/Assets/Project%20Root/Graphics/UI/Controls/Back%20Button.uxml?fileID=9197481963319205126&amp;guid=170038b9dad73de4f82db04f00006f13&amp;type=3#Back Button" />
     <ui:Template name="Start Lesson Button" src="project://database/Assets/Project%20Root/Graphics/UI/Controls/Start%20Lesson%20Button.uxml?fileID=9197481963319205126&amp;guid=06876a49a81a86740ad125e81d98b977&amp;type=3#Start Lesson Button" />
     <ui:Template name="H Space" src="project://database/Assets/Project%20Root/Graphics/UI/Controls/Basic/H%20Space.uxml?fileID=9197481963319205126&amp;guid=74857ac0195ae7b409755387cf132bf3&amp;type=3#H Space" />
-    <ui:Template name="Picture Text Element 2" src="project://database/Assets/Project%20Root/Graphics/UI/Controls/Basic/Picture%20Text%20Element%202.uxml?fileID=9197481963319205126&amp;guid=fde119f2407240d40b222d96f6b589e1&amp;type=3#Picture Text Element 2" />
-    <ui:Template name="V Space" src="project://database/Assets/Project%20Root/Graphics/UI/Controls/Basic/V%20Space.uxml?fileID=9197481963319205126&amp;guid=bf1db0709617eb1499b3c4abd3e55bc0&amp;type=3#V Space" />
     <ui:Template name="Picture Text Element" src="project://database/Assets/Project%20Root/Graphics/UI/Controls/Basic/Picture%20Text%20Element.uxml?fileID=9197481963319205126&amp;guid=e224aef42bfe6194d94318a21fd8c28f&amp;type=3#Picture Text Element" />
+    <ui:Template name="V Space" src="project://database/Assets/Project%20Root/Graphics/UI/Controls/Basic/V%20Space.uxml?fileID=9197481963319205126&amp;guid=bf1db0709617eb1499b3c4abd3e55bc0&amp;type=3#V Space" />
     <Style src="project://database/Assets/Project%20Root/Graphics/UI/Classes/Panel.uss?fileID=7433441132597879392&amp;guid=bdb970631957d0943a72216a16457bac&amp;type=3#Panel" />
     <Style src="project://database/Assets/Project%20Root/Graphics/UI/Classes/Header.uss?fileID=7433441132597879392&amp;guid=f76b758532201924db060bf37a13a6c2&amp;type=3#Header" />
     <ui:VisualElement name="header" class="panel primary-colored" style="flex-direction: row; justify-content: space-between;">
@@ -14,10 +13,10 @@
     </ui:VisualElement>
     <ui:Instance template="H Space" name="H Space" class="primary-colored" style="height: 10px; width: 100%; flex-direction: row; justify-content: center; display: none;" />
     <ui:VisualElement name="body" class="panel primary-colored" style="flex-direction: row; height: 60%; padding-bottom: 20px;">
-        <ui:Instance template="Picture Text Element 2" name="introduction" style="flex-basis: 30%; flex-grow: 1; flex-shrink: 0; margin-left: 10px; margin-right: 10px; margin-top: 10px; margin-bottom: 10px; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" />
+        <ui:Instance template="Picture Text Element" name="introduction" style="flex-grow: 1; flex-basis: 30%; flex-shrink: 0; margin-left: 10px; margin-right: 10px; margin-top: 10px; margin-bottom: 10px; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px; justify-content: space-around; flex-direction: column; align-items: center;" />
         <ui:Instance template="V Space" name="V Space" style="height: 100%; width: 10px; justify-content: center;" />
-        <ui:Instance template="Picture Text Element" name="usage" style="flex-grow: 1; flex-basis: 30%; flex-shrink: 0; margin-left: 10px; margin-right: 10px; margin-top: 10px; margin-bottom: 10px; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" />
+        <ui:Instance template="Picture Text Element" name="usage" style="flex-grow: 1; flex-basis: 30%; flex-shrink: 0; margin-left: 10px; margin-right: 10px; margin-top: 10px; margin-bottom: 10px; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px; justify-content: space-around; flex-direction: column-reverse; align-items: center;" />
         <ui:Instance template="V Space" name="V Space" style="height: 100%; width: 10px; justify-content: center;" />
-        <ui:Instance template="Picture Text Element 2" name="practice" style="flex-basis: 30%; flex-grow: 1; flex-shrink: 0; margin-left: 10px; margin-right: 10px; margin-top: 10px; margin-bottom: 10px; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" />
+        <ui:Instance template="Picture Text Element" name="practice" style="flex-grow: 1; flex-basis: 30%; flex-shrink: 0; margin-left: 10px; margin-right: 10px; margin-top: 10px; margin-bottom: 10px; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px; justify-content: space-around; flex-direction: column; align-items: center;" />
     </ui:VisualElement>
 </ui:UXML>

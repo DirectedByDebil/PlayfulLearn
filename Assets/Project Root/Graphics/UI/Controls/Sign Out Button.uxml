@@ -2,7 +2,10 @@
     <Style src="project://database/Assets/Project%20Root/Graphics/UI/Classes/Button.uss?fileID=7433441132597879392&amp;guid=e994f9c1daab72246a1f370fe2394630&amp;type=3#Button" />
     <Style src="project://database/Assets/Project%20Root/Graphics/UI/Classes/Panel.uss?fileID=7433441132597879392&amp;guid=bdb970631957d0943a72216a16457bac&amp;type=3#Panel" />
     <Style src="project://database/Assets/Project%20Root/Graphics/UI/Classes/Header.uss?fileID=7433441132597879392&amp;guid=f76b758532201924db060bf37a13a6c2&amp;type=3#Header" />
-    <ui:Button name="sign-out-button" text="Sign out" class="button rectangle border-black-colored" style="align-items: center; justify-content: flex-start; flex-direction: row; font-size: 18px;">
-        <ui:VisualElement name="icon" class="icon image-black-colored" style="-unity-background-scale-mode: scale-to-fit; background-image: url(&quot;project://database/Assets/Project%20Root/Graphics/UI/Sign%20out.png?fileID=2800000&amp;guid=0bd4020e2d062a542b8392d4e9522407&amp;type=3#Sign out&quot;); width: 60px; height: 60px;" />
+    <ui:Button name="sign-out-button" class="button border-black-colored" style="flex-direction: row; align-items: stretch; justify-content: space-around;">
+        <ui:VisualElement name="icon" class="icon image-black-colored" style="-unity-background-scale-mode: scale-to-fit; background-image: url(&quot;project://database/Assets/Project%20Root/Graphics/UI/Sign%20out.png?fileID=2800000&amp;guid=0bd4020e2d062a542b8392d4e9522407&amp;type=3#Sign out&quot;); flex-grow: 1; flex-basis: 5%;" />
+        <ui:VisualElement style="flex-grow: 2; justify-content: center;">
+            <ui:Label tabindex="-1" text="Выйти из аккаунта" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Text" class="small" />
+        </ui:VisualElement>
     </ui:Button>
 </ui:UXML>

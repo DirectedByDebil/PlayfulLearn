@@ -1,0 +1,10 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Project%20Root/Graphics/UI/Classes/Header.uss?fileID=7433441132597879392&amp;guid=f76b758532201924db060bf37a13a6c2&amp;type=3#Header" />
+    <Style src="project://database/Assets/Project%20Root/Graphics/UI/Classes/Panel.uss?fileID=7433441132597879392&amp;guid=bdb970631957d0943a72216a16457bac&amp;type=3#Panel" />
+    <ui:VisualElement name="root" class="border-success-colored rounded" style="flex-grow: 1; align-items: center; border-top-width: 5px; border-right-width: 5px; border-bottom-width: 5px; border-left-width: 5px;">
+        <ui:VisualElement name="character-icon" style="background-image: url(&quot;project://database/Assets/Plugins/Pixel%20Adventure%201/Assets/Main%20Characters/Ninja%20Frog/Idle%20(32x32).png?fileID=-6367560908665664636&amp;guid=cd947491a13509945aa1b644f9db3ef2&amp;type=3#Idle (32x32)_0&quot;); width: 100%; height: 60%; -unity-background-scale-mode: scale-to-fit; flex-basis: 50%; flex-grow: 1;" />
+        <ui:VisualElement name="text-content" style="flex-grow: 1; width: 85%; align-items: center; justify-content: center; flex-shrink: 3;">
+            <ui:Label tabindex="-1" text="Лягушонок" display-tooltip-when-elided="true" name="character-name" class="small" style="white-space: normal; -unity-text-align: upper-center;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

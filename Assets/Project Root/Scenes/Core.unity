@@ -199,6 +199,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8791ba12601b1e14186a41fe20a5a932, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _userIconTemplate: {fileID: 9197481963319205126, guid: bd42bab2992b70b43ab463f6819ac4c4, type: 3}
 --- !u!114 &532106407
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -658,6 +659,23 @@ MonoBehaviour:
   _mainMenu: {fileID: 241911250}
   _userPage: {fileID: 532106406}
   _lessonPracticePage: {fileID: 887640910}
+  _characters:
+  - CharacterType: 0
+    Icon: {fileID: -6367560908665664636, guid: cd947491a13509945aa1b644f9db3ef2, type: 3}
+    Name: "\u041B\u044F\u0433\u0443\u0448\u043E\u043D\u043E\u043A"
+    AnimatorController: {fileID: 9100000, guid: 7756537c413a916479c1674934753fe5, type: 2}
+  - CharacterType: 1
+    Icon: {fileID: -6367560908665664636, guid: d348dff3819df794186a80cb95777629, type: 3}
+    Name: "\u0420\u043E\u0437\u043E\u0432\u044B\u0439"
+    AnimatorController: {fileID: 9100000, guid: a22c32a159d87c341a4652f336f23461, type: 2}
+  - CharacterType: 2
+    Icon: {fileID: -6367560908665664636, guid: 40de9a8703e2e5a47882b0b86451c741, type: 3}
+    Name: "\u0412\u0438\u0440\u0442\u0443\u0430\u043B\u044C\u043D\u044B\u0439"
+    AnimatorController: {fileID: 9100000, guid: 27e99b07c0a6ffc4a8943bafa6af4653, type: 2}
+  - CharacterType: 3
+    Icon: {fileID: -6367560908665664636, guid: 3750f45c844123341b9a777a96cb1eca, type: 3}
+    Name: "\u041C\u0430\u0441\u043A\u0430"
+    AnimatorController: {fileID: 9100000, guid: 4239782db683a1642b834d42e73cdddc, type: 2}
 --- !u!4 &1572924334
 Transform:
   m_ObjectHideFlags: 0

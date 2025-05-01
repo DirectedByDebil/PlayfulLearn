@@ -2,7 +2,9 @@
 using Lessons;
 using LearningPrograms;
 using LessonsPractices;
+using Playables;
 using UnityEngine;
+using System.Collections.Generic;
 
 namespace Core
 {
@@ -68,6 +70,10 @@ namespace Core
 
 
             _userPage.ViewUser(SessionData.UserData);
+
+            _userPage.ViewSelectedCharacter(SessionData.SelectedCharacter);
+
+            _userPage.ViewCharacters(SessionData.Characters);
 
 
             _lessonPracticeSystem = new LessonPracticeSystem(_lessonPracticePage);

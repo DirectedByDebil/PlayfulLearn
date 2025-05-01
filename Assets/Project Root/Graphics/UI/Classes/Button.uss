@@ -35,9 +35,8 @@
 }
 
 .button__success {
-
-border-color: var(--correct-color);
-color: var(--black-color);
+    border-color: var(--correct-color);
+    color: var(--black-color);
 }
 
 
@@ -121,3 +120,20 @@ color: var(--black-color);
 
     scale: 1.1 1.1;
 }
+
+
+.icon-character {
+
+width: 200px;
+height: 200px;
+
+margin: 10px;
+
+transition-duration: 200ms;
+transition-property: scale;
+}
+
+.icon-character:hover {
+    scale: 1.1 1.1;
+}
+

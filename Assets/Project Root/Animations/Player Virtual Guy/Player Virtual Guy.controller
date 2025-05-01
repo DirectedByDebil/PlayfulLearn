@@ -22,7 +22,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 9f5e7672bfd8ca949b3258773a4ddece, type: 2}
+  m_Motion: {fileID: 7400000, guid: ecf5e955edad709469dcb83d94391782, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -78,7 +78,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: a5ee3ce3ef2079544bc18ead72da388d, type: 2}
+  m_Motion: {fileID: 7400000, guid: 9c56a536efd10ec40b7671e488e7f3c9, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -146,7 +146,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Player Frog
+  m_Name: Player Virtual Guy
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: Jump
@@ -271,7 +271,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: ef92cc75e40feb345b9b2f078cea387f, type: 2}
+  m_Motion: {fileID: 7400000, guid: 89ebe4b2b488def40af75f615d550e73, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2223666386271683858}
   - component: {fileID: 2659428799829117084}
   m_Layer: 0
-  m_Name: Player Frog
+  m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -177,7 +177,7 @@ Animator:
   m_GameObject: {fileID: 1962216637238593814}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a22c32a159d87c341a4652f336f23461, type: 2}
+  m_Controller: {fileID: 9100000, guid: 4239782db683a1642b834d42e73cdddc, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

@@ -11,6 +11,8 @@ namespace Web
 
         public string UserName;
 
+        public string SelectedCharacter;
+
         public List<string> CompletedLessons;
     }
 }

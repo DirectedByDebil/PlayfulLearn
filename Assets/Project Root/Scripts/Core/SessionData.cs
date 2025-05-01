@@ -1,16 +1,15 @@
-﻿using System.Collections.Generic;
-using Lessons;
+﻿using Lessons;
 using LearningPrograms;
 using Web;
+using Playables;
+using System.Collections.Generic;
 
 namespace Core
 {
     public static class SessionData
     {
 
-        public static IReadOnlyCollection<
-
-            Lesson> AllLessons
+        public static IReadOnlyCollection<Lesson> AllLessons
         {
 
             get => _allLessons;
@@ -22,6 +21,9 @@ namespace Core
 
             get => _allLearningPrograms;
         }
+
+
+        public static IReadOnlyCollection<Character> Characters { get; set; }
 
 
         public static LearningProgram LastLearningProgram
@@ -38,6 +40,12 @@ namespace Core
         }
 
 
+        public static Character SelectedCharacter
+        {
+            get=> _selectedCharacter;
+        }
+
+
 
         private static List<Lesson> _allLessons;
 
@@ -49,6 +57,9 @@ namespace Core
 
 
         private static UserData _userData;
+
+
+        private static Character _selectedCharacter;
 
 
         #region Setters
@@ -86,6 +97,15 @@ namespace Core
         {
 
             _userData = userData;
+        }
+
+
+        public static void SetCharacter(Character character)
+        {
+
+            _selectedCharacter = character;
+
+            _userData.SelectedCharacter = _selectedCharacter.CharacterType.ToString();
         }
 
         #endregion

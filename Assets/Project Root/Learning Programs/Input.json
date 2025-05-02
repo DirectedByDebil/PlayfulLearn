@@ -2,7 +2,7 @@
     "NameOfProgram": "Input",
     "IconName": "Unity.png",
   "Lessons": [
-    "Get Key",
-    "Get Key Down"
+    "Get Axis",
+    "Get Button Down"
   ]
 }

@@ -482,16 +482,16 @@ MonoBehaviour:
     - Code: 
       IsReadOnly: 0
       Description: AddForce
-  - NameOfLesson: Get Key Down
+  - NameOfLesson: Get Button Down
     PracticeType: 1
     TestPage: {fileID: 0}
     Questions: []
-    SceneName: GetKeyDown
+    SceneName: GetButtonDown
     MiniGameInfo: {fileID: 9197481963319205126, guid: a08f4aa01ac9e834894726f1cf16acbe, type: 3}
     CodeLines:
     - Code: 
       IsReadOnly: 0
-      Description: GetKeyDown
+      Description: GetButtonDown
     - Code: '{'
       IsReadOnly: 1
       Description: 
@@ -502,6 +502,25 @@ MonoBehaviour:
       IsReadOnly: 1
       Description: 
     - Code: '}'
+      IsReadOnly: 1
+      Description: 
+  - NameOfLesson: Get Axis
+    PracticeType: 1
+    TestPage: {fileID: 0}
+    Questions: []
+    SceneName: GetAxis
+    MiniGameInfo: {fileID: 9197481963319205126, guid: cde9fac7845680348b34a367d070be1e, type: 3}
+    CodeLines:
+    - Code: Vector2 direction = new Vector2();
+      IsReadOnly: 1
+      Description: 
+    - Code: 
+      IsReadOnly: 0
+      Description: Horizontal
+    - Code: 
+      IsReadOnly: 0
+      Description: Vertical
+    - Code: rigidbody.velocity = direction;
       IsReadOnly: 1
       Description: 
 --- !u!114 &887640911
@@ -721,7 +740,11 @@ MonoBehaviour:
     Introduction: {fileID: -953560442851353963, guid: 9b0499fd3a0892046926ed19c78cfea3, type: 3}
     Usage: {fileID: 21300000, guid: edbf2f282f3feb940b6238d4d339ada4, type: 3}
     PracticeDescription: {fileID: 3974224528455760076, guid: 603abb83490921841976d0f1b2045f23, type: 3}
-  - NameOfLesson: Get Key Down
+  - NameOfLesson: Get Button Down
+    Introduction: {fileID: 7062579536633761780, guid: 0b4768f2ab470f44ca33fa59836a0774, type: 3}
+    Usage: {fileID: 21300000, guid: 320f4eb52e227b446830a1f6fd691fca, type: 3}
+    PracticeDescription: {fileID: 3974224528455760076, guid: 5a448cc07b6e09343924bf933b0cb70e, type: 3}
+  - NameOfLesson: Get Axis
     Introduction: {fileID: 7062579536633761780, guid: 0b4768f2ab470f44ca33fa59836a0774, type: 3}
     Usage: {fileID: 21300000, guid: 320f4eb52e227b446830a1f6fd691fca, type: 3}
     PracticeDescription: {fileID: 3974224528455760076, guid: 5a448cc07b6e09343924bf933b0cb70e, type: 3}

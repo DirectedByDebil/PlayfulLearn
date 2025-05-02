@@ -12,6 +12,29 @@ namespace Playables
 
         public bool CanJump { get; set; }
 
+        public MovementType MovementType
+        {
+            get => _movementType;
+
+            set
+            {
+
+                _movementType = value;
+
+
+                if(_movementType == MovementType.Platformer)
+                {
+
+                    _rigidbody.gravityScale = 1;
+                }
+                else
+                {
+
+                    _rigidbody.gravityScale = 0;
+                }
+            }
+        }
+
 
         #region Serialized Fields
 
@@ -33,6 +56,8 @@ namespace Playables
 
         private Rigidbody2D _rigidbody;
 
+        private MovementType _movementType;
+
 
         private bool _isOnGround;
 
@@ -41,7 +66,7 @@ namespace Playables
         private void Update()
         {
 
-            if(CanJump)
+            if(CanJump && MovementType == MovementType.Platformer)
             {
 
                 Jump();
@@ -55,7 +80,19 @@ namespace Playables
             if(CanMove)
             {
 
-                Move();
+                switch (MovementType)
+                {
+                    case MovementType.Platformer:
+
+                        MovePlatformer();
+                        break;
+
+                 
+                    case MovementType.TopDown:
+
+                        MoveTopDown();
+                        break;
+                }
             }
         }
 
@@ -63,21 +100,29 @@ namespace Playables
         private void OnCollisionEnter2D(Collision2D collision)
         {
 
-            _rigidbody.velocity /= 2;
+            if(collision.gameObject.CompareTag("Ground"))
+            {
 
-            _isOnGround = true;
+                _rigidbody.velocity /= 2;
+
+                _isOnGround = true;
 
 
-            _view.StopJump();
+                _view.StopJump();
+            }
         }
 
 
         private void OnCollisionExit2D(Collision2D collision)
         {
 
-            _view.StartJump();
+            if(collision.gameObject.CompareTag("Ground"))
+            {
 
-            StartCoroutine(GiveCoyotteTime());
+                _view.StartJump();
+
+                StartCoroutine(GiveCoyotteTime());
+            }
         }
 
 
@@ -90,10 +135,12 @@ namespace Playables
         }
 
 
-        private void Move()
+        #region Platformer Movement
+
+        private void MovePlatformer()
         {
             
-            Vector2 newPosition = new()
+            Vector2 direction = new()
             {
 
                 x = Input.GetAxisRaw("Horizontal") * _speed,
@@ -102,10 +149,10 @@ namespace Playables
             };
 
             
-            if(newPosition.x.CompareTo(0) != 0)
+            if(direction.x.CompareTo(0) != 0)
             {
 
-                _rigidbody.velocity = newPosition;
+                _rigidbody.velocity = direction;
 
             }            
             else if (_isOnGround)
@@ -115,7 +162,7 @@ namespace Playables
             }
 
 
-            _view.ViewMovement((int)newPosition.x);
+            _view.ViewMovement((int)direction.x);
         }
 
 
@@ -135,6 +182,44 @@ namespace Playables
                 _view.StartJump();
             }
         }
+
+        #endregion
+
+
+        #region Top-Down Movement
+        
+        private void MoveTopDown()
+        {
+
+            Vector2 direction = new ()
+            { 
+                x = Input.GetAxisRaw("Horizontal"),
+
+                y = Input.GetAxisRaw("Vertical")
+            };
+
+
+            if(direction.x.CompareTo(0) != 0)
+            {
+
+                _view.ViewMovement((int)direction.x);
+            }
+            else
+            {
+
+                _view.ViewMovement((int)direction.y);
+            }
+
+
+            direction *= _speed * Time.fixedDeltaTime;
+
+            direction += _rigidbody.position;
+
+
+            _rigidbody.MovePosition(direction);
+        }
+
+        #endregion
 
 
         private IEnumerator GiveCoyotteTime()

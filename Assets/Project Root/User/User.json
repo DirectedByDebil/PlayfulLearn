@@ -5,7 +5,9 @@
     "CompletedLessons": [
         "Add Force",
         "Axis X",
-        "Get Key Down",
+        "Axis Y",
+        "Get Axis",
+        "Get Button Down",
         "Vector 2"
     ]
 }

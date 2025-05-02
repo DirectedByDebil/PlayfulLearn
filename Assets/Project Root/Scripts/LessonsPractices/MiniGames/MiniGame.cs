@@ -84,7 +84,16 @@ namespace LessonsPractices.MiniGames
         protected bool IsInputValid(string code, string startPhrase)
         {
 
-            _isInputValid = code.StartsWith(startPhrase) && code.EndsWith(';');
+            _isInputValid = IsInputValid(code, startPhrase, ";");
+            
+            return _isInputValid;
+        }
+
+
+        protected bool IsInputValid(string code, string startPhrase, string endPhrase)
+        {
+
+            _isInputValid = code.StartsWith(startPhrase) && code.EndsWith(endPhrase);
 
             return _isInputValid;
         }

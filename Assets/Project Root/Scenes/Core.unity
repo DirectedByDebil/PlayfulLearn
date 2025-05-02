@@ -659,23 +659,6 @@ MonoBehaviour:
   _mainMenu: {fileID: 241911250}
   _userPage: {fileID: 532106406}
   _lessonPracticePage: {fileID: 887640910}
-  _characters:
-  - CharacterType: 0
-    Icon: {fileID: -6367560908665664636, guid: cd947491a13509945aa1b644f9db3ef2, type: 3}
-    Name: "\u041B\u044F\u0433\u0443\u0448\u043E\u043D\u043E\u043A"
-    AnimatorController: {fileID: 9100000, guid: 7756537c413a916479c1674934753fe5, type: 2}
-  - CharacterType: 1
-    Icon: {fileID: -6367560908665664636, guid: d348dff3819df794186a80cb95777629, type: 3}
-    Name: "\u0420\u043E\u0437\u043E\u0432\u044B\u0439"
-    AnimatorController: {fileID: 9100000, guid: a22c32a159d87c341a4652f336f23461, type: 2}
-  - CharacterType: 2
-    Icon: {fileID: -6367560908665664636, guid: 40de9a8703e2e5a47882b0b86451c741, type: 3}
-    Name: "\u0412\u0438\u0440\u0442\u0443\u0430\u043B\u044C\u043D\u044B\u0439"
-    AnimatorController: {fileID: 9100000, guid: 27e99b07c0a6ffc4a8943bafa6af4653, type: 2}
-  - CharacterType: 3
-    Icon: {fileID: -6367560908665664636, guid: 3750f45c844123341b9a777a96cb1eca, type: 3}
-    Name: "\u041C\u0430\u0441\u043A\u0430"
-    AnimatorController: {fileID: 9100000, guid: 4239782db683a1642b834d42e73cdddc, type: 2}
 --- !u!4 &1572924334
 Transform:
   m_ObjectHideFlags: 0
@@ -721,6 +704,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b247b9b59745f08478a9e23241620dad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pictures:
+  - NameOfLesson: Axis X
+    Introduction: {fileID: 2470319409956435798, guid: e362bc6a7c79fce4db16d145d43a5550, type: 3}
+    Usage: {fileID: -2419971920513260168, guid: e362bc6a7c79fce4db16d145d43a5550, type: 3}
+    PracticeDescription: {fileID: 2178398316516280758, guid: e362bc6a7c79fce4db16d145d43a5550, type: 3}
+  - NameOfLesson: Axis Y
+    Introduction: {fileID: -6204479477933590408, guid: 4099f676255555240b5240f897805dce, type: 3}
+    Usage: {fileID: 781615245368611544, guid: 4099f676255555240b5240f897805dce, type: 3}
+    PracticeDescription: {fileID: 6301718139250434432, guid: 4099f676255555240b5240f897805dce, type: 3}
+  - NameOfLesson: Vector 2
+    Introduction: {fileID: 3974224528455760076, guid: 9b7e8d8d6e9ac904dba7f59ba8b11835, type: 3}
+    Usage: {fileID: 21300000, guid: 2d728ff08787c6640bbe4984c7ff018b, type: 3}
+    PracticeDescription: {fileID: 21300000, guid: 88794fc5febd16e40a94cacbf542b65b, type: 3}
+  - NameOfLesson: Add Force
+    Introduction: {fileID: -953560442851353963, guid: 9b0499fd3a0892046926ed19c78cfea3, type: 3}
+    Usage: {fileID: 21300000, guid: edbf2f282f3feb940b6238d4d339ada4, type: 3}
+    PracticeDescription: {fileID: 3974224528455760076, guid: 603abb83490921841976d0f1b2045f23, type: 3}
+  - NameOfLesson: Get Key Down
+    Introduction: {fileID: 7062579536633761780, guid: 0b4768f2ab470f44ca33fa59836a0774, type: 3}
+    Usage: {fileID: 21300000, guid: 320f4eb52e227b446830a1f6fd691fca, type: 3}
+    PracticeDescription: {fileID: 3974224528455760076, guid: 5a448cc07b6e09343924bf933b0cb70e, type: 3}
 --- !u!114 &1778437361
 MonoBehaviour:
   m_ObjectHideFlags: 0

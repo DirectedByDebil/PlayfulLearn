@@ -11,8 +11,6 @@ namespace UINew
     public sealed class AllLearningProgramsPage : Page
     {
 
-        public event Action CloseClicked;
-
         public event Action<LearningProgram> LearningProgramClicked;
 
 
@@ -28,7 +26,7 @@ namespace UINew
 
             VisualElement close = document.GetElement("transparent-panel");
 
-            close.RegisterCallback((ClickEvent e) => CloseClicked?.Invoke());
+            close.RegisterCallback<ClickEvent>(StartClosing);
         }
 
 

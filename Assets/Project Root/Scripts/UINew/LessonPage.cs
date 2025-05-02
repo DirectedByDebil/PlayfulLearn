@@ -1,16 +1,20 @@
 ﻿using Lessons;
 using Localization;
+using UnityEngine;
 using UnityEngine.UIElements;
 using System;
+using System.Collections.Generic;
 
 namespace UINew
 {
     public sealed class LessonPage : Page
     {
 
-        public event Action BackClicked;
-
         public event Action StartClicked;
+
+
+        [SerializeField, Space]
+        private List<LessonPictures> _pictures;
 
 
         public override void Init()
@@ -21,7 +25,7 @@ namespace UINew
 
             Button backButton = document.GetButton("back-button");
 
-            backButton.clicked += () => BackClicked?.Invoke();
+            backButton.RegisterCallback<ClickEvent>(StartClosing);
 
 
             Button startButton = document.GetButton("start-button");
@@ -38,30 +42,72 @@ namespace UINew
             lessonName.text = lesson.NameOfLesson;
 
 
+            LessonPictures pictures = _pictures.Find
+                (picture => picture.NameOfLesson == lesson.NameOfLesson);
+
+
             LessonTextContent content = lesson.Content[Languages.Russian];
 
-            ViewContent(content);
+            ViewContent(content, pictures);
         }
 
 
-        private void ViewContent(LessonTextContent content)
+        #region View Lesson Content
+
+        private void ViewContent(LessonTextContent content, LessonPictures pictures)
         {
 
             VisualElement intro = document.GetElement("introduction");
 
-            ViewContentElement(intro, 1, "Что это?", content.Introduction);
+            ViewIntro(intro, content.Introduction);
 
+            ViewPicture(intro, pictures.Introduction);
 
 
             VisualElement usage = document.GetElement("usage");
 
-            ViewContentElement(usage, 2, "Как использовать?", content.Usage);
+            ViewUsage(usage, content.Usage);
 
+            ViewPicture(usage, pictures.Usage);
 
 
             VisualElement practice = document.GetElement("practice");
 
-            ViewContentElement(practice, 3, "Научимся!", content.PracticeDescription);
+            ViewPracticeDescription(practice, content.PracticeDescription);
+
+            ViewPicture(practice, pictures.PracticeDescription);
+        }
+
+
+        private void ViewIntro(VisualElement root, string introduction)
+        {
+
+            ViewContentElement(root, 1, "Что это?", introduction);
+        }
+
+
+        private void ViewUsage(VisualElement root, string usage)
+        {
+
+            ViewContentElement(root, 2, "Как использовать?", usage);
+        }
+
+
+        private void ViewPracticeDescription(VisualElement root, string description)
+        {
+
+            ViewContentElement(root, 3, "Научимся!", description);
+        }
+        
+        #endregion
+
+
+        private void ViewPicture(VisualElement root, Sprite sprite)
+        {
+
+            VisualElement picture = root.GetElement("picture");
+
+            picture.style.backgroundImage = new StyleBackground(sprite);
         }
 
 
@@ -69,23 +115,10 @@ namespace UINew
             string title, string description)
         {
 
-            SetTitle(element, number, title);
-
-            SetContent(element, number, description);
-        }
-
-
-        private void SetTitle(VisualElement element, int number, string title)
-        {
-
             element.GetLabel("content-number").text = number.ToString();
 
             element.GetLabel("content-title").text = title;
-        }
 
-
-        private void SetContent(VisualElement element, int iconNumber, string description)
-        {
 
             element.GetLabel("description").text = description;
         }

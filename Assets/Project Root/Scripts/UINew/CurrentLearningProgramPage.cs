@@ -23,6 +23,9 @@ namespace UINew
         private VisualTreeAsset _itemTemplate;
 
 
+        private Button _openUser;
+
+
         public override void Init()
         {
 
@@ -34,9 +37,9 @@ namespace UINew
             openPrograms.RegisterCallback<ClickEvent>(OnOpenProgramsClicked);
 
 
-            Button openUser = document.GetButton("open-user-button");
+            _openUser = document.GetButton("open-user-button");
 
-            openUser.RegisterCallback<ClickEvent>(OnUserAccountClicked);
+            _openUser.RegisterCallback<ClickEvent>(OnUserAccountClicked);
         }
 
 
@@ -81,6 +84,13 @@ namespace UINew
             ScrollView scrollView = document.GetScrollView("lessons-scrollview");
 
             scrollView.Add(parent);
+        }
+
+
+        public void ViewUserIcon(Sprite sprite)
+        {
+
+            _openUser.style.backgroundImage = new StyleBackground(sprite);
         }
 
 

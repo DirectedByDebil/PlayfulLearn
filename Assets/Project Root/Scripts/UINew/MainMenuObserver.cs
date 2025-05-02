@@ -1,4 +1,5 @@
-﻿using Lessons;
+﻿using Core;
+using Lessons;
 using LearningPrograms;
 using UnityEngine;
 using System;
@@ -51,7 +52,7 @@ namespace UINew
             _lessonPage.Hide();
 
 
-            _currentPage = _currentProgramPage;
+            ShowCurrentLearningProgram();
         }
 
 
@@ -85,21 +86,24 @@ namespace UINew
 
 
             _currentProgramPage.UserAccountClicked +=
-                _userPage.Show;
+                OnUserAccountClicked;
 
 
             _currentProgramPage.LessonClicked += OnLessonClicked;
 
 
-            _allProgramsPage.CloseClicked += _allProgramsPage.Hide;
+            _allProgramsPage.Closing += _allProgramsPage.Hide;
 
 
             _allProgramsPage.LearningProgramClicked += OnLearningProgramClicked;
 
 
-            _lessonPage.BackClicked += OnLessonBackClicked;
+            _lessonPage.Closing += OnLessonBackClicked;
 
             _lessonPage.StartClicked += OnStartPracticeClicked;
+
+
+            _userPage.Closing += ShowCurrentLearningProgram;
         }
 
 
@@ -125,6 +129,15 @@ namespace UINew
         {
 
             ChangePage(_currentProgramPage);
+        }
+
+
+        private void ShowCurrentLearningProgram()
+        {
+
+            ChangePage(_currentProgramPage);
+
+            _currentProgramPage.ViewUserIcon(SessionData.SelectedCharacter.Icon);
         }
 
 
@@ -154,6 +167,13 @@ namespace UINew
         }
 
 
+        private void OnUserAccountClicked()
+        {
+
+            ChangePage(_userPage);
+        }
+
+
         private void OnLessonBackClicked()
         {
 
@@ -173,7 +193,7 @@ namespace UINew
         private void ChangePage(IPage newPage)
         {
 
-            _currentPage.Hide();
+            _currentPage?.Hide();
 
 
             _currentPage = newPage;

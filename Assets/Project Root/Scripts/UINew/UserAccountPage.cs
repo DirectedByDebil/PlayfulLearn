@@ -28,7 +28,7 @@ namespace UINew
 
             Button close = document.GetButton("close-button");
 
-            close.RegisterCallback<ClickEvent>(OnCloseClicked);
+            close.RegisterCallback<ClickEvent>(StartClosing);
         }
 
 
@@ -45,6 +45,8 @@ namespace UINew
             email.text = user.Email;
         }
 
+
+        #region View Characters
 
         public void ViewSelectedCharacter(Character character)
         {
@@ -69,13 +71,6 @@ namespace UINew
 
                 scrollView.Add(userIcon);
             }
-        }
-
-
-        private void OnCloseClicked(ClickEvent e)
-        {
-
-            Hide();
         }
 
 
@@ -109,5 +104,7 @@ namespace UINew
 
             SessionData.SetCharacter(character);
         }
+
+        #endregion
     }
 }

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System;
+using System.Collections.Generic;
 
 namespace LessonsPractices.MiniGames
 {
@@ -13,17 +14,25 @@ namespace LessonsPractices.MiniGames
         public event Action<CodeInput> LockingInput;
 
 
-        protected bool CanStart { get => _isInputValid; }
+        protected bool CanStart
+        {
+            get => _inputsToCheck?.Count == 0; 
+        }
 
 
-        private bool _isInputValid;
+        private IList<string> _inputsToCheck;
 
 
         public void SetParams(params CodeInput[] inputs)
         {
 
+            _inputsToCheck.Clear();
+
+            
             foreach (CodeInput input in inputs)
             {
+
+                _inputsToCheck.Add(input.Description);
 
                 CheckCodeInput(input);
             }
@@ -33,13 +42,22 @@ namespace LessonsPractices.MiniGames
         public virtual bool IsCompleted()
         {
 
-            if(!_isInputValid) return false;
+            if(!CanStart) return false;
 
             return CountIsCompleted();
+        }
+  
+        
+        public virtual void Init()
+        {
+
+            _inputsToCheck = new List<string>();
         }
 
 
         #region Abstract Methods
+
+        public abstract void Unload();
 
         public abstract void StartGame();
 
@@ -55,7 +73,7 @@ namespace LessonsPractices.MiniGames
         protected void InputSucceed(CodeInput input)
         {
 
-            _isInputValid = true;
+            _inputsToCheck.Remove(input.Description);
 
             CodeChecked?.Invoke(true, input);
         }
@@ -63,8 +81,8 @@ namespace LessonsPractices.MiniGames
 
         protected void InputFailed(CodeInput input)
         {
-
-            _isInputValid = false;
+            
+            _inputsToCheck.Add(input.Description);
 
             CodeChecked?.Invoke(false, input);
         }
@@ -84,18 +102,14 @@ namespace LessonsPractices.MiniGames
         protected bool IsInputValid(string code, string startPhrase)
         {
 
-            _isInputValid = IsInputValid(code, startPhrase, ";");
-            
-            return _isInputValid;
+            return IsInputValid(code, startPhrase, ";");
         }
 
 
         protected bool IsInputValid(string code, string startPhrase, string endPhrase)
         {
 
-            _isInputValid = code.StartsWith(startPhrase) && code.EndsWith(endPhrase);
-
-            return _isInputValid;
+            return code.StartsWith(startPhrase) && code.EndsWith(endPhrase);
         }
 
 

@@ -24,6 +24,10 @@ namespace LessonsPractices.MiniGames
         }
 
 
+        [SerializeField, Space]
+        private Transform _muzzle;
+
+
         private Rigidbody2D _rigidbody;
 
 
@@ -42,9 +46,28 @@ namespace LessonsPractices.MiniGames
         public void OnShot(Vector2 direction, float lifeTime)
         {
 
+            RotateBullet(direction);
+
+
             Rigidbody.AddForce(direction, ForceMode2D.Impulse);
 
             StartCoroutine(HideBullet(lifeTime));
+        }
+
+
+        private void RotateBullet(Vector2 direction)
+        {
+
+            Vector2 lookingDir = _muzzle.position - transform.position;
+
+            Vector2 diff = direction - lookingDir;
+
+            float angle = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg - 135;
+
+
+            Quaternion rotation = Quaternion.Euler(0f, 0f, angle);
+
+            transform.rotation = rotation;
         }
 
 

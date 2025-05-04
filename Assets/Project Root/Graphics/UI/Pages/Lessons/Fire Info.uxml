@@ -1,0 +1,22 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:Template name="H Space" src="project://database/Assets/Project%20Root/Graphics/UI/Controls/Basic/H%20Space.uxml?fileID=9197481963319205126&amp;guid=74857ac0195ae7b409755387cf132bf3&amp;type=3#H Space" />
+    <Style src="project://database/Assets/Project%20Root/Graphics/UI/Classes/Header.uss?fileID=7433441132597879392&amp;guid=f76b758532201924db060bf37a13a6c2&amp;type=3#Header" />
+    <Style src="project://database/Assets/Project%20Root/Graphics/UI/Classes/Panel.uss?fileID=7433441132597879392&amp;guid=bdb970631957d0943a72216a16457bac&amp;type=3#Panel" />
+    <ui:Label tabindex="-1" text="Сбейте все яблоки!" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Goal" class="h3 accent-text" style="white-space: normal; -unity-font-style: bold; flex-grow: 1; flex-basis: 10%; flex-shrink: 1;" />
+    <ui:VisualElement name="help-task" style="flex-grow: 1; justify-content: space-around;">
+        <ui:Label tabindex="-1" text="Напишите команду &lt;color=#850BF4&gt;Input.GetButtonDown(...)&lt;/color&gt;, чтобы проверить, что игрок нажал нужную кнопку для выстрела" parse-escape-sequences="true" display-tooltip-when-elided="true" name="help-task-1" class="small" style="white-space: normal; -unity-font-style: bold;" />
+        <ui:Label tabindex="-1" text="В скобках для стрельбы нужно написать &lt;color=#850BF4&gt;&quot;Fire1&quot;&lt;/color&gt; на левую кнопку мыши или &lt;color=#850BF4&gt;&quot;Fire2&quot;&lt;/color&gt; на правую" parse-escape-sequences="true" display-tooltip-when-elided="true" enable-rich-text="true" name="help-task-2" class="small" style="-unity-font-style: bold; white-space: normal;" />
+    </ui:VisualElement>
+    <ui:Instance template="H Space" name="H Space" style="height: 4px; align-items: center;" />
+    <ui:VisualElement name="help-values" style="flex-grow: 1; justify-content: center;">
+        <ui:Label tabindex="-1" text="Для того, чтобы команда работала правильно, поместите её в скобки блока &lt;color=#850BF4&gt;if&lt;/color&gt;" parse-escape-sequences="true" display-tooltip-when-elided="true" enable-rich-text="true" name="help-values-1" class="small" style="-unity-font-style: bold; white-space: normal;" />
+    </ui:VisualElement>
+    <ui:Instance template="H Space" name="H Space" style="height: 4px; align-items: center;" />
+    <ui:VisualElement name="help-ui" style="flex-grow: 1; justify-content: center;">
+        <ui:Label tabindex="-1" text="Напишите правильно команду GetButtonDown(...) и нажмите кнопку &lt;color=#850BF4&gt;&quot;Проверить ответы&quot;&lt;/color&gt;, чтобы Вы смогли &lt;color=#850BF4&gt;управлять луком&lt;/color&gt; и сбить яблоки" parse-escape-sequences="true" display-tooltip-when-elided="true" class="small" style="white-space: normal; -unity-font-style: bold;" />
+    </ui:VisualElement>
+    <ui:Instance template="H Space" name="H Space" style="height: 4px; align-items: center; display: none;" />
+    <ui:VisualElement name="help-coding" style="flex-grow: 1; justify-content: center; display: none;">
+        <ui:Label tabindex="-1" text="Не забудьте поставить точку с запятой &lt;color=#850BF4&gt;(;) в конце каждой строчки!!!&lt;/color&gt;" parse-escape-sequences="true" display-tooltip-when-elided="true" class="small" style="white-space: normal; -unity-font-style: bold;" />
+    </ui:VisualElement>
+</ui:UXML>

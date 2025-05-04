@@ -25,26 +25,12 @@ namespace LessonsPractices.MiniGames
         private IList<Target> _completedTargets;
 
 
-        #region Awake/Destroy Methods
 
-        private void Awake()
-        {
-            
-            Init();
-        }
-
-
-        private void OnDestroy()
+        public override void Init()
         {
 
-            UnSetTargets();
-        }
+            base.Init();
 
-        #endregion
-
-
-        protected virtual void Init()
-        {
 
             _targetPool = new ObjectPool<Target>(_targetsRoot);
 
@@ -54,6 +40,13 @@ namespace LessonsPractices.MiniGames
             _completedTargets = new List<Target>(_targetPool.Objects.Count);
 
             SetTargets();
+        }
+
+
+        public override void Unload()
+        {
+
+            UnSetTargets();
         }
 
 

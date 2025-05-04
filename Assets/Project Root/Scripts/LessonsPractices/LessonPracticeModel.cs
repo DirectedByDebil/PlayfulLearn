@@ -43,6 +43,8 @@ namespace LessonsPractices
                 _currentMiniGame.IsCompletedChanged -= OnMiniGameCompletedChanged;
 
                 _currentMiniGame.LockingInput -= OnLockingInput;
+
+                _currentMiniGame.Unload();
             }
 
 
@@ -53,6 +55,8 @@ namespace LessonsPractices
             _currentMiniGame.IsCompletedChanged += OnMiniGameCompletedChanged;
 
             _currentMiniGame.LockingInput += OnLockingInput;
+            
+            _currentMiniGame.Init();
         }
 
 

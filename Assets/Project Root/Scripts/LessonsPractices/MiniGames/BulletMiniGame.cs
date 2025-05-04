@@ -32,11 +32,20 @@ namespace LessonsPractices.MiniGames
         protected Vector2 direction;
 
 
-        public override void StartGame()
+        public override void Init()
         {
 
-            if (!CanStart) return;
+            base.Init();
 
+
+            _bulletPool = new ObjectPool<Bullet>(_bulletsRoot);
+
+            _bulletPool.UpdateObjects();
+        }
+
+
+        protected void Shoot()
+        {
 
             if (_bulletPool.TryGetObject(out Bullet bullet))
             {
@@ -50,15 +59,42 @@ namespace LessonsPractices.MiniGames
         }
 
 
-        protected override void Init()
+        #region Gun Rotation
+
+        protected void SetGunRotation(Vector3 worldPoint)
         {
 
-            base.Init();
+            Vector3 lookingDir = worldPoint - _startPosition.position;
+
+            float angle = Mathf.Atan2(lookingDir.y, lookingDir.x) * Mathf.Rad2Deg + 225;
 
 
-            _bulletPool = new ObjectPool<Bullet>(_bulletsRoot);
+            Quaternion rotation = Quaternion.Euler(0f, 0f, angle);
 
-            _bulletPool.UpdateObjects();
+            _startPosition.rotation = rotation;
+        }
+
+
+        protected void SetGunDirection(Vector3 worldPoint)
+        {
+
+            float angle = Mathf.Atan2(worldPoint.y, worldPoint.x) * Mathf.Rad2Deg + 225;
+
+
+            Quaternion rotation = Quaternion.Euler(0f, 0f, angle);
+
+            _startPosition.rotation = rotation;
+        }
+
+        #endregion
+
+
+        protected void SetDirection(Vector3 worldPoint)
+        {
+
+            direction = worldPoint - _startPosition.position;
+
+            direction.Normalize();
         }
     }
 }

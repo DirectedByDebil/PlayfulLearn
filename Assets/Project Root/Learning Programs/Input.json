@@ -3,6 +3,7 @@
     "IconName": "Unity.png",
   "Lessons": [
     "Get Axis",
-    "Get Button Down"
+    "Get Button Down",
+    "Fire"
   ]
 }

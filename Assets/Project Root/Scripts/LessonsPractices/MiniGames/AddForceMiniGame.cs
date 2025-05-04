@@ -5,12 +5,22 @@ namespace LessonsPractices.MiniGames
     public sealed class AddForceMiniGame : BulletMiniGame
     {
 
-        protected override void Init()
+
+        public override void Init()
         {
 
             base.Init();
 
             direction = new Vector2(1, 1);
+        }
+
+
+        public override void StartGame()
+        {
+
+            if (!CanStart) return;
+
+            Shoot();
         }
 
 

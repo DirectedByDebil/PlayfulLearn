@@ -3,6 +3,17 @@
     public sealed class Vector2MiniGame : BulletMiniGame
     {
 
+        public override void StartGame()
+        {
+
+            if (!CanStart) return;
+
+            SetGunDirection(direction);
+
+            Shoot();
+        }
+
+
         protected override void CheckCodeInput(CodeInput input)
         {
 

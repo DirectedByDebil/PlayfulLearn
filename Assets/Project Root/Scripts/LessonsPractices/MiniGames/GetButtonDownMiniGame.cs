@@ -9,19 +9,8 @@ namespace LessonsPractices.MiniGames
         [SerializeField, Space]
         private Player _player;
 
-
-        public override void StartGame()
-        {
-
-            if (!CanStart) return;
-
-            _player.CanJump = true;
-
-            _player.CanMove = true;
-        }
-
-
-        protected override void Init()
+  
+        public override void Init()
         {
 
             base.Init();
@@ -34,6 +23,17 @@ namespace LessonsPractices.MiniGames
             _player.CanMove = false;
 
             _player.CanJump = false;
+        }
+
+
+        public override void StartGame()
+        {
+
+            if (!CanStart) return;
+
+            _player.CanJump = true;
+
+            _player.CanMove = true;
         }
 
 

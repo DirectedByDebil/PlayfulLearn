@@ -1,11 +1,10 @@
 {
     "Email": "chromov-arsenij@mail.ru",
     "UserName": "Current User Name",
-    "SelectedCharacter": "VirtualGuy",
+    "SelectedCharacter": "MaskDude",
     "CompletedLessons": [
         "Add Force",
-        "Axis X",
-        "Axis Y",
+        "Fire",
         "Get Axis",
         "Get Button Down",
         "Vector 2"

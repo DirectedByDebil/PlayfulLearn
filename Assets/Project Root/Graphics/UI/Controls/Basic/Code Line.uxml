@@ -7,7 +7,7 @@
             <ui:Label tabindex="-1" parse-escape-sequences="true" display-tooltip-when-elided="true" name="line-number" text="10" class="small" />
         </ui:VisualElement>
         <ui:VisualElement class="panel gray-colored" style="flex-grow: 4; flex-basis: 80%; border-top-right-radius: 18px; border-bottom-right-radius: 18px;">
-            <ui:TextField name="line-text" readonly="true" value="Rigidbody.AddForce(direction, " class="white-colored small" style="flex-grow: 4; flex-shrink: 1; flex-basis: 80%; width: 100%; height: 100%; white-space: normal; overflow: visible;" />
+            <ui:TextField name="line-text" readonly="true" value="Vector3 worldPoint = Camera.main.ScreenToWorldPoint(screenPoint);" multiline="true" class="white-colored small" style="flex-grow: 4; flex-shrink: 1; flex-basis: 80%; width: 100%; height: 100%; white-space: normal; overflow: visible;" />
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

@@ -1,5 +1,5 @@
 {
-    "NameOfLesson": "Gravity Scale",
+    "NameOfLesson": "Fire",
     "IconName": "Transform.png",
     "Contents": 
     [
@@ -13,11 +13,11 @@
         },
         {
             "_language": 1,
-            "_lessonTextContent": {
-                "_introduction": "Свойство gravity scale отвечает за силу гравитации, действующей на объект",
-                "_usage": "Мы можем изменять силу и направление гравитации для создания необычных игровых ситуаций",
-                "_practiceDescription": "Применять свойство gravity scale"
-            }
+          "_lessonTextContent": {
+            "_introduction": "Структура Vector2 позволяет нам указывать направление движения сразу по осям X и Y",
+            "_usage": "X - движение вправо/влево\nY - движение вверх/вниз\n",
+            "_practiceDescription": "Указывать направление движения объекта в Unity"
+          }
         },
         {
             "_language": 2,

@@ -369,10 +369,10 @@ MonoBehaviour:
   _startPosition: {fileID: 1871605692}
   _bulletLifeTime: 2
   _bulletSpeed: 8
-  _movingPlatform:
+  _platformInterpolationTime: 1.6
+  _movingPlatforms:
   - {fileID: 2075242914}
   - {fileID: 1072793422}
-  _platformInterpolationTime: 1.6
 --- !u!1001 &335972933
 PrefabInstance:
   m_ObjectHideFlags: 0

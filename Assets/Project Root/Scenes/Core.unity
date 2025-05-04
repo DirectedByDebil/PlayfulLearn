@@ -548,6 +548,31 @@ MonoBehaviour:
     - Code: '}'
       IsReadOnly: 1
       Description: 
+  - NameOfLesson: Mouse Position
+    PracticeType: 1
+    TestPage: {fileID: 0}
+    Questions: []
+    SceneName: MousePosition
+    MiniGameInfo: {fileID: 9197481963319205126, guid: a781ee400b712bb4dbcae6f78c91a1fb, type: 3}
+    CodeLines:
+    - Code: void Update()
+      IsReadOnly: 1
+      Description: 
+    - Code: '{'
+      IsReadOnly: 1
+      Description: 
+    - Code: 
+      IsReadOnly: 0
+      Description: MousePosition
+    - Code: "Vector3 worldPoint = Camera.main.ScreenToWorldPoint(mousePosition);\r"
+      IsReadOnly: 1
+      Description: 
+    - Code: player.position = worldPoint;
+      IsReadOnly: 1
+      Description: 
+    - Code: '}'
+      IsReadOnly: 1
+      Description: 
 --- !u!114 &887640911
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -774,6 +799,10 @@ MonoBehaviour:
     Usage: {fileID: 21300000, guid: 320f4eb52e227b446830a1f6fd691fca, type: 3}
     PracticeDescription: {fileID: 3974224528455760076, guid: 5a448cc07b6e09343924bf933b0cb70e, type: 3}
   - NameOfLesson: Fire
+    Introduction: {fileID: 7062579536633761780, guid: 0b4768f2ab470f44ca33fa59836a0774, type: 3}
+    Usage: {fileID: 21300000, guid: 320f4eb52e227b446830a1f6fd691fca, type: 3}
+    PracticeDescription: {fileID: 3974224528455760076, guid: 5a448cc07b6e09343924bf933b0cb70e, type: 3}
+  - NameOfLesson: Mouse Position
     Introduction: {fileID: 7062579536633761780, guid: 0b4768f2ab470f44ca33fa59836a0774, type: 3}
     Usage: {fileID: 21300000, guid: 320f4eb52e227b446830a1f6fd691fca, type: 3}
     PracticeDescription: {fileID: 3974224528455760076, guid: 5a448cc07b6e09343924bf933b0cb70e, type: 3}

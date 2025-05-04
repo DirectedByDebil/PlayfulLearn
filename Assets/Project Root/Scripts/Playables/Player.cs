@@ -135,6 +135,21 @@ namespace Playables
         }
 
 
+        public void MoveToPosition(Vector3 wolrdPoint)
+        {
+
+            Vector3 direction = wolrdPoint - transform.position;
+
+            direction.Normalize();
+
+            direction *= _speed * Time.deltaTime;
+
+            direction += transform.position;
+
+            _rigidbody.MovePosition(direction);
+        }
+
+
         #region Platformer Movement
 
         private void MovePlatformer()

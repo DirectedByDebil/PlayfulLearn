@@ -12,7 +12,10 @@ namespace LessonsPractices.MiniGames
 
 
         [SerializeField, Space]
-        private List<Patrol> _movingPlatform;
+        private List<Patrol> _movingPlatforms;
+
+
+        private MovingPlatformsSystem _platforms;
 
 
         private Camera _camera;
@@ -52,6 +55,8 @@ namespace LessonsPractices.MiniGames
             base.Init();
 
             _camera = Camera.main;
+
+            _platforms = new MovingPlatformsSystem(_movingPlatforms);
         }
 
 
@@ -63,7 +68,7 @@ namespace LessonsPractices.MiniGames
 
             _isPlaying = true;
 
-            StartPlatformMovement();
+            _platforms.StartPlatformMovement(_platformInterpolationTime);
         }
 
 
@@ -72,7 +77,7 @@ namespace LessonsPractices.MiniGames
 
             base.Unload();
 
-            StopPlatformMovement();
+            _platforms.StopPlatformMovement();
         }
 
 
@@ -102,7 +107,10 @@ namespace LessonsPractices.MiniGames
                     if(lines.Length == 3 &&
                         lines[0] == "if(Input.GetButtonDown(" &&
                         lines[2] == "))" &&
-                        (lines[1] == "Fire1" || lines[1] == "Fire2"))
+
+                        (lines[1] == "Fire1" ||
+                        lines[1] == "Fire2" ||
+                        lines[1] == "Fire3"))
                     {
                         
                         _fireButton = lines[1];
@@ -115,31 +123,5 @@ namespace LessonsPractices.MiniGames
                 }
             }
         }
-
-
-        #region Platform Movement
-
-        private void StartPlatformMovement()
-        {
-
-            foreach (Patrol platform in _movingPlatform)
-            {
-
-                platform.StartPatrol(_platformInterpolationTime);
-            }
-        }
-
-
-        private void StopPlatformMovement()
-        {
-
-            foreach (Patrol platform in _movingPlatform)
-            {
-
-                platform.StopPatrol();
-            }
-        }
-        
-        #endregion
     }
 }

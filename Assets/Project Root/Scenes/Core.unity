@@ -395,19 +395,19 @@ MonoBehaviour:
     - Answer: 1
       VisualElementName: 1
       Picture: {fileID: 21300000, guid: 5862de41ebcb904438a1af8213072f5e, type: 3}
-    - Answer: 2
+    - Answer: -1
       VisualElementName: 2
       Picture: {fileID: 21300000, guid: 72986a96962f3d24ea0778fe69ffd4e1, type: 3}
-    - Answer: 3
+    - Answer: -1
       VisualElementName: 3
       Picture: {fileID: 21300000, guid: d7918bfd5e01d0842b65d1e367495986, type: 3}
-    - Answer: 4
+    - Answer: 1
       VisualElementName: 4
       Picture: {fileID: 21300000, guid: 1dea00f9a86292e42b430ef4a5c2268c, type: 3}
-    - Answer: 5
+    - Answer: 1
       VisualElementName: 5
       Picture: {fileID: 21300000, guid: 9ea312d5525cbd44993f8ebd4040a9c4, type: 3}
-    - Answer: 6
+    - Answer: 0
       VisualElementName: 6
       Picture: {fileID: 21300000, guid: 84990d76c307b7740a028023e58e546f, type: 3}
     SceneName: 
@@ -564,7 +564,7 @@ MonoBehaviour:
     - Code: 
       IsReadOnly: 0
       Description: MousePosition
-    - Code: "Vector3 worldPoint = Camera.main.ScreenToWorldPoint(mousePosition);\r"
+    - Code: "Vector3 worldPoint = Camera.main.ScreenToWorldPoint(mousePos);\r"
       IsReadOnly: 1
       Description: 
     - Code: player.position = worldPoint;

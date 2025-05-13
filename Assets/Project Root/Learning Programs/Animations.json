@@ -1,0 +1,13 @@
+{
+    "NameOfProgram": "Animations",
+  "RusName": "Анимации",
+    "Module": "3",
+    "IconName": "Cinema.png",
+  "Lessons": [
+    "Get Axis",
+    "Vector2",
+    "Fire",
+    "Mouse Position",
+    "Add Force"
+  ]
+}

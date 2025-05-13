@@ -1,7 +1,11 @@
 {
     "Email": "chromov-arsenij@mail.ru",
     "UserName": "Current User Name",
-    "SelectedCharacter": "NinjaFrog",
+    "SelectedCharacter": "PinkMan",
     "CompletedLessons": [
+        "Axis X",
+        "Add Force",
+        "Fire",
+        "Get Axis"
     ]
 }

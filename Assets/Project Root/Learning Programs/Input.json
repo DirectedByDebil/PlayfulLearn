@@ -1,6 +1,8 @@
 {
-    "NameOfProgram": "Input",
-    "IconName": "Unity.png",
+  "NameOfProgram": "Input",
+  "RusName": "Управление",
+  "Module": "1",
+  "IconName": "Unity.png",
   "Lessons": [
     "Get Axis",
     "Get Button Down",

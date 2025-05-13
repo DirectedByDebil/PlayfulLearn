@@ -1,62 +1,63 @@
 {
-    "NameOfLesson": "Get Axis",
-    "IconName": "Transform.png",
-    "Contents": 
-    [
-        {
-            "_language": 0,
-            "_lessonTextContent": {
-                "_introduction": "Every object in a Scene has a Transform. It's used to store and manipulate the position, rotation and scale of the object",
-                "_usage": "With this component we can change: 1) Position 2) Rotation 3) Scale of an object",
-                "_practiceDescription": "Now you are going to see how you can use the Transform component to influence a game object"
-            }
-        },
-        {
-            "_language": 1,
-          "_lessonTextContent": {
-            "_introduction": "Структура Vector2 позволяет нам указывать направление движения сразу по осям X и Y",
-            "_usage": "X - движение вправо/влево\nY - движение вверх/вниз\n",
-            "_practiceDescription": "Указывать направление движения объекта в Unity"
-          }
-        },
-        {
-            "_language": 2,
-            "_lessonTextContent": {
-                "_introduction": "",
-                "_usage": "",
-                "_practiceDescription": ""
-            }
-        },
-        {
-            "_language": 3,
-            "_lessonTextContent": {
-                "_introduction": "",
-                "_usage": "",
-                "_practiceDescription": ""
-            }
-        },
-        {
-            "_language": 4,
-            "_lessonTextContent": {
-                "_introduction": "",
-                "_usage": "",
-                "_practiceDescription": ""
-            }
-        },
-        {
-            "_language": 5,
-            "_lessonTextContent": {
-                "_introduction": "",
-                "_usage": "",
-                "_practiceDescription": ""
-            }
-        },
-        {
-            "_language": 6,
-            "_lessonTextContent": {
-                "_introduction": "",
-                "_usage": "",
-                "_practiceDescription": ""
-            }
-        }
-    ]}
+  "NameOfLesson": "Get Axis",
+  "Difficulty": "Hard",
+  "IconName": "Transform.png",
+  "Contents": [
+    {
+      "_language": 0,
+      "_lessonTextContent": {
+        "_introduction": "Every object in a Scene has a Transform. It's used to store and manipulate the position, rotation and scale of the object",
+        "_usage": "With this component we can change: 1) Position 2) Rotation 3) Scale of an object",
+        "_practiceDescription": "Now you are going to see how you can use the Transform component to influence a game object"
+      }
+    },
+    {
+      "_language": 1,
+      "_lessonTextContent": {
+        "_introduction": "Структура Vector2 позволяет нам указывать направление движения сразу по осям X и Y",
+        "_usage": "X - движение вправо/влево\nY - движение вверх/вниз\n",
+        "_practiceDescription": "Указывать направление движения объекта в Unity"
+      }
+    },
+    {
+      "_language": 2,
+      "_lessonTextContent": {
+        "_introduction": "",
+        "_usage": "",
+        "_practiceDescription": ""
+      }
+    },
+    {
+      "_language": 3,
+      "_lessonTextContent": {
+        "_introduction": "",
+        "_usage": "",
+        "_practiceDescription": ""
+      }
+    },
+    {
+      "_language": 4,
+      "_lessonTextContent": {
+        "_introduction": "",
+        "_usage": "",
+        "_practiceDescription": ""
+      }
+    },
+    {
+      "_language": 5,
+      "_lessonTextContent": {
+        "_introduction": "",
+        "_usage": "",
+        "_practiceDescription": ""
+      }
+    },
+    {
+      "_language": 6,
+      "_lessonTextContent": {
+        "_introduction": "",
+        "_usage": "",
+        "_practiceDescription": ""
+      }
+    }
+  ]
+}

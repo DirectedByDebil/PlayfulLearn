@@ -1,12 +1,13 @@
-﻿using UnityEngine;
-using System.Collections.Generic;
-using Localization;
+﻿using Localization;
 using Extensions;
 using Core;
+using UnityEngine;
+using System.Collections.Generic;
+using System;
 
 namespace Lessons
 {
-    public sealed class Lesson
+    public sealed class Lesson : IComparable<Lesson>
     {
 
         public string NameOfLesson
@@ -15,6 +16,7 @@ namespace Lessons
             get => _nameOfLeson;
         }
 
+        public LessonDifficulties Difficulty { get => _difficulty; }
 
         public bool IsCompleted
         {
@@ -43,6 +45,8 @@ namespace Lessons
 
         private readonly string _iconName;
 
+        private readonly LessonDifficulties _difficulty;
+
         private readonly List<LessonNode> _nodes;
 
 
@@ -65,6 +69,8 @@ namespace Lessons
 
             _nodes = data.Contents;
 
+
+            Enum.TryParse(data.Difficulty, out _difficulty); 
 
             _content = new Dictionary<Languages, 
                 
@@ -105,6 +111,11 @@ namespace Lessons
         {
 
             _isCompleted = isCompleted;
+        }
+
+        public int CompareTo(Lesson other)
+        {
+            return Difficulty.CompareTo(other.Difficulty);
         }
     }
 }

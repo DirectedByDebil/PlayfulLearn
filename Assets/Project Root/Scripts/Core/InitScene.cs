@@ -3,17 +3,25 @@ using Extensions;
 using Lessons;
 using LearningPrograms;
 using Playables;
+using UINew;
 using UnityEngine;
+using UnityEngine.UIElements;
 using UnityEngine.SceneManagement;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using System.Runtime.InteropServices;
 
 
 namespace Core
 {
+    [RequireComponent(typeof(UIDocument))]
     public sealed class InitScene : MonoBehaviour
     {
+
+        [DllImport("__Internal")]
+        private static extern void CheckJs();
+
 
         [SerializeField, Space]
         private List<Character> _characters;
@@ -26,19 +34,41 @@ namespace Core
         private string _lastProgramName;
 
 
+        private UIDocument _document;
+
+        private Label _outPut;
+
+
         private void Awake()
         {
 
+            //CheckJs();
+
+            _document = GetComponent<UIDocument>();
+
+            _outPut = _document.GetLabel("output");
+
+
+            _outPut.text = "Initializing user";
+
+
             InitUser();
+
+
+            
+            _outPut.text = "Initializing characters";
 
             InitCharacters();
 
 
+            _outPut.text = "Initializing lessons";
             InitializeLessons();
 
 
+            _outPut.text = "Initializing last learning program";
             InitializeLastProgram();
 
+            _outPut.text = "Initializing learning programs";
             InitializeLearningProgramsAsync();
 
 
@@ -92,16 +122,23 @@ namespace Core
             List<string> completed = SessionData.UserData.CompletedLessons;
 
 
+            _outPut.text = "Started lessons";
+
+            _outPut.text = PathKeeper.LessonsPath;
+
             IReadOnlyCollection<LessonData> allLessonsData =
                 
                 FileExtensions.GetFiles<LessonData>(PathKeeper.LessonsPath);
 
+            _outPut.text = allLessonsData.Count.ToString();
 
             List<Lesson> allLessons = new(allLessonsData.Count);
 
 
             foreach(LessonData data in allLessonsData)
             {
+
+                _outPut.text = data.NameOfLesson;
 
                 Lesson lesson = new (data);
 
@@ -122,6 +159,7 @@ namespace Core
                 allLessons.Add(lesson);
             }
 
+            allLessons.Sort();
 
             SessionData.SetAllLessons(allLessons);
         }
@@ -167,6 +205,9 @@ namespace Core
 
                 allPrograms.Add(program);
             }
+
+
+            allPrograms.Sort();
 
 
             SessionData.SetAllLearningPrograms(allPrograms);

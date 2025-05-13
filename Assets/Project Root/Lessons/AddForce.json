@@ -1,62 +1,64 @@
 {
-    "NameOfLesson": "Add Force",
-    "IconName": "Rigidbody.png",
-    "Contents": [
-        
-        {
-            "_language": 0,
-            "_lessonTextContent": {
-                "_introduction": "Adding a Rigidbody2D component to a sprite puts it under the control of the physics engine.",
-                "_usage": "    By itself, this means that the sprite will be affected by gravity and can be controlled from scripts using forces.",
-                "_practiceDescription": "Now you are going to see how the Rigidbody2D parameters affect the behavior of the game object."
-            }
-        },
-        {
-            "_language": 1,
-            "_lessonTextContent": {
-                "_introduction": "Метод Add Force толкает объект в указанном направлении",
-                "_usage": "С помощью этого метода мы можем толкать объект в нужном направлении",
-                "_practiceDescription": "Применять Add Force для создания движения в Unity"
-            }
-        },
-        {
-            "_language": 2,
-            "_lessonTextContent": {
-                "_introduction": "",
-                "_usage": "",
-                "_practiceDescription": ""
-            }
-        },
-        {
-            "_language": 3,
-            "_lessonTextContent": {
-                "_introduction": "",
-                "_usage": "",
-                "_practiceDescription": ""
-            }
-        },
-        {
-            "_language": 4,
-            "_lessonTextContent": {
-                "_introduction": "",
-                "_usage": "",
-                "_practiceDescription": ""
-            }
-        },
-        {
-            "_language": 5,
-            "_lessonTextContent": {
-                "_introduction": "",
-                "_usage": "",
-                "_practiceDescription": ""
-            }
-        },
-        {
-            "_language": 6,
-            "_lessonTextContent": {
-                "_introduction": "",
-                "_usage": "",
-                "_practiceDescription": ""
-            }
-        }
-    ]}
+  "NameOfLesson": "Add Force",
+  "Difficulty": "Medium",
+  "IconName": "Rigidbody.png",
+  "Contents": [
+
+    {
+      "_language": 0,
+      "_lessonTextContent": {
+        "_introduction": "Adding a Rigidbody2D component to a sprite puts it under the control of the physics engine.",
+        "_usage": "    By itself, this means that the sprite will be affected by gravity and can be controlled from scripts using forces.",
+        "_practiceDescription": "Now you are going to see how the Rigidbody2D parameters affect the behavior of the game object."
+      }
+    },
+    {
+      "_language": 1,
+      "_lessonTextContent": {
+        "_introduction": "Метод Add Force толкает объект в указанном направлении",
+        "_usage": "С помощью этого метода мы можем толкать объект в нужном направлении",
+        "_practiceDescription": "Применять Add Force для создания движения в Unity"
+      }
+    },
+    {
+      "_language": 2,
+      "_lessonTextContent": {
+        "_introduction": "",
+        "_usage": "",
+        "_practiceDescription": ""
+      }
+    },
+    {
+      "_language": 3,
+      "_lessonTextContent": {
+        "_introduction": "",
+        "_usage": "",
+        "_practiceDescription": ""
+      }
+    },
+    {
+      "_language": 4,
+      "_lessonTextContent": {
+        "_introduction": "",
+        "_usage": "",
+        "_practiceDescription": ""
+      }
+    },
+    {
+      "_language": 5,
+      "_lessonTextContent": {
+        "_introduction": "",
+        "_usage": "",
+        "_practiceDescription": ""
+      }
+    },
+    {
+      "_language": 6,
+      "_lessonTextContent": {
+        "_introduction": "",
+        "_usage": "",
+        "_practiceDescription": ""
+      }
+    }
+  ]
+}

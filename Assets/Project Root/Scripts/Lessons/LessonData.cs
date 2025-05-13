@@ -12,6 +12,8 @@ namespace Lessons
 
         public string IconName;
 
+        public string Difficulty;
+
         public List<LessonNode> Contents;
 
 
@@ -27,6 +29,8 @@ namespace Lessons
             IconName = iconName;
 
             Contents = contents;
+
+            Difficulty = "Easy";
         }
     }
 }

@@ -10,9 +10,14 @@ namespace LearningPrograms
 
         public string NameOfProgram;
 
+        public string RusName;
+
         public string IconName;
 
+        public int Module;
+
         public List<string> Lessons;
+
 
 
         public LearningProgramData(string nameOfProgram,
@@ -24,9 +29,13 @@ namespace LearningPrograms
 
             NameOfProgram = nameOfProgram;
 
+            RusName = nameOfProgram;
+
             IconName = iconName;
 
             Lessons = lessons;
+
+            Module = 0;
         }
     }
 }

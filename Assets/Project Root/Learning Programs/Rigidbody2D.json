@@ -1,6 +1,8 @@
 {
-    "NameOfProgram": "Rigidbody2D",
-    "IconName": "Rigidbody.png",
+  "NameOfProgram": "Rigidbody2D",
+  "RusName": "Физика",
+  "Module": "2",
+  "IconName": "Rigidbody.png",
   "Lessons": [
     "Axis X",
     "Axis Y",

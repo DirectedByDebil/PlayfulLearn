@@ -56,7 +56,7 @@ namespace UINew
 
             Label label = item.GetLabel("name");
 
-            label.text = program.NameOfProgram;
+            label.text = string.Format("Модуль {0}: {1}", program.Module, program.RusName); ;
 
 
             ProgressBar progress = item.GetProgressBar("progress");

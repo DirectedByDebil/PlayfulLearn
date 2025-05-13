@@ -1,13 +1,14 @@
-﻿using Lessons;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using Core;
+using Lessons;
 using Extensions;
-using Core;
+using UnityEngine;
+using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace LearningPrograms
 {
-    public sealed class LearningProgram
+    public sealed class LearningProgram : IComparable<LearningProgram>
     {
 
         public string NameOfProgram
@@ -16,6 +17,10 @@ namespace LearningPrograms
             get => _nameOfProgram;
         }
 
+        public string RusName { get => _rusName; }
+
+
+        public int Module { get => _module; }
 
         public int CompletionPercent
         {
@@ -40,7 +45,11 @@ namespace LearningPrograms
 
         private readonly string _nameOfProgram;
 
+        private readonly string _rusName;
+
         private readonly string _iconName;
+
+        private readonly int _module;
 
 
         private readonly List<string> _lessonsNames;
@@ -61,6 +70,10 @@ namespace LearningPrograms
             _iconName = data.IconName;
 
             _lessonsNames = data.Lessons;
+
+            _rusName = data.RusName;
+
+            _module = data.Module;
 
 
             _lessons = new List<Lesson>(_lessonsNames.Count);
@@ -119,6 +132,12 @@ namespace LearningPrograms
 
 
             _completionPercent = percent;
+        }
+
+
+        public int CompareTo(LearningProgram other)
+        {
+            return Module.CompareTo(other.Module);
         }
     }
 }

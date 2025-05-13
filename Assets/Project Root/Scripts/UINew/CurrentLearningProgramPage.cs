@@ -48,7 +48,7 @@ namespace UINew
 
             Label label = document.GetLabel("current-program-name");
 
-            label.text = program.NameOfProgram;
+            label.text = program.RusName;
 
 
             VisualElement icon = document.GetElement("current-program-icon");
@@ -68,16 +68,20 @@ namespace UINew
             parent.Clear();
 
 
+            int index = 1;
+
             foreach (Lesson lesson in lessons)
             {
 
                 VisualElement element = _itemTemplate.Instantiate();
 
 
-                SetElement(element, lesson);
+                SetElement(element, lesson, index);
                
 
                 parent.Add(element);
+
+                index++;
             }
 
 
@@ -94,12 +98,17 @@ namespace UINew
         }
 
 
-        private void SetElement(VisualElement element, Lesson lesson)
+        private void SetElement(VisualElement element, Lesson lesson, int lessonNumber)
         {
 
-            Label label = element.GetLabel("label");
+            Label label = element.GetLabel("lesson-number");
 
-            label.text = lesson.NameOfLesson;
+            label.text = string.Format("Урок {0}:", lessonNumber);
+
+
+            Label lessonName = element.GetLabel("lesson-name");
+
+            lessonName.text = lesson.NameOfLesson;
 
 
             VisualElement icon = element.GetElement("icon");

@@ -2,6 +2,7 @@
     <ui:Template name="V Space" src="project://database/Assets/Project%20Root/Graphics/UI/Controls/Basic/V%20Space.uxml?fileID=9197481963319205126&amp;guid=bf1db0709617eb1499b3c4abd3e55bc0&amp;type=3#V Space" />
     <ui:Template name="Picture Input" src="project://database/Assets/Project%20Root/Graphics/UI/Controls/Basic/Picture%20Input.uxml?fileID=9197481963319205126&amp;guid=3e263030455bf5e468a79da8b2841c13&amp;type=3#Picture Input" />
     <ui:Template name="Lesson Practice Footer" src="project://database/Assets/Project%20Root/Graphics/UI/Controls/Lesson%20Practice%20Footer.uxml?fileID=9197481963319205126&amp;guid=2ddccadc824776440bf3d01bc309d87c&amp;type=3#Lesson Practice Footer" />
+    <ui:Template name="H Space" src="project://database/Assets/Project%20Root/Graphics/UI/Controls/Basic/H%20Space.uxml?fileID=9197481963319205126&amp;guid=74857ac0195ae7b409755387cf132bf3&amp;type=3#H Space" />
     <Style src="project://database/Assets/Project%20Root/Graphics/UI/Classes/Panel.uss?fileID=7433441132597879392&amp;guid=bdb970631957d0943a72216a16457bac&amp;type=3#Panel" />
     <Style src="project://database/Assets/Project%20Root/Graphics/UI/Classes/Header.uss?fileID=7433441132597879392&amp;guid=f76b758532201924db060bf37a13a6c2&amp;type=3#Header" />
     <Style src="project://database/Assets/Project%20Root/Graphics/UI/Classes/Button.uss?fileID=7433441132597879392&amp;guid=e994f9c1daab72246a1f370fe2394630&amp;type=3#Button" />
@@ -10,16 +11,21 @@
             <ui:VisualElement name="header" class="panel">
                 <ui:Label tabindex="-1" text="Ось X" display-tooltip-when-elided="true" name="lesson-name" class="big" />
             </ui:VisualElement>
-            <ui:VisualElement name="body" class="panel" style="flex-grow: 2;">
-                <ui:Label tabindex="-1" text="Label" display-tooltip-when-elided="true" name="content-info" class="medium" />
-                <ui:VisualElement style="width: 100%; height: 85%; background-image: url(&quot;project://database/Assets/Project%20Root/Graphics/Lesson%20Materials/Axis/Axis.png?fileID=2800000&amp;guid=85fbb67794180da4b97478dc621edc12&amp;type=3#Axis&quot;); -unity-background-scale-mode: scale-to-fit;" />
+            <ui:VisualElement name="body" class="panel" style="flex-grow: 2; justify-content: center;">
+                <ui:Label tabindex="-1" text="Ось X мы используем для определения направления движения &lt;color=#850BF4&gt;вправо&lt;/color&gt; или &lt;color=#850BF4&gt;влево&lt;/color&gt;" display-tooltip-when-elided="true" name="content-info" class="medium" style="white-space: normal;" />
+                <ui:Instance template="H Space" name="H Space" style="width: 100%; height: 4px; align-items: center;" />
+                <ui:Label tabindex="-1" text="Если движемся вправо, то &lt;color=#850BF4&gt;x = 1&lt;/color&gt;" display-tooltip-when-elided="true" name="content-info" class="medium" style="white-space: normal;" />
+                <ui:Label tabindex="-1" text="Если влево, то &lt;color=#850BF4&gt;x = -1&lt;/color&gt;" display-tooltip-when-elided="true" name="content-info" class="medium" style="white-space: normal;" />
+                <ui:Instance template="H Space" name="H Space" style="width: 100%; height: 4px; align-items: center;" />
+                <ui:Label tabindex="-1" text="Если стоим на месте, то &lt;color=#850BF4&gt;x = 0&lt;/color&gt;" display-tooltip-when-elided="true" name="content-info" class="medium" style="white-space: normal;" />
+                <ui:VisualElement style="width: 100%; height: 85%; background-image: url(&quot;project://database/Assets/Project%20Root/Graphics/Lesson%20Materials/Axis/Axis.png?fileID=2800000&amp;guid=85fbb67794180da4b97478dc621edc12&amp;type=3#Axis&quot;); -unity-background-scale-mode: scale-to-fit; display: none;" />
             </ui:VisualElement>
             <ui:VisualElement name="footer" class="panel" />
         </ui:VisualElement>
         <ui:Instance template="V Space" name="V Space" class="v-space" />
         <ui:VisualElement name="practice" class="panel" style="flex-basis: 45%;">
             <ui:VisualElement name="header" class="panel">
-                <ui:Label tabindex="-1" text="Укажите направление по оси X" display-tooltip-when-elided="true" name="task-info" class="medium" />
+                <ui:Label tabindex="-1" text="Укажите направление по оси X" display-tooltip-when-elided="true" name="task-info" class="medium accent-text" style="-unity-font-style: bold;" />
             </ui:VisualElement>
             <ui:VisualElement name="body" class="panel" style="justify-content: space-around; flex-basis: 50%;">
                 <ui:VisualElement name="row-1" class="panel" style="flex-direction: row; flex-wrap: wrap; justify-content: space-around;">

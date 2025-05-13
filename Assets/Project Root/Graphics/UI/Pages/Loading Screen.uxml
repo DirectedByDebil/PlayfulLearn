@@ -7,6 +7,8 @@
         <ui:VisualElement name="body" class="panel" style="flex-grow: 1;">
             <ui:Label tabindex="-1" text="Загрузка..." parse-escape-sequences="true" display-tooltip-when-elided="true" class="h1" />
         </ui:VisualElement>
-        <ui:VisualElement name="footer" class="panel" style="flex-grow: 1;" />
+        <ui:VisualElement name="footer" class="panel" style="flex-grow: 1;">
+            <ui:Label tabindex="-1" text="Label" parse-escape-sequences="true" display-tooltip-when-elided="true" name="output" class="medium" />
+        </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

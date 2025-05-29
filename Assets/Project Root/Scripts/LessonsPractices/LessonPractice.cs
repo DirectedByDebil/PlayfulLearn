@@ -8,8 +8,6 @@ namespace LessonsPractices
     public struct LessonPractice
     {
 
-        public string NameOfLesson;
-
         public PracticeType PracticeType;
 
 

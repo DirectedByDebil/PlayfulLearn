@@ -54,5 +54,16 @@ namespace Lessons
 
             _practiceDescription = practice;
         }
+
+
+        public LessonTextContent(LessonTheory theory)
+        {
+
+            _introduction = theory.Introduction;
+
+            _usage = theory.Usage;
+
+            _practiceDescription = theory.PracticeDescription;
+        }
     }
 }

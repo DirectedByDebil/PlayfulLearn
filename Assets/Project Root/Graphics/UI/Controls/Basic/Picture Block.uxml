@@ -1,0 +1,9 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Project%20Root/Graphics/UI/Classes/Panel.uss?fileID=7433441132597879392&amp;guid=bdb970631957d0943a72216a16457bac&amp;type=3#Panel" />
+    <Style src="project://database/Assets/Project%20Root/Graphics/UI/Classes/Controls.uss?fileID=7433441132597879392&amp;guid=32f454b9a35ff77449750fe8ec921618&amp;type=3#Controls" />
+    <Style src="project://database/Assets/Project%20Root/Graphics/UI/Classes/Header.uss?fileID=7433441132597879392&amp;guid=f76b758532201924db060bf37a13a6c2&amp;type=3#Header" />
+    <ui:VisualElement name="root" class="panel rounded border-accent-colored" style="flex-grow: 1;">
+        <ui:VisualElement name="picture" style="width: 85%; height: 85%; flex-basis: 70%; -unity-background-scale-mode: scale-to-fit; background-image: url(&quot;project://database/Assets/Project%20Root/Graphics/UI/Add%20photo.png?fileID=2800000&amp;guid=b5bcf8b2aff2ff1479617d97089560ac&amp;type=3#Add photo&quot;); flex-grow: 1; display: none;" />
+        <ui:Label tabindex="-1" text="Условие" parse-escape-sequences="true" display-tooltip-when-elided="true" name="label" class="small" style="white-space: normal;" />
+    </ui:VisualElement>
+</ui:UXML>

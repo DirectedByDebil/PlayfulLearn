@@ -1,11 +1,11 @@
 {
-    "Email": "chromov-arsenij@mail.ru",
-    "UserName": "Current User Name",
+    "Email": "test@mail.ru",
+    "UserName": "Test User",
     "SelectedCharacter": "PinkMan",
     "CompletedLessons": [
         "Axis X",
-        "Add Force",
-        "Fire",
-        "Get Axis"
+        "Axis Y",
+        "Get Button Down",
+        "Fire"
     ]
 }

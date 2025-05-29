@@ -6,28 +6,28 @@
         public static string LessonsPath
         {
 
-            get => "Assets/Project Root/Lessons";
+            get => _root + "Lessons";
         }
 
 
         public static string LearningProgramsPath
         {
 
-            get => "Assets/Project Root/Learning Programs";
+            get => _root + "Learning Programs";
         }
 
 
         public static string LessonsIconPath
         {
 
-            get => "Assets/Project Root/Graphics/Icons/Lessons";
+            get => _root + "Graphics/Icons/Lessons";
         }
 
 
         public static string LearningProgramsIconPath
         {
 
-            get => "Assets/Project Root/Graphics/Icons/Learning Programs";
+            get => _root + "Graphics/Icons/Learning Programs";
         }
 
 
@@ -38,6 +38,25 @@
         }
 
 
-        public const string UserDataPath = "Assets/Project Root/User/User.json";
+        public static string UserDataPath
+        {
+            get => _root + "User/User.json";
+        }
+
+
+        public static string InitDataPath
+        {
+            get => _root + "Bootstrap/Init.json";
+        }
+
+
+        private static string _root;
+
+
+        public static void SetRoot(string root)
+        {
+            
+            _root = root;
+        }
     }
 }

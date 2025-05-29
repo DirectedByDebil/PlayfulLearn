@@ -74,9 +74,8 @@ namespace LessonsPractices.MiniGames
 
         public override void Unload()
         {
-
             base.Unload();
-
+            
             _platforms.StopPlatformMovement();
         }
 

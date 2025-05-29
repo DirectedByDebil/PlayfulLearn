@@ -18,8 +18,6 @@ namespace LessonsPractices
             EditorGUI.BeginProperty(position, label, property);
 
 
-            SerializedProperty nameOfLesson = property.FindPropertyRelative("NameOfLesson");
-
             SerializedProperty practiceType = property.FindPropertyRelative("PracticeType");
 
             SerializedProperty testPage = property.FindPropertyRelative("TestPage");
@@ -41,7 +39,7 @@ namespace LessonsPractices
             if(property.isExpanded)
             {
 
-                DrawProperties(nameOfLesson, practiceType);
+                DrawProperties(practiceType);
 
 
                 PracticeType type = (PracticeType)practiceType.enumValueIndex;

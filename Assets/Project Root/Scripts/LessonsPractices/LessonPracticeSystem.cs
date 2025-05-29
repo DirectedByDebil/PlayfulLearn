@@ -33,7 +33,7 @@ namespace LessonsPractices
 
             _page.CheckClicked += _model.OnCheckingPractice;
 
-            _page.FinishClicked += _sceneManager.UnLoadMiniGameAsync;
+            _page.FinishClicked += OnPracticeFinished;
 
 
             _model.InputChecked += _page.OnInputChecked;
@@ -52,9 +52,18 @@ namespace LessonsPractices
         private void OnPracticeChanged(LessonPractice practice)
         {
 
-            _sceneManager.UnLoadMiniGameAsync();
+            OnPracticeFinished();
 
             _model.SetPractice(practice);
+        }
+
+
+        private void OnPracticeFinished()
+        {
+
+            _model.UnloadMiniGame();
+
+            _sceneManager.UnLoadMiniGameAsync();
         }
 
 

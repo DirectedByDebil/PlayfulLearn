@@ -1,6 +1,7 @@
-﻿using System;
+﻿using Localization;
+using UnityEngine;
+using System;
 using System.Collections.Generic;
-using Localization;
 
 namespace Lessons
 {
@@ -8,13 +9,15 @@ namespace Lessons
     public struct LessonData
     {
 
+        [SerializeField]
         public string NameOfLesson;
 
         public string IconName;
 
-        public string Difficulty;
 
         public List<LessonNode> Contents;
+
+        public List<LessonTheory> Theory;
 
 
         public LessonData(string nameOfLesson,
@@ -30,7 +33,7 @@ namespace Lessons
 
             Contents = contents;
 
-            Difficulty = "Easy";
+            Theory = new List<LessonTheory>();
         }
     }
 }

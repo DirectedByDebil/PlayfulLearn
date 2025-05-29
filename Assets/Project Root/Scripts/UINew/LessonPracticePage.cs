@@ -26,9 +26,6 @@ namespace UINew
         private VisualTreeAsset _codeLineAsset;
 
 
-        [SerializeField, Space]
-        private List<LessonPractice> _practices;
-
 
         private Button _checkButton;
 
@@ -47,20 +44,15 @@ namespace UINew
         }
 
 
-        public void PreparePractice(Lesson lesson)
+        public void PreparePractice(LessonPractice practice)
         {
 
-            //#TODO maybe better do with binary search
-            LessonPractice lessonPractice = _practices.Find(
-                (practice) => practice.NameOfLesson == lesson.NameOfLesson);
-
-
-            SetPracticeContent(lessonPractice);
+            SetPracticeContent(practice);
 
             SetButtons();
 
 
-            PracticeChanged?.Invoke(lessonPractice);
+            PracticeChanged?.Invoke(practice);
         }
 
 

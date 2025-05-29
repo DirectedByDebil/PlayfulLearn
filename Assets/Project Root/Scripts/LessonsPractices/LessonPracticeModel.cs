@@ -35,19 +35,6 @@ namespace LessonsPractices
         public void OnMiniGameFound(IMiniGame miniGame)
         {
 
-            if(_currentMiniGame != null)
-            {
-
-                _currentMiniGame.CodeChecked -= OnCodeChecked;
-
-                _currentMiniGame.IsCompletedChanged -= OnMiniGameCompletedChanged;
-
-                _currentMiniGame.LockingInput -= OnLockingInput;
-
-                _currentMiniGame.Unload();
-            }
-
-
             _currentMiniGame = miniGame;
 
             _currentMiniGame.CodeChecked += OnCodeChecked;
@@ -57,6 +44,26 @@ namespace LessonsPractices
             _currentMiniGame.LockingInput += OnLockingInput;
             
             _currentMiniGame.Init();
+        }
+
+
+        public void UnloadMiniGame()
+        {
+
+            if (_currentMiniGame != null)
+            {
+
+                _currentMiniGame.CodeChecked -= OnCodeChecked;
+
+                _currentMiniGame.IsCompletedChanged -= OnMiniGameCompletedChanged;
+
+                _currentMiniGame.LockingInput -= OnLockingInput;
+
+                _currentMiniGame.Unload();
+
+
+                _currentMiniGame = null;
+            }
         }
 
 

@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 008948109b33589429d401ec34681036, type: 3}
+  m_Name: GetAxis
+  m_EditorClassIdentifier: 
+  <NameOfLesson>k__BackingField: Get Axis
+  <Difficulty>k__BackingField: 4
+  <Icon>k__BackingField: {fileID: 21300000, guid: 686ab490fa2251d459f1bc93cb2009ee, type: 3}
+  <Practice>k__BackingField:
+    PracticeType: 1
+    TestPage: {fileID: 0}
+    Questions: []
+    SceneName: GetAxis
+    MiniGameInfo: {fileID: 9197481963319205126, guid: cde9fac7845680348b34a367d070be1e, type: 3}
+    CodeLines:
+    - Code: Vector2 direction = new Vector2();
+      IsReadOnly: 1
+      Description: 
+    - Code: 
+      IsReadOnly: 0
+      Description: Horizontal
+    - Code: 
+      IsReadOnly: 0
+      Description: Vertical
+    - Code: direction *= speed;
+      IsReadOnly: 1
+      Description: 
+    - Code: direction += transform.position
+      IsReadOnly: 1
+      Description: 
+    - Code: rigidbody.MovePosition(direction);
+      IsReadOnly: 1
+      Description: 

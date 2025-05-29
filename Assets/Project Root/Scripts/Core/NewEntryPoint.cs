@@ -104,7 +104,7 @@ namespace Core
 
             _progressSystem.OnLessonChanged(lesson);
 
-            _lessonPracticePage.PreparePractice(lesson);
+            _lessonPracticePage.PreparePractice(lesson.Practice);
         }
 
 

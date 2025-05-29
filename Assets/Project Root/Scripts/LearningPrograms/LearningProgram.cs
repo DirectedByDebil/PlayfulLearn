@@ -80,6 +80,22 @@ namespace LearningPrograms
         }
 
 
+        public LearningProgram(LearningProgramObject data, int module)
+        {
+
+            _nameOfProgram = data.NameOfProgram;
+
+            _sprite = data.Icon;
+
+            _rusName = data.RusName;
+
+
+            _module = module;
+
+            _lessons = new List<Lesson>();
+        }
+
+
         public async Task AddLessonsAsync(IEnumerable<Lesson> allLessons)
         {
 
@@ -96,6 +112,22 @@ namespace LearningPrograms
                     }
                 }
             //});
+        }
+
+
+        public void AddLessons(ICollection<string> lessonsNames,
+            IEnumerable<Lesson> allLessons)
+        {
+
+            foreach(Lesson lesson in allLessons)
+            {
+
+                if(lessonsNames.Contains(lesson.NameOfLesson))
+                {
+
+                    _lessons.Add(lesson);
+                }
+            }
         }
 
 

@@ -470,10 +470,7 @@ MonoBehaviour:
     - Code: Vector2 direction = new Vector2();
       IsReadOnly: 1
       Description: 
-    - Code: direction.x = 1;
-      IsReadOnly: 1
-      Description: 
-    - Code: direction.y = 1;
+    - Code: direction.x = 1; direction.y = 1;
       IsReadOnly: 1
       Description: 
     - Code: ForceMode2D forceMode = ForceMode2D.Impulse;
@@ -573,6 +570,7 @@ MonoBehaviour:
     - Code: '}'
       IsReadOnly: 1
       Description: 
+  _lessonObjects: []
 --- !u!114 &887640911
 MonoBehaviour:
   m_ObjectHideFlags: 0

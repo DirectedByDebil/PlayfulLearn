@@ -11,6 +11,7 @@
     --black-color: rgb(0, 0, 0);
     --gray-accent-color: rgb(240, 240, 240);
     --gray-dark-color: rgb(225, 225, 225);
+    --border-width: 3px;
 }
 
 .primary-colored {
@@ -43,6 +44,11 @@
 
 .white-transparent-colored {
     background-color: var(--white-transparent-color);
+}
+
+.white-text {
+
+    color: var(--white-color);
 }
 
 .black-colored {
@@ -83,6 +89,7 @@
 
 .border-accent-colored {
     border-color: var(--accent-color);
+    border-width: var(--border-width);
 }
 
 .border-white-colored {

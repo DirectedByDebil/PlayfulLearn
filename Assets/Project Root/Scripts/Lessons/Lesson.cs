@@ -1,4 +1,5 @@
-﻿using Localization;
+﻿using LessonsPractices;
+using Localization;
 using Extensions;
 using Core;
 using UnityEngine;
@@ -13,7 +14,7 @@ namespace Lessons
         public string NameOfLesson
         {
 
-            get => _nameOfLeson;
+            get => _nameOfLesson;
         }
 
         public LessonDifficulties Difficulty { get => _difficulty; }
@@ -40,14 +41,22 @@ namespace Lessons
         }
 
 
+        public LessonPractice Practice { get => _practice; }
 
-        private readonly string _nameOfLeson;
+
+
+        private readonly string _nameOfLesson;
 
         private readonly string _iconName;
 
         private readonly LessonDifficulties _difficulty;
 
+        private readonly LessonPractice _practice;
+
+
         private readonly List<LessonNode> _nodes;
+
+        private readonly IList<LessonTheory> _theory;
 
 
         private readonly Dictionary<
@@ -63,20 +72,38 @@ namespace Lessons
         public Lesson(LessonData data)
         {
 
-            _nameOfLeson = data.NameOfLesson;
+            _nameOfLesson = data.NameOfLesson;
 
             _iconName = data.IconName;
 
             _nodes = data.Contents;
 
 
-            Enum.TryParse(data.Difficulty, out _difficulty); 
+            _theory = data.Theory;
 
             _content = new Dictionary<Languages, 
                 
                 LessonTextContent>(_nodes.Count);
         }
 
+
+        public Lesson(LessonObject data)
+        {
+
+            _nameOfLesson = data.NameOfLesson;
+
+            _difficulty = data.Difficulty;
+
+            _sprite = data.Icon;
+
+            _practice = data.Practice;
+
+
+            _content = new Dictionary<Languages, LessonTextContent>();
+        }
+
+
+        #region Load Icon
 
         public void LoadIcon()
         {
@@ -96,6 +123,16 @@ namespace Lessons
         }
 
 
+        public void LoadIcon(Sprite sprite)
+        {
+            _sprite = sprite;
+        }
+
+        #endregion
+
+
+        #region Initialize Theory
+
         public void InitializeContent()
         {
 
@@ -107,11 +144,45 @@ namespace Lessons
         }
 
 
+        public void InitializeTheory()
+        {
+
+            foreach(LessonTheory theory in _theory)
+            {
+
+                if(Enum.TryParse(theory.Language, out Languages language))
+                {
+
+                    _content.TryAdd(language, new LessonTextContent(theory));
+                }
+            }
+        }
+
+
+        public void SetTheory(IList<LessonTheory> theories)
+        {
+
+            foreach (LessonTheory theory in theories)
+            {
+
+                if (Enum.TryParse(theory.Language, out Languages language))
+                {
+
+                    _content.TryAdd(language, new LessonTextContent(theory));
+                }                
+            }
+        }
+
+        #endregion
+
+
         public void SetCompleted(bool isCompleted)
         {
 
             _isCompleted = isCompleted;
         }
+
+
 
         public int CompareTo(Lesson other)
         {

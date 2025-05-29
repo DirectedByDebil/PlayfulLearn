@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3fd6eb0246065e43ae7f951deea34f4, type: 3}
+  m_Name: Physics
+  m_EditorClassIdentifier: 
+  <NameOfProgram>k__BackingField: Physics
+  <RusName>k__BackingField: "\u0424\u0438\u0437\u0438\u043A\u0430"
+  <Icon>k__BackingField: {fileID: 21300000, guid: 84fe9e0f940388743a884ee5853298cd, type: 3}

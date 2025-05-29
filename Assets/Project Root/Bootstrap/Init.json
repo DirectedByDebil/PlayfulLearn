@@ -1,0 +1,57 @@
+{
+  "User": {
+    "Email": "test@mail.ru",
+    "UserName": "Test User",
+    "SelectedCharacter": "PinkMan",
+    "CompletedLessons": []
+  },
+  "Lessons": [
+    {
+      "NameOfLesson": "Axis X",
+      "Theory": [
+        {
+          "Introduction": "Intro",
+          "Usage": "Use",
+          "PracticeDescription": "Pr",
+          "Language": "Russian"
+        },
+        {
+          "Introduction": "Intro",
+          "Usage": "Use",
+          "PracticeDescription": "Pr",
+          "Language": "English"
+        }
+      ]
+    },
+    {
+      "NameOfLesson": "Axis Y",
+      "Theory": [
+        {
+          "Introduction": "Intro",
+          "Usage": "Use",
+          "PracticeDescription": "Pr",
+          "Language": "Russian"
+        }
+      ]
+    },
+    {
+      "NameOfLesson": "Get Button Down",
+      "Theory": [ { "Language": "Russian" } ]
+    },
+    {
+      "NameOfLesson": "Fire",
+      "Theory": [ { "Language": "Russian" } ]
+    }
+  ],
+  "LearningPrograms": [
+    {
+      "NameOfProgram": "Input",
+      "Lessons": [ "Get Button Down", "Fire" ]
+    },
+    {
+      "NameOfProgram": "Physics",
+      "Lessons": [ "Axis X", "Axis Y" ]
+    }
+  ],
+  "StartingModule": "Physics"
+}

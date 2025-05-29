@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3fd6eb0246065e43ae7f951deea34f4, type: 3}
+  m_Name: Input
+  m_EditorClassIdentifier: 
+  <NameOfProgram>k__BackingField: Input
+  <RusName>k__BackingField: "\u0423\u043F\u0440\u0430\u0432\u043B\u0435\u043D\u0438\u0435"
+  <Icon>k__BackingField: {fileID: 21300000, guid: 5369ae7e99b6c7c46bbf01d9645067d3, type: 3}

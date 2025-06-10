@@ -34,23 +34,30 @@ namespace Core
         private string _menuSceneName;
 
 
+        [SerializeField, Space]
+        private bool _isLocal;
+
 
         private UIDocument _document;
 
         private Label _outPut;
         
-        /*
+        
         private void Awake()
         {
 
-            Init();
+            if(_isLocal)
+            {
 
-            PathKeeper.SetRoot("Assets/Project Root/");
+                Init();
 
-            FileExtensions.TryReadFile(PathKeeper.InitDataPath, out string json);
+                PathKeeper.SetRoot("Assets/Project Root/");
 
-            LoadInitData(json);
-        }*/
+                FileExtensions.TryReadFile(PathKeeper.InitDataPath, out string json);
+
+                LoadInitData(json);
+            }
+        }
 
 
 

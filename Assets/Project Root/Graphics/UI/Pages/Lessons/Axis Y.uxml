@@ -2,6 +2,7 @@
     <ui:Template name="V Space" src="project://database/Assets/Project%20Root/Graphics/UI/Controls/Basic/V%20Space.uxml?fileID=9197481963319205126&amp;guid=bf1db0709617eb1499b3c4abd3e55bc0&amp;type=3#V Space" />
     <ui:Template name="Picture Input" src="project://database/Assets/Project%20Root/Graphics/UI/Controls/Basic/Picture%20Input.uxml?fileID=9197481963319205126&amp;guid=3e263030455bf5e468a79da8b2841c13&amp;type=3#Picture Input" />
     <ui:Template name="Lesson Practice Footer" src="project://database/Assets/Project%20Root/Graphics/UI/Controls/Lesson%20Practice%20Footer.uxml?fileID=9197481963319205126&amp;guid=2ddccadc824776440bf3d01bc309d87c&amp;type=3#Lesson Practice Footer" />
+    <ui:Template name="Back Button" src="project://database/Assets/Project%20Root/Graphics/UI/Controls/Back%20Button.uxml?fileID=9197481963319205126&amp;guid=170038b9dad73de4f82db04f00006f13&amp;type=3#Back Button" />
     <Style src="project://database/Assets/Project%20Root/Graphics/UI/Classes/Panel.uss?fileID=7433441132597879392&amp;guid=bdb970631957d0943a72216a16457bac&amp;type=3#Panel" />
     <Style src="project://database/Assets/Project%20Root/Graphics/UI/Classes/Header.uss?fileID=7433441132597879392&amp;guid=f76b758532201924db060bf37a13a6c2&amp;type=3#Header" />
     <Style src="project://database/Assets/Project%20Root/Graphics/UI/Classes/Button.uss?fileID=7433441132597879392&amp;guid=e994f9c1daab72246a1f370fe2394630&amp;type=3#Button" />
@@ -14,7 +15,9 @@
                 <ui:Label tabindex="-1" text="Label" display-tooltip-when-elided="true" name="content-info" class="medium" />
                 <ui:VisualElement style="width: 100%; height: 85%; background-image: url(&quot;project://database/Assets/Project%20Root/Graphics/Lesson%20Materials/Axis/Axis.png?fileID=2800000&amp;guid=85fbb67794180da4b97478dc621edc12&amp;type=3#Axis&quot;); -unity-background-scale-mode: scale-to-fit;" />
             </ui:VisualElement>
-            <ui:VisualElement name="footer" class="panel" />
+            <ui:VisualElement name="footer">
+                <ui:Instance template="Back Button" name="Back Button" class="border-accent-button" />
+            </ui:VisualElement>
         </ui:VisualElement>
         <ui:Instance template="V Space" name="V Space" class="v-space" />
         <ui:VisualElement name="practice" class="panel" style="flex-basis: 45%;">

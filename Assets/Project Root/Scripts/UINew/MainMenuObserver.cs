@@ -30,7 +30,7 @@ namespace UINew
         
         private IPage _userPage;
 
-        private IPage _lessonPracticePagew;
+        private IPage _lessonPracticePage;
 
 
         private IPage _currentPage;
@@ -70,9 +70,9 @@ namespace UINew
         public void SetLessonPracticePage(IPage lessonPracticePage)
         {
 
-            _lessonPracticePagew = lessonPracticePage;
+            _lessonPracticePage = lessonPracticePage;
 
-            _lessonPracticePagew.Hide();
+            _lessonPracticePage.Hide();
         }
 
         #endregion
@@ -104,6 +104,9 @@ namespace UINew
 
 
             _userPage.Closing += ShowCurrentLearningProgram;
+
+
+            _lessonPracticePage.Closing += OnLessonPracticeFinished;
         }
 
 
@@ -184,7 +187,7 @@ namespace UINew
         private void OnStartPracticeClicked()
         {
 
-            ChangePage(_lessonPracticePagew);
+            ChangePage(_lessonPracticePage);
         }
 
         #endregion

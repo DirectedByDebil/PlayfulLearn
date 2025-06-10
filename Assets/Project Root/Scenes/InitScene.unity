@@ -347,6 +347,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8d54448b57b684547a05fc9bb4b328d6, type: 2}
   - {fileID: 11400000, guid: 87dea4621390a6c43834364cc5bec6d0, type: 2}
   _menuSceneName: Core
+  _isLocal: 0
 --- !u!4 &1711596016
 Transform:
   m_ObjectHideFlags: 0

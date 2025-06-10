@@ -35,6 +35,8 @@ namespace LessonsPractices
 
             _page.FinishClicked += OnPracticeFinished;
 
+            _page.Closing += OnPracticeFinished;
+
 
             _model.InputChecked += _page.OnInputChecked;
 

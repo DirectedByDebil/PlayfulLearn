@@ -2,10 +2,5 @@
     "Email": "test@mail.ru",
     "UserName": "Test User",
     "SelectedCharacter": "PinkMan",
-    "CompletedLessons": [
-        "Axis X",
-        "Axis Y",
-        "Get Button Down",
-        "Fire"
-    ]
+    "CompletedLessons": []
 }

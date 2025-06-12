@@ -1,6 +1,5 @@
 .button {
     border-radius: 30px;
-    border-width: 5px;
     -unity-text-align: middle-center;
     background-color: rgb(255, 255, 255);
     flex-grow: 1;
@@ -17,6 +16,36 @@
 .button:hover {
     scale: 1.1 1.1;
 
+}
+
+
+.btn-sm, .btn-md, .btn-lg {
+    -unity-font-definition: var(--main-font);
+}
+
+
+
+
+
+.btn-sm > .button {
+    width: 200px;
+    height: 60px;
+    font-size: 28px;
+}
+
+
+
+.btn-md > .button {
+    width: 250px;
+    height: 80px;
+    font-size: 32px;
+}
+
+
+.btn-lg > .button {
+    width: 400px;
+    height: 80px;
+    font-size: 40px;
 }
 
 

@@ -12,6 +12,8 @@
     --gray-accent-color: rgb(240, 240, 240);
     --gray-dark-color: rgb(225, 225, 225);
     --border-width: 3px;
+    --header-font: url("project://database/Assets/Project%20Root/Fonts/RS-regular.otf?fileID=12800000&guid=850b2fb3cb0b93141baea3c7f16d324d&type=3#RS-regular");
+    --main-font: url('project://database/Assets/Project%20Root/Fonts/DolomanPavljenko.otf?fileID=12800000&guid=05c5cc2c539e9404b8e0a51480afcdd6&type=3#DolomanPavljenko');
 }
 
 .primary-colored {
@@ -85,6 +87,7 @@
 
 .border-secondary-colored {
     border-color: var(--secondary-color);
+    border-width: var(--border-width);
 }
 
 .border-accent-colored {
@@ -94,18 +97,22 @@
 
 .border-white-colored {
     border-color: var(--white-color);
+    border-width: var(--border-width);
 }
 
 .border-success-colored {
     border-color: var(--correct-color);
+    border-width: var(--border-width);
 }
 
 .border-error-colored {
     border-color: var(--error-color);
+    border-width: var(--border-width);
 }
 
 .border-black-colored {
     border-color: var(--black-color);
+    border-width: var(--border-width);
 }
 
 .panel {
@@ -142,15 +149,26 @@
     max-width: 400px;
 }
 
-.v-space {
-    width: 10px;
-    height: 100%;
+.v-space, .h-space {
     justify-content: center;
     margin-top: 10px;
     margin-right: 10px;
     margin-bottom: 10px;
     margin-left: 10px;
 }
+
+.v-space {
+    width: var(--border-width);
+    height: 100%;
+}
+
+.h-space {
+    width: 100%;
+    height: var(--border-width);
+    align-items: center;
+}
+
+
 
 .mini-game-info {
     flex-grow: 1;

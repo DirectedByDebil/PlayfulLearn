@@ -3,7 +3,7 @@
     <Style src="project://database/Assets/Project%20Root/Graphics/UI/Classes/Panel.uss?fileID=7433441132597879392&amp;guid=bdb970631957d0943a72216a16457bac&amp;type=3#Panel" />
     <Style src="project://database/Assets/Project%20Root/Graphics/UI/Classes/Header.uss?fileID=7433441132597879392&amp;guid=f76b758532201924db060bf37a13a6c2&amp;type=3#Header" />
     <ui:Button name="close-button" class="button border-black-colored" style="align-items: stretch; justify-content: space-around; flex-direction: row;">
-        <ui:VisualElement name="icon" class="image-gray-accent-colored icon" style="-unity-background-scale-mode: scale-to-fit; background-image: url(&quot;project://database/Assets/Project%20Root/Graphics/UI/Icons/Close.png?fileID=2800000&amp;guid=e65787d219b1de944997a697685c0fb8&amp;type=3#Close&quot;); flex-grow: 1;" />
+        <ui:VisualElement name="icon" class="icon image-black-colored" style="-unity-background-scale-mode: scale-to-fit; background-image: url(&quot;project://database/Assets/Project%20Root/Graphics/UI/Icons/Close.png?fileID=2800000&amp;guid=e65787d219b1de944997a697685c0fb8&amp;type=3#Close&quot;); flex-grow: 1;" />
         <ui:VisualElement style="flex-grow: 3; justify-content: center;">
             <ui:Label tabindex="-1" text="Закрыть" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Text" class="small" />
         </ui:VisualElement>

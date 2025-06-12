@@ -43,6 +43,7 @@ background-color: var(--primary-color);
 {
 
 background-color: var(--correct-color);
+border-color: var(--correct-color);
 }
 
 
@@ -50,4 +51,5 @@ background-color: var(--correct-color);
 {
 
 background-color: var(--error-color);
+border-color: var(--error-color);
 }

@@ -7,9 +7,10 @@
     <Style src="project://database/Assets/Project%20Root/Graphics/UI/Classes/Panel.uss?fileID=7433441132597879392&amp;guid=bdb970631957d0943a72216a16457bac&amp;type=3#Panel" />
     <Style src="project://database/Assets/Project%20Root/Graphics/UI/Classes/Header.uss?fileID=7433441132597879392&amp;guid=f76b758532201924db060bf37a13a6c2&amp;type=3#Header" />
     <Style src="project://database/Assets/Project%20Root/Graphics/UI/Classes/Button.uss?fileID=7433441132597879392&amp;guid=e994f9c1daab72246a1f370fe2394630&amp;type=3#Button" />
+    <Style src="project://database/Assets/Project%20Root/Graphics/UI/Classes/CodeInput.uss?fileID=7433441132597879392&amp;guid=d41e3968936b7514dad5b60d064fdae1&amp;type=3#CodeInput" />
     <ui:VisualElement name="root" class="primary-colored" style="flex-direction: row; width: 100%; height: 100%;">
         <ui:VisualElement name="info" class="panel" style="flex-basis: 30%;">
-            <ui:VisualElement name="header" class="panel">
+            <ui:VisualElement name="header" class="panel" style="flex-grow: 0; flex-basis: 15%;">
                 <ui:Label tabindex="-1" text="Ось X" display-tooltip-when-elided="true" name="lesson-name" class="big" />
             </ui:VisualElement>
             <ui:VisualElement name="body" class="panel" style="flex-grow: 2; justify-content: center;">
@@ -22,12 +23,12 @@
                 <ui:VisualElement style="width: 100%; height: 85%; background-image: url(&quot;project://database/Assets/Project%20Root/Graphics/Lesson%20Materials/Axis/Axis.png?fileID=2800000&amp;guid=85fbb67794180da4b97478dc621edc12&amp;type=3#Axis&quot;); -unity-background-scale-mode: scale-to-fit; display: none;" />
             </ui:VisualElement>
             <ui:VisualElement name="footer">
-                <ui:Instance template="Back Button" name="Back Button" class="border-accent-button" />
+                <ui:Instance template="Back Button" name="Back Button" class="border-accent-button btn-lg" />
             </ui:VisualElement>
         </ui:VisualElement>
         <ui:Instance template="V Space" name="V Space" class="v-space" />
         <ui:VisualElement name="practice" class="panel" style="flex-basis: 45%;">
-            <ui:VisualElement name="header" class="panel">
+            <ui:VisualElement name="header" class="panel" style="flex-grow: 0; flex-basis: 15%;">
                 <ui:Label tabindex="-1" text="Укажите направление по оси X" display-tooltip-when-elided="true" name="task-info" class="medium accent-text" style="-unity-font-style: bold;" />
             </ui:VisualElement>
             <ui:VisualElement name="body" class="panel" style="justify-content: space-around; flex-basis: 50%;">

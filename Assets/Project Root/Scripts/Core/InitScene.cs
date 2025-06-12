@@ -71,8 +71,6 @@ namespace Core
 
             _lessonInitData.Sort();
 
-            _learningProgramsInitData.Sort();
-
 
             _outPut.text = "Initializing";
 

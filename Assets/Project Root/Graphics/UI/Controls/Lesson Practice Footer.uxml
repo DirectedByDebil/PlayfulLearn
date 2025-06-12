@@ -2,8 +2,8 @@
     <Style src="project://database/Assets/Project%20Root/Graphics/UI/Classes/Panel.uss?fileID=7433441132597879392&amp;guid=bdb970631957d0943a72216a16457bac&amp;type=3#Panel" />
     <Style src="project://database/Assets/Project%20Root/Graphics/UI/Classes/Header.uss?fileID=7433441132597879392&amp;guid=f76b758532201924db060bf37a13a6c2&amp;type=3#Header" />
     <Style src="project://database/Assets/Project%20Root/Graphics/UI/Classes/Button.uss?fileID=7433441132597879392&amp;guid=e994f9c1daab72246a1f370fe2394630&amp;type=3#Button" />
-    <ui:VisualElement name="footer" class="panel" style="flex-direction: row;">
-        <ui:Button tabindex="-1" text="Проверить ответы" display-tooltip-when-elided="true" name="check-button" class="button small rectangle border-accent-colored" />
-        <ui:Button tabindex="-1" text="Завершить урок" display-tooltip-when-elided="true" name="finish-button" class="button small rectangle button__disabled border-white-colored" />
+    <ui:VisualElement name="footer" class="panel btn-lg" style="flex-direction: row;">
+        <ui:Button tabindex="-1" text="Проверить ответы" display-tooltip-when-elided="true" name="check-button" class="button rectangle border-accent-colored" />
+        <ui:Button tabindex="-1" text="Завершить урок" display-tooltip-when-elided="true" name="finish-button" class="button rectangle button__disabled border-accent-colored" />
     </ui:VisualElement>
 </ui:UXML>

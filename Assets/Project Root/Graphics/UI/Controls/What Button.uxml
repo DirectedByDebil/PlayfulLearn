@@ -2,7 +2,8 @@
     <Style src="project://database/Assets/Project%20Root/Graphics/UI/Classes/Button.uss?fileID=7433441132597879392&amp;guid=e994f9c1daab72246a1f370fe2394630&amp;type=3#Button" />
     <Style src="project://database/Assets/Project%20Root/Graphics/UI/Classes/Panel.uss?fileID=7433441132597879392&amp;guid=bdb970631957d0943a72216a16457bac&amp;type=3#Panel" />
     <Style src="project://database/Assets/Project%20Root/Graphics/UI/Classes/Header.uss?fileID=7433441132597879392&amp;guid=f76b758532201924db060bf37a13a6c2&amp;type=3#Header" />
-    <ui:Button name="back-button" text="Теория" class="button rectangle border-accent-colored" style="align-items: center; justify-content: flex-start; flex-direction: row; width: 200px; font-size: 18px;">
-        <ui:VisualElement name="icon" class="icon image-black-colored" style="-unity-background-scale-mode: scale-to-fit; margin-right: 10px; background-image: url(&quot;project://database/Assets/Project%20Root/Graphics/UI/Icons/What.png?fileID=2800000&amp;guid=c60ac9fc143d51043aada56732683141&amp;type=3#What&quot;); width: 60px; height: 60px;" />
+    <ui:Button name="theory-button" class="button rectangle border-accent-colored" style="align-items: center; justify-content: flex-start; flex-direction: row;">
+        <ui:VisualElement name="icon" class="icon image-black-colored" style="-unity-background-scale-mode: scale-to-fit; background-image: url(&quot;project://database/Assets/Project%20Root/Graphics/UI/Icons/What.png?fileID=2800000&amp;guid=c60ac9fc143d51043aada56732683141&amp;type=3#What&quot;); height: 100%; flex-grow: 1;" />
+        <ui:Label tabindex="-1" text="Теория" parse-escape-sequences="true" display-tooltip-when-elided="true" name="label" style="flex-grow: 1;" />
     </ui:Button>
 </ui:UXML>

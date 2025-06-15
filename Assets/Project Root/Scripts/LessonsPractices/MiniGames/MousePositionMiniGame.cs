@@ -8,7 +8,7 @@ namespace LessonsPractices.MiniGames
     {
 
         [SerializeField, Space]
-        private Player _player;
+        private PlayerAnimated _player;
 
 
         [SerializeField, Space, Range(1, 3)]

@@ -7,7 +7,7 @@ namespace LessonsPractices.MiniGames
     {
 
         [SerializeField, Space]
-        private Player _player;
+        private PlayerAnimated _player;
 
 
         public override void Init()

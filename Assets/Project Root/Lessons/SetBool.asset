@@ -1,0 +1,79 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 008948109b33589429d401ec34681036, type: 3}
+  m_Name: SetBool
+  m_EditorClassIdentifier: 
+  <NameOfLesson>k__BackingField: Set Bool
+  <Difficulty>k__BackingField: 2
+  <Icon>k__BackingField: {fileID: 21300000, guid: e1a7afeb5ab4afd4cb72265f7cbb2c34, type: 3}
+  <Practice>k__BackingField:
+    PracticeType: 2
+    TestPage: {fileID: 0}
+    Questions: []
+    SceneName: AnimationBasics
+    MiniGameInfo: {fileID: 9197481963319205126, guid: 177227ee920f947459d15fa6676d9312, type: 3}
+    CodeLines: []
+    Blocks:
+    - BlockType: 0
+      ConditionType: 1
+      ActionType: 0
+      AnimationType: 0
+      IsAnswer: 1
+      Description: If(Input.GetButtonDown("Jump"))
+    - BlockType: 0
+      ConditionType: 2
+      ActionType: 1
+      AnimationType: 0
+      IsAnswer: 0
+      Description: If(Input.GetAxis("Horizontal") != 0)
+    - BlockType: 0
+      ConditionType: 3
+      ActionType: 0
+      AnimationType: 0
+      IsAnswer: 0
+      Description: If(Input.GetButtonDown("Fire1"))
+    - BlockType: 1
+      ConditionType: 0
+      ActionType: 1
+      AnimationType: 0
+      IsAnswer: 0
+      Description: rigidbody.MovePosition(...);
+    - BlockType: 1
+      ConditionType: 0
+      ActionType: 0
+      AnimationType: 0
+      IsAnswer: 1
+      Description: rigidbody.AddForce(Vector2.up);
+    - BlockType: 1
+      ConditionType: 0
+      ActionType: 2
+      AnimationType: 0
+      IsAnswer: 0
+      Description: bullet.rigidbody.AddForce(Vector2.right);
+    - BlockType: 2
+      ConditionType: 0
+      ActionType: 0
+      AnimationType: 1
+      IsAnswer: 0
+      Description: animator.SetInteger(x);
+    - BlockType: 2
+      ConditionType: 0
+      ActionType: 0
+      AnimationType: 2
+      IsAnswer: 0
+      Description: animator.SetTrigger("Fire");
+    - BlockType: 2
+      ConditionType: 0
+      ActionType: 0
+      AnimationType: 0
+      IsAnswer: 1
+      Description: animator.SetBool("Jump");

@@ -5,6 +5,8 @@
 
         Test,
 
-        MiniGame
+        MiniGame,
+
+        Blocks
     }
 }

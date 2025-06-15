@@ -129,6 +129,20 @@ namespace UINew
             }
         }
 
+
+        public static void SwapIf(this VisualElement element, bool condition, string style)
+        {
+
+            if(condition)
+            {
+                element.AddToClassList(style);
+            }
+            else
+            {
+                element.RemoveFromClassList(style);
+            }
+        }
+
         #endregion
 
 

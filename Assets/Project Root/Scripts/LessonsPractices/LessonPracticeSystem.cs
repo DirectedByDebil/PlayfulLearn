@@ -24,7 +24,7 @@ namespace LessonsPractices
         }
 
 
-        public void SetSytem()
+        public void SetSystem()
         {
 
             _page.PracticeChanged += OnPracticeChanged;
@@ -42,12 +42,14 @@ namespace LessonsPractices
 
             _model.PracticeChecked += _page.OnPracticeChecked;
 
-            _model.MiniGameLoading += _sceneManager.LoadMiniGameAsync;
+            _model.PracticeLoading += _sceneManager.LoadPracticeAsync;
 
             _model.LockingInput += OnLockingInput;
 
 
             _sceneManager.MiniGameFound += _model.OnMiniGameFound;
+
+            _sceneManager.BlocksPracticeFound += _model.OnBlocksPracticeFound;
         }
 
 
@@ -65,7 +67,9 @@ namespace LessonsPractices
 
             _model.UnloadMiniGame();
 
-            _sceneManager.UnLoadMiniGameAsync();
+            _model.UnloadBlocks();
+
+            _sceneManager.UnLoadPracticeAsync();
         }
 
 

@@ -342,12 +342,15 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4a019cd0244b5da4a99f5f021d5a093a, type: 2}
   - {fileID: 11400000, guid: d50e6542dff1c8e44955d94d304a5fbd, type: 2}
   - {fileID: 11400000, guid: 6b3457fb829347a4481e7639206d6926, type: 2}
+  - {fileID: 11400000, guid: 4b5b13132eed6874191939aa8a485682, type: 2}
+  - {fileID: 11400000, guid: e354a6f39e35bce429aee33cd367a774, type: 2}
+  - {fileID: 11400000, guid: 21da910e07e155e4faea9b787f819579, type: 2}
   _learningProgramsInitData:
   - {fileID: 11400000, guid: 972e319f1c49d7644988ad42e61125e7, type: 2}
   - {fileID: 11400000, guid: 8d54448b57b684547a05fc9bb4b328d6, type: 2}
   - {fileID: 11400000, guid: 87dea4621390a6c43834364cc5bec6d0, type: 2}
   _menuSceneName: Core
-  _isLocal: 0
+  _isLocal: 1
 --- !u!4 &1711596016
 Transform:
   m_ObjectHideFlags: 0

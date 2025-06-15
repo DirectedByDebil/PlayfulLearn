@@ -1,0 +1,87 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 008948109b33589429d401ec34681036, type: 3}
+  m_Name: AnimationBasics
+  m_EditorClassIdentifier: 
+  <NameOfLesson>k__BackingField: Animation Basics
+  <Difficulty>k__BackingField: 1
+  <Icon>k__BackingField: {fileID: 21300000, guid: e1a7afeb5ab4afd4cb72265f7cbb2c34, type: 3}
+  <Practice>k__BackingField:
+    PracticeType: 2
+    TestPage: {fileID: 0}
+    Questions: []
+    SceneName: AnimationBasics
+    MiniGameInfo: {fileID: 9197481963319205126, guid: b1a3949f5da57ea40b86641303080e90, type: 3}
+    CodeLines: []
+    Blocks:
+    - BlockType: 0
+      ConditionType: 1
+      ActionType: 0
+      AnimationType: 0
+      IsAnswer: 1
+      Description: "\u0415\u0441\u043B\u0438 \u043D\u0430\u0436\u0430\u043B\u0438
+        \u043F\u0440\u044B\u0436\u043E\u043A"
+    - BlockType: 0
+      ConditionType: 2
+      ActionType: 1
+      AnimationType: 0
+      IsAnswer: 0
+      Description: "\u0415\u0441\u043B\u0438 \u043D\u0430\u0436\u0430\u043B\u0438
+        \u043A\u043D\u043E\u043F\u043A\u0438 \u043F\u0435\u0440\u0435\u0434\u0432\u0438\u0436\u0435\u043D\u0438\u044F"
+    - BlockType: 0
+      ConditionType: 3
+      ActionType: 0
+      AnimationType: 0
+      IsAnswer: 0
+      Description: "\u0415\u0441\u043B\u0438 \u043D\u0430\u0436\u0430\u043B\u0438
+        \u043D\u0430 \u043A\u043D\u043E\u043F\u043A\u0438 \u043C\u044B\u0448\u043A\u0438"
+    - BlockType: 1
+      ConditionType: 0
+      ActionType: 0
+      AnimationType: 0
+      IsAnswer: 1
+      Description: "\u0421\u0434\u0435\u043B\u0430\u0442\u044C \u043F\u0440\u044B\u0436\u043E\u043A"
+    - BlockType: 1
+      ConditionType: 0
+      ActionType: 1
+      AnimationType: 0
+      IsAnswer: 0
+      Description: "\u041F\u0435\u0440\u0435\u0434\u0432\u0438\u043D\u0443\u0442\u044C
+        \u0438\u0433\u0440\u043E\u043A\u0430"
+    - BlockType: 1
+      ConditionType: 0
+      ActionType: 2
+      AnimationType: 0
+      IsAnswer: 0
+      Description: "\u0412\u044B\u0441\u0442\u0440\u0435\u043B\u0438\u0442\u044C
+        \u0438\u0437 \u043E\u0440\u0443\u0436\u0438\u044F"
+    - BlockType: 2
+      ConditionType: 0
+      ActionType: 0
+      AnimationType: 0
+      IsAnswer: 1
+      Description: "\u0412\u043A\u043B\u044E\u0447\u0438\u0442\u044C \u0430\u043D\u0438\u043C\u0430\u0446\u0438\u044E
+        \u043F\u0440\u044B\u0436\u043A\u0430"
+    - BlockType: 2
+      ConditionType: 0
+      ActionType: 0
+      AnimationType: 1
+      IsAnswer: 0
+      Description: "\u0412\u043A\u043B\u044E\u0447\u0438\u0442\u044C \u0430\u043D\u0438\u043C\u0430\u0446\u0438\u044E
+        \u0431\u0435\u0433\u0430"
+    - BlockType: 2
+      ConditionType: 0
+      ActionType: 0
+      AnimationType: 2
+      IsAnswer: 0
+      Description: "\u0412\u043A\u043B\u044E\u0447\u0438\u0442\u044C \u0430\u043D\u0438\u043C\u0430\u0446\u0438\u044E
+        \u0432\u044B\u0441\u0442\u0440\u0435\u043B\u0430"

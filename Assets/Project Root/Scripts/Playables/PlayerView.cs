@@ -57,5 +57,12 @@ namespace Playables
                 _spriteRenderer.flipX = true;
             }
         }
+
+
+        public void MakeIdle()
+        {
+
+            _animator.SetInteger("Movement", 0);
+        }
     }
 }

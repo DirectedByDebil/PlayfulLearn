@@ -15,7 +15,7 @@
             </ui:VisualElement>
             <ui:VisualElement name="body" class="panel" style="flex-grow: 2; justify-content: space-around;">
                 <ui:VisualElement name="theory-root" style="width: 85%; flex-grow: 1; flex-basis: 25%; margin-top: 10px; margin-right: 10px; margin-bottom: 10px; margin-left: 10px; padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px; justify-content: center;" />
-                <ui:VisualElement name="code-root" style="width: 85%; flex-grow: 1; flex-basis: 25%; margin-top: 10px; margin-right: 10px; margin-bottom: 10px; margin-left: 10px; padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px; justify-content: center;">
+                <ui:VisualElement name="practice-root" style="width: 85%; flex-grow: 1; flex-basis: 25%; margin-top: 10px; margin-right: 10px; margin-bottom: 10px; margin-left: 10px; padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px; justify-content: center;">
                     <ui:Instance template="Code Line" name="Code Line" />
                 </ui:VisualElement>
             </ui:VisualElement>

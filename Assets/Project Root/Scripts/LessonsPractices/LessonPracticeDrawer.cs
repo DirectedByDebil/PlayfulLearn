@@ -31,6 +31,9 @@ namespace LessonsPractices
             SerializedProperty codeLines = property.FindPropertyRelative("CodeLines");
 
             SerializedProperty miniGameInfo = property.FindPropertyRelative("MiniGameInfo");
+
+
+            SerializedProperty blocks = property.FindPropertyRelative("Blocks");
             
 
 
@@ -55,6 +58,11 @@ namespace LessonsPractices
                     case PracticeType.MiniGame:
 
                         DrawProperties(sceneName, miniGameInfo, codeLines);
+                        break;
+
+                    case PracticeType.Blocks:
+
+                        DrawProperties(sceneName, miniGameInfo, blocks);
                         break;
                 }
 

@@ -12,6 +12,7 @@
     --gray-accent-color: rgb(240, 240, 240);
     --gray-dark-color: rgb(225, 225, 225);
     --border-width: 3px;
+    --border-width-lg: 6px;
     --header-font: url("project://database/Assets/Project%20Root/Fonts/RS-regular.otf?fileID=12800000&guid=850b2fb3cb0b93141baea3c7f16d324d&type=3#RS-regular");
     --main-font: url('project://database/Assets/Project%20Root/Fonts/DolomanPavljenko.otf?fileID=12800000&guid=05c5cc2c539e9404b8e0a51480afcdd6&type=3#DolomanPavljenko');
 }

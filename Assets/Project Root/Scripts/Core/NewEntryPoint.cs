@@ -93,7 +93,7 @@ namespace Core
             _progressSystem.ProgressChanging += OnProgressChanging;
 
 
-            _lessonPracticeSystem.SetSytem();
+            _lessonPracticeSystem.SetSystem();
 
             _lessonPracticePage.FinishClicked += OnLessonCompleting;
         }

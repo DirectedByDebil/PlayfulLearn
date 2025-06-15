@@ -1,6 +1,7 @@
 ﻿using UnityEngine.UIElements;
 using System;
 using System.Collections.Generic;
+using LessonsPractices.Blocks;
 
 namespace LessonsPractices
 {
@@ -21,5 +22,15 @@ namespace LessonsPractices
         public VisualTreeAsset MiniGameInfo;
 
         public List<CodeLine> CodeLines;
+
+
+        public List<Block> Blocks;
+
+
+        public IReadOnlyList<Block> GetBlocksByType(BlockType blockType)
+        {
+
+            return Blocks.FindAll(block => block.BlockType == blockType);
+        }
     }
 }

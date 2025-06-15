@@ -1,4 +1,5 @@
-﻿using UnityEngine.UIElements;
+﻿using LessonsPractices.Blocks;
+using UnityEngine.UIElements;
 using System;
 using System.Collections.Generic;
 
@@ -14,15 +15,25 @@ namespace LessonsPractices
 
         public event Action<bool> PracticeChecked;
 
-        public event Action<string> MiniGameLoading;
+        public event Action<PracticeType, string> PracticeLoading;
 
 
         private IReadOnlyList<InputField> _inputFields;
 
 
+        private readonly BlockPracticeModel _blockPracticeModel;
+
+
         private LessonPractice _currentPractice;
 
         private IMiniGame _currentMiniGame;
+
+
+        public LessonPracticeModel()
+        {
+
+            _blockPracticeModel = new BlockPracticeModel();
+        }
 
 
         public void OnInputsChanged(IReadOnlyList<InputField> inputs)
@@ -47,6 +58,15 @@ namespace LessonsPractices
         }
 
 
+        public void OnBlocksPracticeFound(IBlocksPractice blocks)
+        {
+
+            _blockPracticeModel.SetPractice(blocks);
+
+            _blockPracticeModel.SetInputs(_inputFields);
+        }
+
+
         public void UnloadMiniGame()
         {
 
@@ -67,6 +87,12 @@ namespace LessonsPractices
         }
 
 
+        public void UnloadBlocks()
+        {
+            _blockPracticeModel.Unload();
+        }
+
+
         #region Set/Check Practice
 
         public void SetPractice(LessonPractice lessonPractice)
@@ -75,10 +101,10 @@ namespace LessonsPractices
             _currentPractice = lessonPractice;
 
 
-            if(_currentPractice.PracticeType == PracticeType.MiniGame)
+            if(_currentPractice.PracticeType != PracticeType.Test)
             {
 
-                MiniGameLoading?.Invoke(_currentPractice.SceneName);
+                PracticeLoading?.Invoke(_currentPractice.PracticeType, _currentPractice.SceneName);
             }
         }
 
@@ -100,6 +126,11 @@ namespace LessonsPractices
                 case PracticeType.MiniGame:
 
                     isCompleted = IsMiniGameCompleted();
+                    break;
+
+                case PracticeType.Blocks:
+
+                    isCompleted = _blockPracticeModel.IsCompleted();
                     break;
             }
 
@@ -168,7 +199,7 @@ namespace LessonsPractices
             {
 
                 InputField field = _inputFields[i];
-
+                
                 inputs[i] = new()
                 {
 

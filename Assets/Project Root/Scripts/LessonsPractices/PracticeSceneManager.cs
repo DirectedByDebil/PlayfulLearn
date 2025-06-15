@@ -9,17 +9,24 @@ namespace LessonsPractices
 
         public event Action<IMiniGame> MiniGameFound;
 
+        public event Action<IBlocksPractice> BlocksPracticeFound;
+
+
+        private PracticeType _lastPracticeType;
 
         private string _lastScene;
 
 
-        public void LoadMiniGameAsync(string sceneName)
+        public void LoadPracticeAsync(PracticeType practiceType, string sceneName)
         {
 
-            UnLoadMiniGameAsync();
+            UnLoadPracticeAsync();
 
 
             if (IsSceneLoaded(sceneName)) return;
+
+
+            _lastPracticeType = practiceType;
 
             _lastScene = sceneName;
 
@@ -32,7 +39,7 @@ namespace LessonsPractices
         }
 
 
-        public void UnLoadMiniGameAsync()
+        public void UnLoadPracticeAsync()
         {
 
             if(_lastScene != null)
@@ -59,11 +66,11 @@ namespace LessonsPractices
 
             operation.completed -= OnSceneLoaded;
 
-            FindMiniGame();
+            FindPractice();
         }
 
 
-        private void FindMiniGame()
+        private void FindPractice()
         {
 
             Scene scene = SceneManager.GetSceneByName(_lastScene);
@@ -74,13 +81,41 @@ namespace LessonsPractices
             foreach (GameObject obj in objects)
             {
                 
-                if(obj.TryGetComponent(out IMiniGame miniGame))
+                if(obj.TryGetComponent(out IPractice practice))
                 {
 
-                    MiniGameFound?.Invoke(miniGame);
+                    InvokeFoundEvent(practice);
 
                     return;
                 }
+            }
+        }
+
+
+        private void InvokeFoundEvent(IPractice practice)
+        {
+
+            switch (_lastPracticeType)
+            {
+
+                case PracticeType.MiniGame:
+
+                    if (practice is IMiniGame miniGame)
+                    {
+                        
+                        MiniGameFound?.Invoke(miniGame);
+                    }
+                    break;
+
+
+                case PracticeType.Blocks:
+
+                    if(practice is IBlocksPractice blocks)
+                    {
+
+                        BlocksPracticeFound?.Invoke(blocks);
+                    }
+                    break;
             }
         }
     }

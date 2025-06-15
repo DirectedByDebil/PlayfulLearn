@@ -1,39 +1,15 @@
 ﻿using UnityEngine;
+using System;
 using System.Collections;
 
 namespace Playables
 {
-
-    [RequireComponent (typeof (Rigidbody2D))]
-    public sealed class Player : MonoBehaviour
+    public class Player : MonoBehaviour
     {
 
-        public bool CanMove { get; set; }
+        public event Action HasGrounded;
 
-        public bool CanJump { get; set; }
-
-        public MovementType MovementType
-        {
-            get => _movementType;
-
-            set
-            {
-
-                _movementType = value;
-
-
-                if(_movementType == MovementType.Platformer)
-                {
-
-                    _rigidbody.gravityScale = 1;
-                }
-                else
-                {
-
-                    _rigidbody.gravityScale = 0;
-                }
-            }
-        }
+        public event Action StoppingRunning;
 
 
         #region Serialized Fields
@@ -47,10 +23,6 @@ namespace Playables
         [SerializeField, Space, Range(0, 1)]
         private float _coyotteTime;
 
-
-        [SerializeField, Space]
-        private PlayerView _view;
-
         #endregion
 
 
@@ -59,56 +31,24 @@ namespace Playables
         private MovementType _movementType;
 
 
+        private bool _isRunning;
+
         private bool _isOnGround;
 
-
-
-        private void Update()
-        {
-
-            if(CanJump && MovementType == MovementType.Platformer)
-            {
-
-                Jump();
-            }
-        }
-
-
-        private void FixedUpdate()
-        {
-
-            if(CanMove)
-            {
-
-                switch (MovementType)
-                {
-                    case MovementType.Platformer:
-
-                        MovePlatformer();
-                        break;
-
-                 
-                    case MovementType.TopDown:
-
-                        MoveTopDown();
-                        break;
-                }
-            }
-        }
+        private float _elapsedTimeRunning;
 
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
 
-            if(collision.gameObject.CompareTag("Ground"))
+            if (collision.gameObject.CompareTag("Ground"))
             {
 
                 _rigidbody.velocity /= 2;
 
                 _isOnGround = true;
 
-
-                _view.StopJump();
+                HasGrounded?.Invoke();
             }
         }
 
@@ -116,10 +56,8 @@ namespace Playables
         private void OnCollisionExit2D(Collision2D collision)
         {
 
-            if(collision.gameObject.CompareTag("Ground"))
+            if (collision.gameObject.CompareTag("Ground"))
             {
-
-                _view.StartJump();
 
                 StartCoroutine(GiveCoyotteTime());
             }
@@ -128,113 +66,51 @@ namespace Playables
 
         public void Init()
         {
-            
+
             _rigidbody = GetComponent<Rigidbody2D>();
-
-            _view.Init();
         }
 
 
-        public void MoveToPosition(Vector3 wolrdPoint)
+        public void StopMovement()
         {
 
-            Vector3 direction = wolrdPoint - transform.position;
+            _rigidbody.velocity = Vector3.zero;
 
-            direction.Normalize();
+            StopAllCoroutines();
 
-            direction *= _speed * Time.deltaTime;
-
-            direction += transform.position;
-
-            _rigidbody.MovePosition(direction);
+            _isRunning = false;
         }
 
 
-        #region Platformer Movement
-
-        private void MovePlatformer()
+        public void MoveToPosition(Vector3 worldPoint, float interpolationTime)
         {
-            
-            Vector2 direction = new()
+
+            if (!_isRunning)
             {
 
-                x = Input.GetAxisRaw("Horizontal") * _speed,
+                _isRunning = true;
 
-                y = _rigidbody.velocity.y,
-            };
+                _elapsedTimeRunning = 0;
 
-            
-            if(direction.x.CompareTo(0) != 0)
-            {
 
-                _rigidbody.velocity = direction;
-
-            }            
-            else if (_isOnGround)
-            {
-
-                _rigidbody.velocity *= 0.9f;
+                StartCoroutine(Move(transform.position, worldPoint, interpolationTime));
             }
-
-
-            _view.ViewMovement((int)direction.x);
         }
 
 
-        private void Jump()
+        public void Jump()
         {
 
-            if(_isOnGround && Input.GetButtonDown("Jump"))
+            if (_isOnGround)
             {
 
+            }
                 Vector2 direction = Vector2.up * _jumpHeight;
 
                 _rigidbody.AddForce(direction, ForceMode2D.Impulse);
 
                 _isOnGround = false;
-
-
-                _view.StartJump();
-            }
         }
-
-        #endregion
-
-
-        #region Top-Down Movement
-        
-        private void MoveTopDown()
-        {
-
-            Vector2 direction = new ()
-            { 
-                x = Input.GetAxisRaw("Horizontal"),
-
-                y = Input.GetAxisRaw("Vertical")
-            };
-
-
-            if(direction.x.CompareTo(0) != 0)
-            {
-
-                _view.ViewMovement((int)direction.x);
-            }
-            else
-            {
-
-                _view.ViewMovement((int)direction.y);
-            }
-
-
-            direction *= _speed * Time.fixedDeltaTime;
-
-            direction += _rigidbody.position;
-
-
-            _rigidbody.MovePosition(direction);
-        }
-
-        #endregion
 
 
         private IEnumerator GiveCoyotteTime()
@@ -243,6 +119,28 @@ namespace Playables
             yield return new WaitForSeconds(_coyotteTime);
 
             _isOnGround = false;
+        }
+
+
+        private IEnumerator Move(Vector3 from, Vector3 to, float interpolationTime)
+        {
+
+            while(_elapsedTimeRunning < interpolationTime)
+            {
+
+                _elapsedTimeRunning += Time.deltaTime;
+
+                float diff = _elapsedTimeRunning / interpolationTime;
+
+
+                transform.position = Vector3.Lerp(from, to, diff);
+
+                yield return null;
+            }
+
+            _isRunning = false;
+
+            StoppingRunning?.Invoke();
         }
     }
 }

@@ -1,5 +1,4 @@
-﻿using Lessons;
-using LessonsPractices;
+﻿using LessonsPractices;
 using UnityEngine;
 using UnityEngine.UIElements;
 using System;
@@ -20,21 +19,41 @@ namespace UINew
         public event Action<IReadOnlyList<InputField>> InputsChanged;
 
 
+        #region Pages and Assets 
+
         [SerializeField, Space]
         private VisualTreeAsset _miniGamePage;
+        
+
+        [SerializeField, Space]
+        private VisualTreeAsset _blockPage;
+
 
         [SerializeField, Space]
         private VisualTreeAsset _codeLineAsset;
 
 
+        [SerializeField, Space]
+        private VisualTreeAsset _blockAsset;
+
+        #endregion
+
+
         private List<InputField> _inputFields;
 
 
-        private MiniGamePageModel _miniGamePageModel;
+        #region Page Models
 
         private TestPageModel _testPageModel;
 
+        private MiniGamePageModel _miniGamePageModel;
+
+        private BlockPageModel _blockPageModel;
+
+
         private LessonPracticePageModel _currentPracticeModel;
+
+        #endregion
 
 
         public override void Init()
@@ -45,9 +64,11 @@ namespace UINew
             _inputFields = new List<InputField>();
 
 
+            _testPageModel = new TestPageModel(document);
+
             _miniGamePageModel = new MiniGamePageModel(document, _codeLineAsset);
 
-            _testPageModel = new TestPageModel(document);
+            _blockPageModel = new BlockPageModel(document, _blockAsset);
         }
 
 
@@ -109,10 +130,7 @@ namespace UINew
 
                 case PracticeType.Test:
 
-
-
                     _testPageModel.SetRoot(practice.TestPage);
-
 
                     ChangeCurrentPracticeModel(_testPageModel);
 
@@ -124,9 +142,21 @@ namespace UINew
 
                     _miniGamePageModel.SetRoot(_miniGamePage);
 
-                    _miniGamePageModel.SetMiniGameInfo(practice.MiniGameInfo);
+                    _miniGamePageModel.SetTheoryInfo(practice.MiniGameInfo);
 
                     ChangeCurrentPracticeModel(_miniGamePageModel);
+
+                    break;
+
+
+                case PracticeType.Blocks:
+
+
+                    _blockPageModel.SetRoot(_blockPage);
+
+                    _blockPageModel.SetTheoryInfo(practice.MiniGameInfo);
+
+                    ChangeCurrentPracticeModel(_blockPageModel);
 
                     break;
             }

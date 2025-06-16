@@ -3,11 +3,16 @@ using LearningPrograms;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using System.Runtime.InteropServices;
 
 namespace Core
 {
     public sealed class ProgressSystem
     {
+
+        //[DllImport("__Internal")]
+        //private static extern void Save(string email, string nameOfLesson);
+
 
         public event Action ProgressChanging;
 
@@ -31,6 +36,9 @@ namespace Core
             {
 
                 _currentLesson.SetCompleted(true);
+
+
+                //Save(SessionData.UserData.Email, _currentLesson.NameOfLesson);
 
                 ProgressChanging?.Invoke();
             }

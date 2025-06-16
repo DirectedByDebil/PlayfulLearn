@@ -1,8 +1,6 @@
 {
     "Email": "chromov-arsenij@mail.ru",
     "UserName": "Admin",
-    "SelectedCharacter": "PinkMan",
-    "CompletedLessons": [
-        "Set Integer"
-    ]
+    "SelectedCharacter": "NinjaFrog",
+    "CompletedLessons": []
 }

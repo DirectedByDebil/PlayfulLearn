@@ -12,19 +12,7 @@ namespace Core
         public static void Save()
         {
 
-            SaveLastLearningProgram();
-
             SaveUserData();
-        }
-
-
-        private static void SaveLastLearningProgram()
-        {
-
-            string name = SessionData.LastLearningProgram.NameOfProgram;
-
-
-            FileExtensions.WriteFile(name, PathKeeper.LastLearningProgramName);
         }
 
 

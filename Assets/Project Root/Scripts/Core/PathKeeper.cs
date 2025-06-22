@@ -3,20 +3,6 @@
     public static class PathKeeper
     {
 
-        public static string LessonsPath
-        {
-
-            get => _root + "Lessons";
-        }
-
-
-        public static string LearningProgramsPath
-        {
-
-            get => _root + "Learning Programs";
-        }
-
-
         public static string LessonsIconPath
         {
 
@@ -28,13 +14,6 @@
         {
 
             get => _root + "Graphics/Icons/Learning Programs";
-        }
-
-
-        public static string LastLearningProgramName
-        {
-
-            get => LearningProgramsPath + "/Last Learning Program.txt";
         }
 
 
